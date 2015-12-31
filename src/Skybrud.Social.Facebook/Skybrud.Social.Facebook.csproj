@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A2F242DC-0EC7-43E3-928D-6D2632AFBCF7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Skybrud.Social.Facebook</RootNamespace>
+    <AssemblyName>Skybrud.Social.Facebook</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skybrud.Social">
+      <HintPath>..\..\Skybrud.Social\src\Skybrud.Social\bin\Release\Skybrud.Social.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\FacebookAlbumFields.cs" />
+    <Compile Include="Constants\FacebookAppFields.cs" />
+    <Compile Include="Constants\FacebookCommentFields.cs" />
+    <Compile Include="Constants\FacebookEventFields.cs" />
+    <Compile Include="Endpoints\FacebookAccountsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookAlbumsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookAppsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookCommentsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookDebugEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookEventsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookFeedEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookLikesEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookLinksEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookPagesEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookPhotosEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookPostsEndpoint.cs" />
+    <Compile Include="Endpoints\FacebookUsersEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookAccountsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookAlbumsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookAppsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookCommentsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookDebugRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookEventsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookFeedRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookLikesRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookLinksRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookPagesRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookPhotosRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookPostsRawEndpoint.cs" />
+    <Compile Include="Endpoints\Raw\FacebookUsersRawEndpoint.cs" />
+    <Compile Include="Enums\FacebookAlbumType.cs" />
+    <Compile Include="Enums\FacebookGender.cs" />
+    <Compile Include="Enums\FacebookPrivacy.cs" />
+    <Compile Include="Exceptions\FacebookException.cs" />
+    <Compile Include="FacebookScope.cs" />
+    <Compile Include="FacebookScopeCollection.cs" />
+    <Compile Include="FacebookService.cs" />
+    <Compile Include="Fields\FacebookField.cs" />
+    <Compile Include="Fields\FacebookFieldsCollection.cs" />
+    <Compile Include="OAuth\FacebookOAuthClient.cs" />
+    <Compile Include="Objects\Accounts\FacebookAccount.cs" />
+    <Compile Include="Objects\Accounts\FacebookAccountsCollection.cs" />
+    <Compile Include="Objects\Albums\FacebookAlbum.cs" />
+    <Compile Include="Objects\Albums\FacebookAlbumCoverPhoto.cs" />
+    <Compile Include="Objects\Albums\FacebookAlbumsCollection.cs" />
+    <Compile Include="Objects\Albums\FacebookPostAlbumSummary.cs" />
+    <Compile Include="Objects\Apps\FacebookApp.cs" />
+    <Compile Include="Objects\Comments\FacebookComment.cs" />
+    <Compile Include="Objects\Comments\FacebookComments.cs" />
+    <Compile Include="Objects\Comments\FacebookCommentsCollection.cs" />
+    <Compile Include="Objects\Comments\FacebookCommentsSummary.cs" />
+    <Compile Include="Objects\Comments\FacebookCommentSummary.cs" />
+    <Compile Include="Objects\Debug\FacebookDebugToken.cs" />
+    <Compile Include="Objects\Debug\FacebookDebugTokenData.cs" />
+    <Compile Include="Objects\Events\FacebookEvent.cs" />
+    <Compile Include="Objects\Events\FacebookEventOwner.cs" />
+    <Compile Include="Objects\Events\FacebookEventsCollection.cs" />
+    <Compile Include="Objects\Events\FacebookEventSummary.cs" />
+    <Compile Include="Objects\Events\FacebookEventVenue.cs" />
+    <Compile Include="Objects\FacebookCoverPhoto.cs" />
+    <Compile Include="Objects\FacebookFrom.cs" />
+    <Compile Include="Objects\FacebookImage.cs" />
+    <Compile Include="Objects\FacebookLocation.cs" />
+    <Compile Include="Objects\FacebookMessageTag.cs" />
+    <Compile Include="Objects\FacebookObject.cs" />
+    <Compile Include="Objects\FacebookPaging.cs" />
+    <Compile Include="Objects\FacebookPlace.cs" />
+    <Compile Include="Objects\FacebookPostProperties.cs" />
+    <Compile Include="Objects\FacebookShares.cs" />
+    <Compile Include="Objects\FacebookStatusMessage.cs" />
+    <Compile Include="Objects\Feed\FacebookFeedCollection.cs" />
+    <Compile Include="Objects\Feed\FacebookFeedEntry.cs" />
+    <Compile Include="Objects\Likes\FacebookLike.cs" />
+    <Compile Include="Objects\Likes\FacebookLikes.cs" />
+    <Compile Include="Objects\Likes\FacebookLikesCollection.cs" />
+    <Compile Include="Objects\Likes\FacebookLikesSummary.cs" />
+    <Compile Include="Objects\Links\FacebookLink.cs" />
+    <Compile Include="Objects\Links\FacebookLinksCollection.cs" />
+    <Compile Include="Objects\Links\FacebookPostLinkSummary.cs" />
+    <Compile Include="Objects\Pages\FacebookOpeningHours.cs" />
+    <Compile Include="Objects\Pages\FacebookOpeningRange.cs" />
+    <Compile Include="Objects\Pages\FacebookPage.cs" />
+    <Compile Include="Objects\Pages\FacebookPageCategory.cs" />
+    <Compile Include="Objects\Pages\FacebookParking.cs" />
+    <Compile Include="Objects\Pages\FacebookPaymentOptions.cs" />
+    <Compile Include="Objects\Pages\FacebookRestaurantServices.cs" />
+    <Compile Include="Objects\Pages\FacebookRestaurantSpecialties.cs" />
+    <Compile Include="Objects\Pagination\FacebookCursorBasedPagination.cs" />
+    <Compile Include="Objects\Pagination\FacebookCursors.cs" />
+    <Compile Include="Objects\Photos\FacebookPhoto.cs" />
+    <Compile Include="Objects\Photos\FacebookPhotosCollection.cs" />
+    <Compile Include="Objects\Photos\FacebookPostPhotoSummary.cs" />
+    <Compile Include="Objects\Posts\FacebookPost.cs" />
+    <Compile Include="Objects\Posts\FacebookPostsCollection.cs" />
+    <Compile Include="Objects\Users\FacebookUser.cs" />
+    <Compile Include="Options\Accounts\FacebookGetAccountsOptions.cs" />
+    <Compile Include="Options\Albums\FacebookAlbumsOptions.cs" />
+    <Compile Include="Options\Albums\FacebookGetAlbumOptions.cs" />
+    <Compile Include="Options\Albums\FacebookGetAlbumsOptions.cs" />
+    <Compile Include="Options\Albums\FacebookPostAlbumOptions.cs" />
+    <Compile Include="Options\Apps\FacebookGetAppOptions.cs" />
+    <Compile Include="Options\Comments\FacebookCommentsOptions.cs" />
+    <Compile Include="Options\Comments\FacebookGetCommentOptions.cs" />
+    <Compile Include="Options\Comments\FacebookGetCommentsOptions.cs" />
+    <Compile Include="Options\Common\FacebookPrivacyOptions.cs" />
+    <Compile Include="Options\Events\FacebookEventsOptions.cs" />
+    <Compile Include="Options\Feed\FacebookFeedOptions.cs" />
+    <Compile Include="Options\Feed\FacebookGetFeedOptions.cs" />
+    <Compile Include="Options\Likes\FacebookLikesOptions.cs" />
+    <Compile Include="Options\Links\FacebookLinksOptions.cs" />
+    <Compile Include="Options\Links\FacebookPostLinkOptions.cs" />
+    <Compile Include="Options\Pages\FacebookGetPageOptions.cs" />
+    <Compile Include="Options\Pagination\FacebookCursorBasedPaginationOptions.cs" />
+    <Compile Include="Options\Pagination\FacebookTimeBasedPaginationOptions.cs" />
+    <Compile Include="Options\Photos\FacebookGetPhotoOptions.cs" />
+    <Compile Include="Options\Photos\FacebookGetPhotosOptions.cs" />
+    <Compile Include="Options\Photos\FacebookPhotosOptions.cs" />
+    <Compile Include="Options\Photos\FacebookPostUserPhotoOptions.cs" />
+    <Compile Include="Options\Posts\FacebookGetPostOptions.cs" />
+    <Compile Include="Options\Posts\FacebookGetPostsOptions.cs" />
+    <Compile Include="Options\Posts\FacebookPostsOptions.cs" />
+    <Compile Include="Options\User\FacebookGetUserOptions.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfoGenerated.cs" />
+    <Compile Include="Responses\Accounts\FacebookAccountsResponse.cs" />
+    <Compile Include="Responses\Albums\FacebookAlbumResponse.cs" />
+    <Compile Include="Responses\Albums\FacebookAlbumsResponse.cs" />
+    <Compile Include="Responses\Albums\FacebookPostAlbumResponse.cs" />
+    <Compile Include="Responses\Apps\FacebookAppResponse.cs" />
+    <Compile Include="Responses\Authentication\FacebookTokenResponse.cs" />
+    <Compile Include="Responses\Comments\FacebookCommentResponse.cs" />
+    <Compile Include="Responses\Comments\FacebookCommentsResponse.cs" />
+    <Compile Include="Responses\Debug\FacebookDebugTokenResponse.cs" />
+    <Compile Include="Responses\Events\FacebookEventResponse.cs" />
+    <Compile Include="Responses\Events\FacebookEventsResponse.cs" />
+    <Compile Include="Responses\FacebookResponse.cs" />
+    <Compile Include="Responses\Feed\FacebookFeedResponse.cs" />
+    <Compile Include="Responses\Likes\FacebookLikesResponse.cs" />
+    <Compile Include="Responses\Links\FacebookLinkResponse.cs" />
+    <Compile Include="Responses\Links\FacebookLinksResponse.cs" />
+    <Compile Include="Responses\Links\FacebookPostLinkResponse.cs" />
+    <Compile Include="Responses\Pages\FacebookPageResponse.cs" />
+    <Compile Include="Responses\Photos\FacebookPhotoResponse.cs" />
+    <Compile Include="Responses\Photos\FacebookPhotosResponse.cs" />
+    <Compile Include="Responses\Photos\FacebookPostPhotoResponse.cs" />
+    <Compile Include="Responses\Posts\FacebookPostResponse.cs" />
+    <Compile Include="Responses\Posts\FacebookPostsResponse.cs" />
+    <Compile Include="Responses\Users\FacebookUserResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)Skybrud.Social.PreBuildTool.exe" 2012-07-30 "$(ProjectPath)"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
