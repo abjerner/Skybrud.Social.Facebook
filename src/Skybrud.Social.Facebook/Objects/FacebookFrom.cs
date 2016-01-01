@@ -27,7 +27,7 @@ namespace Skybrud.Social.Facebook.Objects {
         /// <summary>
         /// Gets list of sub categories of a page. Is <code>NULL</code> for users.
         /// </summary>
-        public FacebookObject[] CategoryList { get; private set; }
+        public FacebookEntity[] CategoryList { get; private set; }
 
         #endregion
 
@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Objects {
                 Id = obj.GetString("id"),
                 Name = obj.GetString("name"),
                 Category = obj.GetString("category"),
-                CategoryList = obj.GetArray("category_list", FacebookObject.Parse)
+                CategoryList = obj.GetArray("category_list", FacebookEntity.Parse)
             };
         }
 

@@ -2,7 +2,7 @@ using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Objects {
 
-    public class FacebookObject : SocialJsonObject {
+    public class FacebookEntity : SocialJsonObject {
 
         #region Properties
 
@@ -20,15 +20,15 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookObject(JsonObject obj) : base(obj) { }
+        private FacebookEntity(JsonObject obj) : base(obj) { }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookObject Parse(JsonObject obj) {
+        public static FacebookEntity Parse(JsonObject obj) {
             if (obj == null) return null;
-            return new FacebookObject(obj) {
+            return new FacebookEntity(obj) {
                 Id = obj.GetString("id"),
                 Name = obj.GetString("name")
             };

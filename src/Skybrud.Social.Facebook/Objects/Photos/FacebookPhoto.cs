@@ -9,7 +9,7 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
         #region Properties
 
         public string Id { get; private set; }
-        public FacebookObject From { get; set; }
+        public FacebookEntity From { get; set; }
         public int Width { get; private set; }
         public int Height { get; private set; }
         public string Icon { get; private set; }
@@ -48,7 +48,7 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
             if (obj == null) return null;
             return new FacebookPhoto(obj) {
                 Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookObject.Parse),
+                From = obj.GetObject("from", FacebookEntity.Parse),
                 Width = obj.GetInt32("width"),
                 Height = obj.GetInt32("height"),
                 Icon = obj.GetString("icon"),

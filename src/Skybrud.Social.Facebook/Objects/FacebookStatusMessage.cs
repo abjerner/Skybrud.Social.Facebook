@@ -15,7 +15,7 @@ namespace Skybrud.Social.Facebook.Objects {
         /// <summary>
         /// Gets brief information about the entity (eg. user) that posted the status message.
         /// </summary>
-        public FacebookObject From { get; private set; }
+        public FacebookEntity From { get; private set; }
 
         /// <summary>
         /// Gets the text of the status message.
@@ -31,7 +31,7 @@ namespace Skybrud.Social.Facebook.Objects {
         /// Gets brief information about the application used to post the status message. If the status message was
         /// posted directly from facebook.com, this property will return <code>NULL</code>.
         /// </summary>
-        public FacebookObject Application { get; private set; }
+        public FacebookEntity Application { get; private set; }
 
         /// <summary>
         /// Gets the timestamp for when the status message was created.
@@ -57,10 +57,10 @@ namespace Skybrud.Social.Facebook.Objects {
             if (obj == null) return null;
             return new FacebookStatusMessage(obj) {
                 Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookObject.Parse),
+                From = obj.GetObject("from", FacebookEntity.Parse),
                 Message = obj.GetString("message"),
                 MessageTags = FacebookMessageTag.ParseMultiple(obj.GetObject("message_tags")) ?? new FacebookMessageTag[0],
-                Application = obj.GetObject("from", FacebookObject.Parse),
+                Application = obj.GetObject("from", FacebookEntity.Parse),
                 CreatedTime = DateTime.Parse(obj.GetString("created_time")),
                 UpdatedTime = DateTime.Parse(obj.GetString("updated_time"))
             };

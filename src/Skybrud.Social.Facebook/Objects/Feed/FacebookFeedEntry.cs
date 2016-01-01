@@ -21,7 +21,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         /// <summary>
         /// Gets information about the user or page that posted the entry.
         /// </summary>
-        public FacebookObject From { get; private set; }
+        public FacebookEntity From { get; private set; }
 
         /// <summary>
         /// Gets the message of the entry.
@@ -81,7 +81,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         /// <summary>
         /// Gets information about the application used for posting the entry.
         /// </summary>
-        public FacebookObject Application { get; private set; }
+        public FacebookEntity Application { get; private set; }
 
         /// <summary>
         /// Gets the creation date of the entry.
@@ -136,7 +136,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
             if (obj == null) return null;
             return new FacebookFeedEntry(obj) {
                 Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookObject.Parse),
+                From = obj.GetObject("from", FacebookEntity.Parse),
                 Message = obj.GetString("message"),
                 Description = obj.GetString("description"),
                 Story = obj.GetString("story"),
@@ -148,7 +148,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
                 Icon = obj.GetString("icon"),
                 Type = obj.GetString("type"),
                 StatusType = obj.GetString("status_type"),
-                Application = obj.GetObject("application", FacebookObject.Parse),
+                Application = obj.GetObject("application", FacebookEntity.Parse),
                 CreatedTime = obj.GetDateTime("created_time"),
                 UpdatedTime = obj.GetDateTime("updated_time"),
                 Comments = obj.GetObject("comments", FacebookComments.Parse),

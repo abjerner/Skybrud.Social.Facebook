@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         /// <summary>
         /// Gets a list of sub categories of the account.
         /// </summary>
-        public FacebookObject[] CategoryList { get; private set; }
+        public FacebookEntity[] CategoryList { get; private set; }
 
         /// <summary>
         /// The access token associated with the current user and the account.
@@ -59,7 +59,7 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
                 Id = obj.GetString("id"),
                 Name = obj.GetString("name"),
                 Category = obj.GetString("category"),
-                CategoryList = obj.GetArray("category_list", FacebookObject.Parse),
+                CategoryList = obj.GetArray("category_list", FacebookEntity.Parse),
                 AccessToken = obj.GetString("access_token"),
                 Permissions = obj.GetArray<string>("perms") ?? new string[0]
             };

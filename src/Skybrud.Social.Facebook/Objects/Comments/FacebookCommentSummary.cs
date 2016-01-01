@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         #region Properties
 
         public string Id { get; private set; }
-        public FacebookObject From { get; private set; }
+        public FacebookEntity From { get; private set; }
         public string Message { get; private set; }
         public FacebookMessageTag[] MessageTags { get; private set; }
         public DateTime CreatedTime { get; private set; }
@@ -31,7 +31,7 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
             if (obj == null) return null;
             return new FacebookCommentSummary(obj) {
                 Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookObject.Parse),
+                From = obj.GetObject("from", FacebookEntity.Parse),
                 Message = obj.GetString("message"),
                 MessageTags = obj.GetArray("message_tags", FacebookMessageTag.Parse),
                 CreatedTime = obj.GetDateTime("created_time"),

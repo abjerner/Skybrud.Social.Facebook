@@ -110,7 +110,7 @@
     <Compile Include="Objects\FacebookImage.cs" />
     <Compile Include="Objects\FacebookLocation.cs" />
     <Compile Include="Objects\FacebookMessageTag.cs" />
-    <Compile Include="Objects\FacebookObject.cs" />
+    <Compile Include="Objects\FacebookEntity.cs" />
     <Compile Include="Objects\FacebookPaging.cs" />
     <Compile Include="Objects\FacebookPlace.cs" />
     <Compile Include="Objects\FacebookPostProperties.cs" />

@@ -51,7 +51,7 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         /// <summary>
         /// Gets information about the hometown of the user.
         /// </summary>
-        public FacebookObject Hometown { get; private set; }
+        public FacebookEntity Hometown { get; private set; }
 
         /// <summary>
         /// People with large numbers of followers can have the authenticity of their identity manually verified by
@@ -62,7 +62,7 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         /// <summary>
         /// Gets an array of Facebook Pages representing the languages this person knows.
         /// </summary>
-        public FacebookObject[] Languages { get; private set; }
+        public FacebookEntity[] Languages { get; private set; }
 
         /// <summary>
         /// Gets the last name of the user.
@@ -82,7 +82,7 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         /// <summary>
         /// Gets the current location of the user as entered by them on their profile. This is not a check in field.
         /// </summary>
-        public FacebookObject Location { get; private set; }
+        public FacebookEntity Location { get; private set; }
 
         /// <summary>
         /// Gets the middle name of the user.
@@ -138,13 +138,13 @@ namespace Skybrud.Social.Facebook.Objects.Users {
                 Email = obj.GetString("email"),
                 FirstName = obj.GetString("first_name"),
                 Gender = obj.GetEnum("gender", FacebookGender.Unknown),
-                Hometown = obj.GetObject("hometown", FacebookObject.Parse),
+                Hometown = obj.GetObject("hometown", FacebookEntity.Parse),
                 IsVerified = obj.GetBoolean("is_verified"),
-                Languages = obj.GetArray("languages", FacebookObject.Parse) ?? new FacebookObject[0],
+                Languages = obj.GetArray("languages", FacebookEntity.Parse) ?? new FacebookEntity[0],
                 LastName = obj.GetString("last_name"),
                 Link = obj.GetString("link"),
                 Locale = obj.GetString("locale"),
-                Location = obj.GetObject("location", FacebookObject.Parse),
+                Location = obj.GetObject("location", FacebookEntity.Parse),
                 MiddleName = obj.GetString("middle_name"),
                 Name = obj.GetString("name"),
                 Timezone = obj.HasValue("timezone") ? obj.GetInt32("timezone") : (int?) null,

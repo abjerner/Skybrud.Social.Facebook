@@ -11,8 +11,8 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         #region Properties
 
         public string Id { get; private set; }
-        public FacebookObject From { get; private set; }
-        public FacebookObject Application { get; private set; }
+        public FacebookEntity From { get; private set; }
+        public FacebookEntity Application { get; private set; }
         public FacebookPostProperties[] Properties { get; private set; }
         public string Message { get; private set; }
         public string Caption { get; private set; }
@@ -60,8 +60,8 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
             if (obj == null) return null;
             return new FacebookPost(obj) {
                 Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookObject.Parse),
-                Application = obj.GetObject("application", FacebookObject.Parse),
+                From = obj.GetObject("from", FacebookEntity.Parse),
+                Application = obj.GetObject("application", FacebookEntity.Parse),
                 Properties = obj.GetArray("properties", FacebookPostProperties.Parse) ?? new FacebookPostProperties[0],
                 Caption = obj.GetString("caption"),
                 Message = obj.GetString("message"),

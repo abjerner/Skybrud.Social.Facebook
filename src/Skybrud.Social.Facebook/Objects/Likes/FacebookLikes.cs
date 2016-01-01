@@ -18,7 +18,7 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         /// An array of likes. For a post, photo or similar with many likes, this array will only be a subset of all
         /// likes.
         /// </summary>
-        public FacebookObject[] Data { get; private set; }
+        public FacebookEntity[] Data { get; private set; }
 
         /// <summary>
         /// Gets a summary of the likes of the parent object, or <code>null</code> if not present.
@@ -49,10 +49,10 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         /// <returns>Returns an instance of <code>FacebookLikes</code>.</returns>
         public static FacebookLikes Parse(JsonObject obj) {
             // TODO: Should we just return NULL if "obj" is NULL?
-            if (obj == null) return new FacebookLikes(null) { Data = new FacebookObject[0] };
+            if (obj == null) return new FacebookLikes(null) { Data = new FacebookEntity[0] };
             return new FacebookLikes(obj) {
                 Count = obj.GetInt32("count"),
-                Data = obj.GetArray("data", FacebookObject.Parse) ?? new FacebookObject[0],
+                Data = obj.GetArray("data", FacebookEntity.Parse) ?? new FacebookEntity[0],
                 Summary = obj.GetObject("summary", FacebookLikesSummary.Parse)
             };
         }
