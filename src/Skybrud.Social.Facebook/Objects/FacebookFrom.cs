@@ -1,11 +1,12 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
 
     /// <summary>
     /// Class representing an object with limited information about either a user or a page.
     /// </summary>
-    public class FacebookFrom : SocialJsonObject {
+    public class FacebookFrom : FacebookObject {
 
         #region Properties
 
@@ -20,12 +21,12 @@ namespace Skybrud.Social.Facebook.Objects {
         public string Name { get; private set; }
 
         /// <summary>
-        /// Gets the primary category of a page. Is <code>NULL</code> for users.
+        /// Gets the primary category of a page. Is <code>null</code> for users.
         /// </summary>
         public string Category { get; private set; }
 
         /// <summary>
-        /// Gets list of sub categories of a page. Is <code>NULL</code> for users.
+        /// Gets list of sub categories of a page. Is <code>null</code> for users.
         /// </summary>
         public FacebookEntity[] CategoryList { get; private set; }
 
@@ -33,24 +34,23 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookFrom(JsonObject obj) : base(obj) { }
+        private FacebookFrom(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+            Category = obj.GetString("category");
+            CategoryList = obj.GetArray("category_list", FacebookEntity.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JsonObject</code> into an instance of <code>FacebookFrom</code>.
+        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookFrom</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to be parsed.</param>
-        public static FacebookFrom Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookFrom(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name"),
-                Category = obj.GetString("category"),
-                CategoryList = obj.GetArray("category_list", FacebookEntity.Parse)
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        public static FacebookFrom Parse(JObject obj) {
+            return obj == null ? null : new FacebookFrom(obj);
         }
 
         #endregion

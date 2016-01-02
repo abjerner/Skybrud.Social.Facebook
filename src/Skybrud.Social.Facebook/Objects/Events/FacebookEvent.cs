@@ -1,5 +1,7 @@
 using System;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 using Skybrud.Social.Time;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
@@ -10,7 +12,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.2/event#read</cref>
     /// </see>
-    public class FacebookEvent : SocialJsonObject {
+    public class FacebookEvent : FacebookObject {
 
         // 2014-12-27: The location of an event may be specified as either a string or an already created place.
         // According to the API documentation, the returned "venue" property will be of the type "Place", but the
@@ -129,7 +131,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
-        protected FacebookEvent(JsonObject obj) : base(obj) {
+        protected FacebookEvent(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
             Name = obj.GetString("name");
@@ -150,10 +152,10 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// <summary>
         /// Gets an instance of <code>FacebookEvent</code> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to be parsed.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
         /// <returns>Returns an instance of <code>FacebookEvent</code>, or <code>null</code> if <code>obj</code> is
         /// <code>null</code>.</returns>
-        public static FacebookEvent Parse(JsonObject obj) {
+        public static FacebookEvent Parse(JObject obj) {
             return obj == null ? null : new FacebookEvent(obj);
         }
 

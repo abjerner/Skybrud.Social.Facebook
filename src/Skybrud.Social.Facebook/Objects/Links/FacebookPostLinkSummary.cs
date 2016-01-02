@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Links {
     
-    public class FacebookPostLinkSummary : SocialJsonObject {
+    public class FacebookPostLinkSummary : FacebookObject {
 
         #region Properties
 
@@ -15,17 +16,16 @@ namespace Skybrud.Social.Facebook.Objects.Links {
 
         #region Constructors
 
-        private FacebookPostLinkSummary(JsonObject obj) : base(obj) { }
+        private FacebookPostLinkSummary(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPostLinkSummary Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPostLinkSummary(obj) {
-                Id = obj.GetString("id")
-            };
+        public static FacebookPostLinkSummary Parse(JObject obj) {
+            return obj == null ? null : new FacebookPostLinkSummary(obj);
         }
 
         #endregion

@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pagination {
     
-    public class FacebookCursors : SocialJsonObject {
+    public class FacebookCursors : FacebookObject {
 
         #region Properties
 
@@ -14,18 +15,17 @@ namespace Skybrud.Social.Facebook.Objects.Pagination {
 
         #region Constructor
 
-        public FacebookCursors(JsonObject obj) : base(obj) { }
+        public FacebookCursors(JObject obj) : base(obj) {
+            After = obj.GetString("after");
+            Before = obj.GetString("before");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookCursors Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookCursors(obj) {
-                After = obj.GetString("after"),
-                Before = obj.GetString("before")
-            };
+        public static FacebookCursors Parse(JObject obj) {
+            return obj == null ? null : new FacebookCursors(obj);
         }
 
         #endregion

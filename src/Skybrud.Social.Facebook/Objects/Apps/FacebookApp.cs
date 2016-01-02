@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Apps {
     
-    public class FacebookApp : SocialJsonObject {
+    public class FacebookApp : FacebookObject {
 
         #region Properties
 
@@ -25,7 +26,22 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
 
         #region Constructors
 
-        private FacebookApp(JsonObject obj) : base(obj) { }
+        private FacebookApp(JObject obj) : base(obj) {
+            Id = obj.GetInt64("id");
+            Name = obj.GetString("name");
+            Description = obj.GetString("description");
+            Category = obj.GetString("category");
+            SubCategory = obj.GetString("subcategory");
+            Link = obj.GetString("link");
+            Namespace = obj.GetString("namespace");
+            IconUrl = obj.GetString("icon_url");
+            LogoUrl = obj.GetString("logo_url");
+            DailyActiveUsers = obj.HasValue("weekly_active_users") ? (int?) obj.GetInt32("weekly_active_users") : null;
+            WeeklyActiveUsers = obj.HasValue("weekly_active_users") ? (int?) obj.GetInt32("weekly_active_users") : null;
+            MonthlyActiveUsers = obj.HasValue("monthly_active_users") ? (int?) obj.GetInt32("monthly_active_users") : null;
+            DailyActiveUserRank = obj.HasValue("daily_active_users_rank") ? (int?) obj.GetInt32("daily_active_users_rank") : null;
+            MontlyActiveUserRank = obj.HasValue("monthly_active_users_rank") ? (int?) obj.GetInt32("monthly_active_users_rank") : null;
+        }
 
         #endregion
 
@@ -33,27 +49,11 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>FacebookApp</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>FacebookApp</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
-        public static FacebookApp Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookApp(obj) {
-                Id = obj.GetInt64("id"),
-                Name = obj.GetString("name"),
-                Description = obj.GetString("description"),
-                Category = obj.GetString("category"),
-                SubCategory = obj.GetString("subcategory"),
-                Link = obj.GetString("link"),
-                Namespace = obj.GetString("namespace"),
-                IconUrl = obj.GetString("icon_url"),
-                LogoUrl = obj.GetString("logo_url"),
-                DailyActiveUsers = obj.HasValue("weekly_active_users") ? (int?)obj.GetInt32("weekly_active_users") : null,
-                WeeklyActiveUsers = obj.HasValue("weekly_active_users") ? (int?)obj.GetInt32("weekly_active_users") : null,
-                MonthlyActiveUsers = obj.HasValue("monthly_active_users") ? (int?)obj.GetInt32("monthly_active_users") : null,
-                DailyActiveUserRank = obj.HasValue("daily_active_users_rank") ? (int?)obj.GetInt32("daily_active_users_rank") : null,
-                MontlyActiveUserRank = obj.HasValue("monthly_active_users_rank") ? (int?)obj.GetInt32("monthly_active_users_rank") : null,
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static FacebookApp Parse(JObject obj) {
+            return obj == null ? null : new FacebookApp(obj);
         }
 
         #endregion

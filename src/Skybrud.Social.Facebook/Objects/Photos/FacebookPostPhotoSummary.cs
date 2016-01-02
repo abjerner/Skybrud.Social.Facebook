@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Photos {
     
-    public class FacebookPostPhotoSummary : SocialJsonObject {
+    public class FacebookPostPhotoSummary : FacebookObject {
 
         #region Properties
 
@@ -20,19 +21,17 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
 
         #region Constructors
 
-        private FacebookPostPhotoSummary(JsonObject obj) : base(obj) { }
+        private FacebookPostPhotoSummary(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            PostId = obj.GetString("post_id");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPostPhotoSummary Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPostPhotoSummary(obj) {
-                Id = obj.GetString("id"),
-                PostId = obj.GetString("post_id")
-            };
-
+        public static FacebookPostPhotoSummary Parse(JObject obj) {
+            return obj == null ? null : new FacebookPostPhotoSummary(obj);
         }
 
         #endregion

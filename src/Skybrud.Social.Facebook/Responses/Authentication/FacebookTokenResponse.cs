@@ -38,6 +38,9 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
 
         private FacebookTokenResponse(SocialHttpResponse response) : base(response) {
 
+            // Validate the response
+            ValidateResponse(response);
+
             // Parse headers from the response
             FacebookTraceId = response.Headers["X-FB-Trace-ID"];
             FacebookRevision = response.Headers["X-FB-Rev"];

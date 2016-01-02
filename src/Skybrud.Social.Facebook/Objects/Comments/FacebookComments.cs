@@ -1,11 +1,12 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
 
     /// <summary>
     /// Class representing a collection of comments of a Facebook object.
     /// </summary>
-    public class FacebookComments : SocialJsonObject {
+    public class FacebookComments : FacebookObject {
 
         /// <summary>
         /// Gets the total amounbt of comments. This value might not always be
@@ -33,24 +34,22 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         
         #region Constructors
 
-        private FacebookComments(JsonObject obj) : base(obj) { }
+        private FacebookComments(JObject obj) : base(obj) {
+            Count = obj.GetInt32("count");
+            Data = obj.GetArray("data", FacebookCommentSummary.Parse) ?? new FacebookCommentSummary[0];
+            Summary = obj.GetObject("summary", FacebookCommentsSummary.Parse);
+        }
 
         #endregion
 
         /// <summary>
         /// Gets an instance of <code>FacebookComments</code> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
         /// <returns>Returns an instance of <code>FacebookComments</code>.</returns>
-        public static FacebookComments Parse(JsonObject obj) {
-            if (obj == null) return new FacebookComments(null) { Data = new FacebookCommentSummary[0] };
-            return new FacebookComments(obj) {
-                Count = obj.GetInt32("count"),
-                Data = obj.GetArray("data", FacebookCommentSummary.Parse) ?? new FacebookCommentSummary[0],
-                Summary = obj.GetObject("summary", FacebookCommentsSummary.Parse)
-            };
+        public static FacebookComments Parse(JObject obj) {
+            return obj == null ? null : new FacebookComments(obj);
         }
-
     }
 
 }

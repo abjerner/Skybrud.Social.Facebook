@@ -1,9 +1,10 @@
 ﻿using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
     
-    public class FacebookComment : SocialJsonObject {
+    public class FacebookComment : FacebookObject {
 
         #region Properties
 
@@ -48,24 +49,22 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
 
         #region Constructors
 
-        private FacebookComment(JsonObject obj) : base(obj) { }
+        private FacebookComment(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            From = obj.GetObject("from", FacebookFrom.Parse);
+            Message = obj.GetString("message");
+            CanRemove = obj.GetBoolean("can_remove");
+            CreatedTime = obj.GetDateTime("created_time");
+            LikeCount = obj.GetInt32("like_count");
+            UserLikes = obj.GetBoolean("user_likes");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookComment Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookComment(obj) {
-                Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookFrom.Parse),
-                Message = obj.GetString("message"),
-                CanRemove = obj.GetBoolean("can_remove"),
-                CreatedTime = obj.GetDateTime("created_time"),
-                LikeCount = obj.GetInt32("like_count"),
-                UserLikes = obj.GetBoolean("user_likes")
-            };
-
+        public static FacebookComment Parse(JObject obj) {
+            return obj == null ? null : new FacebookComment(obj);
         }
 
         #endregion

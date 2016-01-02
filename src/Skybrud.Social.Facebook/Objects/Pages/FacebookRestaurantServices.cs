@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
 
-    public class FacebookRestaurantServices : SocialJsonObject {
+    public class FacebookRestaurantServices : FacebookObject {
 
         #region Properties
 
@@ -55,26 +56,24 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookRestaurantServices(JsonObject obj) : base(obj) { }
+        private FacebookRestaurantServices(JObject obj) : base(obj) {
+            Kids = obj.GetBoolean("kids");
+            Delivery = obj.GetBoolean("delivery");
+            Walkins = obj.GetBoolean("walkins");
+            Catering = obj.GetBoolean("catering");
+            Reserve = obj.GetBoolean("reserve");
+            Groups = obj.GetBoolean("groups");
+            Waiter = obj.GetBoolean("waiter");
+            Outdoor = obj.GetBoolean("outdoor");
+            Takeout = obj.GetBoolean("takeout");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookRestaurantServices Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookRestaurantServices(obj) {
-                Kids = obj.GetBoolean("kids"),
-                Delivery = obj.GetBoolean("delivery"),
-                Walkins = obj.GetBoolean("walkins"),
-                Catering = obj.GetBoolean("catering"),
-                Reserve = obj.GetBoolean("reserve"),
-                Groups = obj.GetBoolean("groups"),
-                Waiter = obj.GetBoolean("waiter"),
-                Outdoor = obj.GetBoolean("outdoor"),
-                Takeout = obj.GetBoolean("takeout")
-            };
-
+        public static FacebookRestaurantServices Parse(JObject obj) {
+            return obj == null ? null : new FacebookRestaurantServices(obj);
         }
 
         #endregion

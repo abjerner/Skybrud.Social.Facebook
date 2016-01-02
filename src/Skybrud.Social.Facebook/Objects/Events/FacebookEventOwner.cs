@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
 
-    public class FacebookEventOwner : SocialJsonObject {
+    public class FacebookEventOwner : FacebookObject {
 
         #region Properties
 
@@ -20,19 +21,17 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
-        private FacebookEventOwner(JsonObject obj) : base(obj) { }
+        private FacebookEventOwner(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookEventOwner Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookEventOwner(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name")
-            };
-
+        public static FacebookEventOwner Parse(JObject obj) {
+            return obj == null ? null : new FacebookEventOwner(obj);
         }
 
         #endregion

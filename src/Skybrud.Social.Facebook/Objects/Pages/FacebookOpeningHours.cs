@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookOpeningHours : SocialJsonObject {
+    public class FacebookOpeningHours : FacebookObject {
 
         #region Properties
 
@@ -21,22 +22,16 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        public FacebookOpeningHours(JsonObject obj) : base(obj) { }
+        private FacebookOpeningHours(JObject obj) : base(obj) {
 
-        #endregion
-
-        #region Static methods
-
-        public static FacebookOpeningHours Parse(JsonObject obj) {
-            
             var items = (
-                from key in obj.Keys
-                let pieces = key.Split('_')
+                from property in obj.Properties()
+                let pieces = property.Name.Split('_')
                 select new {
                     Day = pieces[0],
                     Number = Int32.Parse(pieces[1]),
                     Status = pieces[2],
-                    Value = obj.GetString(key)
+                    Value = obj.GetString(property.Name)
                 }
             ).ToArray();
 
@@ -66,16 +61,22 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
                 }
             }
 
-            return new FacebookOpeningHours(obj) {
-                Monday = monday.ToArray(),
-                Tuesday = tuesday.ToArray(),
-                Wednesday = wednesday.ToArray(),
-                Thursday = thursday.ToArray(),
-                Friday = friday.ToArray(),
-                Saturday = saturday.ToArray(),
-                Sunday = sunday.ToArray()
-            };
+            Monday = monday.ToArray();
+            Tuesday = tuesday.ToArray();
+            Wednesday = wednesday.ToArray();
+            Thursday = thursday.ToArray();
+            Friday = friday.ToArray();
+            Saturday = saturday.ToArray();
+            Sunday = sunday.ToArray();
 
+        }
+
+        #endregion
+
+        #region Static methods
+
+        public static FacebookOpeningHours Parse(JObject obj) {
+            return obj == null ? null : new FacebookOpeningHours(obj);
         }
 
         #endregion

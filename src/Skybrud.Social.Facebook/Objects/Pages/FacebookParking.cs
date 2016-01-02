@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookParking : SocialJsonObject {
+    public class FacebookParking : FacebookObject {
 
         #region Properties
 
@@ -25,20 +26,18 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookParking(JsonObject obj) : base(obj) { }
+        private FacebookParking(JObject obj) : base(obj) {
+            Street = obj.GetBoolean("street");
+            Lot = obj.GetBoolean("lot");
+            Valet = obj.GetBoolean("valet");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookParking Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookParking(obj) {
-                Street = obj.GetBoolean("street"),
-                Lot = obj.GetBoolean("lot"),
-                Valet = obj.GetBoolean("valet")
-            };
-
+        public static FacebookParking Parse(JObject obj) {
+            return obj == null ? null : new FacebookParking(obj);
         }
 
         #endregion

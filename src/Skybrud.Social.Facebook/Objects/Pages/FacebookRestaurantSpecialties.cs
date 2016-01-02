@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookRestaurantSpecialties : SocialJsonObject {
+    public class FacebookRestaurantSpecialties : FacebookObject {
 
         #region Properties
 
@@ -35,22 +36,20 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookRestaurantSpecialties(JsonObject obj) : base(obj) { }
+        private FacebookRestaurantSpecialties(JObject obj) : base(obj) {
+            Coffee = obj.GetBoolean("coffee");
+            Drinks = obj.GetBoolean("drinks");
+            Breakfast = obj.GetBoolean("breakfast");
+            Dinner = obj.GetBoolean("dinner");
+            Lunch = obj.GetBoolean("lunch");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookRestaurantSpecialties Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookRestaurantSpecialties(obj) {
-                Coffee = obj.GetBoolean("coffee"),
-                Drinks = obj.GetBoolean("drinks"),
-                Breakfast = obj.GetBoolean("breakfast"),
-                Dinner = obj.GetBoolean("dinner"),
-                Lunch = obj.GetBoolean("lunch")
-            };
-
+        public static FacebookRestaurantSpecialties Parse(JObject obj) {
+            return obj == null ? null : new FacebookRestaurantSpecialties(obj);
         }
 
         #endregion

@@ -1,9 +1,10 @@
-﻿using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
     
-    public class FacebookCommentsCollection : SocialJsonObject {
+    public class FacebookCommentsCollection : FacebookObject {
 
         #region Properties
 
@@ -21,19 +22,18 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         
         #region Constructors
 
-        private FacebookCommentsCollection(JsonObject obj) : base(obj) { }
+        private FacebookCommentsCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookComment.Parse);
+            Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
+            Summary = obj.GetObject("summary", FacebookCommentsSummary.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookCommentsCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookCommentsCollection(obj) {
-                Data = obj.GetArray("data", FacebookComment.Parse),
-                Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse),
-                Summary = obj.GetObject("summary", FacebookCommentsSummary.Parse)
-            };
+        public static FacebookCommentsCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookCommentsCollection(obj);
         }
 
         #endregion

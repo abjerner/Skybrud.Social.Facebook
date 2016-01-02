@@ -1,9 +1,10 @@
 using System.Collections.Generic;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
 
-    public class FacebookMessageTag : SocialJsonObject {
+    public class FacebookMessageTag : FacebookObject {
 
         #region Properties
 
@@ -17,28 +18,27 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookMessageTag(JsonObject obj) : base(obj) { }
+        private FacebookMessageTag(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+            Type = obj.GetString("type");
+            Offset = obj.GetInt32("offset");
+            Length = obj.GetInt32("length");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookMessageTag Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookMessageTag(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name"),
-                Type = obj.GetString("type"),
-                Offset = obj.GetInt32("offset"),
-                Length = obj.GetInt32("length")
-            };
+        public static FacebookMessageTag Parse(JObject obj) {
+            return obj == null ? null : new FacebookMessageTag(obj);
         }
 
-        public static FacebookMessageTag[] ParseMultiple(JsonObject obj) {
+        public static FacebookMessageTag[] ParseMultiple(JObject obj) {
             if (obj == null) return null;
             List<FacebookMessageTag> temp = new List<FacebookMessageTag>();
-            foreach (string key in obj.Keys) {
-                temp.AddRange(obj.GetArray(key, Parse));
+            foreach (JProperty property in obj.Properties()) {
+                temp.AddRange(obj.GetArray(property.Name, Parse));
             }
             return temp.ToArray();
         }

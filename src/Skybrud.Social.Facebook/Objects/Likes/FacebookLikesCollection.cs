@@ -1,9 +1,10 @@
-﻿using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
     
-    public class FacebookLikesCollection : SocialJsonObject {
+    public class FacebookLikesCollection : FacebookObject {
 
         #region Properties
 
@@ -13,7 +14,7 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
 
         /// <summary>
         /// Gets a summary for all likes. The summary is only present in the response if <code>IncludeSummary</code>
-        /// was <code>TRUE</code> in the request options.
+        /// was <code>true</code> in the request options.
         /// </summary>
         public FacebookLikesSummary Summary { get; private set; }
 
@@ -21,19 +22,18 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         
         #region Constructors
 
-        private FacebookLikesCollection(JsonObject obj) : base(obj) { }
+        private FacebookLikesCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookLike.Parse);
+            Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
+            Summary = obj.GetObject("summary", FacebookLikesSummary.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLikesCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLikesCollection(obj) {
-                Data = obj.GetArray("data", FacebookLike.Parse),
-                Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse),
-                Summary = obj.GetObject("summary", FacebookLikesSummary.Parse)
-            };
+        public static FacebookLikesCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookLikesCollection(obj);
         }
 
         #endregion

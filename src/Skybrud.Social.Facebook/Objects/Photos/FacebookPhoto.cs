@@ -1,10 +1,11 @@
 using System;
 using System.Linq;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Photos {
     
-    public class FacebookPhoto : SocialJsonObject {
+    public class FacebookPhoto : FacebookObject {
 
         #region Properties
 
@@ -30,7 +31,20 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
 
         #region Constructors
 
-        private FacebookPhoto(JsonObject obj) : base(obj) { }
+        private FacebookPhoto(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            From = obj.GetObject("from", FacebookEntity.Parse);
+            Width = obj.GetInt32("width");
+            Height = obj.GetInt32("height");
+            Icon = obj.GetString("icon");
+            Link = obj.GetString("link");
+            Picture = obj.GetString("picture");
+            Source = obj.GetString("source");
+            Place = obj.GetObject("place", FacebookPlace.Parse);
+            Created = obj.GetDateTime("created_time");
+            Updated = obj.GetDateTime("updated_time");
+            Images = obj.GetArray("images", FacebookImage.Parse);
+        }
 
         #endregion
 
@@ -44,22 +58,8 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
 
         #region Static methods
 
-        public static FacebookPhoto Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPhoto(obj) {
-                Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookEntity.Parse),
-                Width = obj.GetInt32("width"),
-                Height = obj.GetInt32("height"),
-                Icon = obj.GetString("icon"),
-                Link = obj.GetString("link"),
-                Picture = obj.GetString("picture"),
-                Source = obj.GetString("source"),
-                Place = obj.GetObject("place", FacebookPlace.Parse),
-                Created = obj.GetDateTime("created_time"),
-                Updated = obj.GetDateTime("updated_time"),
-                Images = obj.GetArray("images", FacebookImage.Parse)
-            };
+        public static FacebookPhoto Parse(JObject obj) {
+            return obj == null ? null : new FacebookPhoto(obj);
         }
 
         #endregion

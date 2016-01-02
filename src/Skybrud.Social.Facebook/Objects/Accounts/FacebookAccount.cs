@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Accounts {
 
-    public class FacebookAccount : SocialJsonObject {
+    public class FacebookAccount : FacebookObject {
 
         #region Properties
 
@@ -42,7 +43,14 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
 
         #region Constructors
 
-        private FacebookAccount(JsonObject obj) : base(obj) { }
+        private FacebookAccount(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+            Category = obj.GetString("category");
+            CategoryList = obj.GetArray("category_list", FacebookEntity.Parse);
+            AccessToken = obj.GetString("access_token");
+            Permissions = obj.GetArray("perms", x => x.ToString()) ?? new string[0];
+        }
 
         #endregion
 
@@ -53,16 +61,8 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         /// </summary>
         /// <param name="obj">The JSON object.</param>
         /// <returns></returns>
-        public static FacebookAccount Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookAccount(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name"),
-                Category = obj.GetString("category"),
-                CategoryList = obj.GetArray("category_list", FacebookEntity.Parse),
-                AccessToken = obj.GetString("access_token"),
-                Permissions = obj.GetArray<string>("perms") ?? new string[0]
-            };
+        public static FacebookAccount Parse(JObject obj) {
+            return obj == null ? null : new FacebookAccount(obj);
         }
 
         #endregion

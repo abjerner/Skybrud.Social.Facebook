@@ -1,9 +1,10 @@
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Links {
 
-    public class FacebookLinksCollection : SocialJsonObject {
+    public class FacebookLinksCollection : FacebookObject {
 
         #region Properties
 
@@ -15,18 +16,17 @@ namespace Skybrud.Social.Facebook.Objects.Links {
         
         #region Constructors
 
-        private FacebookLinksCollection(JsonObject obj) : base(obj) { }
+        private FacebookLinksCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookLink.Parse);
+            Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLinksCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLinksCollection(obj) {
-                Data = obj.GetArray("data", FacebookLink.Parse),
-                Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse)
-            };
+        public static FacebookLinksCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookLinksCollection(obj);
         }
 
         #endregion

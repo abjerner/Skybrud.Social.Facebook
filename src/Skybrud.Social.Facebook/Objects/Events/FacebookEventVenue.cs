@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
 
-    public class FacebookEventVenue : SocialJsonObject {
+    public class FacebookEventVenue : FacebookObject {
 
         #region Properties
 
@@ -55,26 +56,24 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
-        private FacebookEventVenue(JsonObject obj) : base(obj) { }
+        private FacebookEventVenue(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Country = obj.GetString("country");
+            City = obj.GetString("city");
+            Latitude = obj.HasValue("latitude") ? obj.GetDouble("latitude") : (double?) null;
+            Longitude = obj.HasValue("longitude") ? obj.GetDouble("longitude") : (double?) null;
+            Name = obj.GetString("name");
+            Zip = obj.GetString("zip");
+            State = obj.GetString("state");
+            Street = obj.GetString("street");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookEventVenue Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookEventVenue(obj) {
-                Id = obj.GetString("id"),
-                Country = obj.GetString("country"),
-                City = obj.GetString("city"),
-                Latitude = obj.HasValue("latitude") ? obj.GetDouble("latitude") : (double?) null,
-                Longitude = obj.HasValue("longitude") ? obj.GetDouble("longitude") : (double?) null,
-                Name = obj.GetString("name"),
-                Zip = obj.GetString("zip"),
-                State = obj.GetString("state"),
-                Street = obj.GetString("street")
-            };
-
+        public static FacebookEventVenue Parse(JObject obj) {
+            return obj == null ? null : new FacebookEventVenue(obj);
         }
 
         #endregion

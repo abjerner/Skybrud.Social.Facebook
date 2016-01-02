@@ -1,9 +1,10 @@
 using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
 
-    public class FacebookStatusMessage : SocialJsonObject {
+    public class FacebookStatusMessage : FacebookObject {
 
         #region Properties
 
@@ -47,23 +48,22 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookStatusMessage(JsonObject obj) : base(obj) { }
+        private FacebookStatusMessage(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            From = obj.GetObject("from", FacebookEntity.Parse);
+            Message = obj.GetString("message");
+            MessageTags = FacebookMessageTag.ParseMultiple(obj.GetObject("message_tags")) ?? new FacebookMessageTag[0];
+            Application = obj.GetObject("from", FacebookEntity.Parse);
+            CreatedTime = DateTime.Parse(obj.GetString("created_time"));
+            UpdatedTime = DateTime.Parse(obj.GetString("updated_time"));
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookStatusMessage Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookStatusMessage(obj) {
-                Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookEntity.Parse),
-                Message = obj.GetString("message"),
-                MessageTags = FacebookMessageTag.ParseMultiple(obj.GetObject("message_tags")) ?? new FacebookMessageTag[0],
-                Application = obj.GetObject("from", FacebookEntity.Parse),
-                CreatedTime = DateTime.Parse(obj.GetString("created_time")),
-                UpdatedTime = DateTime.Parse(obj.GetString("updated_time"))
-            };
+        public static FacebookStatusMessage Parse(JObject obj) {
+            return obj == null ? null : new FacebookStatusMessage(obj);
         }
 
         #endregion

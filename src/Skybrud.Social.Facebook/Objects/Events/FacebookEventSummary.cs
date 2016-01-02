@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
@@ -11,7 +12,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
-        private FacebookEventSummary(JsonObject obj) : base(obj) { }
+        private FacebookEventSummary(JObject obj) : base(obj) { }
 
         #endregion
 
@@ -20,10 +21,10 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// <summary>
         /// Gets an instance of <code>FacebookEventSummary</code> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to be parsed.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
         /// <returns>Returns an instance of <code>FacebookEventSummary</code>, or <code>null</code> if <code>obj</code>
         /// is <code>null</code>.</returns>
-        public new static FacebookEventSummary Parse(JsonObject obj) {
+        public new static FacebookEventSummary Parse(JObject obj) {
             return obj == null ? null : new FacebookEventSummary(obj);
         }
 

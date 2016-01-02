@@ -1,11 +1,12 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
 
     /// <summary>
     /// Class with information on how many times a given object has been shared.
     /// </summary>
-    public class FacebookShares : SocialJsonObject {
+    public class FacebookShares : FacebookObject {
 
         #region Properties
 
@@ -18,20 +19,20 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookShares(JsonObject obj) : base(obj) { }
+        private FacebookShares(JObject obj) : base(obj) {
+            Count = obj.GetInt32("count");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JsonObject</code> into an instance of <code>FacebookShares</code>.
+        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookShares</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to be parsed.</param>
-        public static FacebookShares Parse(JsonObject obj) {
-            return new FacebookShares(obj) {
-                Count = obj.GetInt32("count")
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        public static FacebookShares Parse(JObject obj) {
+            return obj == null ? null : new FacebookShares(obj);
         }
 
         #endregion

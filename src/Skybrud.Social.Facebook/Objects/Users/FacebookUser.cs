@@ -1,9 +1,10 @@
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Enums;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Users {
     
-    public class FacebookUser : SocialJsonObject {
+    public class FacebookUser : FacebookObject {
 
         #region Properties
 
@@ -117,40 +118,39 @@ namespace Skybrud.Social.Facebook.Objects.Users {
 
         #region Constructors
 
-        private FacebookUser(JsonObject obj) : base(obj) { }
+        private FacebookUser(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            About = obj.GetString("about");
+            Bio = obj.GetString("bio");
+            Birthday = obj.GetString("birthday");
+            Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
+            Email = obj.GetString("email");
+            FirstName = obj.GetString("first_name");
+            Gender = obj.GetEnum("gender", FacebookGender.Unknown);
+            Hometown = obj.GetObject("hometown", FacebookEntity.Parse);
+            IsVerified = obj.GetBoolean("is_verified");
+            Languages = obj.GetArray("languages", FacebookEntity.Parse) ?? new FacebookEntity[0];
+            LastName = obj.GetString("last_name");
+            Link = obj.GetString("link");
+            Locale = obj.GetString("locale");
+            Location = obj.GetObject("location", FacebookEntity.Parse);
+            MiddleName = obj.GetString("middle_name");
+            Name = obj.GetString("name");
+            Timezone = obj.HasValue("timezone") ? obj.GetInt32("timezone") : (int?) null;
+            Verified = obj.GetBoolean("verified");
+            Website = obj.GetString("website");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets a user from the specified <var>JsonObject</var>.
+        /// Gets a user from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <var>JsonObject</var> to parse.</param>
-        public static FacebookUser Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookUser(obj) {
-                Id = obj.GetString("id"),
-                About = obj.GetString("about"),
-                Bio = obj.GetString("bio"),
-                Birthday = obj.GetString("birthday"),
-                Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse),
-                Email = obj.GetString("email"),
-                FirstName = obj.GetString("first_name"),
-                Gender = obj.GetEnum("gender", FacebookGender.Unknown),
-                Hometown = obj.GetObject("hometown", FacebookEntity.Parse),
-                IsVerified = obj.GetBoolean("is_verified"),
-                Languages = obj.GetArray("languages", FacebookEntity.Parse) ?? new FacebookEntity[0],
-                LastName = obj.GetString("last_name"),
-                Link = obj.GetString("link"),
-                Locale = obj.GetString("locale"),
-                Location = obj.GetObject("location", FacebookEntity.Parse),
-                MiddleName = obj.GetString("middle_name"),
-                Name = obj.GetString("name"),
-                Timezone = obj.HasValue("timezone") ? obj.GetInt32("timezone") : (int?) null,
-                Verified = obj.GetBoolean("verified"),
-                Website = obj.GetString("website")
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static FacebookUser Parse(JObject obj) {
+            return obj == null ? null : new FacebookUser(obj);
         }
 
         #endregion

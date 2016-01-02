@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookPageCategory : SocialJsonObject {
+    public class FacebookPageCategory : FacebookObject {
 
         #region Properties
 
@@ -14,18 +15,17 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructors
 
-        private FacebookPageCategory(JsonObject obj) : base(obj) { }
+        private FacebookPageCategory(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPageCategory Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPageCategory(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name")
-            };
+        public static FacebookPageCategory Parse(JObject obj) {
+            return obj == null ? null : new FacebookPageCategory(obj);
         }
 
         #endregion

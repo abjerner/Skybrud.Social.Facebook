@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
     
-    public class FacebookLocation : SocialJsonObject {
+    public class FacebookLocation : FacebookObject {
 
         #region Properties
 
@@ -45,24 +46,22 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookLocation(JsonObject obj) : base(obj) { }
+        private FacebookLocation(JObject obj) : base(obj) {
+            Country = obj.GetString("country");
+            City = obj.GetString("city");
+            Latitude = obj.GetDouble("latitude");
+            Longitude = obj.GetDouble("longitude");
+            Zip = obj.GetString("zip");
+            State = obj.GetString("state");
+            Street = obj.GetString("street");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLocation Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLocation(obj) {
-                Country = obj.GetString("country"),
-                City = obj.GetString("city"),
-                Latitude = obj.GetDouble("latitude"),
-                Longitude = obj.GetDouble("longitude"),
-                Zip = obj.GetString("zip"),
-                State = obj.GetString("state"),
-                Street = obj.GetString("street")
-            };
-
+        public static FacebookLocation Parse(JObject obj) {
+            return obj == null ? null : new FacebookLocation(obj);
         }
 
         #endregion

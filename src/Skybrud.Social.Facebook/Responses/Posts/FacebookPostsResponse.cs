@@ -1,6 +1,5 @@
 using Skybrud.Social.Facebook.Objects.Posts;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Responses.Posts {
 
@@ -8,28 +7,22 @@ namespace Skybrud.Social.Facebook.Responses.Posts {
 
         #region Constructors
 
-        private FacebookPostsResponse(SocialHttpResponse response) : base(response) { }
+        private FacebookPostsResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, FacebookPostsCollection.Parse);
+
+        }
 
         #endregion
 
         #region Static methods
 
         public static FacebookPostsResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new FacebookPostsResponse(response) {
-                Body = FacebookPostsCollection.Parse(obj)
-            };
-
+            return response == null ? null : new FacebookPostsResponse(response);
         }
 
         #endregion

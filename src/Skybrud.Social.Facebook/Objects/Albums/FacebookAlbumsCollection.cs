@@ -1,9 +1,10 @@
-﻿using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Albums {
     
-    public class FacebookAlbumsCollection : SocialJsonObject {
+    public class FacebookAlbumsCollection : FacebookObject {
 
         #region Properties
 
@@ -15,18 +16,17 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
 
         #region Constructors
 
-        private FacebookAlbumsCollection(JsonObject obj) : base(obj) { }
+        private FacebookAlbumsCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookAlbum.Parse);
+            Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookAlbumsCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookAlbumsCollection(obj) {
-                Data = obj.GetArray("data", FacebookAlbum.Parse),
-                Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse)
-            };
+        public static FacebookAlbumsCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookAlbumsCollection(obj);
         }
 
         #endregion

@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Accounts {
     
-    public class FacebookAccountsCollection : SocialJsonObject {
+    public class FacebookAccountsCollection : FacebookObject {
 
         #region Properties
 
@@ -14,18 +15,17 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
 
         #region Constructors
 
-        private FacebookAccountsCollection(JsonObject obj) : base(obj) { }
+        private FacebookAccountsCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookAccount.Parse);
+            Paging = obj.GetObject("paging", FacebookPaging.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookAccountsCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookAccountsCollection(obj) {
-                Data = obj.GetArray("data", FacebookAccount.Parse),
-                Paging = obj.GetObject("paging", FacebookPaging.Parse)
-            };
+        public static FacebookAccountsCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookAccountsCollection(obj);
         }
 
         #endregion

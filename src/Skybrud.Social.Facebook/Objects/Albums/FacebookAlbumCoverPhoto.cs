@@ -1,12 +1,14 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Albums {
 
     /// <summary>
     /// Class representing the cover photo of an album.
     /// </summary>
-    public class FacebookAlbumCoverPhoto : SocialJsonObject {
+    public class FacebookAlbumCoverPhoto : FacebookObject {
 
         #region Properties
 
@@ -36,7 +38,7 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
 
         #region Constructors
 
-        private FacebookAlbumCoverPhoto(JsonObject obj) : base(obj) {
+        private FacebookAlbumCoverPhoto(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             CreatedTime = obj.GetDateTime("created_time");
             Name = obj.GetString("name");
@@ -47,12 +49,12 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>FacebookAlbumCoverPhoto</code> from the specified <code>JsonObject</code>.
+        /// Gets an instance of <code>FacebookAlbumCoverPhoto</code> from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
         /// <returns>Returns an instance of <code>FacebookAlbumCoverPhoto</code>, or <code>null</code> if the specified
         /// <code>obj</code> is <code>null</code>.</returns>
-        public static FacebookAlbumCoverPhoto Parse(JsonObject obj) {
+        public static FacebookAlbumCoverPhoto Parse(JObject obj) {
             return obj == null ? null : new FacebookAlbumCoverPhoto(obj);
         }
 

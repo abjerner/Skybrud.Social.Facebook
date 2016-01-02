@@ -1,9 +1,10 @@
 using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Links {
 
-    public class FacebookLink : SocialJsonObject {
+    public class FacebookLink : FacebookObject {
 
         #region Properties
 
@@ -56,25 +57,24 @@ namespace Skybrud.Social.Facebook.Objects.Links {
 
         #region Constructors
 
-        private FacebookLink(JsonObject obj) : base(obj) { }
+        private FacebookLink(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            CreatedTime = DateTime.Parse(obj.GetString("created_time"));
+            Description = obj.GetString("description");
+            From = obj.GetObject("from", FacebookFrom.Parse);
+            Icon = obj.GetString("icon");
+            Link = obj.GetString("link");
+            Message = obj.GetString("message");
+            Name = obj.GetString("name");
+            Picture = obj.GetString("picture");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLink Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLink(obj) {
-                Id = obj.GetString("id"),
-                CreatedTime = DateTime.Parse(obj.GetString("created_time")),
-                Description = obj.GetString("description"),
-                From = obj.GetObject("from", FacebookFrom.Parse),
-                Icon = obj.GetString("icon"),
-                Link = obj.GetString("link"),
-                Message = obj.GetString("message"),
-                Name = obj.GetString("name"),
-                Picture = obj.GetString("picture")
-            };
+        public static FacebookLink Parse(JObject obj) {
+            return obj == null ? null : new FacebookLink(obj);
         }
 
         #endregion

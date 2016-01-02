@@ -1,11 +1,12 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
 
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.2/page#read</cref>
     /// </see>
-    public class FacebookPage : SocialJsonObject {
+    public class FacebookPage : FacebookObject {
 
         #region Properties
 
@@ -192,55 +193,54 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructors
 
-        private FacebookPage(JsonObject obj) : base(obj) { }
+        private FacebookPage(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            About = obj.GetString("about");
+            CanPost = obj.GetBoolean("can_post");
+            Category = obj.GetString("category");
+            CategoryList = obj.GetArray("category_list", FacebookPageCategory.Parse);
+            Checkins = obj.GetInt32("checkins");
+            CompanyOverview = obj.GetString("company_overview");
+            Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
+            Description = obj.GetString("description");
+            DirectedBy = obj.GetString("directed_by");
+            Founded = obj.GetString("founded");
+            GeneralInfo = obj.GetString("general_info");
+            GeneralManager = obj.GetString("general_manager");
+            Hometown = obj.GetString("hometown");
+            Hours = obj.GetObject("hours", FacebookOpeningHours.Parse);
+            Impressum = obj.GetString("impressum");
+            IsPermantlyClosed = obj.GetBoolean("is_permanently_closed");
+            IsPublished = obj.GetBoolean("is_published");
+            IsUnclaimed = obj.GetBoolean("is_unclaimed");
+            Likes = obj.GetInt32("likes");
+            Link = obj.GetString("link");
+            Location = obj.GetObject("location", FacebookLocation.Parse);
+            Mission = obj.GetString("mission");
+            Name = obj.GetString("name");
+            Parking = obj.GetObject("parking", FacebookParking.Parse);
+            PaymentOptions = obj.GetObject("payment_options", FacebookPaymentOptions.Parse);
+            Phone = obj.GetString("phone");
+            PressContact = obj.GetString("press_contact");
+            PriceRange = obj.GetString("price_range");
+            RestaurantServices = obj.GetObject("restaurant_services", FacebookRestaurantServices.Parse);
+            RestaurantSpecialties = obj.GetObject("restaurant_specialties", FacebookRestaurantSpecialties.Parse);
+            TalkingAboutCount = obj.GetInt32("talking_about_count");
+            Username = obj.GetString("username");
+            Website = obj.GetString("website");
+            WereHereCount = obj.GetInt32("were_here_count");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Gets a page from the specified <var>JsonObject</var>.
+        /// Gets a page from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <var>JsonObject</var> to parse.</param>
-        public static FacebookPage Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPage(obj) {
-                Id = obj.GetString("id"),
-                About = obj.GetString("about"),
-                CanPost = obj.GetBoolean("can_post"),
-                Category = obj.GetString("category"),
-                CategoryList = obj.GetArray("category_list", FacebookPageCategory.Parse),
-                Checkins = obj.GetInt32("checkins"),
-                CompanyOverview = obj.GetString("company_overview"),
-                Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse),
-                Description = obj.GetString("description"),
-                DirectedBy = obj.GetString("directed_by"),
-                Founded = obj.GetString("founded"),
-                GeneralInfo = obj.GetString("general_info"),
-                GeneralManager = obj.GetString("general_manager"),
-                Hometown = obj.GetString("hometown"),
-                Hours = obj.GetObject("hours", FacebookOpeningHours.Parse),
-                Impressum = obj.GetString("impressum"),
-                IsPermantlyClosed = obj.GetBoolean("is_permanently_closed"),
-                IsPublished = obj.GetBoolean("is_published"),
-                IsUnclaimed = obj.GetBoolean("is_unclaimed"),
-                Likes = obj.GetInt32("likes"),
-                Link = obj.GetString("link"),
-                Location = obj.GetObject("location", FacebookLocation.Parse),
-                Mission = obj.GetString("mission"),
-                Name = obj.GetString("name"),
-                Parking = obj.GetObject("parking", FacebookParking.Parse),
-                PaymentOptions = obj.GetObject("payment_options", FacebookPaymentOptions.Parse),
-                Phone = obj.GetString("phone"),
-                PressContact = obj.GetString("press_contact"),
-                PriceRange = obj.GetString("price_range"),
-                RestaurantServices = obj.GetObject("restaurant_services", FacebookRestaurantServices.Parse),
-                RestaurantSpecialties = obj.GetObject("restaurant_specialties", FacebookRestaurantSpecialties.Parse),
-                TalkingAboutCount = obj.GetInt32("talking_about_count"),
-                Username = obj.GetString("username"),
-                Website = obj.GetString("website"),
-                WereHereCount = obj.GetInt32("were_here_count")
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        public static FacebookPage Parse(JObject obj) {
+            return obj == null ? null : new FacebookPage(obj);
         }
 
         #endregion

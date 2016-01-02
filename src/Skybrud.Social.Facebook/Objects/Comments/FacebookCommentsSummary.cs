@@ -1,11 +1,12 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
 
     /// <summary>
     /// Class representing a summary for the comments of a given object.
     /// </summary>
-    public class FacebookCommentsSummary : SocialJsonObject {
+    public class FacebookCommentsSummary : FacebookObject {
 
         #region Properties
 
@@ -32,18 +33,17 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
 
         #region Constructors
 
-        private FacebookCommentsSummary(JsonObject obj) : base(obj) { }
+        private FacebookCommentsSummary(JObject obj) : base(obj) {
+            Order = obj.GetString("order");
+            TotalCount = obj.GetInt32("total_count");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookCommentsSummary Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookCommentsSummary(obj) {
-                Order = obj.GetString("order"),
-                TotalCount = obj.GetInt32("total_count")
-            };
+        public static FacebookCommentsSummary Parse(JObject obj) {
+            return obj == null ? null : new FacebookCommentsSummary(obj);
         }
 
         #endregion

@@ -1,6 +1,5 @@
 using Skybrud.Social.Facebook.Objects.Events;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Responses.Events {
 
@@ -13,7 +12,15 @@ namespace Skybrud.Social.Facebook.Responses.Events {
 
         #region Constructors
 
-        private FacebookEventsResponse(SocialHttpResponse response) : base(response) { }
+        private FacebookEventsResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, FacebookEventsCollection.Parse);
+
+        }
 
         #endregion
 
@@ -25,21 +32,7 @@ namespace Skybrud.Social.Facebook.Responses.Events {
         /// <param name="response">The response to be parsed.</param>
         /// <returns>Returns an instance of <code>FacebookEventsResponse</code> representing the response.</returns>
         public static FacebookEventsResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new FacebookEventsResponse(response) {
-                Body = FacebookEventsCollection.Parse(obj)
-            };
-
+            return response == null ? null : new FacebookEventsResponse(response);
         }
 
         #endregion

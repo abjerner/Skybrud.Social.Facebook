@@ -1,7 +1,8 @@
 ﻿using System.Net;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Exceptions;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Responses {
 
@@ -22,18 +23,20 @@ namespace Skybrud.Social.Facebook.Responses {
         /// Validates the specified <code>response</code>.
         /// </summary>
         /// <param name="response">The response to be validated.</param>
-        /// <param name="obj">The object representing the response object.</param>
-        public static void ValidateResponse(SocialHttpResponse response, JsonObject obj) {
+        public static void ValidateResponse(SocialHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
-            
+
+            // Parse the response body
+            JObject obj = ParseJsonObject(response.Body);
+
             // Throw an exception based on the error message from the API
-            JsonObject error = obj.GetObject("error");
+            JObject error = obj.GetObject("error");
             int code = error.GetInt32("code");
             string type = error.GetString("type");
             string message = error.GetString("message");
-            int subcode = error.HasValue("error_subcode") ? error.GetInt32("error_subcode") : 0;
+            int subcode = error.GetInt32("error_subcode");
             throw new FacebookException(response, code, type, message, subcode);
 
         }

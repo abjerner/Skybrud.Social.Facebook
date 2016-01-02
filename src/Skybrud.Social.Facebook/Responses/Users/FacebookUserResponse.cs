@@ -1,6 +1,5 @@
 using Skybrud.Social.Facebook.Objects.Users;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Responses.Users {
 
@@ -8,28 +7,22 @@ namespace Skybrud.Social.Facebook.Responses.Users {
 
         #region Constructors
 
-        private FacebookUserResponse(SocialHttpResponse response) : base(response) { }
+        private FacebookUserResponse(SocialHttpResponse response) : base(response) {
+
+            // Validate the response
+            ValidateResponse(response);
+
+            // Parse the response body
+            Body = ParseJsonObject(response.Body, FacebookUser.Parse);
+
+        }
 
         #endregion
 
         #region Static methods
 
         public static FacebookUserResponse ParseResponse(SocialHttpResponse response) {
-
-            if (response == null) return null;
-
-            // Parse the raw JSON response
-            JsonObject obj = response.GetBodyAsJsonObject();
-            if (obj == null) return null;
-
-            // Validate the response
-            ValidateResponse(response, obj);
-
-            // Initialize the response object
-            return new FacebookUserResponse(response) {
-                Body = FacebookUser.Parse(obj)
-            };
-
+            return response == null ? null : new FacebookUserResponse(response);
         }
 
         #endregion

@@ -1,9 +1,10 @@
 using System;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
 
-    public class FacebookCommentSummary : SocialJsonObject {
+    public class FacebookCommentSummary : FacebookObject {
 
         // TODO: Check whether this class is still used...
 
@@ -20,23 +21,21 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
 
         #region Constructors
 
-        private FacebookCommentSummary(JsonObject obj) : base(obj) { }
+        private FacebookCommentSummary(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            From = obj.GetObject("from", FacebookEntity.Parse);
+            Message = obj.GetString("message");
+            MessageTags = obj.GetArray("message_tags", FacebookMessageTag.Parse);
+            CreatedTime = obj.GetDateTime("created_time");
+            Likes = obj.HasValue("likes") ? obj.GetInt32("likes") : 0;
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookCommentSummary Parse(JsonObject obj) {
-            // TODO: Should we just return NULL if "obj" is NULL?
-            if (obj == null) return null;
-            return new FacebookCommentSummary(obj) {
-                Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookEntity.Parse),
-                Message = obj.GetString("message"),
-                MessageTags = obj.GetArray("message_tags", FacebookMessageTag.Parse),
-                CreatedTime = obj.GetDateTime("created_time"),
-                Likes = obj.HasValue("likes") ? obj.GetInt32("likes") : 0
-            };
+        public static FacebookCommentSummary Parse(JObject obj) {
+            return obj == null ? null : new FacebookCommentSummary(obj);
         }
 
         #endregion

@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
 
-    public class FacebookEntity : SocialJsonObject {
+    public class FacebookEntity : FacebookObject {
 
         #region Properties
 
@@ -20,18 +21,17 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookEntity(JsonObject obj) : base(obj) { }
+        private FacebookEntity(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookEntity Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookEntity(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name")
-            };
+        public static FacebookEntity Parse(JObject obj) {
+            return obj == null ? null : new FacebookEntity(obj);
         }
 
         #endregion

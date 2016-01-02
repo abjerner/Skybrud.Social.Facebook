@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Specialized;
-using System.Web;
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
     
-    public class FacebookPaging : SocialJsonObject {
+    public class FacebookPaging : FacebookObject {
 
         #region Properties
 
@@ -49,19 +49,17 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookPaging(JsonObject obj) : base(obj) { }
+        private FacebookPaging(JObject obj) : base(obj) {
+            Previous = obj.GetString("previous");
+            Next = obj.GetString("next");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPaging Parse(JsonObject obj) {
-            // TODO: Should we just return NULL if "obj" is NULL?
-            if (obj == null) return new FacebookPaging(null);
-            return new FacebookPaging(obj) {
-                Previous =  obj.GetString("previous"),
-                Next = obj.GetString("next")
-            };
+        public static FacebookPaging Parse(JObject obj) {
+            return obj == null ? null : new FacebookPaging(obj);
         }
 
         #endregion

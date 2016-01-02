@@ -1,8 +1,10 @@
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 
-    public class FacebookLike : SocialJsonObject {
+    public class FacebookLike : FacebookObject {
 
         #region Properties
 
@@ -20,18 +22,17 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
 
         #region Constructors
 
-        private FacebookLike(JsonObject obj) : base(obj) { }
+        private FacebookLike(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLike Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLike(obj) {
-                Id = obj.GetString("id"),
-                Name = obj.GetString("name")
-            };
+        public static FacebookLike Parse(JObject obj) {
+            return obj == null ? null : new FacebookLike(obj);
         }
 
         #endregion

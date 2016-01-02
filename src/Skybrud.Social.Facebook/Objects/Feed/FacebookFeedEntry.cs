@@ -1,15 +1,16 @@
 using System;
+using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Comments;
 using Skybrud.Social.Facebook.Objects.Likes;
 using Skybrud.Social.Interfaces;
-using Skybrud.Social.Json;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Feed {
 
     /// <summary>
     /// Class representing an entry in the feed of a user or page.
     /// </summary>
-    public class FacebookFeedEntry: SocialJsonObject, ISocialTimelineEntry {
+    public class FacebookFeedEntry: FacebookObject, ISocialTimelineEntry {
 
         #region Properties
 
@@ -122,40 +123,39 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         
         #region Constructors
 
-        private FacebookFeedEntry(JsonObject obj) : base(obj) { }
+        private FacebookFeedEntry(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            From = obj.GetObject("from", FacebookEntity.Parse);
+            Message = obj.GetString("message");
+            Description = obj.GetString("description");
+            Story = obj.GetString("story");
+            Picture = obj.GetString("picture");
+            Link = obj.GetString("link");
+            Source = obj.GetString("source");
+            Name = obj.GetString("name");
+            Caption = obj.GetString("caption");
+            Icon = obj.GetString("icon");
+            Type = obj.GetString("type");
+            StatusType = obj.GetString("status_type");
+            Application = obj.GetObject("application", FacebookEntity.Parse);
+            CreatedTime = obj.GetDateTime("created_time");
+            UpdatedTime = obj.GetDateTime("updated_time");
+            Comments = obj.GetObject("comments", FacebookComments.Parse);
+            Shares = obj.GetObject("shares", FacebookShares.Parse);
+            Likes = obj.GetObject("likes", FacebookLikes.Parse);
+            ObjectId = obj.GetString("object_id");
+        }
 
         #endregion
 
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JsonObject</code> into an instance of <code>FacebookFeedEntry</code>.
+        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookFeedEntry</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to be parsed.</param>
-        public static FacebookFeedEntry Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookFeedEntry(obj) {
-                Id = obj.GetString("id"),
-                From = obj.GetObject("from", FacebookEntity.Parse),
-                Message = obj.GetString("message"),
-                Description = obj.GetString("description"),
-                Story = obj.GetString("story"),
-                Picture = obj.GetString("picture"),
-                Link = obj.GetString("link"),
-                Source = obj.GetString("source"),
-                Name = obj.GetString("name"),
-                Caption = obj.GetString("caption"),
-                Icon = obj.GetString("icon"),
-                Type = obj.GetString("type"),
-                StatusType = obj.GetString("status_type"),
-                Application = obj.GetObject("application", FacebookEntity.Parse),
-                CreatedTime = obj.GetDateTime("created_time"),
-                UpdatedTime = obj.GetDateTime("updated_time"),
-                Comments = obj.GetObject("comments", FacebookComments.Parse),
-                Shares = obj.GetObject("shares", FacebookShares.Parse),
-                Likes = obj.GetObject("likes", FacebookLikes.Parse),
-                ObjectId = obj.GetString("object_id")
-            };
+        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        public static FacebookFeedEntry Parse(JObject obj) {
+            return obj == null ? null : new FacebookFeedEntry(obj);
         }
 
         #endregion

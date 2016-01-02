@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
     
-    public class FacebookPostProperties : SocialJsonObject {
+    public class FacebookPostProperties : FacebookObject {
 
         #region Properties
 
@@ -14,19 +15,18 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookPostProperties(JsonObject obj) : base(obj) { }
+        private FacebookPostProperties(JObject obj) : base(obj) {
+            Name = obj.GetString("name");
+            Text = obj.GetString("text");
+            Href = obj.GetString("href");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPostProperties Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPostProperties(obj) {
-                Name = obj.GetString("name"),
-                Text = obj.GetString("text"),
-                Href = obj.GetString("href")
-            };
+        public static FacebookPostProperties Parse(JObject obj) {
+            return obj == null ? null : new FacebookPostProperties(obj);
         }
 
         #endregion

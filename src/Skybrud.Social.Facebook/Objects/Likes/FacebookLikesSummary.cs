@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 
-    public class FacebookLikesSummary : SocialJsonObject {
+    public class FacebookLikesSummary : FacebookObject {
 
         #region Properties
 
@@ -15,17 +16,16 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
 
         #region Constructors
 
-        private FacebookLikesSummary(JsonObject obj) : base(obj) { }
+        private FacebookLikesSummary(JObject obj) : base(obj) {
+            TotalCount = obj.GetInt32("total_count");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookLikesSummary Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookLikesSummary(obj) {
-                TotalCount = obj.GetInt32("total_count")
-            };
+        public static FacebookLikesSummary Parse(JObject obj) {
+            return obj == null ? null : new FacebookLikesSummary(obj);
         }
 
         #endregion

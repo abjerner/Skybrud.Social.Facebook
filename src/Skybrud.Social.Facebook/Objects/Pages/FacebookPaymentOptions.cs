@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookPaymentOptions : SocialJsonObject {
+    public class FacebookPaymentOptions : FacebookObject {
 
         #region Properties
 
@@ -35,22 +36,20 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookPaymentOptions(JsonObject obj) : base(obj) { }
+        private FacebookPaymentOptions(JObject obj) : base(obj) {
+            AmericanExpress = obj.GetBoolean("amex");
+            CashOnly = obj.GetBoolean("cash_only");
+            Discover = obj.GetBoolean("discover");
+            MasterCard = obj.GetBoolean("mastercard");
+            Visa = obj.GetBoolean("visa");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookPaymentOptions Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookPaymentOptions(obj) {
-                AmericanExpress = obj.GetBoolean("amex"),
-                CashOnly = obj.GetBoolean("cash_only"),
-                Discover = obj.GetBoolean("discover"),
-                MasterCard = obj.GetBoolean("mastercard"),
-                Visa = obj.GetBoolean("visa")
-            };
-
+        public static FacebookPaymentOptions Parse(JObject obj) {
+            return obj == null ? null : new FacebookPaymentOptions(obj);
         }
 
         #endregion

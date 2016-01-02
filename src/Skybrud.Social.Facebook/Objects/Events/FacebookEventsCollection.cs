@@ -1,9 +1,10 @@
-﻿using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
 
-    public class FacebookEventsCollection : SocialJsonObject {
+    public class FacebookEventsCollection : FacebookObject {
 
         #region Properties
 
@@ -15,18 +16,17 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
-        private FacebookEventsCollection(JsonObject obj) : base(obj) { }
+        private FacebookEventsCollection(JObject obj) : base(obj) {
+            Data = obj.GetArray("data", FacebookEventSummary.Parse);
+            Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookEventsCollection Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookEventsCollection(obj) {
-                Data = obj.GetArray("data", FacebookEventSummary.Parse),
-                Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse)
-            };
+        public static FacebookEventsCollection Parse(JObject obj) {
+            return obj == null ? null : new FacebookEventsCollection(obj);
         }
 
         #endregion

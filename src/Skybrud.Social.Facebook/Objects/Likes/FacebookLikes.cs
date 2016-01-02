@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 
-    public class FacebookLikes : SocialJsonObject {
+    public class FacebookLikes : FacebookObject {
 
         // TODO: Check whether this class is still used...
 
@@ -36,7 +37,11 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
 
         #region Constructors
 
-        private FacebookLikes(JsonObject obj) : base(obj) { }
+        private FacebookLikes(JObject obj) : base(obj) {
+            Count = obj.GetInt32("count");
+            Data = obj.GetArray("data", FacebookEntity.Parse) ?? new FacebookEntity[0];
+            Summary = obj.GetObject("summary", FacebookLikesSummary.Parse);
+        }
 
         #endregion
 
@@ -45,16 +50,10 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         /// <summary>
         /// Gets an instance of <code>FacebookLikes</code> from the specified <code>obj</code>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JsonObject</code> to parse.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
         /// <returns>Returns an instance of <code>FacebookLikes</code>.</returns>
-        public static FacebookLikes Parse(JsonObject obj) {
-            // TODO: Should we just return NULL if "obj" is NULL?
-            if (obj == null) return new FacebookLikes(null) { Data = new FacebookEntity[0] };
-            return new FacebookLikes(obj) {
-                Count = obj.GetInt32("count"),
-                Data = obj.GetArray("data", FacebookEntity.Parse) ?? new FacebookEntity[0],
-                Summary = obj.GetObject("summary", FacebookLikesSummary.Parse)
-            };
+        public static FacebookLikes Parse(JObject obj) {
+            return obj == null ? null : new FacebookLikes(obj);
         }
 
         #endregion

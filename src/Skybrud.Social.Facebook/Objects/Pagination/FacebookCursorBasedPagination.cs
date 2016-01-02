@@ -1,8 +1,9 @@
-﻿using Skybrud.Social.Json;
+﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Pagination {
 
-    public class FacebookCursorBasedPagination : SocialJsonObject {
+    public class FacebookCursorBasedPagination : FacebookObject {
 
         #region Properties
 
@@ -16,22 +17,22 @@ namespace Skybrud.Social.Facebook.Objects.Pagination {
 
         #region Constructor
 
-        public FacebookCursorBasedPagination(JsonObject obj) : base(obj) { }
+        public FacebookCursorBasedPagination(JObject obj) : base(obj) {
+            Cursors = obj.GetObject("cursors", FacebookCursors.Parse);
+            Previous = obj.GetString("previous");
+            Next = obj.GetString("next");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookCursorBasedPagination Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookCursorBasedPagination(obj) {
-                Cursors = obj.GetObject("cursors", FacebookCursors.Parse),
-                Previous = obj.GetString("previous"),
-                Next = obj.GetString("next")
-            };
+        public static FacebookCursorBasedPagination Parse(JObject obj) {
+            return obj == null ? null : new FacebookCursorBasedPagination(obj);
         }
 
         #endregion
 
     }
+
 }

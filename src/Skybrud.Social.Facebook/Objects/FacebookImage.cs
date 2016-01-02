@@ -1,8 +1,9 @@
-using Skybrud.Social.Json;
+using Newtonsoft.Json.Linq;
+using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects {
-    
-    public class FacebookImage : SocialJsonObject {
+
+    public class FacebookImage : FacebookObject {
 
         #region Properties
 
@@ -25,19 +26,18 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Constructors
 
-        private FacebookImage(JsonObject obj) : base(obj) { }
+        private FacebookImage(JObject obj) : base(obj) {
+            Width = obj.GetInt32("width");
+            Height = obj.GetInt32("height");
+            Source = obj.GetString("source");
+        }
 
         #endregion
 
         #region Static methods
 
-        public static FacebookImage Parse(JsonObject obj) {
-            if (obj == null) return null;
-            return new FacebookImage(obj) {
-                Width = obj.GetInt32("width"),
-                Height = obj.GetInt32("height"),
-                Source = obj.GetString("source")
-            };
+        public static FacebookImage Parse(JObject obj) {
+            return obj == null ? null : new FacebookImage(obj);
         }
 
         #endregion
