@@ -76,9 +76,9 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         #region Static methods
 
         /// <summary>
-        /// Gets a post from the specified <var>JObject</var>.
+        /// Gets a post from the specified <code>JObject</code>.
         /// </summary>
-        /// <param name="obj">The instance of <var>JObject</var> to parse.</param>
+        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
         public static FacebookPost Parse(JObject obj) {
             return obj == null ? null : new FacebookPost(obj);
         }

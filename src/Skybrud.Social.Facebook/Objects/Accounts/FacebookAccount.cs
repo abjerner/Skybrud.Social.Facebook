@@ -28,8 +28,8 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         public FacebookEntity[] CategoryList { get; private set; }
 
         /// <summary>
-        /// The access token associated with the current user and the account.
-        /// The access token may be <var>NULL</var> depending on the permissions.
+        /// The access token associated with the current user and the account. The access token may be
+        /// <code>null</code> depending on the permissions.
         /// </summary>
         public string AccessToken { get; internal set; }
 

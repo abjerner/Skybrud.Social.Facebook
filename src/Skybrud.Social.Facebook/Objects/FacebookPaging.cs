@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Objects {
         public string Next { get; private set; }
 
         /// <summary>
-        /// The timestamp used for the <var>Previous</var> link.
+        /// The timestamp used for the <code>Previous</code> link.
         /// </summary>
         public int? Since {
             get {
@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Objects {
         }
 
         /// <summary>
-        /// The timestamp used for the <var>Next</var> link.
+        /// The timestamp used for the <code>Next</code> link.
         /// </summary>
         public int? Until {
             get {
