@@ -83,27 +83,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of albums of the user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID or name of the page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public FacebookAlbumsResponse GetAlbums(string identifier, FacebookAlbumsOptions options) {
-            return FacebookAlbumsResponse.ParseResponse(Raw.GetAlbums(identifier, options));
-        }
-
-        /// <summary>
-        /// Creates a new album for the page or user with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        /// <returns>Returns the ID of the created album.</returns>
-        [Obsolete("Use method overload instead.")]
-        public FacebookPostAlbumResponse PostAlbum(string identifier, FacebookPostAlbumOptions options) {
-            return FacebookPostAlbumResponse.ParseResponse(Raw.PostAlbum(identifier, options));
-        }
-
-        /// <summary>
         /// Creates a new album for the page or user matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>

@@ -71,16 +71,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
                 Limit = limit
             });
         }
-
-        /// <summary>
-        /// Gets a list of photos of the album, user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID or name of the album, page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public FacebookPhotosResponse GetPhotos(string identifier, FacebookPhotosOptions options) {
-            return FacebookPhotosResponse.ParseResponse(Raw.GetPhotos(identifier, options));
-        }
         
         /// <summary>
         /// Gets a list of photos of the album, user or page matching the specified <code>options</code>.
@@ -88,16 +78,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="options">The options for the call to the API.</param>
         public FacebookPhotosResponse GetPhotos(FacebookGetPhotosOptions options) {
             return FacebookPhotosResponse.ParseResponse(Raw.GetPhotos(options));
-        }
-
-        /// <summary>
-        /// Posts a new photo to the feed of the user with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID of the user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public FacebookPostPhotoResponse PostPhoto(string identifier, FacebookPostUserPhotoOptions options) {
-            return FacebookPostPhotoResponse.ParseResponse(Raw.PostPhoto(identifier, options));
         }
 
         /// <summary>

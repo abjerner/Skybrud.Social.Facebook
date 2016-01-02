@@ -73,16 +73,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of posts of the user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload.")]
-        public FacebookPostsResponse GetPosts(string identifier, FacebookPostsOptions options) {
-            return FacebookPostsResponse.ParseResponse(Raw.GetPosts(identifier, options));
-        }
-
-        /// <summary>
         /// Gets a list of posts of the user or page matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>

@@ -54,29 +54,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoAuthenticatedGetRequest("/" + options.Identifier + "/albums", options);
         }
-
-        /// <summary>
-        /// Gets a list of albums of the user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public SocialHttpResponse GetAlbums(string identifier, FacebookAlbumsOptions options) {
-            // TODO: Remove method in v1.0
-            return Client.DoAuthenticatedGetRequest("/" + identifier + "/albums", options);
-        }
-
-        /// <summary>
-        /// Creates a new album for the page or user with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public SocialHttpResponse PostAlbum(string identifier, FacebookPostAlbumOptions options) {
-            // TODO: Remove method in v1.0
-            return Client.DoAuthenticatedPostRequest("/" + identifier + "/albums", options);
-        }
-
+        
         /// <summary>
         /// Creates a new album for the page or user matching the specified <code>options</code>.
         /// </summary>

@@ -40,17 +40,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload.")]
-        public FacebookFeedResponse GetFeed(string identifier, FacebookFeedOptions options) {
-            // TODO: Remove in v1.0
-            return FacebookFeedResponse.ParseResponse(Raw.GetFeed(identifier, options));
-        }
-
-        /// <summary>
-        /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID or name of the user/page.</param>
         public FacebookFeedResponse GetFeed(string identifier) {
             return GetFeed(new FacebookGetFeedOptions(identifier));
         }

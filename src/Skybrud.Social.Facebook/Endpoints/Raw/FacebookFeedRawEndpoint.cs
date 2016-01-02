@@ -28,18 +28,6 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #endregion
 
         #region Methods
-
-        /// <summary>
-        /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID or name of the user/page.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        /// <returns>The raw JSON response from the API.</returns>
-        [Obsolete("Use method overload.")]
-        public SocialHttpResponse GetFeed(string identifier, FacebookFeedOptions options) {
-            // TODO: Remove in v1.0
-            return Client.DoAuthenticatedGetRequest("/" + identifier + "/feed", options);
-        }
         
         /// <summary>
         /// Gets a list of entries from the feed of the user or page matching the specified <code>options</code>.

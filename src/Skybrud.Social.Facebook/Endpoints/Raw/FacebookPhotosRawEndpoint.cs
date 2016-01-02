@@ -47,32 +47,12 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of photos of the album, user or page with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID or name.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public SocialHttpResponse GetPhotos(string identifier, FacebookPhotosOptions options) {
-            return Client.DoAuthenticatedGetRequest("/" + identifier + "/photos", options);
-        }
-
-        /// <summary>
         /// Gets a list of photos of the album, user or page matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetPhotos(FacebookGetPhotosOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoAuthenticatedGetRequest("/" + options.Identifier + "/photos", options);
-        }
-
-        /// <summary>
-        /// Posts a new photo to the feed of the user with the specified <code>identifier</code>.
-        /// </summary>
-        /// <param name="identifier">The ID of the user.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public SocialHttpResponse PostPhoto(string identifier, FacebookPostUserPhotoOptions options) {
-            return Client.DoAuthenticatedPostRequest("/" + identifier + "/photos", options);
         }
 
         /// <summary>

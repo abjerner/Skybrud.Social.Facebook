@@ -54,16 +54,6 @@ namespace Skybrud.Social.Facebook.Endpoints {
         public FacebookCommentResponse GetComment(FacebookGetCommentOptions options) {
             return FacebookCommentResponse.ParseResponse(Raw.GetComment(options));
         }
-        
-        /// <summary>
-        /// Gets a list of comments for an object with the specified <code>id</code>.
-        /// </summary>
-        /// <param name="id">The ID of the object.</param>
-        /// <param name="options">The options for the call to the API.</param>
-        [Obsolete("Use method overload instead.")]
-        public FacebookCommentsResponse GetComments(string id, FacebookCommentsOptions options) {
-            return FacebookCommentsResponse.ParseResponse(Raw.GetComments(id, options));
-        }
 
         /// <summary>
         /// Gets a list of comments for an object with the specified <code>identifier</code>.
