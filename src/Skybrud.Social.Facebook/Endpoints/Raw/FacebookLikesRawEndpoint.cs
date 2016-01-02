@@ -1,5 +1,4 @@
 ﻿using Skybrud.Social.Facebook.OAuth;
-using Skybrud.Social.Facebook.Options;
 using Skybrud.Social.Facebook.Options.Likes;
 using Skybrud.Social.Http;
 

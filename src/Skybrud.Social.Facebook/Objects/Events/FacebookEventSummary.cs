@@ -1,5 +1,4 @@
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Json;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
 
