@@ -30,7 +30,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <see>
         ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.2/object/likes#read</cref>
         /// </see>
-        public SocialHttpResponse GetLikes(string id, FacebookLikesOptions options) {
+        public SocialHttpResponse GetLikes(string id, FacebookGetLikesOptions options) {
             return Client.DoAuthenticatedGetRequest("/" + id + "/likes", options);
         }
 

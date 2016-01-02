@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <summary>
         /// Gets information about the authenticated user.
         /// </summary>
-        public FacebookUserResponse GetUser() {
+        public FacebookGetUserResponse GetUser() {
             return GetUser("me");
         }
 
@@ -47,17 +47,17 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the user with the specified <code>id</code>.
         /// </summary>
         /// <param name="id">The ID of the user.</param>
-        public FacebookUserResponse GetUser(string id) {
-            return FacebookUserResponse.ParseResponse(Raw.GetUser(id));
+        public FacebookGetUserResponse GetUser(string id) {
+            return FacebookGetUserResponse.ParseResponse(Raw.GetUser(id));
         }
 
         /// <summary>
         /// Gets information about the user matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookUserResponse GetUser(FacebookGetUserOptions options) {
+        public FacebookGetUserResponse GetUser(FacebookGetUserOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookUserResponse.ParseResponse(Raw.GetUser(options));
+            return FacebookGetUserResponse.ParseResponse(Raw.GetUser(options));
         }
 
         #endregion

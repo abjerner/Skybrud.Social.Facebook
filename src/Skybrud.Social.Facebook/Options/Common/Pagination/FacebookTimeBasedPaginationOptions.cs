@@ -1,7 +1,7 @@
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
-namespace Skybrud.Social.Facebook.Options.Pagination {
+namespace Skybrud.Social.Facebook.Options.Common.Pagination {
     
     /// <summary>
     /// Description from Facebook: Time pagination is used to navigate through results data using Unix timestamps which

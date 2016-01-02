@@ -1,9 +1,9 @@
-﻿using Skybrud.Social.Facebook.Options.Pagination;
+﻿using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Options.Likes {
 
-    public class FacebookLikesOptions : FacebookCursorBasedPaginationOptions {
+    public class FacebookGetLikesOptions : FacebookCursorBasedPaginationOptions {
 
         #region Properties
 

@@ -36,16 +36,16 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the link with the specified <code>id</code>.
         /// </summary>
         /// <param name="id">The ID of the link.</param>
-        public FacebookLinkResponse GetLink(string id) {
-            return FacebookLinkResponse.ParseResponse(Raw.GetLink(id));
+        public FacebookGetLinkResponse GetLink(string id) {
+            return FacebookGetLinkResponse.ParseResponse(Raw.GetLink(id));
         }
 
         /// <summary>
         /// Gets a list of links of the user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The ID or name of the page or user.</param>
-        public FacebookLinksResponse GetLinks(string identifier) {
-            return GetLinks(identifier, new FacebookLinksOptions());
+        public FacebookGetLinksResponse GetLinks(string identifier) {
+            return GetLinks(identifier, new FacebookGetLinksOptions());
         }
 
         /// <summary>
@@ -53,8 +53,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID or name of the page or user.</param>
         /// <param name="limit">The maximum amount of links to return.</param>
-        public FacebookLinksResponse GetLinks(string identifier, int limit) {
-            return GetLinks(identifier, new FacebookLinksOptions {
+        public FacebookGetLinksResponse GetLinks(string identifier, int limit) {
+            return GetLinks(identifier, new FacebookGetLinksOptions {
                 Limit = limit
             });
         }
@@ -64,8 +64,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID or name of the page or user.</param>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookLinksResponse GetLinks(string identifier, FacebookLinksOptions options) {
-            return FacebookLinksResponse.ParseResponse(Raw.GetLinks(identifier, options));
+        public FacebookGetLinksResponse GetLinks(string identifier, FacebookGetLinksOptions options) {
+            return FacebookGetLinksResponse.ParseResponse(Raw.GetLinks(identifier, options));
         }
 
         /// <summary>

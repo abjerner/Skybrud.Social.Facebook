@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Feed {
 
-    public class FacebookFeedResponse : FacebookResponse<FacebookFeedCollection> {
+    public class FacebookGetFeedResponse : FacebookResponse<FacebookFeedCollection> {
 
         #region Constructors
 
-        private FacebookFeedResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetFeedResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Feed {
 
         #region Static methods
 
-        public static FacebookFeedResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookFeedResponse(response);
+        public static FacebookGetFeedResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetFeedResponse(response);
         }
 
         #endregion

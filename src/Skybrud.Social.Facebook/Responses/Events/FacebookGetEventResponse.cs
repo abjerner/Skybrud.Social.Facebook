@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Events {
 
-    public class FacebookEventResponse : FacebookResponse<FacebookEvent> {
+    public class FacebookGetEventResponse : FacebookResponse<FacebookEvent> {
 
         #region Constructors
 
-        private FacebookEventResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetEventResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Events {
 
         #region Static methods
 
-        public static FacebookEventResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookEventResponse(response);
+        public static FacebookGetEventResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetEventResponse(response);
         }
 
         #endregion

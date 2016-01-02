@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Links {
 
-    public class FacebookLinksResponse : FacebookResponse<FacebookLinksCollection> {
+    public class FacebookGetLinksResponse : FacebookResponse<FacebookLinksCollection> {
 
         #region Constructors
 
-        private FacebookLinksResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetLinksResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Links {
 
         #region Static methods
 
-        public static FacebookLinksResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookLinksResponse(response);
+        public static FacebookGetLinksResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetLinksResponse(response);
         }
 
         #endregion

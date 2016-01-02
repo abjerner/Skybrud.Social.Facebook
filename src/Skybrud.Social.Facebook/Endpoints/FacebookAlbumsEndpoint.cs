@@ -40,24 +40,24 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the album with the specified <code>id</code>.
         /// </summary>
         /// <param name="id">The ID of the album.</param>
-        public FacebookAlbumResponse GetAlbum(string id) {
-            return FacebookAlbumResponse.ParseResponse(Raw.GetAlbum(id));
+        public FacebookGetAlbumResponse GetAlbum(string id) {
+            return FacebookGetAlbumResponse.ParseResponse(Raw.GetAlbum(id));
         }
         
         /// <summary>
         /// Gets information about the album matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookAlbumResponse GetAlbum(FacebookGetAlbumOptions options) {
+        public FacebookGetAlbumResponse GetAlbum(FacebookGetAlbumOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookAlbumResponse.ParseResponse(Raw.GetAlbum(options));
+            return FacebookGetAlbumResponse.ParseResponse(Raw.GetAlbum(options));
         }
 
         /// <summary>
         /// Gets a list of albums of the user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The ID or name of the page or user.</param>
-        public FacebookAlbumsResponse GetAlbums(string identifier) {
+        public FacebookGetAlbumsResponse GetAlbums(string identifier) {
             return GetAlbums(new FacebookGetAlbumsOptions(identifier));
         }
 
@@ -66,7 +66,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID or name of the page or user.</param>
         /// <param name="limit">The maximum amount of albums to return.</param>
-        public FacebookAlbumsResponse GetAlbums(string identifier, int limit) {
+        public FacebookGetAlbumsResponse GetAlbums(string identifier, int limit) {
             return GetAlbums(new FacebookGetAlbumsOptions {
                 Identifier = identifier,
                 Limit = limit
@@ -77,9 +77,9 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of albums of the user or page matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookAlbumsResponse GetAlbums(FacebookGetAlbumsOptions options) {
+        public FacebookGetAlbumsResponse GetAlbums(FacebookGetAlbumsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookAlbumsResponse.ParseResponse(Raw.GetAlbums(options));
+            return FacebookGetAlbumsResponse.ParseResponse(Raw.GetAlbums(options));
         }
 
         /// <summary>

@@ -40,17 +40,17 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the page with the specified <code>id</code>.
         /// </summary>
         /// <param name="id">The ID of the page.</param>
-        public FacebookPageResponse GetPage(string id) {
-            return FacebookPageResponse.ParseResponse(Raw.GetPage(id));
+        public FacebookGetPageResponse GetPage(string id) {
+            return FacebookGetPageResponse.ParseResponse(Raw.GetPage(id));
         }
 
         /// <summary>
         /// Gets information about the post matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookPageResponse GetPage(FacebookGetPageOptions options) {
+        public FacebookGetPageResponse GetPage(FacebookGetPageOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookPageResponse.ParseResponse(Raw.GetPage(options));
+            return FacebookGetPageResponse.ParseResponse(Raw.GetPage(options));
         }
 
         #endregion

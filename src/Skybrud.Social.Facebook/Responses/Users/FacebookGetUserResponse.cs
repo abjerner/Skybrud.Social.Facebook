@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Users {
 
-    public class FacebookUserResponse : FacebookResponse<FacebookUser> {
+    public class FacebookGetUserResponse : FacebookResponse<FacebookUser> {
 
         #region Constructors
 
-        private FacebookUserResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetUserResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Users {
 
         #region Static methods
 
-        public static FacebookUserResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookUserResponse(response);
+        public static FacebookGetUserResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetUserResponse(response);
         }
 
         #endregion

@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Accounts {
 
-    public class FacebookAccountsResponse : FacebookResponse<FacebookAccountsCollection> {
+    public class FacebookGetAccountsResponse : FacebookResponse<FacebookAccountsCollection> {
 
         #region Constructors
 
-        private FacebookAccountsResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetAccountsResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Accounts {
 
         #region Static methods
 
-        public static FacebookAccountsResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookAccountsResponse(response);
+        public static FacebookGetAccountsResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetAccountsResponse(response);
         }
 
         #endregion

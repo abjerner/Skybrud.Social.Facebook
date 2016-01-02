@@ -1,7 +1,7 @@
 ﻿using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 
-namespace Skybrud.Social.Facebook.Options.Pagination {
+namespace Skybrud.Social.Facebook.Options.Common.Pagination {
     
     /// <summary>
     /// Class with options for cursor-based pagination.

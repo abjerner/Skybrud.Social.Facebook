@@ -36,8 +36,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of likes of the user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="id">The ID of the object.</param>
-        public FacebookLikesResponse GetLikes(string id) {
-            return GetLikes(id, new FacebookLikesOptions());
+        public FacebookGetLikesResponse GetLikes(string id) {
+            return GetLikes(id, new FacebookGetLikesOptions());
         }
 
         /// <summary>
@@ -45,8 +45,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="id">The ID of the object.</param>
         /// <param name="limit">The maximum amount of likes to return.</param>
-        public FacebookLikesResponse GetLikes(string id, int limit) {
-            return GetLikes(id, new FacebookLikesOptions {
+        public FacebookGetLikesResponse GetLikes(string id, int limit) {
+            return GetLikes(id, new FacebookGetLikesOptions {
                 Limit = limit
             });
         }
@@ -59,8 +59,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <see>
         ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.2/object/likes#read</cref>
         /// </see>
-        public FacebookLikesResponse GetLikes(string id, FacebookLikesOptions options) {
-            return FacebookLikesResponse.ParseResponse(Raw.GetLikes(id, options));
+        public FacebookGetLikesResponse GetLikes(string id, FacebookGetLikesOptions options) {
+            return FacebookGetLikesResponse.ParseResponse(Raw.GetLikes(id, options));
         }
 
         #endregion

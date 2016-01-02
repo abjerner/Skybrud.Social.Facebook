@@ -3,11 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Albums {
 
-    public class FacebookAlbumResponse : FacebookResponse<FacebookAlbum> {
+    public class FacebookGetAlbumResponse : FacebookResponse<FacebookAlbum> {
 
         #region Constructors
 
-        private FacebookAlbumResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetAlbumResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -21,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Albums {
 
         #region Static methods
 
-        public static FacebookAlbumResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookAlbumResponse(response);
+        public static FacebookGetAlbumResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetAlbumResponse(response);
         }
 
         #endregion

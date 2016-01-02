@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the current app by calling the <code>/app</code> method. This requires an app access
         /// token.
         /// </summary>
-        public FacebookAppResponse GetApp() {
+        public FacebookGetAppResponse GetApp() {
             return GetApp("app");
         }
 
@@ -48,17 +48,17 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the specified app.
         /// </summary>
         /// <param name="id">The ID of the app.</param>
-        public FacebookAppResponse GetApp(string id) {
-            return FacebookAppResponse.ParseResponse(Raw.GetApp(id));
+        public FacebookGetAppResponse GetApp(string id) {
+            return FacebookGetAppResponse.ParseResponse(Raw.GetApp(id));
         }
 
         /// <summary>
         /// Gets information about the app matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookAppResponse GetApp(FacebookGetAppOptions options) {
+        public FacebookGetAppResponse GetApp(FacebookGetAppOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookAppResponse.ParseResponse(Raw.GetApp(options));
+            return FacebookGetAppResponse.ParseResponse(Raw.GetApp(options));
         }
 
         #endregion

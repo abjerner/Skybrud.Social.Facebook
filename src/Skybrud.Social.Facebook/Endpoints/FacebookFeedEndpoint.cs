@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
-        public FacebookFeedResponse GetFeed(string identifier) {
+        public FacebookGetFeedResponse GetFeed(string identifier) {
             return GetFeed(new FacebookGetFeedOptions(identifier));
         }
 
@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
         /// <param name="limit">The maximum amount of events to return.</param>
-        public FacebookFeedResponse GetFeed(string identifier, int limit) {
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit) {
             return GetFeed(new FacebookGetFeedOptions(identifier, limit));
         }
 
@@ -57,8 +57,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of entries from the feed of the user or page matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookFeedResponse GetFeed(FacebookGetFeedOptions options) {
-            return FacebookFeedResponse.ParseResponse(Raw.GetFeed(options));
+        public FacebookGetFeedResponse GetFeed(FacebookGetFeedOptions options) {
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(options));
         }
 
         #endregion

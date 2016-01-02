@@ -1,6 +1,6 @@
 ﻿using System;
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Facebook.Options.Pagination;
+using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Options.Photos {

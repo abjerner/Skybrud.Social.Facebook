@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID or name.</param>
         /// <param name="options">The options for the call to the API.</param>
-        public SocialHttpResponse GetLinks(string identifier, FacebookLinksOptions options) {
+        public SocialHttpResponse GetLinks(string identifier, FacebookGetLinksOptions options) {
             return Client.DoAuthenticatedGetRequest("/" + identifier + "/links", options);
         }
 
