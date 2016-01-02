@@ -261,6 +261,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <returns>Returns the new access token.</returns>
         public string RenewAccessToken(string currentToken) {
 
+            // TODO: Return an object representing the entire response
+
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
                 {"grant_type", "fb_exchange_token"},
@@ -286,6 +288,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Gets an app access token for for the application. An app id and app secret must be present.
         /// </summary>
         public string GetAppAccessToken() {
+
+            // TODO: Return an object representing the entire response
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
