@@ -43,24 +43,24 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the comment with specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the comment.</param>
-        public FacebookCommentResponse GetComment(string identifier) {
-            return FacebookCommentResponse.ParseResponse(Raw.GetComment(identifier));
+        public FacebookGetCommentResponse GetComment(string identifier) {
+            return FacebookGetCommentResponse.ParseResponse(Raw.GetComment(identifier));
         }
 
         /// <summary>
         /// Gets information about the comment matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookCommentResponse GetComment(FacebookGetCommentOptions options) {
-            return FacebookCommentResponse.ParseResponse(Raw.GetComment(options));
+        public FacebookGetCommentResponse GetComment(FacebookGetCommentOptions options) {
+            return FacebookGetCommentResponse.ParseResponse(Raw.GetComment(options));
         }
 
         /// <summary>
         /// Gets a list of comments for an object with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
-        public FacebookCommentsResponse GetComments(string identifier) {
-            return FacebookCommentsResponse.ParseResponse(Raw.GetComments(identifier));
+        public FacebookGetCommentsResponse GetComments(string identifier) {
+            return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(identifier));
         }
 
         /// <summary>
@@ -68,17 +68,17 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
-        public FacebookCommentsResponse GetComments(string identifier, int limit) {
-            return FacebookCommentsResponse.ParseResponse(Raw.GetComments(identifier, limit));
+        public FacebookGetCommentsResponse GetComments(string identifier, int limit) {
+            return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(identifier, limit));
         }
 
         /// <summary>
         /// Gets a list of comments for an object matching the specified <code>options</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookCommentsResponse GetComments(FacebookGetCommentsOptions options) {
+        public FacebookGetCommentsResponse GetComments(FacebookGetCommentsOptions options) {
             if (options == null) throw new ArgumentException("options");
-            return FacebookCommentsResponse.ParseResponse(Raw.GetComments(options));
+            return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(options));
         }
 
         #endregion

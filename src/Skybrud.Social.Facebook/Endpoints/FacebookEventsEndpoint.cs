@@ -47,7 +47,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets a list of events of a user or page with the specified <code>identifier</code>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
-        public FacebookEventsResponse GetEvents(string identifier) {
+        public FacebookGetEventsResponse GetEvents(string identifier) {
             return GetEvents(identifier, new FacebookEventsOptions());
         }
 
@@ -56,7 +56,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
         /// <param name="limit">The maximum amount of events to return.</param>
-        public FacebookEventsResponse GetEvents(string identifier, int limit) {
+        public FacebookGetEventsResponse GetEvents(string identifier, int limit) {
             return GetEvents(identifier, new FacebookEventsOptions {
                 Limit = limit
             });
@@ -67,8 +67,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The ID of the object.</param>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookEventsResponse GetEvents(string identifier, FacebookEventsOptions options) {
-            return FacebookEventsResponse.ParseResponse(Raw.GetEvents(identifier, options));
+        public FacebookGetEventsResponse GetEvents(string identifier, FacebookEventsOptions options) {
+            return FacebookGetEventsResponse.ParseResponse(Raw.GetEvents(identifier, options));
         }
 
         #endregion

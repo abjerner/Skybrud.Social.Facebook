@@ -172,11 +172,11 @@
     <Compile Include="Responses\Albums\FacebookPostAlbumResponse.cs" />
     <Compile Include="Responses\Apps\FacebookAppResponse.cs" />
     <Compile Include="Responses\Authentication\FacebookTokenResponse.cs" />
-    <Compile Include="Responses\Comments\FacebookCommentResponse.cs" />
-    <Compile Include="Responses\Comments\FacebookCommentsResponse.cs" />
+    <Compile Include="Responses\Comments\FacebookGetCommentResponse.cs" />
+    <Compile Include="Responses\Comments\FacebookGetCommentsResponse.cs" />
     <Compile Include="Responses\Debug\FacebookDebugTokenResponse.cs" />
     <Compile Include="Responses\Events\FacebookEventResponse.cs" />
-    <Compile Include="Responses\Events\FacebookEventsResponse.cs" />
+    <Compile Include="Responses\Events\FacebookGetEventsResponse.cs" />
     <Compile Include="Responses\FacebookResponse.cs" />
     <Compile Include="Responses\Feed\FacebookFeedResponse.cs" />
     <Compile Include="Responses\Likes\FacebookLikesResponse.cs" />

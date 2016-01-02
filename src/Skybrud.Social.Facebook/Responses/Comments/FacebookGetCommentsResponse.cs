@@ -3,13 +3,11 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Comments {
 
-    public class FacebookCommentsResponse : FacebookResponse<FacebookCommentsCollection> {
-
-        // TODO: Rename to "FacebookGetCommentsResponse" in v1.0
+    public class FacebookGetCommentsResponse : FacebookResponse<FacebookCommentsCollection> {
 
         #region Constructors
 
-        private FacebookCommentsResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetCommentsResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -23,8 +21,8 @@ namespace Skybrud.Social.Facebook.Responses.Comments {
 
         #region Static methods
 
-        public static FacebookCommentsResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookCommentsResponse(response);
+        public static FacebookGetCommentsResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetCommentsResponse(response);
         }
 
         #endregion

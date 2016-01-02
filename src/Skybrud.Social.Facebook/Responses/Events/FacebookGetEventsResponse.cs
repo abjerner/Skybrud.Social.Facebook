@@ -6,13 +6,11 @@ namespace Skybrud.Social.Facebook.Responses.Events {
     /// <summary>
     /// Class representing the response for getting a list of events.
     /// </summary>
-    public class FacebookEventsResponse : FacebookResponse<FacebookEventsCollection> {
-
-        // TODO: Rename to "FacebookGetEventsResponse" in v1.0
+    public class FacebookGetEventsResponse : FacebookResponse<FacebookEventsCollection> {
 
         #region Constructors
 
-        private FacebookEventsResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetEventsResponse(SocialHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -27,12 +25,12 @@ namespace Skybrud.Social.Facebook.Responses.Events {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <code>FacebookEventsResponse</code>.
+        /// Parses the specified <code>response</code> into an instance of <code>FacebookGetEventsResponse</code>.
         /// </summary>
         /// <param name="response">The response to be parsed.</param>
-        /// <returns>Returns an instance of <code>FacebookEventsResponse</code> representing the response.</returns>
-        public static FacebookEventsResponse ParseResponse(SocialHttpResponse response) {
-            return response == null ? null : new FacebookEventsResponse(response);
+        /// <returns>Returns an instance of <code>FacebookGetEventsResponse</code> representing the response.</returns>
+        public static FacebookGetEventsResponse ParseResponse(SocialHttpResponse response) {
+            return response == null ? null : new FacebookGetEventsResponse(response);
         }
 
         #endregion
