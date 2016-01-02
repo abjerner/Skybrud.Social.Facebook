@@ -81,8 +81,8 @@
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
-    <Compile Include="FacebookScope.cs" />
-    <Compile Include="FacebookScopeCollection.cs" />
+    <Compile Include="Scopes\FacebookScope.cs" />
+    <Compile Include="Scopes\FacebookScopeCollection.cs" />
     <Compile Include="FacebookService.cs" />
     <Compile Include="Fields\FacebookField.cs" />
     <Compile Include="Fields\FacebookFieldsCollection.cs" />
@@ -196,6 +196,7 @@
     <Compile Include="Responses\Posts\FacebookPostResponse.cs" />
     <Compile Include="Responses\Posts\FacebookPostsResponse.cs" />
     <Compile Include="Responses\Users\FacebookUserResponse.cs" />
+    <Compile Include="Scopes\FacebookScopes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Responses.Authentication;
+using Skybrud.Social.Facebook.Scopes;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces;
 

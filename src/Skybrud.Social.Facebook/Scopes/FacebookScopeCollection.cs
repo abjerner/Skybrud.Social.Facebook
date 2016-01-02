@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Skybrud.Social.Facebook {
+namespace Skybrud.Social.Facebook.Scopes {
     
     /// <summary>
     /// Class representing a collection of scopes for the Facebook Graph API.
