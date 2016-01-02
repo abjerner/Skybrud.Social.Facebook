@@ -104,7 +104,6 @@
     <Compile Include="Objects\Events\FacebookEvent.cs" />
     <Compile Include="Objects\Events\FacebookEventOwner.cs" />
     <Compile Include="Objects\Events\FacebookEventsCollection.cs" />
-    <Compile Include="Objects\Events\FacebookEventSummary.cs" />
     <Compile Include="Objects\Events\FacebookEventVenue.cs" />
     <Compile Include="Objects\FacebookCoverPhoto.cs" />
     <Compile Include="Objects\FacebookFrom.cs" />

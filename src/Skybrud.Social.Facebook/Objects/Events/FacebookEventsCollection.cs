@@ -8,7 +8,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Properties
 
-        public FacebookEventSummary[] Data { get; private set; }
+        public FacebookEvent[] Data { get; private set; }
 
         public FacebookCursorBasedPagination Paging { get; private set; }
 
@@ -17,7 +17,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         #region Constructors
 
         private FacebookEventsCollection(JObject obj) : base(obj) {
-            Data = obj.GetArray("data", FacebookEventSummary.Parse);
+            Data = obj.GetArray("data", FacebookEvent.Parse);
             Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
         }
 
