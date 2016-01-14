@@ -21,14 +21,14 @@ namespace Skybrud.Social.Facebook.OAuth {
         #region OAuth
 
         /// <summary>
-        /// Gets or sets the ID of the app.
+        /// Gets or sets the client ID of the app.
         /// </summary>
-        public string AppId { get; set; }
+        public string ClientId { get; set; }
 
         /// <summary>
-        /// Gets or sets the secret of the app.
+        /// Gets or sets the client secret of the app.
         /// </summary>
-        public string AppSecret { get; set; }
+        public string ClientSecret { get; set; }
         
         /// <summary>
         /// Gets or sets the redirect URI of your application.
@@ -146,8 +146,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified access token. Using this initializer,
-        /// the client will have no information about your app.
+        /// Initializes an OAuth client with the specified <code>accessToken</code>. Using this initializer, the client
+        /// will have no information about your app.
         /// </summary>
         /// <param name="accessToken">A valid access token.</param>
         public FacebookOAuthClient(string accessToken) : this() {
@@ -155,46 +155,25 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified app ID and app secret.
+        /// Initializes an OAuth client with the specified <code>clientId</code> and <code>clientSecret</code>.
         /// </summary>
-        /// <param name="appId">The ID of the app.</param>
-        /// <param name="appSecret">The secret of the app.</param>
-        public FacebookOAuthClient(long appId, string appSecret) : this() {
-            AppId = appId + "";
-            AppSecret = appSecret;
+        /// <param name="clientId">The client ID of the app.</param>
+        /// <param name="clientSecret">The client secret of the app.</param>
+        public FacebookOAuthClient(string clientId, string clientSecret) : this() {
+            ClientId = clientId;
+            ClientSecret = clientSecret;
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified app ID, app secret and return URI.
+        /// Initializes an OAuth client with the specified <code>clientId</code>, <code>clientSecret</code> and
+        /// <code>redirectUri</code>.
         /// </summary>
-        /// <param name="appId">The ID of the app.</param>
-        /// <param name="appSecret">The secret of the app.</param>
+        /// <param name="clientId">The client ID of the app.</param>
+        /// <param name="clientSecret">The client secret of the app.</param>
         /// <param name="redirectUri">The redirect URI of the app.</param>
-        public FacebookOAuthClient(long appId, string appSecret, string redirectUri) : this() {
-            AppId = appId + "";
-            AppSecret = appSecret;
-            RedirectUri = redirectUri;
-        }
-
-        /// <summary>
-        /// Initializes an OAuth client with the specified app ID and app secret.
-        /// </summary>
-        /// <param name="appId">The ID of the app.</param>
-        /// <param name="appSecret">The secret of the app.</param>
-        public FacebookOAuthClient(string appId, string appSecret) : this() {
-            AppId = appId;
-            AppSecret = appSecret;
-        }
-
-        /// <summary>
-        /// Initializes an OAuth client with the specified app ID, app secret and return URI.
-        /// </summary>
-        /// <param name="appId">The ID of the app.</param>
-        /// <param name="appSecret">The secret of the app.</param>
-        /// <param name="redirectUri">The redirect URI of the app.</param>
-        public FacebookOAuthClient(string appId, string appSecret, string redirectUri) : this() {
-            AppId = appId;
-            AppSecret = appSecret;
+        public FacebookOAuthClient(string clientId, string clientSecret, string redirectUri) : this() {
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             RedirectUri = redirectUri;
         }
 
@@ -221,7 +200,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public string GetAuthorizationUrl(string state, params string[] scope) {
             return String.Format(
                 "https://www.facebook.com/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
-                AppId,
+                ClientId,
                 RedirectUri,
                 state,
                 String.Join(",", scope)
@@ -237,9 +216,9 @@ namespace Skybrud.Social.Facebook.OAuth {
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
-                {"client_id", AppId},
+                {"client_id", ClientId},
                 {"redirect_uri", RedirectUri},
-                {"client_secret", AppSecret},
+                {"client_secret", ClientSecret},
                 {"code", authCode }
             };
 
@@ -255,7 +234,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Attempts to renew the specified user access token. The current access token must be valid.
+        /// Attempts to renew the specified user access token. The specified <code>currentToken</code> must be valid.
         /// </summary>
         /// <param name="currentToken">The current access token.</param>
         /// <returns>Returns the new access token.</returns>
@@ -266,8 +245,8 @@ namespace Skybrud.Social.Facebook.OAuth {
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
                 {"grant_type", "fb_exchange_token"},
-                {"client_id", AppId},
-                {"client_secret", AppSecret},
+                {"client_id", ClientId},
+                {"client_secret", ClientSecret},
                 {"fb_exchange_token", currentToken }
             };
 
@@ -285,7 +264,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Gets an app access token for for the application. An app id and app secret must be present.
+        /// Gets an app access token for for the application. The <code>ClientId</code> and <code>ClientSecret</code>
+        /// properties must be specified for the OAuth client.
         /// </summary>
         public string GetAppAccessToken() {
 
@@ -293,8 +273,8 @@ namespace Skybrud.Social.Facebook.OAuth {
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
-                {"client_id", AppId},
-                {"client_secret", AppSecret},
+                {"client_id", ClientId},
+                {"client_secret", ClientSecret},
                 {"grant_type", "client_credentials"}
             };
 
