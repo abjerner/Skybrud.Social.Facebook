@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 using System.Text;
+using Skybrud.Social.Exceptions;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Responses.Authentication;
 using Skybrud.Social.Facebook.Scopes;
@@ -188,7 +189,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="scope">The scope of the application.</param>
         /// <returns>Returns an authorization URL based on <code>state</code> and <code>scope</code>.</returns>
         public string GetAuthorizationUrl(string state, FacebookScopeCollection scope) {
-            return GetAuthorizationUrl(state, scope.ToString());
+            return GetAuthorizationUrl(state, scope == null ? null : scope.ToString());
         }
 
         /// <summary>
@@ -198,6 +199,12 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="scope">The scope of the application.</param>
         /// <returns>Returns an authorization URL based on <code>state</code> and <code>scope</code>.</returns>
         public string GetAuthorizationUrl(string state, params string[] scope) {
+
+            // Some validation
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
+            if (String.IsNullOrWhiteSpace(state)) throw new ArgumentNullException("state");
+
             return String.Format(
                 "https://www.facebook.com/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
                 ClientId,
@@ -213,6 +220,12 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="authCode">The authorization code received from the Pinterest OAuth dialog.</param>
         /// <returns>Returns an access token based on the specified <code>authCode</code>.</returns>
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
+
+            // Some validation
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
+            if (String.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException("authCode");
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
@@ -239,6 +252,11 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="currentToken">The current access token.</param>
         /// <returns>Returns the new access token.</returns>
         public string RenewAccessToken(string currentToken) {
+
+            // Some validation
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
+            if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException("currentToken");
 
             // TODO: Return an object representing the entire response
 
@@ -268,6 +286,10 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// properties must be specified for the OAuth client.
         /// </summary>
         public string GetAppAccessToken() {
+
+            // Some validation
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
 
             // TODO: Return an object representing the entire response
 
