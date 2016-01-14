@@ -217,8 +217,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <summary>
         /// Exchanges the specified authorization code for a refresh token and an access token.
         /// </summary>
-        /// <param name="authCode">The authorization code received from the Pinterest OAuth dialog.</param>
         /// <returns>Returns an access token based on the specified <code>authCode</code>.</returns>
+        /// <param name="authCode">The authorization code received from the Facebook OAuth dialog.</param>
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
