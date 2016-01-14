@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <returns>The raw JSON response from the API.</returns>
         public SocialHttpResponse GetAccounts() {
-            return Client.DoAuthenticatedGetRequest("/me/accounts");
+            return Client.DoHttpGetRequest("/me/accounts");
         }
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>The raw JSON response from the API.</returns>
         public SocialHttpResponse GetAccounts(FacebookGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/me/accounts", options);
+            return Client.DoHttpGetRequest("/me/accounts", options);
         }
 
         #endregion

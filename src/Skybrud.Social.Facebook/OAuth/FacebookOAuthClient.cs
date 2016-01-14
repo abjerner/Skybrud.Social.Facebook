@@ -315,8 +315,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// </summary>
         /// <param name="url">The URL to call.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url) {
-            return DoAuthenticatedGetRequest(url, (SocialQueryString) null);
+        public SocialHttpResponse DoHttpGetRequest(string url) {
+            return DoHttpGetRequest(url, (SocialQueryString) null);
         }
 
         /// <summary>
@@ -326,8 +326,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="url">The URL to call.</param>
         /// <param name="query">The query string of the request.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url, NameValueCollection query) {
-            return DoAuthenticatedGetRequest(url, new SocialQueryString(query));
+        public SocialHttpResponse DoHttpGetRequest(string url, NameValueCollection query) {
+            return DoHttpGetRequest(url, new SocialQueryString(query));
         }
 
         /// <summary>
@@ -337,8 +337,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="url">The URL to call.</param>
         /// <param name="options">The options of the request.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url, IGetOptions options) {
-            return DoAuthenticatedGetRequest(url, options == null ? null : options.GetQueryString());
+        public SocialHttpResponse DoHttpGetRequest(string url, IGetOptions options) {
+            return DoHttpGetRequest(url, options == null ? null : options.GetQueryString());
         }
 
         /// <summary>
@@ -348,7 +348,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="url">The URL to call.</param>
         /// <param name="query">The query string of the request.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedGetRequest(string url, SocialQueryString query) {
+        public SocialHttpResponse DoHttpGetRequest(string url, SocialQueryString query) {
 
             // Throw an exception if the URL is empty
             if (String.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url");

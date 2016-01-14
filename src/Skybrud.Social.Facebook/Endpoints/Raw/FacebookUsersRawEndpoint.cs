@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier of the user.</param>
         public SocialHttpResponse GetUser(string identifier) {
-            return Client.DoAuthenticatedGetRequest("/" + identifier);
+            return Client.DoHttpGetRequest("/" + identifier);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetUser(FacebookGetUserOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier, options);
+            return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
         #endregion

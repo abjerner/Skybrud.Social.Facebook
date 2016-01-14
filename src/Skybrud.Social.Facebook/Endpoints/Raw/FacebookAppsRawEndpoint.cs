@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <returns>The raw JSON response from the API.</returns>
         public SocialHttpResponse GetApp(string identifier) {
-            return Client.DoAuthenticatedGetRequest("/" + identifier);
+            return Client.DoHttpGetRequest("/" + identifier);
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>The raw JSON response from the API.</returns>
         public SocialHttpResponse GetApp(FacebookGetAppOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier, options);
+            return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
         #endregion

@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="eventId">The ID of the event.</param>
         public SocialHttpResponse GetEvent(string eventId) {
-            return Client.DoAuthenticatedGetRequest("/" + eventId);
+            return Client.DoHttpGetRequest("/" + eventId);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetEvents(string identifier, FacebookGetEventsOptions options) {
-            return Client.DoAuthenticatedGetRequest("/" + identifier + "/events", options);
+            return Client.DoHttpGetRequest("/" + identifier + "/events", options);
         }
 
         #endregion

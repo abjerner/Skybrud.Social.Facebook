@@ -45,7 +45,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetComment(FacebookGetCommentOptions options) {
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier, options);
+            return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetComments(FacebookGetCommentsOptions options) {
             if (options == null) throw new ArgumentException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier + "/comments", options);
+            return Client.DoHttpGetRequest("/" + options.Identifier + "/comments", options);
         }
 
         #endregion

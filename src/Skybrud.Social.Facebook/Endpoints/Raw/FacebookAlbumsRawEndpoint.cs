@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="id">The ID of the album.</param>
         public SocialHttpResponse GetAlbum(string id) {
-            return Client.DoAuthenticatedGetRequest("/" + id);
+            return Client.DoHttpGetRequest("/" + id);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetAlbum(FacebookGetAlbumOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier);
+            return Client.DoHttpGetRequest("/" + options.Identifier);
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetAlbums(FacebookGetAlbumsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier + "/albums", options);
+            return Client.DoHttpGetRequest("/" + options.Identifier + "/albums", options);
         }
         
         /// <summary>

@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetFeed(FacebookGetFeedOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier + "/feed", options);
+            return Client.DoHttpGetRequest("/" + options.Identifier + "/feed", options);
         }
 
         #endregion

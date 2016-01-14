@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="id">The ID of the photo.</param>
         public SocialHttpResponse GetPage(string id) {
-            return Client.DoAuthenticatedGetRequest("/" + id);
+            return Client.DoHttpGetRequest("/" + id);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse GetPage(FacebookGetPageOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedGetRequest("/" + options.Identifier, options);
+            return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
         #endregion

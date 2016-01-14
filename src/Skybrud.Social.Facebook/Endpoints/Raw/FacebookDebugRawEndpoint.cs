@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
             query.Add("input_token", accessToken);
             
             // Make the call to the API
-            return Client.DoAuthenticatedGetRequest("/debug_token", query);
+            return Client.DoHttpGetRequest("/debug_token", query);
         
         }
 
