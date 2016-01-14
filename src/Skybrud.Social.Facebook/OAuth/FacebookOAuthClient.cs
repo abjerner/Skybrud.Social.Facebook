@@ -236,13 +236,10 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            HttpWebResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
-
-            // Wrap the native response class
-            SocialHttpResponse social = SocialHttpResponse.GetFromWebResponse(response);
-
+            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            
             // Parse the response
-            return FacebookTokenResponse.ParseResponse(social);
+            return FacebookTokenResponse.ParseResponse(response);
 
         }
 
@@ -269,7 +266,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            string contents = SocialUtils.DoHttpGetRequestAndGetBodyAsString("https://graph.facebook.com/oauth/access_token", query);
+            string contents = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query).Body;
 
             // TODO: Add some validation
 
@@ -301,7 +298,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            string contents = SocialUtils.DoHttpGetRequestAndGetBodyAsString("https://graph.facebook.com/oauth/access_token", query);
+            string contents = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query).Body;
 
             // Parse the contents
             NameValueCollection response = SocialUtils.ParseQueryString(contents);
