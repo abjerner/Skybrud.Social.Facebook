@@ -81,6 +81,7 @@
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
+    <Compile Include="Objects\Authentication\FacebookTokenInfo.cs" />
     <Compile Include="Scopes\FacebookScope.cs" />
     <Compile Include="Scopes\FacebookScopeCollection.cs" />
     <Compile Include="FacebookService.cs" />

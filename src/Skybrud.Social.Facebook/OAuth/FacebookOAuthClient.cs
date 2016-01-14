@@ -215,10 +215,10 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Exchanges the specified authorization code for a refresh token and an access token.
+        /// Exchanges the specified authorization code for an access token.
         /// </summary>
-        /// <returns>Returns an access token based on the specified <code>authCode</code>.</returns>
         /// <param name="authCode">The authorization code received from the Facebook OAuth dialog.</param>
+        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
@@ -244,18 +244,16 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Attempts to renew the specified user access token. The specified <code>currentToken</code> must be valid.
+        /// Attempts to renew a user access token. The specified <code>currentToken</code> must be valid.
         /// </summary>
         /// <param name="currentToken">The current access token.</param>
-        /// <returns>Returns the new access token.</returns>
-        public string RenewAccessToken(string currentToken) {
+        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
+        public FacebookTokenResponse RenewAccessToken(string currentToken) {
 
             // Some validation
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
             if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException("currentToken");
-
-            // TODO: Return an object representing the entire response
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
@@ -266,15 +264,10 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            string contents = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query).Body;
+            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
 
-            // TODO: Add some validation
-
-            // Parse the contents
-            NameValueCollection response = SocialUtils.ParseQueryString(contents);
-
-            // Get the access token
-            return response["access_token"];
+            // Parse the response
+            return FacebookTokenResponse.ParseResponse(response);
 
         }
 
@@ -282,13 +275,12 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Gets an app access token for for the application. The <code>ClientId</code> and <code>ClientSecret</code>
         /// properties must be specified for the OAuth client.
         /// </summary>
-        public string GetAppAccessToken() {
+        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
+        public FacebookTokenResponse GetAppAccessToken() {
 
             // Some validation
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
-
-            // TODO: Return an object representing the entire response
 
             // Initialize the query string
             NameValueCollection query = new NameValueCollection {
@@ -298,13 +290,10 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            string contents = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query).Body;
+            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
 
-            // Parse the contents
-            NameValueCollection response = SocialUtils.ParseQueryString(contents);
-
-            // Get the access token
-            return response["access_token"];
+            // Parse the response
+            return FacebookTokenResponse.ParseResponse(response);
 
         }
 

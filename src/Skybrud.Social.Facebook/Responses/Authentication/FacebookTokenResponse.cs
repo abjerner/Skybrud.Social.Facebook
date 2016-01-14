@@ -1,9 +1,9 @@
-﻿using System.Collections.Specialized;
+﻿using Skybrud.Social.Facebook.Objects.Authentication;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Authentication {
 
-    public class FacebookTokenResponse : FacebookResponse<FacebookTokenResponseBody> {
+    public class FacebookTokenResponse : FacebookResponse<FacebookTokenInfo> {
 
         #region Properties
 
@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
             FacebookDebug = response.Headers["X-FB-Debug"];
 
             // Parse the response body
-            Body = FacebookTokenResponseBody.Parse(response.Body);
+            Body = FacebookTokenInfo.Parse(response.Body);
 
         }
 
@@ -67,34 +67,6 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
         }
 
         #endregion
-
-    }
-
-    public class FacebookTokenResponseBody {
-
-        #region Properties
-
-        public string AccessToken { get; private set; }
-
-        #endregion
-
-        #region Constructors
-
-        private FacebookTokenResponseBody() { }
-
-        #endregion
-
-        public static FacebookTokenResponseBody Parse(string contents) {
-            
-            // Parse the contents
-            NameValueCollection body = SocialUtils.ParseQueryString(contents);
-
-            // Initialize the response body
-            return new FacebookTokenResponseBody {
-                AccessToken = body["access_token"]
-            };
-
-        }
 
     }
 
