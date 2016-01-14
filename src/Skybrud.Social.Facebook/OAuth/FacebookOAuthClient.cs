@@ -376,9 +376,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="url">The URL to call.</param>
         /// <param name="options">The options of the request.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedPostRequest(string url, IPostOptions options) {
+        public SocialHttpResponse DoHttpPostRequest(string url, IPostOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return DoAuthenticatedPostRequest(url, options.GetQueryString(), options.GetPostData(), options.IsMultipart);
+            return DoHttpPostRequest(url, options.GetQueryString(), options.GetPostData(), options.IsMultipart);
         }
 
         /// <summary>
@@ -390,7 +390,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="postData">The POST data.</param>
         /// <param name="isMultipart">If <code>true</code>, the content type of the request will be <code>multipart/form-data</code>, otherwise <code>application/x-www-form-urlencoded</code>.</param>
         /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoAuthenticatedPostRequest(string url, SocialQueryString query, SocialPostData postData, bool isMultipart) {
+        public SocialHttpResponse DoHttpPostRequest(string url, SocialQueryString query, SocialPostData postData, bool isMultipart) {
 
             // Throw an exception if the URL is empty
             if (String.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url");

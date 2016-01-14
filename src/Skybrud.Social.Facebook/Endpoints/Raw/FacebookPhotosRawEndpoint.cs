@@ -61,7 +61,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         public SocialHttpResponse PostPhoto(FacebookPostUserPhotoOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return Client.DoAuthenticatedPostRequest("/" + options.Identifier + "/photos", options);
+            return Client.DoHttpPostRequest("/" + options.Identifier + "/photos", options);
         }
 
         #endregion
