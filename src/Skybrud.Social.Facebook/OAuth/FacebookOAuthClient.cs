@@ -365,7 +365,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (!query.IsEmpty) url += (url.Contains("?") ? "&" : "?") + query;
 
             // Initialize a new HTTP request
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
 
             // Get the HTTP response
             try {
