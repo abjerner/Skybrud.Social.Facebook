@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 namespace Skybrud.Social.Facebook.Objects.Authentication {
     
-    public class FacebookTokenInfo {
+    public class FacebookToken {
 
         #region Properties
 
@@ -23,11 +23,11 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
 
         #region Constructors
 
-        private FacebookTokenInfo() { }
+        private FacebookToken() { }
 
         #endregion
 
-        public static FacebookTokenInfo Parse(string contents) {
+        public static FacebookToken Parse(string contents) {
             
             // Parse the contents
             NameValueCollection body = SocialUtils.ParseQueryString(contents);
@@ -36,7 +36,7 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
             int expires = body["expires"] == null ? 0 : Int32.Parse(body["expires"]);
 
             // Initialize the response body
-            return new FacebookTokenInfo {
+            return new FacebookToken {
                 AccessToken = body["access_token"],
                 ExpiresIn = TimeSpan.FromSeconds(expires)
             };

@@ -3,7 +3,7 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Authentication {
 
-    public class FacebookTokenResponse : FacebookResponse<FacebookTokenInfo> {
+    public class FacebookTokenResponse : FacebookResponse<FacebookToken> {
 
         #region Properties
 
@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
             FacebookDebug = response.Headers["X-FB-Debug"];
 
             // Parse the response body
-            Body = FacebookTokenInfo.Parse(response.Body);
+            Body = FacebookToken.Parse(response.Body);
 
         }
 
