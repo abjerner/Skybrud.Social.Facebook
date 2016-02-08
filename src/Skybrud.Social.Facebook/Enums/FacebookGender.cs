@@ -6,17 +6,17 @@
     public enum FacebookGender {
         
         /// <summary>
-        /// If the user hasn't entered or shared it's gender.
+        /// Indicates that the user hasn't entered or shared it's gender.
         /// </summary>
         Unknown,
 
         /// <summary>
-        /// Specifies that the user is a male.
+        /// Indicates that the user is a male.
         /// </summary>
         Male,
 
         /// <summary>
-        /// Specifies that the user is a female.
+        /// Indicates that the user is a female.
         /// </summary>
         Female
     

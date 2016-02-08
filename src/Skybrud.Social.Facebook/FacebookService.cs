@@ -110,7 +110,7 @@ namespace Skybrud.Social.Facebook {
         /// initialized from the access token.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
-        /// <returns>Returns the created instance of <code>FacebookService</code>.</returns>
+        /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>
         public static FacebookService CreateFromAccessToken(string accessToken) {
             return new FacebookService {
                 Client = new FacebookOAuthClient(accessToken)
@@ -121,7 +121,7 @@ namespace Skybrud.Social.Facebook {
         /// Initialize a new service instance from the specified OAuth client.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
-        /// <returns>Returns the created instance of <code>FacebookService</code>.</returns>
+        /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>
         public static FacebookService CreateFromOAuthClient(FacebookOAuthClient client) {
             if (client == null) throw new ArgumentNullException("client");
             return new FacebookService {

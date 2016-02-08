@@ -3,9 +3,10 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 
+    /// <summary>
+    /// Class representing a collection of likes of a Facebook object.
+    /// </summary>
     public class FacebookLikes : FacebookObject {
-
-        // TODO: Check whether this class is still used...
 
         #region Properties
 
@@ -13,7 +14,10 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         /// Gets the total amounbt of comments. This value might not always be present in the API response - in such
         /// cases the count will be zero.
         /// </summary>
-        public int Count { get; private set; }
+        public int Count {
+            // TODO: Has this property been deprecated by Facebook?
+            get; private set;
+        }
 
         /// <summary>
         /// An array of likes. For a post, photo or similar with many likes, this array will only be a subset of all
