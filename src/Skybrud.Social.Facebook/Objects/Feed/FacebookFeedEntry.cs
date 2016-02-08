@@ -108,7 +108,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         /// <summary>
         /// Gets an object with information about how the entry has been commented.
         /// </summary>
-        public FacebookComments Comments { get; private set; }
+        public FacebookCommentsCollection Comments { get; private set; }
 
         /// <summary>
         /// If the entry represents an object (eg. a photo or similar), this property will return the ID of that object.
@@ -140,7 +140,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
             Application = obj.GetObject("application", FacebookEntity.Parse);
             CreatedTime = obj.GetDateTime("created_time");
             UpdatedTime = obj.GetDateTime("updated_time");
-            Comments = obj.GetObject("comments", FacebookComments.Parse);
+            Comments = obj.GetObject("comments", FacebookCommentsCollection.Parse);
             Shares = obj.GetObject("shares", FacebookShares.Parse);
             Likes = obj.GetObject("likes", FacebookLikes.Parse);
             ObjectId = obj.GetString("object_id");

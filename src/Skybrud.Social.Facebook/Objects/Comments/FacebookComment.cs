@@ -4,6 +4,9 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
     
+    /// <summary>
+    /// Class representing a single comment.
+    /// </summary>
     public class FacebookComment : FacebookObject {
 
         #region Properties
@@ -63,6 +66,11 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <see cref="Skybrud.Social.Facebook.Objects.Comments.FacebookComment"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
+        /// <returns>Returns an instance of <see cref="Skybrud.Social.Facebook.Objects.Comments.FacebookComment"/>.</returns>
         public static FacebookComment Parse(JObject obj) {
             return obj == null ? null : new FacebookComment(obj);
         }

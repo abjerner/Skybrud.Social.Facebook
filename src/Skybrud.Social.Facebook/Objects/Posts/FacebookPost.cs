@@ -37,7 +37,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         public FacebookShares Shares { get; private set; }
         
         public FacebookLikes Likes { get; private set; }
-        public FacebookComments Comments { get; private set; }
+        public FacebookCommentsCollection Comments { get; private set; }
 
         public DateTime SortDate {
             get { return CreatedTime; }
@@ -68,7 +68,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
             UpdatedTime = obj.GetDateTime("updated_time");
             Shares = obj.GetObject("shares", FacebookShares.Parse);
             Likes = obj.GetObject("likes", FacebookLikes.Parse);
-            Comments = obj.GetObject("comments", FacebookComments.Parse);
+            Comments = obj.GetObject("comments", FacebookCommentsCollection.Parse);
         }
 
         #endregion

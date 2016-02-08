@@ -79,6 +79,7 @@
     <Compile Include="Endpoints\Raw\FacebookPostsRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookUsersRawEndpoint.cs" />
     <Compile Include="Enums\FacebookAlbumType.cs" />
+    <Compile Include="Enums\FacebookCommentsOrder.cs" />
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
@@ -97,10 +98,8 @@
     <Compile Include="Objects\Albums\FacebookPostAlbumSummary.cs" />
     <Compile Include="Objects\Apps\FacebookApp.cs" />
     <Compile Include="Objects\Comments\FacebookComment.cs" />
-    <Compile Include="Objects\Comments\FacebookComments.cs" />
     <Compile Include="Objects\Comments\FacebookCommentsCollection.cs" />
     <Compile Include="Objects\Comments\FacebookCommentsSummary.cs" />
-    <Compile Include="Objects\Comments\FacebookCommentSummary.cs" />
     <Compile Include="Objects\Debug\FacebookDebugToken.cs" />
     <Compile Include="Objects\Debug\FacebookDebugTokenData.cs" />
     <Compile Include="Objects\Events\FacebookEvent.cs" />
