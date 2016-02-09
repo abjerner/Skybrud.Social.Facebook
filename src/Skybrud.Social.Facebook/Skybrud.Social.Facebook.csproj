@@ -121,7 +121,6 @@
     <Compile Include="Objects\Feed\FacebookFeedCollection.cs" />
     <Compile Include="Objects\Feed\FacebookFeedEntry.cs" />
     <Compile Include="Objects\Likes\FacebookLike.cs" />
-    <Compile Include="Objects\Likes\FacebookLikes.cs" />
     <Compile Include="Objects\Likes\FacebookLikesCollection.cs" />
     <Compile Include="Objects\Likes\FacebookLikesSummary.cs" />
     <Compile Include="Objects\Links\FacebookLink.cs" />

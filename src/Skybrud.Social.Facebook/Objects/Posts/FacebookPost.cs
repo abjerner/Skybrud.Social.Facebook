@@ -36,7 +36,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         /// </summary>
         public FacebookShares Shares { get; private set; }
         
-        public FacebookLikes Likes { get; private set; }
+        public FacebookLikesCollection Likes { get; private set; }
         public FacebookCommentsCollection Comments { get; private set; }
 
         public DateTime SortDate {
@@ -67,7 +67,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
             CreatedTime = obj.GetDateTime("created_time");
             UpdatedTime = obj.GetDateTime("updated_time");
             Shares = obj.GetObject("shares", FacebookShares.Parse);
-            Likes = obj.GetObject("likes", FacebookLikes.Parse);
+            Likes = obj.GetObject("likes", FacebookLikesCollection.Parse);
             Comments = obj.GetObject("comments", FacebookCommentsCollection.Parse);
         }
 

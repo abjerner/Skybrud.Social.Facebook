@@ -3,6 +3,9 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 
+    /// <summary>
+    /// Class representing a single like.
+    /// </summary>
     public class FacebookLike : FacebookObject {
 
         #region Properties
@@ -30,6 +33,11 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookLike"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <returns>Returns an instance of <see cref="FacebookLike"/>.</returns>
         public static FacebookLike Parse(JObject obj) {
             return obj == null ? null : new FacebookLike(obj);
         }

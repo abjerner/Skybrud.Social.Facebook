@@ -103,7 +103,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         /// <summary>
         /// Gets an object with information about how the entry has been liked.
         /// </summary>
-        public FacebookLikes Likes { get; private set; }
+        public FacebookLikesCollection Likes { get; private set; }
         
         /// <summary>
         /// Gets an object with information about how the entry has been commented.
@@ -142,7 +142,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
             UpdatedTime = obj.GetDateTime("updated_time");
             Comments = obj.GetObject("comments", FacebookCommentsCollection.Parse);
             Shares = obj.GetObject("shares", FacebookShares.Parse);
-            Likes = obj.GetObject("likes", FacebookLikes.Parse);
+            Likes = obj.GetObject("likes", FacebookLikesCollection.Parse);
             ObjectId = obj.GetString("object_id");
         }
 
