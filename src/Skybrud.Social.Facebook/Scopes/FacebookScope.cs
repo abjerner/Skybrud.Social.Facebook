@@ -88,8 +88,8 @@ namespace Skybrud.Social.Facebook.Scopes {
         #region Operators
 
         /// <summary>
-        /// Adding two instances of <code>FacebookScope</code> will result in a
-        /// <code>FacebookScopeCollection</code> containing both scopes.
+        /// Adding two instances of <see cref="FacebookScope"/> will result in a <see cref="FacebookScopeCollection"/>
+        /// containing both scopes.
         /// </summary>
         /// <param name="left">The left scope.</param>
         /// <param name="right">The right scope.</param>

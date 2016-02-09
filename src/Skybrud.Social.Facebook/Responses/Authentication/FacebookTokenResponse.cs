@@ -3,6 +3,9 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Authentication {
 
+    /// <summary>
+    /// Class representing a response with information about an access token.
+    /// </summary>
     public class FacebookTokenResponse : FacebookResponse<FacebookToken> {
 
         #region Properties
@@ -58,10 +61,10 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <code>FacebookTokenResponse</code>.
+        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookTokenResponse"/>.
         /// </summary>
-        /// <param name="response">The response to be parsed.</param>
-        /// <returns>Returns an instance of <code>FacebookTokenResponse</code>.</returns>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public static FacebookTokenResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookTokenResponse(response);
         }

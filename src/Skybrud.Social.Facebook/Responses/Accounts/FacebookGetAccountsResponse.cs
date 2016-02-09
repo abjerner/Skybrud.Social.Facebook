@@ -3,6 +3,9 @@ using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Accounts {
 
+    /// <summary>
+    /// Class representing a response for a collection of Facebook accounts.
+    /// </summary>
     public class FacebookGetAccountsResponse : FacebookResponse<FacebookAccountsCollection> {
 
         #region Constructors
@@ -21,6 +24,11 @@ namespace Skybrud.Social.Facebook.Responses.Accounts {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetAccountsResponse"/>.
+        /// </summary>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <returns>Returns an instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
         public static FacebookGetAccountsResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetAccountsResponse(response);
         }

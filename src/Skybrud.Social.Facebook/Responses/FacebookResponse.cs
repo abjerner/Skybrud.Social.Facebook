@@ -13,6 +13,10 @@ namespace Skybrud.Social.Facebook.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
         protected FacebookResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
@@ -22,7 +26,7 @@ namespace Skybrud.Social.Facebook.Responses {
         /// <summary>
         /// Validates the specified <code>response</code>.
         /// </summary>
-        /// <param name="response">The response to be validated.</param>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
         public static void ValidateResponse(SocialHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
@@ -61,6 +65,10 @@ namespace Skybrud.Social.Facebook.Responses {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
         protected FacebookResponse(SocialHttpResponse response) : base(response) { }
 
         #endregion
