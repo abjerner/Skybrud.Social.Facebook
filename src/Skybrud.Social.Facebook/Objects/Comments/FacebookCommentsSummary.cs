@@ -50,10 +50,10 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="Skybrud.Social.Facebook.Objects.Comments.FacebookCommentsSummary"/>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookCommentsSummary"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
-        /// <returns>Returns an instance of <see cref="Skybrud.Social.Facebook.Objects.Comments.FacebookCommentsSummary"/>.</returns>
+        /// <returns>Returns an instance of <see cref="FacebookCommentsSummary"/>.</returns>
         public static FacebookCommentsSummary Parse(JObject obj) {
             return obj == null ? null : new FacebookCommentsSummary(obj);
         }
