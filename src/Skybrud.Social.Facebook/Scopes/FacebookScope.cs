@@ -26,6 +26,11 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// </summary>
         public string Description { get; private set; }
 
+        /// <summary>
+        /// Indicates whether the scope requires your app to be reviewed by Facebook.
+        /// </summary>
+        public FacebookScopeReview Review { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -38,6 +43,18 @@ namespace Skybrud.Social.Facebook.Scopes {
         public FacebookScope(string name, string description = null) {
             Name = name;
             Description = String.IsNullOrWhiteSpace(description) ? null : description.Trim();
+        }
+
+        /// <summary>
+        /// Default and private constructor.
+        /// </summary>
+        /// <param name="name">The name of the scope.</param>
+        /// <param name="description">The description of the scope.</param>
+        /// <param name="review">Whether the scope requires your app to be reviewed by Facebook.</param>
+        public FacebookScope(string name, string description, FacebookScopeReview review = FacebookScopeReview.Unspecified) {
+            Name = name;
+            Description = String.IsNullOrWhiteSpace(description) ? null : description.Trim();
+            Review = review;
         }
 
         #endregion
