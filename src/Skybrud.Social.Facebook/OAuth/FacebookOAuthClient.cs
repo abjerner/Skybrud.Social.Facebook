@@ -1,21 +1,17 @@
 using System;
 using System.Collections.Specialized;
-using System.IO;
-using System.Net;
-using System.Text;
 using Skybrud.Social.Exceptions;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Responses.Authentication;
 using Skybrud.Social.Facebook.Scopes;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
 
 namespace Skybrud.Social.Facebook.OAuth {
 
     /// <summary>
     /// Class for handling the raw communication with the Facebook API as well as any OAuth 2.0 communication.
     /// </summary>
-    public class FacebookOAuthClient {
+    public class FacebookOAuthClient : SocialHttpClient {
         
         #region Properties
 
@@ -297,159 +293,23 @@ namespace Skybrud.Social.Facebook.OAuth {
 
         }
 
-        /// <summary>
-        /// Makes a GET request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpGetRequest(string url) {
-            return DoHttpGetRequest(url, (SocialQueryString) null);
-        }
-
-        /// <summary>
-        /// Makes a GET request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="query">The query string of the request.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpGetRequest(string url, NameValueCollection query) {
-            return DoHttpGetRequest(url, new SocialQueryString(query));
-        }
-
-        /// <summary>
-        /// Makes a GET request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="options">The options of the request.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpGetRequest(string url, IGetOptions options) {
-            return DoHttpGetRequest(url, options == null ? null : options.GetQueryString());
-        }
-
-        /// <summary>
-        /// Makes a GET request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="query">The query string of the request.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpGetRequest(string url, SocialQueryString query) {
-
-            // Throw an exception if the URL is empty
-            if (String.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url");
+        protected override void PrepareHttpRequest(SocialHttpRequest request) {
 
             // Append the HTTP scheme and API version if not already specified.
-            if (url.StartsWith("/")) {
-                url = "https://graph.facebook.com" + (String.IsNullOrWhiteSpace(Version) ? "" : "/" + Version) + url;
+            if (request.Url.StartsWith("/")) {
+                request.Url = "https://graph.facebook.com" + (String.IsNullOrWhiteSpace(Version) ? "" : "/" + Version) + request.Url;
             }
-
-            // Initialize a new instance of SocialQueryString if the one specified is NULL
-            if (query == null) query = new SocialQueryString();
-
+            
             // Append the access token to the query string if present in the client and not already
             // specified in the query string
-            if (!query.ContainsKey("access_token") && !String.IsNullOrWhiteSpace(AccessToken)) {
-                query.Add("access_token", AccessToken);
+            if (!request.QueryString.ContainsKey("access_token") && !String.IsNullOrWhiteSpace(AccessToken)) {
+                request.QueryString.Add("access_token", AccessToken);
             }
 
             // Append the locale to the query string if present in the client and not already
             // specified in the query string
-            if (!query.ContainsKey("locale") && !String.IsNullOrWhiteSpace(Locale)) {
-                query.Add("locale", Locale);
-            }
-
-            // Append the query string to the URL
-            if (!query.IsEmpty) url += (url.Contains("?") ? "&" : "?") + query;
-
-            // Initialize a new HTTP request
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
-
-            // Get the HTTP response
-            try {
-                return SocialHttpResponse.GetFromWebResponse(request.GetResponse() as HttpWebResponse);
-            } catch (WebException ex) {
-                if (ex.Status != WebExceptionStatus.ProtocolError) throw;
-                return SocialHttpResponse.GetFromWebResponse(ex.Response as HttpWebResponse);
-            }
-
-        }
-
-        /// <summary>
-        /// Makes a POST request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="options">The options of the request.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpPostRequest(string url, IPostOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
-            return DoHttpPostRequest(url, options.GetQueryString(), options.GetPostData(), options.IsMultipart);
-        }
-
-        /// <summary>
-        /// Makes a POST request to the Facebook API. If the <code>AccessToken</code> property has
-        /// been specified, the access token will be appended to the query string.
-        /// </summary>
-        /// <param name="url">The URL to call.</param>
-        /// <param name="query">The query string of the request.</param>
-        /// <param name="postData">The POST data.</param>
-        /// <param name="isMultipart">If <code>true</code>, the content type of the request will be <code>multipart/form-data</code>, otherwise <code>application/x-www-form-urlencoded</code>.</param>
-        /// <returns>Returns an instance of <code>SocialHttpResponse</code> wrapping the response from the Facebook Graph API.</returns>
-        public SocialHttpResponse DoHttpPostRequest(string url, SocialQueryString query, SocialPostData postData, bool isMultipart) {
-
-            // Throw an exception if the URL is empty
-            if (String.IsNullOrWhiteSpace(url)) throw new ArgumentNullException("url");
-
-            // Append the HTTP scheme and API version if not already specified.
-            if (url.StartsWith("/")) {
-                url = "https://graph.facebook.com" + (String.IsNullOrWhiteSpace(Version) ? "" : "/" + Version) + url;
-            }
-
-            // Initialize a new instance of SocialQueryString if the one specified is NULL
-            if (query == null) query = new SocialQueryString();
-
-            // Append the access token to the query string if present in the client and not already
-            // specified in the query string
-            if (!query.ContainsKey("access_token") && !String.IsNullOrWhiteSpace(AccessToken)) {
-                query.Add("access_token", AccessToken);
-            }
-
-            // Append the query string to the URL
-            if (!query.IsEmpty) url += (url.Contains("?") ? "&" : "?") + query;
-
-            // Initialize a new HTTP request
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create(url);
-
-            // Set the HTTP method
-            request.Method = "POST";
-
-            // Write the POST data to the request stream
-            if (postData != null && postData.Count > 0) {
-                if (isMultipart) {
-                    string boundary = Guid.NewGuid().ToString().Replace("-", "");
-                    request.ContentType = "multipart/form-data; boundary=" + boundary;
-                    using (Stream stream = request.GetRequestStream()) {
-                        postData.WriteMultipartFormData(stream, boundary);
-                    }
-                } else {
-                    string dataString = postData.ToString();
-                    request.ContentType = "application/x-www-form-urlencoded";
-                    request.ContentLength = dataString.Length;
-                    using (Stream stream = request.GetRequestStream()) {
-                        stream.Write(Encoding.UTF8.GetBytes(dataString), 0, dataString.Length);
-                    }
-                }
-            }
-
-            // Get the HTTP response
-            try {
-                return SocialHttpResponse.GetFromWebResponse(request.GetResponse() as HttpWebResponse);
-            } catch (WebException ex) {
-                if (ex.Status != WebExceptionStatus.ProtocolError) throw;
-                return SocialHttpResponse.GetFromWebResponse(ex.Response as HttpWebResponse);
+            if (!request.QueryString.ContainsKey("locale") && !String.IsNullOrWhiteSpace(Locale)) {
+                request.QueryString.Add("locale", Locale);
             }
 
         }
