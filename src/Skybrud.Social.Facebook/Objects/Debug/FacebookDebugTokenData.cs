@@ -88,11 +88,10 @@ namespace Skybrud.Social.Facebook.Objects.Debug {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>FacebookDebugTokenData</code> from the specified <code>obj</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookDebugTokenData"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
-        /// <returns>Returns an instance of <code>FacebookDebugTokenData</code>, or <code>null</code> if
-        /// <code>obj</code> is <code>null</code>.</returns>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookDebugTokenData"/>.</returns>
         public static FacebookDebugTokenData Parse(JObject obj) {
             return obj == null ? null : new FacebookDebugTokenData(obj);
         }

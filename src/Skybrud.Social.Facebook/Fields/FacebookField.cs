@@ -37,8 +37,7 @@
         }
 
         /// <summary>
-        /// Adding two instances of <code>FacebookField</code> will result in a
-        /// <code>FacebookFieldsCollection</code> containing both fields.
+        /// Adding two instances of <see cref="FacebookField"/> will result in a <see cref="FacebookFieldsCollection"/> containing both fields.
         /// </summary>
         /// <param name="left">The left field.</param>
         /// <param name="right">The right field.</param>

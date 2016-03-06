@@ -96,7 +96,7 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
 
         /// <summary>
         /// Gets information about how many times the feed entry has been shared. If the feed entry
-        /// hasn't yet been shared, this property will return <code>NULL</code>.
+        /// hasn't yet been shared, this property will return <code>null</code>.
         /// </summary>
         public FacebookShares Shares { get; private set; }
 
@@ -151,9 +151,10 @@ namespace Skybrud.Social.Facebook.Objects.Feed {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookFeedEntry</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookFeedEntry"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookFeedEntry"/>.</returns>
         public static FacebookFeedEntry Parse(JObject obj) {
             return obj == null ? null : new FacebookFeedEntry(obj);
         }

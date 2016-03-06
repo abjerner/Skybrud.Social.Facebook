@@ -236,9 +236,10 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
         #region Static methods
 
         /// <summary>
-        /// Gets a page from the specified <code>JObject</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookPage"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookPage"/>.</returns>
         public static FacebookPage Parse(JObject obj) {
             return obj == null ? null : new FacebookPage(obj);
         }

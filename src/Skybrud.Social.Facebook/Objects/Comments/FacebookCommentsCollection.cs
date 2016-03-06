@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Facebook.Options.Comments;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Comments {
@@ -22,13 +23,13 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         public FacebookCursorBasedPagination Paging { get; private set; }
 
         /// <summary>
-        /// Gets a summary for all comments. The summary is only present in the response if <code>IncludeSummary</code>
-        /// was <code>TRUE</code> in the request options.
+        /// Gets a summary for all comments. The summary is only present in the response if
+        /// <see cref="FacebookGetCommentsOptions.IncludeSummary"/> was <code>true</code> in the request options.
         /// </summary>
         public FacebookCommentsSummary Summary { get; private set; }
 
         /// <summary>
-        /// Gets whether the <code>Summary</code> property is present.
+        /// Gets whether the <see cref="Summary"/> property is present.
         /// </summary>
         public bool HasSummary {
             get { return Summary != null; }

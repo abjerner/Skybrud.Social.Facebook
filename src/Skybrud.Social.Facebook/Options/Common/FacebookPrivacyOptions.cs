@@ -15,15 +15,15 @@ namespace Skybrud.Social.Facebook.Options.Common {
         public FacebookPrivacy Value { get; set; }
 
         /// <summary>
-        /// When <code>Value</code> is <code>Custom</code>, this is a comma-separated list of user IDs and friend list
-        /// IDs that <strong>can</strong> see the post. This can also be <code>ALL_FRIENDS</code> or
-        /// <code>FRIENDS_OF_FRIENDS</code> to include all members of those sets.
+        /// When <see cref="Value"/> is <see cref="FacebookPrivacy.Custom"/>, this is a comma-separated list of user
+        /// IDs and friend list IDs that <strong>can</strong> see the post. This can also be <code>ALL_FRIENDS</code>
+        /// or <code>FRIENDS_OF_FRIENDS</code> to include all members of those sets.
         /// </summary>
         public string[] Allow { get; set; }
 
         /// <summary>
-        /// When <code>Value</code> is <code>Custom</code>, this is a comma-separated list of user IDs and friend list
-        /// IDs that cannot see the post.
+        /// When <see cref="Value"/> is <see cref="FacebookPrivacy.Custom"/>, this is a comma-separated list of user
+        /// IDs and friend list IDs that cannot see the post.
         /// </summary>
         public string[] Deny { get; set; }
 

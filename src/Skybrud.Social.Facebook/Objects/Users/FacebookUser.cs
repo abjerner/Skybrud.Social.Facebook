@@ -4,6 +4,9 @@ using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Users {
     
+    /// <summary>
+    /// Class representing information about a Facebook user.
+    /// </summary>
     public class FacebookUser : FacebookObject {
 
         #region Properties
@@ -146,9 +149,10 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         #region Static methods
 
         /// <summary>
-        /// Gets a user from the specified <code>JObject</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookUser"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookUser"/>.</returns>
         public static FacebookUser Parse(JObject obj) {
             return obj == null ? null : new FacebookUser(obj);
         }

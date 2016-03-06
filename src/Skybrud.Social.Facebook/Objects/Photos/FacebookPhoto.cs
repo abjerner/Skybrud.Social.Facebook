@@ -23,7 +23,7 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
 
         /// <summary>
         /// Gets the place the photo was taken. It is possible to upload photos to Facebook without
-        /// specifying a place, and in such cases the property will be <code>NULL</code>.
+        /// specifying a place, and in such cases the property will be <code>null</code>.
         /// </summary>
         public FacebookPlace Place { get; private set; }
 
@@ -58,6 +58,11 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookPhoto"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookPhoto"/>.</returns>
         public static FacebookPhoto Parse(JObject obj) {
             return obj == null ? null : new FacebookPhoto(obj);
         }

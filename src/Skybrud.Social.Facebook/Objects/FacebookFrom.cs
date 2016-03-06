@@ -46,9 +46,10 @@ namespace Skybrud.Social.Facebook.Objects {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookFrom</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookFrom"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookFrom"/>.</returns>
         public static FacebookFrom Parse(JObject obj) {
             return obj == null ? null : new FacebookFrom(obj);
         }

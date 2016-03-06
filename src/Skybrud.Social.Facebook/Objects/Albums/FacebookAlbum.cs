@@ -108,11 +108,10 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         #region Static methods
 
         /// <summary>
-        /// Gets an album from the specified <code>JObject</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookAlbum"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
-        /// <returns>Returns an instance of <code>FacebookAlbum</code>, or <code>null</code> if the specified
-        /// <code>obj</code> is <code>null</code>.</returns>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookAlbum"/>.</returns>
         public static FacebookAlbum Parse(JObject obj) {
             return obj == null ? null : new FacebookAlbum(obj);
         }

@@ -130,6 +130,10 @@ namespace Skybrud.Social.Facebook.Objects.Events {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <code>obj</code>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
         protected FacebookEvent(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
@@ -149,11 +153,10 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>FacebookEvent</code> from the specified <code>obj</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookEvent"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
-        /// <returns>Returns an instance of <code>FacebookEvent</code>, or <code>null</code> if <code>obj</code> is
-        /// <code>null</code>.</returns>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookEvent"/>.</returns>
         public static FacebookEvent Parse(JObject obj) {
             return obj == null ? null : new FacebookEvent(obj);
         }

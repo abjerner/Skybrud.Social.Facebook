@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Objects {
         public string Next { get; private set; }
 
         /// <summary>
-        /// The timestamp used for the <code>Previous</code> link.
+        /// The timestamp used for the <see cref="Previous"/> link.
         /// </summary>
         public int? Since {
             get {
@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Objects {
         }
 
         /// <summary>
-        /// The timestamp used for the <code>Next</code> link.
+        /// The timestamp used for the <see cref="Next"/> link.
         /// </summary>
         public int? Until {
             get {
@@ -58,6 +58,11 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookPaging"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookPaging"/>.</returns>
         public static FacebookPaging Parse(JObject obj) {
             return obj == null ? null : new FacebookPaging(obj);
         }

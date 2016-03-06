@@ -3,6 +3,9 @@ using System.Collections.Specialized;
 
 namespace Skybrud.Social.Facebook.Objects.Authentication {
     
+    /// <summary>
+    /// Class describing an access token received from the Facebook Graph API.
+    /// </summary>
     public class FacebookToken {
 
         #region Properties
@@ -14,8 +17,8 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
         public string AccessToken { get; private set; }
 
         /// <summary>
-        /// Gets an instance of <code>TimeSpan</code> representing the time until the access token will expire. If
-        /// <code>TotalSeconds</code> is <code>0</code>, the token will not expire (eg. an app access token).
+        /// Gets an instance of <see cref="TimeSpan"/> representing the time until the access token will expire. If
+        /// <see cref="TimeSpan.TotalSeconds"/> is <code>0</code>, the token will not expire (eg. an app access token).
         /// </summary>
         public TimeSpan ExpiresIn { get; private set; }
 
@@ -27,10 +30,15 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
 
         #endregion
 
-        public static FacebookToken Parse(string contents) {
+        /// <summary>
+        /// Parses the specified <code>str</code> into an instance of <see cref="FacebookToken"/>.
+        /// </summary>
+        /// <param name="str">The string to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookToken"/>.</returns>
+        public static FacebookToken Parse(string str) {
             
             // Parse the contents
-            NameValueCollection body = SocialUtils.ParseQueryString(contents);
+            NameValueCollection body = SocialUtils.ParseQueryString(str);
 
             // Get the amount of seconds until the access token expires (0 = doesn't expire)
             int expires = body["expires"] == null ? 0 : Int32.Parse(body["expires"]);

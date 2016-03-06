@@ -44,14 +44,14 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
         }
 
         #endregion
-
-
+        
         #region Static methods
 
         /// <summary>
-        /// Gets an instance of <code>FacebookApp</code> from the specified <code>JObject</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookApp"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookApp"/>.</returns>
         public static FacebookApp Parse(JObject obj) {
             return obj == null ? null : new FacebookApp(obj);
         }

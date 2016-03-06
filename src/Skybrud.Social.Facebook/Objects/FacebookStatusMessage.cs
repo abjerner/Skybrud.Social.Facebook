@@ -30,7 +30,7 @@ namespace Skybrud.Social.Facebook.Objects {
 
         /// <summary>
         /// Gets brief information about the application used to post the status message. If the status message was
-        /// posted directly from facebook.com, this property will return <code>NULL</code>.
+        /// posted directly from facebook.com, this property will return <code>null</code>.
         /// </summary>
         public FacebookEntity Application { get; private set; }
 
@@ -62,6 +62,11 @@ namespace Skybrud.Social.Facebook.Objects {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookStatusMessage"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookStatusMessage"/>.</returns>
         public static FacebookStatusMessage Parse(JObject obj) {
             return obj == null ? null : new FacebookStatusMessage(obj);
         }

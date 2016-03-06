@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Pagination;
+using Skybrud.Social.Facebook.Options.Likes;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
@@ -22,8 +23,8 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         public FacebookCursorBasedPagination Paging { get; private set; }
 
         /// <summary>
-        /// Gets a summary for all likes. The summary is only present in the response if <code>IncludeSummary</code>
-        /// was <code>true</code> in the request options.
+        /// Gets a summary for all likes. The summary is only present in the response if
+        /// <see cref="FacebookGetLikesOptions.IncludeSummary"/> was <code>true</code> in the request options.
         /// </summary>
         public FacebookLikesSummary Summary { get; private set; }
 
@@ -44,7 +45,7 @@ namespace Skybrud.Social.Facebook.Objects.Likes {
         /// <summary>
         /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookLikesCollection"/>.
         /// </summary>
-        /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookLikesCollection"/>.</returns>
         public static FacebookLikesCollection Parse(JObject obj) {
             return obj == null ? null : new FacebookLikesCollection(obj);

@@ -32,7 +32,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         
         /// <summary>
         /// Gets information about how many times the post has been shared. If the post hasn't yet
-        /// been shared, this property will return <code>NULL</code>.
+        /// been shared, this property will return <code>null</code>.
         /// </summary>
         public FacebookShares Shares { get; private set; }
         
@@ -76,9 +76,10 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         #region Static methods
 
         /// <summary>
-        /// Gets a post from the specified <code>JObject</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookPost"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to parse.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookPost"/>.</returns>
         public static FacebookPost Parse(JObject obj) {
             return obj == null ? null : new FacebookPost(obj);
         }

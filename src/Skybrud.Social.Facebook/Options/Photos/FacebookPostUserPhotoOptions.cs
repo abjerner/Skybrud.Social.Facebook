@@ -18,14 +18,14 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets the photo. Either this or <code>url</code> field is required, but both should not be used
+        /// Gets or sets the photo. Either this or <see cref="Url"/> property is required, but both should not be used
         /// together.
         /// </summary>
         public string Source { get; set; }
 
         /// <summary>
-        /// The URL of a photo that is already uploaded to the internet. Either this or <code>source</code> is
-        /// required, but both should not be used together.
+        /// The URL of a photo that is already uploaded to the internet. Either this or <see cref="Source"/> property
+        /// is required, but both should not be used together.
         /// </summary>
         public string Url { get; set; }
 
@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         public string Place { get; set; }
 
         /// <summary>
-        /// If set to <code>TRUE</code>, this will suppress the feed story that is automatically generated on a
+        /// If set to <code>true</code>, this will suppress the feed story that is automatically generated on a
         /// person's profile when they upload a photo using your app.
         /// </summary>
         public bool NoStory { get; set; }

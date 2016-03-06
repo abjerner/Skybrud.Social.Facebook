@@ -46,9 +46,10 @@ namespace Skybrud.Social.Facebook.Objects {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>JObject</code> into an instance of <code>FacebookCoverPhoto</code>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookCoverPhoto"/>.
         /// </summary>
-        /// <param name="obj">The instance of <code>JObject</code> to be parsed.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>Returns an instance of <see cref="FacebookCoverPhoto"/>.</returns>
         public static FacebookCoverPhoto Parse(JObject obj) {
             return obj == null ? null : new FacebookCoverPhoto(obj);
         }

@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Exceptions {
         #region Properties
 
         /// <summary>
-        /// Gets a reference to the underlying <code>SocialHttpResponse</code>.
+        /// Gets a reference to the underlying <see cref="SocialHttpResponse"/>.
         /// </summary>
         public SocialHttpResponse Response { get; private set; }
 
@@ -35,6 +35,14 @@ namespace Skybrud.Social.Facebook.Exceptions {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new exception based on the specified <code>response</code>.
+        /// </summary>
+        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the response.</param>
+        /// <param name="code">The error code.</param>
+        /// <param name="type">The error type.</param>
+        /// <param name="message">The error message.</param>
+        /// <param name="subcode">The error subcode.</param>
         public FacebookException(SocialHttpResponse response, int code, string type, string message, int subcode = 0) : base(message) {
             Response = response;
             Code = code;

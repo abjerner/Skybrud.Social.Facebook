@@ -12,8 +12,9 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         #region Properties
 
         /// <summary>
-        /// Order in which comments were returned. <code>Ranked</code> indicates the most interesting comments are
-        /// sorted first. <code>Chronological</code> indicates comments are sorted by the oldest comments first.
+        /// Order in which comments were returned. <see cref="FacebookCommentsOrder.Ranked"/> indicates the most
+        /// interesting comments are sorted first. <see cref="FacebookCommentsOrder.Chronological"/> indicates comments
+        /// are sorted by the oldest comments first.
         /// </summary>
         public FacebookCommentsOrder Order { get; private set; }
 

@@ -220,7 +220,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Exchanges the specified authorization code for an access token.
         /// </summary>
         /// <param name="authCode">The authorization code received from the Facebook OAuth dialog.</param>
-        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
+        /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
@@ -249,7 +249,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Attempts to renew a user access token. The specified <code>currentToken</code> must be valid.
         /// </summary>
         /// <param name="currentToken">The current access token.</param>
-        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
+        /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public FacebookTokenResponse RenewAccessToken(string currentToken) {
 
             // Some validation
@@ -274,10 +274,10 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Gets an app access token for for the application. The <code>ClientId</code> and <code>ClientSecret</code>
+        /// Gets an app access token for for the application. The <see cref="ClientId"/> and <see cref="ClientSecret"/>
         /// properties must be specified for the OAuth client.
         /// </summary>
-        /// <returns>Returns an instance of <code>FacebookTokenResponse</code> representing the response.</returns>
+        /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public FacebookTokenResponse GetAppAccessToken() {
 
             // Some validation
