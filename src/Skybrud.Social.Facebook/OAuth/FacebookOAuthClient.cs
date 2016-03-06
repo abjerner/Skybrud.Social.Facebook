@@ -148,6 +148,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// </summary>
         /// <param name="accessToken">A valid access token.</param>
         public FacebookOAuthClient(string accessToken) : this() {
+            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException("accessToken");
             AccessToken = accessToken;
         }
 
@@ -157,6 +158,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="clientId">The client ID of the app.</param>
         /// <param name="clientSecret">The client secret of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret) : this() {
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
             ClientId = clientId;
             ClientSecret = clientSecret;
         }
@@ -169,6 +172,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="clientSecret">The client secret of the app.</param>
         /// <param name="redirectUri">The redirect URI of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret, string redirectUri) : this() {
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
+            if (String.IsNullOrWhiteSpace(redirectUri)) throw new ArgumentNullException("redirectUri");
             ClientId = clientId;
             ClientSecret = clientSecret;
             RedirectUri = redirectUri;
