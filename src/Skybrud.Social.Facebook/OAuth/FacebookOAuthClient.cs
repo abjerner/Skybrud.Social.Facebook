@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         #endregion
 
         /// <summary>
-        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.2</code>.
+        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.5</code>.
         /// </summary>
         public string Version { get; set; }
 
