@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 	var pkg = grunt.file.readJSON('package.json');
 
 	// Load information about the assembly
-	var assembly = grunt.file.readJSON('src/' + pkg + '/Properties/AssemblyInfo.json');
+	var assembly = grunt.file.readJSON('src/' + pkg.name + '/Properties/AssemblyInfo.json');
 
 	// Get the version of the package
     var version = assembly.informationalVersion ? assembly.informationalVersion : assembly.version;
@@ -15,7 +15,7 @@ module.exports = function (grunt) {
 	    pkg: pkg,
 	    nugetpack: {
 	        release: {
-	            src: 'src/' + pkg + '/' + pkg + '.csproj',
+	            src: 'src/' + pkg.name + '/' + pkg.name + '.csproj',
 	            dest: 'releases/nuget/'
 	        }
 	    },
@@ -25,13 +25,13 @@ module.exports = function (grunt) {
 		            return path.basename(filepath);
 		        },
 		        src: [
-					'src/' + pkg + '/bin/Release/Skybrud.Social.dll',
-					'src/' + pkg + '/bin/Release/Skybrud.Social.xml',
-					'src/' + pkg + '/bin/Release/' + pkg + '.dll',
-					'src/' + pkg + '/bin/Release/' + pkg + '.xml',
-					'src/' + pkg + '/LICENSE.txt'
+					'src/' + pkg.name + '/bin/Release/Skybrud.Social.dll',
+					'src/' + pkg.name + '/bin/Release/Skybrud.Social.xml',
+					'src/' + pkg.name + '/bin/Release/' + pkg.name + '.dll',
+					'src/' + pkg.name + '/bin/Release/' + pkg.name + '.xml',
+					'src/' + pkg.name + '/LICENSE.txt'
 				],
-			    dest: 'releases/github/' + pkg + '.v' + version + '.zip'
+		        dest: 'releases/github/' + pkg.name + '.v' + version + '.zip'
 			}
 		}
 	});
