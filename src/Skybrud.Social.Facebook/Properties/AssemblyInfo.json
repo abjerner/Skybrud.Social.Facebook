@@ -4,7 +4,7 @@
   "company": "Skybrud.dk",
   "product": "Skybrud.Social",
   "copyright": "Copyright © 2016",
-  "version": "0.0.1.0",
-  "informationalVersion": "0.0.1-alpha1",
-  "fileVersion": "0.0.1315.10"
+  "version": "1.0.0.0",
+  "informationalVersion": "1.0.0-beta1",
+  "fileVersion": "0.0.1315.11"
 }

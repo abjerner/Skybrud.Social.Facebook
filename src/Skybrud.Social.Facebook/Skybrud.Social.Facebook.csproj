@@ -198,6 +198,9 @@
     <None Include="Properties\AssemblyInfo.json" />
     <None Include="Skybrud.Social.Facebook.nuspec" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="LICENSE.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)build\Skybrud.Social.PreBuildTool.exe" 2012-07-30 "$(ProjectPath)"</PreBuildEvent>
