@@ -192,7 +192,6 @@
     <Compile Include="Responses\Users\FacebookGetUserResponse.cs" />
     <Compile Include="Scopes\FacebookScopeReview.cs" />
     <Compile Include="Scopes\FacebookScopes.cs" />
-    <Compile Include="Scopes\Hest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
