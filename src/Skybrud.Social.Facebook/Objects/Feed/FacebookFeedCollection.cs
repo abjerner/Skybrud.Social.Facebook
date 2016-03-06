@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pagination;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Feed {

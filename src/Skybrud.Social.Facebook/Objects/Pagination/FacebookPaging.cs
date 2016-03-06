@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Facebook.Objects {
+namespace Skybrud.Social.Facebook.Objects.Pagination {
     
     public class FacebookPaging : FacebookObject {
 

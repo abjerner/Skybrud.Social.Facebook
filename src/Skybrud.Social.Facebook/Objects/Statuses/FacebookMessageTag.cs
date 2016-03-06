@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Facebook.Objects {
+namespace Skybrud.Social.Facebook.Objects.Statuses {
 
     public class FacebookMessageTag : FacebookObject {
 

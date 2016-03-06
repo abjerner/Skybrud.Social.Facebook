@@ -1,6 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Comments;
+using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Social.Facebook.Objects.Likes;
 using Skybrud.Social.Interfaces;
 using Skybrud.Social.Json.Extensions.JObject;

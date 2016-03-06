@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Social.Json.Extensions.JObject;
 
-namespace Skybrud.Social.Facebook.Objects {
+namespace Skybrud.Social.Facebook.Objects.Common {
 
     /// <summary>
     /// Class with information on how many times a given object has been shared.

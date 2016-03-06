@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Social.Json.Extensions.JObject;
 
 namespace Skybrud.Social.Facebook.Objects.Accounts {
