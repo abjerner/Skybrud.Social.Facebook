@@ -1,5 +1,5 @@
 ﻿using Skybrud.Social.Facebook.Options.Common.Pagination;
-using Skybrud.Social.Http;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Likes {
 
@@ -17,8 +17,11 @@ namespace Skybrud.Social.Facebook.Options.Likes {
 
         #region Methods
 
-        public override SocialQueryString GetQueryString() {
-            SocialQueryString query = base.GetQueryString();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public override IHttpQueryString GetQueryString() {
+            IHttpQueryString query = base.GetQueryString();
             if (IncludeSummary) query.Set("summary", "true");
             return query;
         }

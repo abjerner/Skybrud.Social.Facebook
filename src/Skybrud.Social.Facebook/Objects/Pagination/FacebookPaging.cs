@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Pagination {
     
@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Objects.Pagination {
         public int? Since {
             get {
                 if (Previous != null) {
-                    NameValueCollection response = SocialUtils.ParseQueryString(Previous);
+                    NameValueCollection response = SocialUtils.Misc.ParseQueryString(Previous);
                     if (response["since"] != null) return Int32.Parse(response["since"]);
                 }
                 return null;
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Objects.Pagination {
         public int? Until {
             get {
                 if (Next != null) {
-                    NameValueCollection response = SocialUtils.ParseQueryString(Next);
+                    NameValueCollection response = SocialUtils.Misc.ParseQueryString(Next);
                     if (response["until"] != null) return Int32.Parse(response["until"]);
                 }
                 return null;

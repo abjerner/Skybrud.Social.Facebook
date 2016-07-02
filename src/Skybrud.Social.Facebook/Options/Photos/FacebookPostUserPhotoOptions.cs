@@ -1,14 +1,14 @@
 ﻿using System;
 using Skybrud.Social.Facebook.Options.Common;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Photos {
 
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.2/user/photos#publish</cref>
     /// </see>
-    public class FacebookPostUserPhotoOptions : IPostOptions {
+    public class FacebookPostUserPhotoOptions : IHttpPostOptions {
 
         #region Properties
         
@@ -52,20 +52,22 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// </summary>
         public FacebookPrivacyOptions Privacy { get; set; }
 
-        public bool IsMultipart {
-            get { return !String.IsNullOrWhiteSpace(Source); }
-        }
-
         #endregion
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
-            return new SocialQueryString();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public IHttpQueryString GetQueryString() {
+            return new SocialHttpQueryString();
         }
 
-        public SocialPostData GetPostData() {
-            SocialPostData postData = new SocialPostData();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
+        /// </summary>
+        public IHttpPostData GetPostData() {
+            SocialHttpPostData postData = new SocialHttpPostData {IsMultipart = !String.IsNullOrWhiteSpace(Source)};
             if (!String.IsNullOrWhiteSpace(Source)) postData.AddFile("source", Source);
             if (!String.IsNullOrWhiteSpace(Url)) postData.Add("url", Url);
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);

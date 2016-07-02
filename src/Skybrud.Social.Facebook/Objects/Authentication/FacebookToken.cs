@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
         public static FacebookToken Parse(string str) {
             
             // Parse the contents
-            NameValueCollection body = SocialUtils.ParseQueryString(str);
+            NameValueCollection body = SocialUtils.Misc.ParseQueryString(str);
 
             // Get the amount of seconds until the access token expires (0 = doesn't expire)
             int expires = body["expires"] == null ? 0 : Int32.Parse(body["expires"]);

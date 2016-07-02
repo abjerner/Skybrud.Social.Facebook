@@ -205,7 +205,11 @@ namespace Skybrud.Social.Facebook.OAuth {
             // Some validation
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
-            if (String.IsNullOrWhiteSpace(state)) throw new ArgumentNullException("state");
+
+            // Do we have a valid "state" ?
+            if (String.IsNullOrWhiteSpace(state)) {
+                throw new ArgumentNullException("state", "A valid state should be specified as it is part of the security of OAuth 2.0.");
+            }
 
             return String.Format(
                 "https://www.facebook.com/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
@@ -214,6 +218,7 @@ namespace Skybrud.Social.Facebook.OAuth {
                 state,
                 String.Join(",", scope)
             );
+        
         }
 
         /// <summary>
@@ -238,7 +243,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
             
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -266,7 +271,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -292,7 +297,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);

@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Exceptions;
 using Skybrud.Social.Http;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Responses {
 

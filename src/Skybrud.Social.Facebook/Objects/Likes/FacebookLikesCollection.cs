@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Pagination;
 using Skybrud.Social.Facebook.Options.Likes;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Likes {
 

@@ -2,11 +2,11 @@
 using Skybrud.Social.Facebook.Enums;
 using Skybrud.Social.Facebook.Options.Common;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
     
-    public class FacebookPostAlbumOptions : IPostOptions {
+    public class FacebookPostAlbumOptions : IHttpPostOptions {
 
         #region Properties
 
@@ -31,21 +31,23 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// property only applies when creating a user album, and should therefore not be specified for page albums.
         /// </summary>
         public FacebookPrivacyOptions Privacy { get; set; }
-
-        public bool IsMultipart {
-            get { return false; }
-        }
-
+        
         #endregion
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
-            return new SocialQueryString();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public IHttpQueryString GetQueryString() {
+            return new SocialHttpQueryString();
         }
 
-        public SocialPostData GetPostData() {
-            SocialPostData postData = new SocialPostData();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
+        /// </summary>
+        public IHttpPostData GetPostData() {
+            SocialHttpPostData postData = new SocialHttpPostData();
             if (!String.IsNullOrWhiteSpace(Name)) postData.Add("name", Name);
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
             if (Privacy != null && Privacy.Value != FacebookPrivacy.Default) postData.Add("privacy", Privacy.ToString());

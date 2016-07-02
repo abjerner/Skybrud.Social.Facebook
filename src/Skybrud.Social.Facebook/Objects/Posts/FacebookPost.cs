@@ -4,7 +4,7 @@ using Skybrud.Social.Facebook.Objects.Comments;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Social.Facebook.Objects.Likes;
 using Skybrud.Social.Interfaces;
-using Skybrud.Social.Json.Extensions.JObject;
+using Skybrud.Social.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Posts {
 

@@ -1,14 +1,14 @@
 ﻿using System;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
 
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single album.
     /// </summary>
-    public class FacebookGetAlbumOptions : IGetOptions {
+    public class FacebookGetAlbumOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -45,13 +45,16 @@ namespace Skybrud.Social.Facebook.Options.Albums {
 
         #region Member methods
 
-        public SocialQueryString GetQueryString() {
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public IHttpQueryString GetQueryString() {
 
             // Convert the collection of fields to a string
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
 
             // Construct the query string
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
 
             return query;

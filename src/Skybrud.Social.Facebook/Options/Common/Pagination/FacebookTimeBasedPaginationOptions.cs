@@ -1,5 +1,5 @@
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Common.Pagination {
     
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/using-graph-api/v2.2#time</cref>
     /// </see>
-    public class FacebookTimeBasedPaginationOptions : IGetOptions {
+    public class FacebookTimeBasedPaginationOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -33,8 +33,11 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
 
         #region Methods
 
-        public virtual SocialQueryString GetQueryString() {
-            SocialQueryString query = new SocialQueryString();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public virtual IHttpQueryString GetQueryString() {
+            SocialHttpQueryString query = new SocialHttpQueryString();
             if (Limit != null && Limit.Value >= 0) query.Set("limit", Limit.Value);
             if (Since > 0) query.Set("since", Since);
             if (Until > 0) query.Set("until", Until);

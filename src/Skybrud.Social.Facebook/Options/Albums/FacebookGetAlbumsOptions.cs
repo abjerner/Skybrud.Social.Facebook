@@ -1,7 +1,7 @@
 ﻿using System;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
-using Skybrud.Social.Http;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
 
@@ -45,10 +45,13 @@ namespace Skybrud.Social.Facebook.Options.Albums {
 
         #region Member methods
 
-        public override SocialQueryString GetQueryString() {
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public override IHttpQueryString GetQueryString() {
 
             // Get the query string
-            SocialQueryString query = base.GetQueryString();
+            IHttpQueryString query = base.GetQueryString();
 
             // Convert the collection of fields to a string
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();

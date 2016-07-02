@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         public SocialHttpResponse DebugToken(string accessToken) {
 
             // Declare the query string
-            SocialQueryString query = new SocialQueryString();
+            SocialHttpQueryString query = new SocialHttpQueryString();
             query.Add("input_token", accessToken);
             
             // Make the call to the API

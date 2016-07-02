@@ -1,10 +1,10 @@
 using System;
 using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces;
+using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Links {
 
-    public class FacebookPostLinkOptions : IPostOptions {
+    public class FacebookPostLinkOptions : IHttpPostOptions {
 
         public string Link { get; set; }
         public string Message { get; set; }
@@ -12,16 +12,18 @@ namespace Skybrud.Social.Facebook.Options.Links {
         public string Name { get; set; }
         public string Caption { get; set; }
 
-        public SocialQueryString GetQueryString() {
-            return new SocialQueryString();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
+        /// </summary>
+        public IHttpQueryString GetQueryString() {
+            return new SocialHttpQueryString();
         }
 
-        public bool IsMultipart {
-            get { return false; }
-        }
-
-        public SocialPostData GetPostData() {
-            SocialPostData postData = new SocialPostData();
+        /// <summary>
+        /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
+        /// </summary>
+        public IHttpPostData GetPostData() {
+            SocialHttpPostData postData = new SocialHttpPostData();
             if (!String.IsNullOrWhiteSpace(Link)) postData.Add("link", Link);
             if (!String.IsNullOrWhiteSpace(Description)) postData.Add("description", Description);
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
