@@ -2,7 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Scopes;
-using Skybrud.Social.Json.Extensions;
+using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Time;
 
 namespace Skybrud.Social.Facebook.Objects.Debug {

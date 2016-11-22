@@ -1,6 +1,6 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Pagination;
-using Skybrud.Social.Json.Extensions;
+using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Photos {
 
