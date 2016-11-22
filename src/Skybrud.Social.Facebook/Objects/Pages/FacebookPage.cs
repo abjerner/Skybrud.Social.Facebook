@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Enums;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
 
@@ -190,6 +191,18 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
         /// </summary>
         public int WereHereCount { get; private set; }
 
+        /// <summary>
+        /// Pages with a large number of followers can be manually verified by Facebook as having an authentic
+        /// identity. This property indicates whether the page is verified by this process.
+        /// </summary>
+        public bool IsVerified { get; private set; }
+
+        /// <summary>
+        /// Gets whether this page is verified and in what color e.g. <strong>blue verified</strong>,
+        /// <strong>gray verified</strong> or <strong>not verified</strong>.
+        /// </summary>
+        public FacebookVerificationStatus VerificationStatus { get; private set; }
+
         #endregion
 
         #region Constructors
@@ -230,6 +243,8 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
             Username = obj.GetString("username");
             Website = obj.GetString("website");
             WereHereCount = obj.GetInt32("were_here_count");
+            IsVerified = obj.GetBoolean("is_verified");
+            VerificationStatus = (obj.HasValue("verification_status") ? obj.GetEnum<FacebookVerificationStatus>("verification_status") : FacebookVerificationStatus.NotSpecified);
         }
 
         #endregion
