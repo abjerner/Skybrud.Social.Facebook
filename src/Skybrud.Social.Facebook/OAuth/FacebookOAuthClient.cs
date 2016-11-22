@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Specialized;
-using Skybrud.Social.Exceptions;
+using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Responses.Authentication;
 using Skybrud.Social.Facebook.Scopes;
