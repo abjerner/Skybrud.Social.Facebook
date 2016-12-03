@@ -1,8 +1,8 @@
 using System;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
-using Skybrud.Social.Time;
 
 namespace Skybrud.Social.Facebook.Objects.Events {
 
@@ -49,12 +49,12 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// <summary>
         /// Gets the start time of the event.
         /// </summary>
-        public SocialDateTime StartTime { get; private set; }
+        public EssentialsDateTime StartTime { get; private set; }
 
         /// <summary>
         /// Gets the end time of the event. Not all events have an end time.
         /// </summary>
-        public SocialDateTime EndTime { get; private set; }
+        public EssentialsDateTime EndTime { get; private set; }
 
         /// <summary>
         /// Gets the profile that created the event, or <code>null</code> if not available.
@@ -74,7 +74,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// <summary>
         /// Gets the last time the event was updated.
         /// </summary>
-        public SocialDateTime UpdatedTime { get; private set; }
+        public EssentialsDateTime UpdatedTime { get; private set; }
 
         /// <summary>
         /// Gets the type of the event.
@@ -140,13 +140,13 @@ namespace Skybrud.Social.Facebook.Objects.Events {
             Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
             Name = obj.GetString("name");
             Description = obj.GetString("description");
-            StartTime = obj.GetString("start_time", SocialDateTime.Parse);
-            EndTime = obj.GetString("end_time", SocialDateTime.Parse);
+            StartTime = obj.GetString("start_time", EssentialsDateTime.Parse);
+            EndTime = obj.GetString("end_time", EssentialsDateTime.Parse);
             Owner = obj.GetObject("owner", FacebookEventOwner.Parse);
             Privacy = obj.GetString("privacy");
             TimeZone = obj.GetString("timezone");
             Type = obj.GetString("type");
-            UpdatedTime = obj.GetString("updated_time", SocialDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
         }
 
         #endregion

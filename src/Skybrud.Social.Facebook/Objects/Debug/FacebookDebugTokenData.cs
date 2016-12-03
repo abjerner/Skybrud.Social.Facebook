@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Scopes;
 using Skybrud.Essentials.Json.Extensions;
-using Skybrud.Social.Time;
 
 namespace Skybrud.Social.Facebook.Objects.Debug {
     
@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Objects.Debug {
         /// <summary>
         /// Gets the timestamp for when the token was issued.
         /// </summary>
-        public SocialDateTime IssuedAt { get; private set; }
+        public EssentialsDateTime IssuedAt { get; private set; }
 
         /// <summary>
         /// Gets the ID of the user. The ID is only present for user access tokens.
@@ -64,7 +64,7 @@ namespace Skybrud.Social.Facebook.Objects.Debug {
             DateTime? expiresAt = null;
             if (obj.HasValue("expires_at")) {
                 int value = obj.GetInt32("expires_at");
-                if (value > 0) expiresAt = SocialUtils.Time.GetDateTimeFromUnixTime(value);
+                if (value > 0) expiresAt = TimeHelper.GetDateTimeFromUnixTime(value);
             }
 
             // Parse the array of scopes
@@ -78,7 +78,7 @@ namespace Skybrud.Social.Facebook.Objects.Debug {
             Application = obj.GetString("application");
             ExpiresAt = expiresAt;
             IsValid = obj.GetBoolean("is_valid");
-            IssuedAt = obj.HasValue("issued_at") ? obj.GetInt64("issued_at", SocialDateTime.FromUnixTimestamp) : null;
+            IssuedAt = obj.HasValue("issued_at") ? obj.GetInt64("issued_at", EssentialsDateTime.FromUnixTimestamp) : null;
             UserId = obj.GetString("user_id");
             Scopes = scopes;
 
