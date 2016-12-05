@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Enums;
 using Skybrud.Social.Facebook.Objects.Common;
@@ -176,10 +177,16 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
         public int TalkingAboutCount { get; private set; }
 
         /// <summary>
-        /// Gets the alias of the page. For example, for www.facebook.com/platform the username is
-        /// 'platform'.
+        /// Gets the alias of the page. For example, for www.facebook.com/platform the username is <code>platform</code>.
         /// </summary>
         public string Username { get; private set; }
+
+        /// <summary>
+        /// Gets whether a username was specified in the response.
+        /// </summary>
+        public bool HasUsername {
+            get { return !String.IsNullOrWhiteSpace(Username); }
+        }
 
         /// <summary>
         /// Gets the URL to the website of the page.

@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Enums;
 using Skybrud.Social.Facebook.Objects.Common;
@@ -42,6 +43,13 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         /// Gets the email address of the user.
         /// </summary>
         public string Email { get; private set; }
+
+        /// <summary>
+        /// Gets whether an email address was specified in the response.
+        /// </summary>
+        public bool HasEmail {
+            get { return !String.IsNullOrWhiteSpace(Email); }
+        }
 
         /// <summary>
         /// Gets the first name of the user.
