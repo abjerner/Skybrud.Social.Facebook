@@ -8,7 +8,7 @@ namespace Skybrud.Social.Facebook.Constants {
     /// implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/event</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
     /// </see>
     public static class FacebookEventFields {
 
@@ -16,6 +16,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The event ID.
         /// </summary>
         public static readonly FacebookField Id = new FacebookField("id");
+
+        /// <summary>
+        /// Number of people attending the event.
+        /// </summary>
+        public static readonly FacebookField AttendingCount = new FacebookField("attending_count");
+
+        /// <summary>
+        /// Can guests invite friends.
+        /// </summary>
+        public static readonly FacebookField CanGuestsInvite = new FacebookField("can_guests_invite");
 
         /// <summary>
         /// The category of the event.
@@ -28,14 +38,14 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Cover = new FacebookField("cover");
 
         /// <summary>
+        /// Number of people who declined the event.
+        /// </summary>
+        public static readonly FacebookField DeclinedCount = new FacebookField("declined_count");
+
+        /// <summary>
         /// Long-form description.
         /// </summary>
         public static readonly FacebookField Description = new FacebookField("description");
-
-        /// <summary>
-        /// The type of the event.
-        /// </summary>
-        public static readonly FacebookField Type = new FacebookField("type");
 
         /// <summary>
         /// End time, if one has been set.
@@ -43,9 +53,19 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField EndTime = new FacebookField("end_time");
 
         /// <summary>
-        /// Whether the viewer is admin or not.
+        /// Can see guest list.
         /// </summary>
-        public static readonly FacebookField IsViewerAdmin = new FacebookField("is_viewer_admin");
+        public static readonly FacebookField GuestListEnabled = new FacebookField("guest_list_enabled");
+
+        /// <summary>
+        /// Number of people interested in the event.
+        /// </summary>
+        public static readonly FacebookField InterestedCount = new FacebookField("interested_count");
+
+        /// <summary>
+        /// Whether or not the event has been marked as canceled.
+        /// </summary>
+        public static readonly FacebookField IsCanceled = new FacebookField("is_canceled");
 
         /// <summary>
         /// Whether the event is created by page or not.
@@ -53,19 +73,24 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField IsPageOwned = new FacebookField("is_page_owned");
 
         /// <summary>
-        /// Can guests invite friends.
+        /// Whether the viewer is admin or not.
         /// </summary>
-        public static readonly FacebookField CanGuestsInvite = new FacebookField("can_guests_invite");
+        public static readonly FacebookField IsViewerAdmin = new FacebookField("is_viewer_admin");
 
         /// <summary>
-        /// Can see guest list.
+        /// Number of people who maybe going to the event.
         /// </summary>
-        public static readonly FacebookField GuestListEnabled = new FacebookField("guest_list_enabled");
+        public static readonly FacebookField MaybeCount = new FacebookField("maybe_count");
 
         /// <summary>
         /// Event name.
         /// </summary>
         public static readonly FacebookField Name = new FacebookField("name");
+
+        /// <summary>
+        /// Number of people who did not reply to the event.
+        /// </summary>
+        public static readonly FacebookField NoreplyCount = new FacebookField("noreply_count");
 
         /// <summary>
         /// The profile that created the event.
@@ -98,29 +123,14 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Timezone = new FacebookField("timezone");
 
         /// <summary>
+        /// The type of the event.
+        /// </summary>
+        public static readonly FacebookField Type = new FacebookField("type");
+
+        /// <summary>
         /// Last update time.
         /// </summary>
         public static readonly FacebookField UpdatedTime = new FacebookField("updated_time");
-
-        /// <summary>
-        /// Number of people attending the event.
-        /// </summary>
-        public static readonly FacebookField AttendingCount = new FacebookField("attending_count");
-
-        /// <summary>
-        /// Number of people who declined the event.
-        /// </summary>
-        public static readonly FacebookField DeclinedCount = new FacebookField("declined_count");
-
-        /// <summary>
-        /// Number of people who maybe going to the event.
-        /// </summary>
-        public static readonly FacebookField MaybeCount = new FacebookField("maybe_count");
-
-        /// <summary>
-        /// Number of people who did not reply to the event.
-        /// </summary>
-        public static readonly FacebookField NoreplyCount = new FacebookField("noreply_count");
 
     }
 

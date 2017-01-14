@@ -55,6 +55,7 @@
     <Compile Include="Constants\FacebookAlbumFields.cs" />
     <Compile Include="Constants\FacebookAppFields.cs" />
     <Compile Include="Constants\FacebookCommentFields.cs" />
+    <Compile Include="Constants\FacebookPlaceFields.cs" />
     <Compile Include="Constants\FacebookEventFields.cs" />
     <Compile Include="Endpoints\FacebookAccountsEndpoint.cs" />
     <Compile Include="Endpoints\FacebookAlbumsEndpoint.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Endpoints\Raw\FacebookUsersRawEndpoint.cs" />
     <Compile Include="Enums\FacebookAlbumType.cs" />
     <Compile Include="Enums\FacebookCommentsOrder.cs" />
+    <Compile Include="Enums\Events\FacebookEventCategory.cs" />
+    <Compile Include="Enums\Events\FacebookEventRsvpStatus.cs" />
+    <Compile Include="Enums\Events\FacebookEventType.cs" />
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Enums\FacebookVerificationStatus.cs" />
@@ -111,7 +115,6 @@
     <Compile Include="Objects\Events\FacebookEvent.cs" />
     <Compile Include="Objects\Events\FacebookEventOwner.cs" />
     <Compile Include="Objects\Events\FacebookEventsCollection.cs" />
-    <Compile Include="Objects\Events\FacebookEventVenue.cs" />
     <Compile Include="Objects\Common\FacebookCoverPhoto.cs" />
     <Compile Include="Objects\Common\FacebookFrom.cs" />
     <Compile Include="Objects\Common\FacebookImage.cs" />
@@ -120,7 +123,7 @@
     <Compile Include="Objects\Common\FacebookEntity.cs" />
     <Compile Include="Objects\FacebookObject.cs" />
     <Compile Include="Objects\Pagination\FacebookPaging.cs" />
-    <Compile Include="Objects\Common\FacebookPlace.cs" />
+    <Compile Include="Objects\Places\FacebookPlace.cs" />
     <Compile Include="Objects\Posts\FacebookPostProperties.cs" />
     <Compile Include="Objects\Common\FacebookShares.cs" />
     <Compile Include="Objects\Statuses\FacebookStatusMessage.cs" />
@@ -207,6 +210,7 @@
   <ItemGroup>
     <None Include="LICENSE.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)build\Skybrud.Social.PreBuildTool.exe" 2012-07-30 "$(ProjectPath)"</PreBuildEvent>

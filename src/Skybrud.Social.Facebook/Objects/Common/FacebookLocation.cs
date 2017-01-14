@@ -1,21 +1,28 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Locations;
 
 namespace Skybrud.Social.Facebook.Objects.Common {
-    
-    public class FacebookLocation : FacebookObject {
+
+    /// <summary>
+    /// Class representing the location of a Facebook place.
+    /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/location/</cref>
+    /// </see>
+    public class FacebookLocation : FacebookObject, ILocation {
 
         #region Properties
-
-        /// <summary>
-        /// Gets the country of the location.
-        /// </summary>
-        public string Country { get; private set; }
 
         /// <summary>
         /// Gets the city of the location.
         /// </summary>
         public string City { get; private set; }
+
+        /// <summary>
+        /// Gets the country of the location.
+        /// </summary>
+        public string Country { get; private set; }
 
         /// <summary>
         /// Gets the latitude of the location.
@@ -28,9 +35,9 @@ namespace Skybrud.Social.Facebook.Objects.Common {
         public double Longitude { get; private set; }
 
         /// <summary>
-        /// Gets the zip code of the location.
+        /// Gets the name of the location.
         /// </summary>
-        public string Zip { get; private set; }
+        public string Name { get; private set; }
 
         /// <summary>
         /// Gets the state of the location.
@@ -42,24 +49,40 @@ namespace Skybrud.Social.Facebook.Objects.Common {
         /// </summary>
         public string Street { get; private set; }
 
+        /// <summary>
+        /// Gets the zip code of the location.
+        /// </summary>
+        public string Zip { get; private set; }
+
         #endregion
 
         #region Constructors
 
         private FacebookLocation(JObject obj) : base(obj) {
-            Country = obj.GetString("country");
             City = obj.GetString("city");
+            // TODO: Add support for the "city_id" property
+            Country = obj.GetString("country");
+            // TODO: Add support for the "country_code" property
             Latitude = obj.GetDouble("latitude");
+            // TODO: Add support for the "located_in" property
             Longitude = obj.GetDouble("longitude");
-            Zip = obj.GetString("zip");
+            Name = obj.GetString("name");
+            // TODO: Add support for the "region" property
+            // TODO: Add support for the "region_id" property
             State = obj.GetString("state");
             Street = obj.GetString("street");
+            Zip = obj.GetString("zip");
         }
 
         #endregion
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLocation"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>An instance of <see cref="FacebookLocation"/>.</returns>
         public static FacebookLocation Parse(JObject obj) {
             return obj == null ? null : new FacebookLocation(obj);
         }

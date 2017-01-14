@@ -1,13 +1,19 @@
 ﻿using System;
+using Skybrud.Essentials.Strings;
+using Skybrud.Social.Facebook.Enums.Events;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Events {
-
+    
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get a list of events.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/page/events/#Reading</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/events/#Reading</cref>
+    /// </see>
     public class FacebookGetEventsOptions : FacebookCursorBasedPaginationOptions {
 
         #region Properties
@@ -16,6 +22,16 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// Gets or sets the identifier of the parent page or user.
         /// </summary>
         public string Identifier { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether canceled events should be included in the response. Default is <code>false</code>.
+        /// </summary>
+        public bool IncludeCanceled { get; set; }
+
+        /// <summary>
+        /// Gets or sets the RSVP status of the events to be returned. Default is <see cref="FacebookEventRsvpStatus.All"/>.
+        /// </summary>
+        public FacebookEventRsvpStatus Type { get; set; }
 
         /// <summary>
         /// Gets or sets the fields to be returned.
@@ -57,6 +73,8 @@ namespace Skybrud.Social.Facebook.Options.Events {
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
 
             // Update the query string
+            if (IncludeCanceled) query.Add("include_canceled", "true");
+            if (Type != FacebookEventRsvpStatus.All) query.Add("type", StringUtils.ToUnderscore(Type));
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
 
             return query;

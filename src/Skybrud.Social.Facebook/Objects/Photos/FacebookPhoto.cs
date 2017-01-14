@@ -3,6 +3,7 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Facebook.Objects.Places;
 
 namespace Skybrud.Social.Facebook.Objects.Photos {
     

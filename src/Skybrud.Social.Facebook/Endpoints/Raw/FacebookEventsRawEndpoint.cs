@@ -5,10 +5,15 @@ using Skybrud.Social.Facebook.Options.Events;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-
+    
     /// <summary>
     /// Class representing the raw implementation of the events endpoint.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/page/events/</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/events/</cref>
+    /// </see>
     public class FacebookEventsRawEndpoint {
 
         #region Properties
@@ -35,9 +40,6 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID of the event.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        /// <see>
-        ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
-        /// </see>
         public SocialHttpResponse GetEvent(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetEvent(new FacebookGetEventOptions(identifier));
@@ -48,9 +50,6 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        /// <see>
-        ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
-        /// </see>
         public SocialHttpResponse GetEvent(FacebookGetEventOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
