@@ -89,6 +89,7 @@
     <Compile Include="Enums\FacebookVerificationStatus.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
     <Compile Include="Objects\Authentication\FacebookToken.cs" />
+    <Compile Include="Options\Events\FacebookGetEventOptions.cs" />
     <Compile Include="Scopes\FacebookScope.cs" />
     <Compile Include="Scopes\FacebookScopeCollection.cs" />
     <Compile Include="FacebookService.cs" />

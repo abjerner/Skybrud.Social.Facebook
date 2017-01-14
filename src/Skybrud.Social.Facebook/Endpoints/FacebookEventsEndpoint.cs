@@ -35,40 +35,57 @@ namespace Skybrud.Social.Facebook.Endpoints {
 
         #region Methods
 
+
         /// <summary>
-        /// Gets information about the event with the specified <code>id</code>.
+        /// Gets information about the event with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="id">The ID of the event.</param>
-        public FacebookGetEventResponse GetEvent(string id) {
-            return FacebookGetEventResponse.ParseResponse(Raw.GetEvent(id));
+        /// <param name="identifier">The ID of the event.</param>
+        /// <returns>An instance of <see cref="FacebookGetEventResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
+        /// </see>
+        public FacebookGetEventResponse GetEvent(string identifier) {
+            return FacebookGetEventResponse.ParseResponse(Raw.GetEvent(identifier));
         }
 
         /// <summary>
-        /// Gets a list of events of a user or page with the specified <code>identifier</code>.
+        /// Gets information about the event matching the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetEventResponse"/> representing the response.</returns>
+        /// <see>
+        ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
+        /// </see>
+        public FacebookGetEventResponse GetEvent(FacebookGetEventOptions options) {
+            return FacebookGetEventResponse.ParseResponse(Raw.GetEvent(options));
+        }
+        
+        /// <summary>
+        /// Gets a list of events of a user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
+        /// <returns>An instance of <see cref="FacebookGetEventsResponse"/> representing the response.</returns>
         public FacebookGetEventsResponse GetEvents(string identifier) {
-            return GetEvents(identifier, new FacebookGetEventsOptions());
+            return FacebookGetEventsResponse.ParseResponse(Raw.GetEvents(identifier));
         }
 
         /// <summary>
-        /// Gets a list of events of a user or page with the specified <code>identifier</code>.
+        /// Gets a list of events of a user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
         /// <param name="limit">The maximum amount of events to return.</param>
+        /// <returns>An instance of <see cref="FacebookGetEventsResponse"/> representing the response.</returns>
         public FacebookGetEventsResponse GetEvents(string identifier, int limit) {
-            return GetEvents(identifier, new FacebookGetEventsOptions {
-                Limit = limit
-            });
+            return FacebookGetEventsResponse.ParseResponse(Raw.GetEvents(identifier, limit));
         }
 
         /// <summary>
-        /// Gets a list of events of a user or page with the specified <code>identifier</code>.
+        /// Gets a list of events for a user or page matching the specified <paramref name="options"/>.
         /// </summary>
-        /// <param name="identifier">The ID of the object.</param>
         /// <param name="options">The options for the call to the API.</param>
-        public FacebookGetEventsResponse GetEvents(string identifier, FacebookGetEventsOptions options) {
-            return FacebookGetEventsResponse.ParseResponse(Raw.GetEvents(identifier, options));
+        /// <returns>An instance of <see cref="FacebookGetEventsResponse"/> representing the response.</returns>
+        public FacebookGetEventsResponse GetEvents(FacebookGetEventsOptions options) {
+            return FacebookGetEventsResponse.ParseResponse(Raw.GetEvents(options));
         }
 
         #endregion

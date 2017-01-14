@@ -1,19 +1,22 @@
 ﻿using System;
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Facebook.Options.Common.Pagination;
+using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Events {
-
+    
     /// <summary>
-    /// Class representing the options for a call to the Facebook Graph API to get a list of events.
+    /// Class representing the options for a call to the Facebook Graph API to get information about a single event.
     /// </summary>
-    public class FacebookGetEventsOptions : FacebookCursorBasedPaginationOptions {
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/event</cref>
+    /// </see>
+    public class FacebookGetEventOptions : IHttpGetOptions {
 
         #region Properties
 
         /// <summary>
-        /// Gets or sets the identifier of the parent page or user.
+        /// Gets or sets the identifier (ID) of the event.
         /// </summary>
         public string Identifier { get; set; }
 
@@ -29,7 +32,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// <summary>
         /// Initializes an instance with default options.
         /// </summary>
-        public FacebookGetEventsOptions() {
+        public FacebookGetEventOptions() {
             Fields = new FacebookFieldsCollection();
         }
 
@@ -37,7 +40,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// Initializes an instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
-        public FacebookGetEventsOptions(string identifier) : this() {
+        public FacebookGetEventOptions(string identifier) : this() {
             Identifier = identifier;
         }
 
@@ -48,10 +51,10 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// <summary>
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
-        public override IHttpQueryString GetQueryString() {
+        public IHttpQueryString GetQueryString() {
 
             // Get the query string
-            IHttpQueryString query = base.GetQueryString();
+            IHttpQueryString query = new SocialHttpQueryString();
 
             // Convert the collection of fields to a string
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
