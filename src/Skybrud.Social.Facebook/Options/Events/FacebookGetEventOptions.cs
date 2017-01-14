@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// <summary>
         /// Initializes an instance with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the event.</param>
         public FacebookGetEventOptions(string identifier) : this() {
             Identifier = identifier;
         }
