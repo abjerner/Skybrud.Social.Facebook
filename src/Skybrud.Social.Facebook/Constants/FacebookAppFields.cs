@@ -8,7 +8,7 @@ namespace Skybrud.Social.Facebook.Constants {
     /// implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/application</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
     /// </see>
     public static class FacebookAppFields {
 

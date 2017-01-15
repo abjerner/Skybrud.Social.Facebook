@@ -8,6 +8,9 @@ namespace Skybrud.Social.Facebook.Options.Apps {
     /// <summary>
     /// Class representing the options for getting information about a Facebook app.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application#Reading</cref>
+    /// </see>
     public class FacebookGetAppOptions : IHttpGetOptions {
 
         #region Properties
@@ -27,18 +30,28 @@ namespace Skybrud.Social.Facebook.Options.Apps {
         #region Constructors
 
         /// <summary>
-        /// Initializes an instance with default options.
+        /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetAppOptions() {
             Fields = new FacebookFieldsCollection();
         }
-
+        
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the app.</param>
+        /// <param name="identifier">The identifier (ID) of the user.</param>
         public FacebookGetAppOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the album.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetAppOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion
@@ -54,7 +67,7 @@ namespace Skybrud.Social.Facebook.Options.Apps {
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
 
             // Construct the query string
-            SocialHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new SocialHttpQueryString();
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
 
             return query;
