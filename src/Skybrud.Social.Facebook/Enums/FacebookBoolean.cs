@@ -6,13 +6,9 @@
     public enum FacebookBoolean {
 
         /// <summary>
-        /// When used for a value returned by the Graph API, this will indicate that the property wasn't included in
-        /// the response.
-        /// 
-        /// When used as a filter for a request to the Graph API, this will indicate that the filter should not be
-        /// applied.
+        /// This means that the property was missing in the JSON returned by the Facebook Graph API.
         /// </summary>
-        Undefined,
+        Unspecified,
 
         /// <summary>
         /// Indicates that a boolean value is <code>false</code>.

@@ -75,7 +75,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// Gets whether the category of the event was included in the response.
         /// </summary>
         public bool HasCategory {
-            get { return Category != FacebookEventCategory.NotIncluded; }
+            get { return Category != FacebookEventCategory.Unspecified; }
         }
 
         /// <summary>
@@ -302,7 +302,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
         public bool HasType {
-            get { return Type != FacebookEventType.NotIncluded; }
+            get { return Type != FacebookEventType.Unspecified; }
         }
 
         /// <summary>
@@ -330,7 +330,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
             Id = obj.GetString("id");
             AttendingCount = obj.GetInt32("attending_count");
             CanGuestsInvite = obj.GetBoolean("can_guests_invite");
-            Category = obj.GetEnum("category", FacebookEventCategory.NotIncluded);
+            Category = obj.GetEnum("category", FacebookEventCategory.Unspecified);
             Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
             DeclinedCount = obj.GetInt32("declined_count");
             Description = obj.GetString("description");
@@ -349,7 +349,7 @@ namespace Skybrud.Social.Facebook.Objects.Events {
             StartTime = obj.GetString("start_time", EssentialsDateTime.Parse);
             TicketUri = obj.GetString("ticket_uri");
             Timezone = obj.GetString("timezone");
-            Type = obj.GetEnum("type", FacebookEventType.NotIncluded);
+            Type = obj.GetEnum("type", FacebookEventType.Unspecified);
             UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
         }
 

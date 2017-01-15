@@ -107,7 +107,7 @@
     <Compile Include="Objects\Albums\FacebookAlbum.cs" />
     <Compile Include="Objects\Albums\FacebookAlbumCoverPhoto.cs" />
     <Compile Include="Objects\Albums\FacebookAlbumsCollection.cs" />
-    <Compile Include="Objects\Albums\FacebookPostAlbumSummary.cs" />
+    <Compile Include="Objects\Albums\FacebookCreateAlbumSummary.cs" />
     <Compile Include="Objects\Apps\FacebookApp.cs" />
     <Compile Include="Objects\Comments\FacebookComment.cs" />
     <Compile Include="Objects\Comments\FacebookCommentsCollection.cs" />
@@ -156,7 +156,7 @@
     <Compile Include="Options\Accounts\FacebookGetAccountsOptions.cs" />
     <Compile Include="Options\Albums\FacebookGetAlbumOptions.cs" />
     <Compile Include="Options\Albums\FacebookGetAlbumsOptions.cs" />
-    <Compile Include="Options\Albums\FacebookPostAlbumOptions.cs" />
+    <Compile Include="Options\Albums\FacebookCreateAlbumOptions.cs" />
     <Compile Include="Options\Apps\FacebookGetAppOptions.cs" />
     <Compile Include="Options\Comments\FacebookGetCommentOptions.cs" />
     <Compile Include="Options\Comments\FacebookGetCommentsOptions.cs" />
@@ -180,7 +180,7 @@
     <Compile Include="Responses\Accounts\FacebookGetAccountsResponse.cs" />
     <Compile Include="Responses\Albums\FacebookGetAlbumResponse.cs" />
     <Compile Include="Responses\Albums\FacebookGetAlbumsResponse.cs" />
-    <Compile Include="Responses\Albums\FacebookPostAlbumResponse.cs" />
+    <Compile Include="Responses\Albums\FacebookCreateAlbumResponse.cs" />
     <Compile Include="Responses\Apps\FacebookGetAppResponse.cs" />
     <Compile Include="Responses\Authentication\FacebookTokenResponse.cs" />
     <Compile Include="Responses\Comments\FacebookGetCommentResponse.cs" />

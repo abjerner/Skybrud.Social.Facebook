@@ -84,9 +84,9 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
             // Construct the query string
             IHttpQueryString query = base.GetQueryString();
             if (!String.IsNullOrWhiteSpace(BusinessId)) query.Set("business_id", BusinessId);
-            if (IsBusiness != FacebookBoolean.Undefined) query.Set("is_business", IsBusiness);
-            if (IsPlace != FacebookBoolean.Undefined) query.Set("is_place", IsPlace);
-            if (IsPromotable != FacebookBoolean.Undefined) query.Set("is_promotable", IsPromotable);
+            if (IsBusiness != FacebookBoolean.Unspecified) query.Set("is_business", IsBusiness);
+            if (IsPlace != FacebookBoolean.Unspecified) query.Set("is_place", IsPlace);
+            if (IsPromotable != FacebookBoolean.Unspecified) query.Set("is_promotable", IsPromotable);
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
             if (IncludeSummary) query.Add("summary", "true");
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Time;
 
 namespace Skybrud.Social.Facebook.Objects.Albums {
 
@@ -19,7 +20,7 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         /// <summary>
         /// Gets a timestamp representing the creation time of the cover photo.
         /// </summary>
-        public DateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; private set; }
 
         /// <summary>
         /// Gets the name of the cover photo, or <code>null</code> if not specified.
@@ -37,9 +38,13 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="obj"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
         private FacebookAlbumCoverPhoto(JObject obj) : base(obj) {
             Id = obj.GetString("id");
-            CreatedTime = obj.GetDateTime("created_time");
+            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
             Name = obj.GetString("name");
         }
 
@@ -48,7 +53,7 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookAlbumCoverPhoto"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookAlbumCoverPhoto"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookAlbumCoverPhoto"/>.</returns>

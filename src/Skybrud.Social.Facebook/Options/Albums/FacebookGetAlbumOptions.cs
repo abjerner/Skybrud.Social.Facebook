@@ -4,16 +4,19 @@ using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
-
+    
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single album.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/album#read</cref>
+    /// </see>
     public class FacebookGetAlbumOptions : IHttpGetOptions {
 
         #region Properties
 
         /// <summary>
-        /// Gets or sets the identifier (ID) of the user.
+        /// Gets or sets the identifier (ID) of the album.
         /// </summary>
         public string Identifier { get; set; }
 
@@ -27,18 +30,28 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         #region Constructors
 
         /// <summary>
-        /// Initializes an instance with default options.
+        /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetAlbumOptions() {
             Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         public FacebookGetAlbumOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the album.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetAlbumOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion
@@ -54,7 +67,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
 
             // Construct the query string
-            SocialHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new SocialHttpQueryString();
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
 
             return query;

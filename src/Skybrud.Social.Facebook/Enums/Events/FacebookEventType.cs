@@ -6,9 +6,10 @@
     public enum FacebookEventType {
 
         /// <summary>
-        /// Indicates that the type wasn't included in the response from the Graph API.
+        /// Indicates that the type of the event wasn't specified. This means that the <code>type</code> property was
+        /// missing in the JSON returned by the Facebook Graph API.
         /// </summary>
-        NotIncluded,
+        Unspecified,
         
         Private,
         
