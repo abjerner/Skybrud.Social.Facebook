@@ -40,6 +40,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
         /// method. This call requires a user access token.
         /// </summary>
+        /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
         public FacebookGetAccountsResponse GetAccounts() {
             return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts());
         }
@@ -49,9 +50,10 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// method. This call requires a user access token.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
         public FacebookGetAccountsResponse GetAccounts(FacebookGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
-            return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts());
+            return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts(options));
         }
 
         #endregion

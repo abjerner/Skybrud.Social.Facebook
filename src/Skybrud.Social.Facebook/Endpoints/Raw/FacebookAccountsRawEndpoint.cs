@@ -4,10 +4,13 @@ using Skybrud.Social.Facebook.Options.Accounts;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-
+    
     /// <summary>
     /// Class representing the raw implementation of the accounts endpoint.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/accounts/</cref>
+    /// </see>
     public class FacebookAccountsRawEndpoint {
 
         #region Properties
@@ -34,6 +37,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// method. This call requires a user access token as well as the <code>manage_scope</code>.
         /// </summary>
         /// <returns>The raw JSON response from the API.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetAccounts() {
             return Client.DoHttpGetRequest("/me/accounts");
         }
@@ -44,6 +48,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>The raw JSON response from the API.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetAccounts(FacebookGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             return Client.DoHttpGetRequest("/me/accounts", options);

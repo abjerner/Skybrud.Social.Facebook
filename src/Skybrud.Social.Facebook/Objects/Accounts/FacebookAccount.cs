@@ -4,6 +4,9 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Accounts {
 
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/accounts/</cref>
+    /// </see>
     public class FacebookAccount : FacebookObject {
 
         #region Properties
@@ -44,13 +47,17 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
 
         #region Constructors
 
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="obj"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
         private FacebookAccount(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             Name = obj.GetString("name");
             Category = obj.GetString("category");
-            CategoryList = obj.GetArray("category_list", FacebookEntity.Parse);
+            CategoryList = obj.GetArrayItems("category_list", FacebookEntity.Parse);
             AccessToken = obj.GetString("access_token");
-            Permissions = obj.GetArray("perms", x => x.ToString()) ?? new string[0];
+            Permissions = obj.GetStringArray("perms");
         }
 
         #endregion
@@ -58,10 +65,10 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         #region Static methods
 
         /// <summary>
-        /// Parse the JSON object of an account.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookAccount"/>.
         /// </summary>
-        /// <param name="obj">The JSON object.</param>
-        /// <returns></returns>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>An instance of <see cref="FacebookAccount"/>.</returns>
         public static FacebookAccount Parse(JObject obj) {
             return obj == null ? null : new FacebookAccount(obj);
         }
