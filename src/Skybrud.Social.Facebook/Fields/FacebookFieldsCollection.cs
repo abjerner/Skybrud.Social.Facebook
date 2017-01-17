@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Fields {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new collection based on the specified <code>array</code> of fields.
+        /// Initializes a new collection based on the specified <paramref name="array"/> of fields.
         /// </summary>
         /// <param name="array">Array of fields.</param>
         public FacebookFieldsCollection(params FacebookField[] array) {
@@ -41,7 +41,7 @@ namespace Skybrud.Social.Facebook.Fields {
         #region Member methods
 
         /// <summary>
-        /// Adds the specified <code>field</code> to the collection.
+        /// Adds the specified <paramref name="field"/> to the collection.
         /// </summary>
         /// <param name="field">The field to be added.</param>
         public void Add(FacebookField field) {
@@ -77,9 +77,10 @@ namespace Skybrud.Social.Facebook.Fields {
         #region Operators
 
         /// <summary>
-        /// Initializes a new collection based on the specified string of fields.
+        /// Initializes a new collection based on the specified string of <paramref name="fields"/>.
         /// </summary>
         /// <param name="fields">The string of fields the collection should be based on.</param>
+        /// <returns>A new collection based on a string of <paramref name="fields"/>.</returns>
         public static implicit operator FacebookFieldsCollection(string fields) {
             FacebookFieldsCollection collection = new FacebookFieldsCollection();
             foreach (string name in (fields ?? "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
@@ -92,6 +93,7 @@ namespace Skybrud.Social.Facebook.Fields {
         /// Initializes a new collection based on the specified array of fields.
         /// </summary>
         /// <param name="fields">The array of fields the collection should be based on.</param>
+        /// <returns>A new collection based on an array of <paramref name="fields"/>.</returns>
         public static implicit operator FacebookFieldsCollection(string[] fields) {
             FacebookFieldsCollection collection = new FacebookFieldsCollection();
             foreach (string name in fields) {
@@ -101,10 +103,29 @@ namespace Skybrud.Social.Facebook.Fields {
         }
 
         /// <summary>
-        /// Adds support for adding a <code>field</code> to the <code>collection</code> using the plus operator.
+        /// Initializes a new collection based on the specified <paramref name="field"/>.
         /// </summary>
-        /// <param name="collection">The collection to which <code>field</code> will be added.</param>
-        /// <param name="field">The field to be added to the <code>collection</code>.</param>
+        /// <param name="field">The field the collection should be based on.</param>
+        /// <returns>A new collection based on a single <paramref name="field"/>.</returns>
+        public static implicit operator FacebookFieldsCollection(FacebookField field) {
+            return new FacebookFieldsCollection(field);
+        }
+
+        /// <summary>
+        /// Initializes a new collection based on the specified array of <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="fields">The fields the collection should be based on.</param>
+        /// <returns>A new collection based on an array of <paramref name="fields"/>.</returns>
+        public static implicit operator FacebookFieldsCollection(FacebookField[] fields) {
+            return new FacebookFieldsCollection(fields);
+        }
+
+        /// <summary>
+        /// Adds support for adding a <paramref name="field"/> to the <paramref name="collection"/> using the plus
+        /// operator.
+        /// </summary>
+        /// <param name="collection">The collection to which <paramref name="field"/> will be added.</param>
+        /// <param name="field">The field to be added to the <paramref name="collection"/>.</param>
         public static FacebookFieldsCollection operator +(FacebookFieldsCollection collection, FacebookField field) {
             collection.Add(field);
             return collection;
