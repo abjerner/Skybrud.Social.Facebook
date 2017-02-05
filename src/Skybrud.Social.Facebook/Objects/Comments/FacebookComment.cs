@@ -1,5 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
 
@@ -23,9 +24,23 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         public FacebookFrom From { get; private set; }
 
         /// <summary>
+        /// Gets whether the <see cref="From"/> property was included in the response.
+        /// </summary>
+        public bool HasFrom {
+            get { return From != null; }
+        }
+
+        /// <summary>
         /// Gets the text of the comment.
         /// </summary>
         public string Message { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="Message"/> property was included in the response.
+        /// </summary>
+        public bool HasMessage {
+            get { return !String.IsNullOrWhiteSpace(Message); }
+        }
 
         /// <summary>
         /// Gets whether the authenticated user can remove the comment.
@@ -33,9 +48,23 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         public bool CanRemove { get; private set; }
 
         /// <summary>
+        /// Gets whether the <see cref="CanRemove"/> property was included in the response.
+        /// </summary>
+        public bool HasCanRemove {
+            get { return HasJsonProperty("can_remove"); }
+        }
+
+        /// <summary>
         /// Gets the time the comment was made.
         /// </summary>
-        public DateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
+        /// </summary>
+        public bool HasCreatedTime {
+            get { return CreatedTime != null; }
+        }
 
         /// <summary>
         /// Gets the number of times the comment was liked.
@@ -43,11 +72,25 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
         public int LikeCount { get; private set; }
 
         /// <summary>
+        /// Gets whether the <see cref="LikeCount"/> property was included in the response.
+        /// </summary>
+        public bool HasLikeCount {
+            get { return HasJsonProperty("like_count"); }
+        }
+
+        /// <summary>
         /// Gets whether the authenticated has like the comment.
         /// </summary>
         public bool UserLikes { get; private set; }
 
-        // TODO: Add more properties: https://developers.facebook.com/docs/graph-api/reference/v2.2/comment#fields
+        /// <summary>
+        /// Gets whether the <see cref="UserLikes"/> property was included in the response.
+        /// </summary>
+        public bool HasUserLikes {
+            get { return HasJsonProperty("user_likes"); }
+        }
+
+        // TODO: Add more properties: https://developers.facebook.com/docs/graph-api/reference/v2.8/comment#fields
 
         #endregion
 
@@ -58,7 +101,7 @@ namespace Skybrud.Social.Facebook.Objects.Comments {
             From = obj.GetObject("from", FacebookFrom.Parse);
             Message = obj.GetString("message");
             CanRemove = obj.GetBoolean("can_remove");
-            CreatedTime = obj.GetDateTime("created_time");
+            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
             LikeCount = obj.GetInt32("like_count");
             UserLikes = obj.GetBoolean("user_likes");
         }

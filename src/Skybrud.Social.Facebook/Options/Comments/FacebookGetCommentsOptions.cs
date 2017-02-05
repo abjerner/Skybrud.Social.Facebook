@@ -39,29 +39,75 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         public FacebookGetCommentsOptions() { }
 
         /// <summary>
-        /// Initializes the class with the specified <code>limit</code>.
-        /// </summary>
-        /// <param name="limit">The limit.</param>
-        public FacebookGetCommentsOptions(int limit) {
-            Limit = limit;
-        }
-
-        /// <summary>
-        /// Initializes the class with the specified <code>identifier</code>.
+        /// Initializes the class with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         public FacebookGetCommentsOptions(string identifier) {
             Identifier = identifier;
+            Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes the class with the specified <code>identifier</code> and <code>limit</code>.
+        /// Initializes the class with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetCommentsOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes the class with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The limit.</param>
         public FacebookGetCommentsOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
+        /// <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetCommentsOptions(string identifier, int limit, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
+        /// <paramref name="after"/> cursor.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="after">The after cursor.</param>
+        public FacebookGetCommentsOptions(string identifier, int limit, string after) {
+            Identifier = identifier;
+            Limit = limit;
+            After = after;
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
+        /// <paramref name="after"/> cursor and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="after">The after cursor.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetCommentsOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Limit = limit;
+            After = after;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion

@@ -9,7 +9,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
     /// Class representing the implementation of the comments endpoint.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/object/comments</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/object/comments</cref>
     /// </see>
     public class FacebookCommentsEndpoint {
 
@@ -40,42 +40,47 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #region Methods
 
         /// <summary>
-        /// Gets information about the comment with specified <code>identifier</code>.
+        /// Gets information about the comment with specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the comment.</param>
+        /// <returns>An instance of <see cref="FacebookGetCommentResponse"/> representing the response.</returns>
         public FacebookGetCommentResponse GetComment(string identifier) {
             return FacebookGetCommentResponse.ParseResponse(Raw.GetComment(identifier));
         }
 
         /// <summary>
-        /// Gets information about the comment matching the specified <code>options</code>.
+        /// Gets information about the comment matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetCommentResponse"/> representing the response.</returns>
         public FacebookGetCommentResponse GetComment(FacebookGetCommentOptions options) {
             return FacebookGetCommentResponse.ParseResponse(Raw.GetComment(options));
         }
 
         /// <summary>
-        /// Gets a list of comments for an object with the specified <code>identifier</code>.
+        /// Gets a list of comments for an object with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
+        /// <returns>An instance of <see cref="FacebookGetCommentsResponse"/> representing the response.</returns>
         public FacebookGetCommentsResponse GetComments(string identifier) {
             return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(identifier));
         }
 
         /// <summary>
-        /// Gets a list of comments for an object with the specified <code>identifier</code>.
+        /// Gets a list of comments for an object with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
+        /// <returns>An instance of <see cref="FacebookGetCommentsResponse"/> representing the response.</returns>
         public FacebookGetCommentsResponse GetComments(string identifier, int limit) {
             return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(identifier, limit));
         }
 
         /// <summary>
-        /// Gets a list of comments for an object matching the specified <code>options</code>.
+        /// Gets a list of comments for an object matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetCommentsResponse"/> representing the response.</returns>
         public FacebookGetCommentsResponse GetComments(FacebookGetCommentsOptions options) {
             if (options == null) throw new ArgumentException("options");
             return FacebookGetCommentsResponse.ParseResponse(Raw.GetComments(options));

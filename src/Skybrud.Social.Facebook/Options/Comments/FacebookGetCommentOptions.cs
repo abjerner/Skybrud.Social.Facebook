@@ -30,13 +30,24 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// Initializes the class with default options.
         /// </summary>
         public FacebookGetCommentOptions() { }
-        
+
         /// <summary>
-        /// Initializes the class with the specified <code>identifier</code>.
+        /// Initializes the class with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the comment.</param>
         public FacebookGetCommentOptions(string identifier) {
             Identifier = identifier;
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes the class with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the comment.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetCommentOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion
