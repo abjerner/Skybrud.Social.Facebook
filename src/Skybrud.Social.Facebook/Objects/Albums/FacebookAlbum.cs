@@ -202,7 +202,7 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="obj"/>.
         /// </summary>
-        /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
+        /// <param name="obj">The instance of <see cref="JObject"/> representing the object.</param>
         private FacebookAlbum(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             CanUpload = obj.GetBoolean("can_upload");
