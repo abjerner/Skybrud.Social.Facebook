@@ -15,7 +15,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
     /// Class representing a Facebook post.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/accounts/</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/post</cref>
     /// </see>
     public class FacebookPost : FacebookObject, ISocialTimelineEntry {
 
