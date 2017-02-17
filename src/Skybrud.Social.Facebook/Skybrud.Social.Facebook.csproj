@@ -55,6 +55,7 @@
     <Compile Include="Constants\FacebookAlbumFields.cs" />
     <Compile Include="Constants\FacebookApplicationFields.cs" />
     <Compile Include="Constants\FacebookCommentFields.cs" />
+    <Compile Include="Constants\FacebookPostFields.cs" />
     <Compile Include="Constants\FacebookPlaceFields.cs" />
     <Compile Include="Constants\FacebookEventFields.cs" />
     <Compile Include="Endpoints\FacebookAccountsEndpoint.cs" />
