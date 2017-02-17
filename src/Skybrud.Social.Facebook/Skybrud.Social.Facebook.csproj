@@ -93,9 +93,12 @@
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Enums\FacebookVerificationStatus.cs" />
+    <Compile Include="Enums\Posts\FacebookPostStatusType.cs" />
+    <Compile Include="Enums\Posts\FacebookPostType.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
     <Compile Include="Objects\Accounts\FacebookAccountsSummary.cs" />
     <Compile Include="Objects\Authentication\FacebookToken.cs" />
+    <Compile Include="Objects\Common\FacebookProfile.cs" />
     <Compile Include="Options\Events\FacebookGetEventOptions.cs" />
     <Compile Include="Scopes\FacebookScope.cs" />
     <Compile Include="Scopes\FacebookScopeCollection.cs" />
