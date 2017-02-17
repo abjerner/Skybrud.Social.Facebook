@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook {
         /// <summary>
         /// Gets a reference to the apps endpoint.
         /// </summary>
-        public FacebookAppsEndpoint Apps { get; private set; }
+        public FacebookApplicationsEndpoint Applications { get; private set; }
 
         /// <summary>
         /// Gets a reference to the debug endpoint.
@@ -88,7 +88,7 @@ namespace Skybrud.Social.Facebook {
         private FacebookService() {
             Accounts = new FacebookAccountsEndpoint(this);
             Albums = new FacebookAlbumsEndpoint(this);
-            Apps = new FacebookAppsEndpoint(this);
+            Applications = new FacebookApplicationsEndpoint(this);
             Debug = new FacebookDebugEndpoint(this);
             Comments = new FacebookCommentsEndpoint(this);
             Events = new FacebookEventsEndpoint(this);

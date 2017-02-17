@@ -1,7 +1,7 @@
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Facebook.Options.Apps;
-using Skybrud.Social.Facebook.Responses.Apps;
+using Skybrud.Social.Facebook.Options.Applications;
+using Skybrud.Social.Facebook.Responses.Applications;
 
 namespace Skybrud.Social.Facebook.Endpoints {
 
@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
     /// </see>
-    public class FacebookAppsEndpoint {
+    public class FacebookApplicationsEndpoint {
 
         #region Properties
 
@@ -23,15 +23,15 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <summary>
         /// Gets a reference to the raw endpoint.
         /// </summary>
-        public FacebookAppsRawEndpoint Raw {
-            get { return Service.Client.Apps; }
+        public FacebookApplicationsRawEndpoint Raw {
+            get { return Service.Client.Applications; }
         }
 
         #endregion
 
         #region Constructors
 
-        internal FacebookAppsEndpoint(FacebookService service) {
+        internal FacebookApplicationsEndpoint(FacebookService service) {
             Service = service;
         }
 
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the current app by calling the <code>/app</code> method. This requires an app access
         /// token.
         /// </summary>
-        public FacebookGetAppResponse GetApp() {
+        public FacebookGetApplicationResponse GetApp() {
             return GetApp("app");
         }
 
@@ -51,9 +51,9 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the app with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
-        /// <returns>An instance of <see cref="FacebookGetAppResponse"/> representing the response.</returns>
-        public FacebookGetAppResponse GetApp(string identifier) {
-            return FacebookGetAppResponse.ParseResponse(Raw.GetApp(identifier));
+        /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
+        public FacebookGetApplicationResponse GetApp(string identifier) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(identifier));
         }
 
         /// <summary>
@@ -61,18 +61,18 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="FacebookGetAppResponse"/> representing the response.</returns>
-        public FacebookGetAppResponse GetApp(string identifier, FacebookFieldsCollection fields) {
-            return FacebookGetAppResponse.ParseResponse(Raw.GetApp(identifier, fields));
+        /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
+        public FacebookGetApplicationResponse GetApp(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(identifier, fields));
         }
 
         /// <summary>
         /// Gets information about the app matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="FacebookGetAppResponse"/> representing the response.</returns>
-        public FacebookGetAppResponse GetApp(FacebookGetAppOptions options) {
-            return FacebookGetAppResponse.ParseResponse(Raw.GetApp(options));
+        /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
+        public FacebookGetApplicationResponse GetApp(FacebookGetApplicationOptions options) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(options));
         }
 
         #endregion

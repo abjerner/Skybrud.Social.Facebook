@@ -64,7 +64,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <summary>
         /// Gets a reference to the apps endpoint.
         /// </summary>
-        public FacebookAppsRawEndpoint Apps { get; private set; }
+        public FacebookApplicationsRawEndpoint Applications { get; private set; }
 
         /// <summary>
         /// Gets a reference to the debug endpoint.
@@ -128,7 +128,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookOAuthClient() {
             Version = "v2.8";
             Accounts = new FacebookAccountsRawEndpoint(this);
-            Apps = new FacebookAppsRawEndpoint(this);
+            Applications = new FacebookApplicationsRawEndpoint(this);
             Debug = new FacebookDebugRawEndpoint(this);
             Comments = new FacebookCommentsRawEndpoint(this);
             Events = new FacebookEventsRawEndpoint(this);

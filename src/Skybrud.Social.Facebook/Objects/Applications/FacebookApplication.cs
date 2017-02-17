@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 
-namespace Skybrud.Social.Facebook.Objects.Apps {
+namespace Skybrud.Social.Facebook.Objects.Applications {
 
     /// <summary>
     /// Class representing a Facebook application (app).
@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
     /// </see>
-    public class FacebookApp : FacebookObject {
+    public class FacebookApplication : FacebookObject {
 
         #region Properties
 
@@ -279,7 +279,7 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
 
         #region Constructors
 
-        private FacebookApp(JObject obj) : base(obj) {
+        private FacebookApplication(JObject obj) : base(obj) {
             Id = obj.GetInt64("id");
             // TODO: Add support for the "an_platforms" property
             // TODO: Add support for the "app_ad_debug_info" property
@@ -363,12 +363,12 @@ namespace Skybrud.Social.Facebook.Objects.Apps {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookApp"/>.
+        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookApplication"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookApp"/>.</returns>
-        public static FacebookApp Parse(JObject obj) {
-            return obj == null ? null : new FacebookApp(obj);
+        /// <returns>Returns an instance of <see cref="FacebookApplication"/>.</returns>
+        public static FacebookApplication Parse(JObject obj) {
+            return obj == null ? null : new FacebookApplication(obj);
         }
 
         #endregion

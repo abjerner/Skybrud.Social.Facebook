@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Constants {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
     /// </see>
-    public static class FacebookAppFields {
+    public static class FacebookApplicationFields {
 
         /// <summary>
         /// The app ID.

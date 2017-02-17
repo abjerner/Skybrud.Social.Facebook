@@ -3,15 +3,15 @@ using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
-namespace Skybrud.Social.Facebook.Options.Apps {
+namespace Skybrud.Social.Facebook.Options.Applications {
     
     /// <summary>
-    /// Class representing the options for getting information about a Facebook app.
+    /// Class representing the options for getting information about a Facebook application.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application#Reading</cref>
     /// </see>
-    public class FacebookGetAppOptions : IHttpGetOptions {
+    public class FacebookGetApplicationOptions : IHttpGetOptions {
 
         #region Properties
 
@@ -32,7 +32,7 @@ namespace Skybrud.Social.Facebook.Options.Apps {
         /// <summary>
         /// Initializes a new instance with default options.
         /// </summary>
-        public FacebookGetAppOptions() {
+        public FacebookGetApplicationOptions() {
             Fields = new FacebookFieldsCollection();
         }
         
@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Options.Apps {
         /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
-        public FacebookGetAppOptions(string identifier) : this() {
+        public FacebookGetApplicationOptions(string identifier) : this() {
             Identifier = identifier;
         }
 
@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Options.Apps {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the album.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAppOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetApplicationOptions(string identifier, FacebookFieldsCollection fields) {
             Identifier = identifier;
             Fields = fields ?? new FacebookFieldsCollection();
         }
