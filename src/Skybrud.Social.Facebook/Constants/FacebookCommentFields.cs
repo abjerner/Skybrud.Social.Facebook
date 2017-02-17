@@ -8,7 +8,7 @@ namespace Skybrud.Social.Facebook.Constants {
     /// implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/comment</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/comment</cref>
     /// </see>
     public static class FacebookCommentFields {
 
@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField CanRemove = new FacebookField("can_remove");
 
         /// <summary>
-        /// Whether the viewer can hide this comment.
+        /// Whether the viewer can hide this comment.  Only visible to a page admin.
         /// </summary>
         public static readonly FacebookField CanHide = new FacebookField("can_hide");
 
@@ -41,6 +41,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Whether the viewer can like this comment.
         /// </summary>
         public static readonly FacebookField CanLike = new FacebookField("can_like");
+
+        /// <summary>
+        /// Whether the viewer can send a private reply to this comment (Page viewers only).
+        /// </summary>
+        public static readonly FacebookField CanReplyPrivately = new FacebookField("can_reply_privately");
 
         /// <summary>
         /// Number of replies to this comment.
@@ -73,7 +78,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField MessageTags = new FacebookField("message_tags");
 
         /// <summary>
-        /// Parent object this comment was made on.
+        /// For comments on a photo or video, this is that object. Otherwise, this is empty.
         /// </summary>
         public static readonly FacebookField Object = new FacebookField("object");
 
@@ -81,6 +86,12 @@ namespace Skybrud.Social.Facebook.Constants {
         /// For comment replies, this the comment that this is a reply to.
         /// </summary>
         public static readonly FacebookField Parent = new FacebookField("parent");
+
+        /// <summary>
+        /// For comments with private replies, gets conversation between the Page and author of the comment (Page
+        /// viewers only).
+        /// </summary>
+        public static readonly FacebookField PrivateReplyConversation = new FacebookField("private_reply_conversation");
 
         /// <summary>
         /// Whether the viewer has liked this comment.

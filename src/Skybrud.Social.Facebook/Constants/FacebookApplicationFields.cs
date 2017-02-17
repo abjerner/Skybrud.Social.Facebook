@@ -18,14 +18,10 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Id = new FacebookField("id");
 
         /// <summary>
-        /// The app key hash for this app's Android native implementation.
+        /// The platforms associated with the app in the Audience Network product. Not enforced, but when present, it
+        /// can be used to provide the user with platform specific information for the app and its placements.
         /// </summary>
-        public static readonly FacebookField AndroidKeyHash = new FacebookField("android_key_hash");
-
-        /// <summary>
-        /// Error configuration for Android SDK.
-        /// </summary>
-        public static readonly FacebookField AndroidSdkErrorCategories = new FacebookField("android_sdk_error_categories");
+        public static readonly FacebookField AnPlatforms = new FacebookField("an_platforms");
 
         /// <summary>
         /// App ad related information to help debugging.
@@ -36,11 +32,6 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Domains and subdomains this app can use.
         /// </summary>
         public static readonly FacebookField AppDomains = new FacebookField("app_domains");
-
-        /// <summary>
-        /// Bitmask of on/off settings for various App Events related features.
-        /// </summary>
-        public static readonly FacebookField AppEventsFeatureBitmask = new FacebookField("app_events_feature_bitmask");
 
         /// <summary>
         /// Whether the app install is trackable or not.
@@ -199,24 +190,14 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField IosBundleId = new FacebookField("ios_bundle_id");
 
         /// <summary>
-        /// Error configuration for iOS SDK.
-        /// </summary>
-        public static readonly FacebookField IosSdkErrorCategories = new FacebookField("ios_sdk_error_categories");
-
-        /// <summary>
-        /// Whether to support the iOS integrated Login Dialog.
-        /// </summary>
-        public static readonly FacebookField IosSupportsSystemAuth = new FacebookField("ios_supports_system_auth");
-
-        /// <summary>
         /// Whether to support the native proxy login flow.
         /// </summary>
         public static readonly FacebookField IosSupportsNativeProxyAuthFlow = new FacebookField("ios_supports_native_proxy_auth_flow");
 
         /// <summary>
-        /// Settings for the dialog flows in the iOS SDK.
+        /// Whether to support the iOS integrated Login Dialog.
         /// </summary>
-        public static readonly FacebookField IosSdkDialogFlows = new FacebookField("ios_sdk_dialog_flows");
+        public static readonly FacebookField IosSupportsSystemAuth = new FacebookField("ios_supports_system_auth");
 
         /// <summary>
         /// ID of the app in the iPad App Store.
@@ -232,6 +213,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// A link to the app on Facebook.
         /// </summary>
         public static readonly FacebookField Link = new FacebookField("link");
+
+        /// <summary>
+        /// To use for logging purposes.
+        /// </summary>
+        public static readonly FacebookField LoggingToken = new FacebookField("logging_token");
 
         /// <summary>
         /// The URL of the app's logo.
@@ -329,29 +315,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Subcategory = new FacebookField("subcategory");
 
         /// <summary>
-        /// Indicates whether the app should do a fast-app-switch to the Facebook app to show the app requests dialog.
-        /// </summary>
-        public static readonly FacebookField SupportsApprequestsFastAppSwitch = new FacebookField("supports_apprequests_fast_app_switch");
-
-        /// <summary>
         /// All the platform the app supports.
         /// </summary>
         public static readonly FacebookField SupportedPlatforms = new FacebookField("supported_platforms");
-
-        /// <summary>
-        /// Indicates whether the app has not opted out of app install tracking.
-        /// </summary>
-        public static readonly FacebookField SupportsAttribution = new FacebookField("supports_attribution");
-
-        /// <summary>
-        /// Indicates whether the app has not opted out of the mobile SDKs sending data on SDK interactions.
-        /// </summary>
-        public static readonly FacebookField SupportsImplicitSdkLogging = new FacebookField("supports_implicit_sdk_logging");
-
-        /// <summary>
-        /// Whether to suppress the native iOS Login Dialog.
-        /// </summary>
-        public static readonly FacebookField SuppressNativeIosGdp = new FacebookField("suppress_native_ios_gdp");
 
         /// <summary>
         /// URL to Terms of Service that appears in the Login Dialog.
@@ -362,11 +328,6 @@ namespace Skybrud.Social.Facebook.Constants {
         /// URL scheme suffix.
         /// </summary>
         public static readonly FacebookField UrlSchemeSuffix = new FacebookField("url_scheme_suffix");
-
-        /// <summary>
-        /// Does the app use the legacy auth method?.
-        /// </summary>
-        public static readonly FacebookField UseLegacyAuth = new FacebookField("use_legacy_auth");
 
         /// <summary>
         /// Main contact email for this app where people can receive support.
@@ -387,36 +348,6 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The number of weekly active users the app has.
         /// </summary>
         public static readonly FacebookField WeeklyActiveUsers = new FacebookField("weekly_active_users");
-
-        /// <summary>
-        /// Indicates whether Login Version 4 is enabled for this app.
-        /// </summary>
-        public static readonly FacebookField Gdpv4Enabled = new FacebookField("gdpv4_enabled");
-
-        /// <summary>
-        /// Indicates whether the New User Experience for login button must be shown or not.
-        /// </summary>
-        public static readonly FacebookField Gdpv4NuxEnabled = new FacebookField("gdpv4_nux_enabled");
-
-        /// <summary>
-        /// Localized content for the login new user experience.
-        /// </summary>
-        public static readonly FacebookField Gdpv4NuxContent = new FacebookField("gdpv4_nux_content");
-
-        /// <summary>
-        /// Owner business of this object.
-        /// </summary>
-        public static readonly FacebookField OwnerBusiness = new FacebookField("owner_business");
-
-        /// <summary>
-        /// Last used time of this object by the current viewer.
-        /// </summary>
-        public static readonly FacebookField LastUsedTime = new FacebookField("last_used_time");
-
-        /// <summary>
-        /// Relevance score of an asset.
-        /// </summary>
-        public static readonly FacebookField AssetScore = new FacebookField("asset_score");
 
     }
 
