@@ -34,11 +34,22 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes an instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the post.</param>
         public FacebookGetPostOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/> and collection of
+        /// <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the post.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetPostOptions(string identifier, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion

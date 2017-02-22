@@ -1,3 +1,4 @@
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;
 
@@ -17,17 +18,28 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// <summary>
         /// Gets or sets the number of individual objects that are returned in each page.
         /// </summary>
-        public int? Limit { get; set; }
+        public int Limit { get; set; }
 
         /// <summary>
         /// Gets or sets the timestamp that points to the start of the range of time-based data.
         /// </summary>
-        public int Since { get; set; }
+        public EssentialsDateTime Since { get; set; }
 
         /// <summary>
         /// Gets or sets the timestamp that points to the end of the range of time-based data.
         /// </summary>
-        public int Until { get; set; }
+        public EssentialsDateTime Until { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance with default values.
+        /// </summary>
+        protected FacebookTimeBasedPaginationOptions() {
+            Limit = -1;
+        }
 
         #endregion
 
@@ -38,9 +50,9 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// </summary>
         public virtual IHttpQueryString GetQueryString() {
             SocialHttpQueryString query = new SocialHttpQueryString();
-            if (Limit != null && Limit.Value >= 0) query.Set("limit", Limit.Value);
-            if (Since > 0) query.Set("since", Since);
-            if (Until > 0) query.Set("until", Until);
+            if (Limit >= 0) query.Set("limit", Limit);
+            if (Since != null && Since.UnixTimestamp > 0) query.Set("since", Since.UnixTimestamp);
+            if (Until != null && Until.UnixTimestamp > 0) query.Set("until", Until.UnixTimestamp);
             return query;
         }
 

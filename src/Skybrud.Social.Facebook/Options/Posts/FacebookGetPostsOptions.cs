@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Interfaces.Http;
@@ -13,7 +14,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         #region Properties
 
         /// <summary>
-        /// Gets or sets the identifier (ID) of the user.
+        /// Gets or sets the identifier (ID) of the page or user.
         /// </summary>
         public string Identifier { get; set; }
 
@@ -21,6 +22,12 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// Gets or sets the fields to be returned.
         /// </summary>
         public FacebookFieldsCollection Fields { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether or not to include any posts that were hidden by the Page. Defaults to
+        /// <code>false</code>.
+        /// </summary>
+        public bool IncludeHidden { get; set; }
 
         #endregion
 
@@ -34,11 +41,74 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
         public FacebookGetPostsOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/> and collection of
+        /// <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetPostsOptions(string identifier, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+        
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/> and
+        /// <paramref name="limit"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        public FacebookGetPostsOptions(string identifier, int limit) {
+            Identifier = identifier;
+            Limit = limit;
+        }
+        
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
+        /// and <paramref name="until"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
+        public FacebookGetPostsOptions(string identifier, int limit, EssentialsDateTime until) {
+            Identifier = identifier;
+            Limit = limit;
+            Until = until;
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
+        /// and collection of <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetPostsOptions(string identifier, int limit, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+        
+        /// <summary>
+        /// Initializes an instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
+        /// <paramref name="until"/> and collection of <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetPostsOptions(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+            Until = until;
         }
 
         #endregion
@@ -58,6 +128,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
 
             // Update the query string
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
+            if (IncludeHidden) query.Add("include_hidden", "true");
 
             return query;
 

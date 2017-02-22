@@ -22,26 +22,26 @@ namespace Skybrud.Social.Facebook.Objects.Pagination {
         /// <summary>
         /// The timestamp used for the <see cref="Previous"/> link.
         /// </summary>
-        public int? Since {
+        public int Since {
             get {
                 if (Previous != null) {
                     NameValueCollection response = SocialUtils.Misc.ParseQueryString(Previous);
                     if (response["since"] != null) return Int32.Parse(response["since"]);
                 }
-                return null;
+                return 0;
             }
         }
 
         /// <summary>
         /// The timestamp used for the <see cref="Next"/> link.
         /// </summary>
-        public int? Until {
+        public int Until {
             get {
                 if (Next != null) {
                     NameValueCollection response = SocialUtils.Misc.ParseQueryString(Next);
                     if (response["until"] != null) return Int32.Parse(response["until"]);
                 }
-                return null;
+                return 0;
             }
         }
 

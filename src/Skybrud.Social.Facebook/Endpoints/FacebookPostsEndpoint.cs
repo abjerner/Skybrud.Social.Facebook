@@ -1,4 +1,6 @@
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Endpoints.Raw;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Posts;
 using Skybrud.Social.Facebook.Responses.Posts;
 
@@ -36,45 +38,90 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #region Methods
 
         /// <summary>
-        /// Gets information about the post with the specified <code>id</code>.
+        /// Gets information about the post with the specified <paramref name="postId"/>.
         /// </summary>
-        /// <param name="id">The ID of the post.</param>
-        public FacebookGetPostResponse GetPost(string id) {
-            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(id));
+        /// <param name="postId">The ID of the post.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
+        public FacebookGetPostResponse GetPost(string postId) {
+            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(postId));
         }
 
         /// <summary>
-        /// Gets information about the post matching the specified <code>options</code>.
+        /// Gets information about the post with the specified <paramref name="postId"/>.
+        /// </summary>
+        /// <param name="postId">The ID of the post.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing raw response.</returns>
+        public FacebookGetPostResponse GetPost(string postId, FacebookFieldsCollection fields) {
+            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(postId, fields));
+        }
+
+        /// <summary>
+        /// Gets information about the post matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
         public FacebookGetPostResponse GetPost(FacebookGetPostOptions options) {
             return FacebookGetPostResponse.ParseResponse(Raw.GetPost(options));
         }
 
         /// <summary>
-        /// Gets a list of posts of the user or page with the specified <code>identifier</code>.
+        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
         public FacebookGetPostsResponse GetPosts(string identifier) {
-            return GetPosts(new FacebookGetPostsOptions(identifier));
+            return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier));
         }
 
         /// <summary>
-        /// Gets a list of posts of the user or page with the specified <code>identifier</code>.
+        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID or name) of the page or user.</param>
-        /// <param name="limit">The maximum amount of posts7 to return.</param>
-        public FacebookGetPostsResponse GetPosts(string identifier, int limit) {
-            return GetPosts(new FacebookGetPostsOptions {
-                Identifier = identifier,
-                Limit = limit
-            });
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
+        public FacebookGetPostsResponse GetPosts(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, fields));
         }
 
         /// <summary>
-        /// Gets a list of posts of the user or page matching the specified <code>options</code>.
+        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit) {
+            return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit));
+        }
+
+        /// <summary>
+        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit"></param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit, FacebookFieldsCollection fields) {
+            return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
+        /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+            return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit, until, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of posts of the user or page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
         public FacebookGetPostsResponse GetPosts(FacebookGetPostsOptions options) {
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(options));
         }

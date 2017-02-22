@@ -224,7 +224,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         /// <summary>
         /// Gets a list of properties for any attached video, for example, the length of the video.
         /// </summary>
-        public FacebookPostProperties[] Properties { get; private set; }
+        public FacebookPostProperty[] Properties { get; private set; }
 
         /// <summary>
         /// Gets whether the post has any <see cref="Properties"/>.
@@ -341,7 +341,7 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
             Picture = obj.GetString("picture");
             Place = obj.GetObject("place", FacebookPlace.Parse);
             // TODO: Add support for the "privacy" property
-            Properties = obj.GetArray("properties", FacebookPostProperties.Parse) ?? new FacebookPostProperties[0];
+            Properties = obj.GetArray("properties", FacebookPostProperty.Parse) ?? new FacebookPostProperty[0];
             Shares = obj.GetObject("shares", FacebookShares.Parse);
             Source = obj.GetString("source");
             StatusType = obj.GetEnum("status_type", FacebookPostStatusType.NotSpecified);
@@ -358,10 +358,10 @@ namespace Skybrud.Social.Facebook.Objects.Posts {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookPost"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookPost"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookPost"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookPost"/>.</returns>
         public static FacebookPost Parse(JObject obj) {
             return obj == null ? null : new FacebookPost(obj);
         }

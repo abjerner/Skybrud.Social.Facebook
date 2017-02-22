@@ -130,7 +130,7 @@
     <Compile Include="Objects\FacebookObject.cs" />
     <Compile Include="Objects\Pagination\FacebookPaging.cs" />
     <Compile Include="Objects\Places\FacebookPlace.cs" />
-    <Compile Include="Objects\Posts\FacebookPostProperties.cs" />
+    <Compile Include="Objects\Posts\FacebookPostProperty.cs" />
     <Compile Include="Objects\Common\FacebookShares.cs" />
     <Compile Include="Objects\Statuses\FacebookStatusMessage.cs" />
     <Compile Include="Objects\Feed\FacebookFeedCollection.cs" />
