@@ -5,10 +5,13 @@ using Skybrud.Social.Facebook.Options.Posts;
 using Skybrud.Social.Facebook.Responses.Posts;
 
 namespace Skybrud.Social.Facebook.Endpoints {
-
+    
     /// <summary>
     /// Class representing the implementation of the posts endpoint.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/page/feed</cref>
+    /// </see>
     public class FacebookPostsEndpoint {
 
         #region Properties
@@ -51,7 +54,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="postId">The ID of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing raw response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
         public FacebookGetPostResponse GetPost(string postId, FacebookFieldsCollection fields) {
             return FacebookGetPostResponse.ParseResponse(Raw.GetPost(postId, fields));
         }
