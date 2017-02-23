@@ -57,14 +57,14 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
-        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         public FacebookGetAlbumsOptions(string identifier, int limit) : this(identifier, limit, null, null) { }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/> and <paramref name="fields"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
-        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetAlbumsOptions(string identifier, int limit, FacebookFieldsCollection fields) : this(identifier, limit, null, fields) { }
 
@@ -72,7 +72,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>, <paramref name="after"/> cursor and <paramref name="fields"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the album.</param>
-        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetAlbumsOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {

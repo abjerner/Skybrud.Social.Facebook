@@ -82,11 +82,46 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of albums of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID of the user or page.</param>
-        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAlbums(string identifier, FacebookFieldsCollection fields) {
+            return GetAlbums(new FacebookGetAlbumsOptions(identifier, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of albums of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The ID of the user or page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetAlbums(string identifier, int limit) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit));
+        }
+
+        /// <summary>
+        /// Gets a list of albums of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The ID of the user or page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAlbums(string identifier, int limit, FacebookFieldsCollection fields) {
+            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
+            return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of albums of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of albums to be returned on each page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAlbums(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
+            return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit, after, fields));
         }
 
         /// <summary>
