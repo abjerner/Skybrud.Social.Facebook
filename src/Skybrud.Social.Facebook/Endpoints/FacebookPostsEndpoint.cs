@@ -66,7 +66,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
@@ -75,7 +75,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
@@ -85,7 +85,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
@@ -95,7 +95,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="limit"></param>
@@ -106,7 +106,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         }
 
         /// <summary>
-        /// Gets a list of post of the user or page with the specified <paramref name="identifier"/>.
+        /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
