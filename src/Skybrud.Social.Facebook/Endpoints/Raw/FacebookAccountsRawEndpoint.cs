@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Accounts;
 using Skybrud.Social.Http;
@@ -36,10 +37,63 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
         /// method. This call requires a user access token as well as the <code>manage_scope</code>.
         /// </summary>
-        /// <returns>The raw JSON response from the API.</returns>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetAccounts() {
-            return Client.DoHttpGetRequest("/me/accounts");
+            return GetAccounts(new FacebookFieldsCollection());
+        }
+
+        /// <summary>
+        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
+        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// </summary>
+        /// <param name="fields">A collection of the fields to be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAccounts(FacebookFieldsCollection fields) {
+            return GetAccounts(new FacebookGetAccountsOptions(fields));
+        }
+
+        /// <summary>
+        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
+        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAccounts(int limit) {
+            return GetAccounts(new FacebookGetAccountsOptions(limit));
+        }
+
+        /// <summary>
+        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
+        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="fields">A collection of the fields to be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAccounts(int limit, FacebookFieldsCollection fields) {
+            return GetAccounts(new FacebookGetAccountsOptions(limit, fields));
+        }
+
+        /// <summary>
+        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
+        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAccounts(int limit, string after) {
+            return GetAccounts(new FacebookGetAccountsOptions(limit, after));
+        }
+
+        /// <summary>
+        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
+        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
+        /// <param name="fields">A collection of the fields to be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetAccounts(int limit, string after, FacebookFieldsCollection fields) {
+            return GetAccounts(new FacebookGetAccountsOptions(limit, after, fields));
         }
 
         /// <summary>
@@ -47,7 +101,6 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// method. This call requires a user access token as well as the <code>manage_scope</code>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>The raw JSON response from the API.</returns>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetAccounts(FacebookGetAccountsOptions options) {
             if (options == null) throw new ArgumentNullException("options");

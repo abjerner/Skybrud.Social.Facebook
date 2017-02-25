@@ -53,20 +53,58 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// <summary>
         /// Initializes an instance with default options.
         /// </summary>
-        public FacebookGetAccountsOptions() : this(0, null) { }
+        public FacebookGetAccountsOptions() {
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetAccountsOptions(FacebookFieldsCollection fields) {
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="limit"/>.
         /// </summary>
-        public FacebookGetAccountsOptions(int limit) : this(limit, null) { }
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        public FacebookGetAccountsOptions(int limit) {
+            Limit = limit;
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="limit"/> and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetAccountsOptions(int limit, FacebookFieldsCollection fields) {
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="limit"/> and <paramref name="after"/> cursor.
         /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         public FacebookGetAccountsOptions(int limit, string after) {
             Limit = limit;
             After = after;
             Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="limit"/>, <paramref name="after"/> cursor and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetAccountsOptions(int limit, string after, FacebookFieldsCollection fields) {
+            Limit = limit;
+            After = after;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion
