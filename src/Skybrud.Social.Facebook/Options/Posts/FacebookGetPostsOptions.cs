@@ -46,6 +46,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         public FacebookGetPostsOptions(string identifier) : this() {
             Identifier = identifier;
+            Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
@@ -68,6 +69,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         public FacebookGetPostsOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
+            Fields = new FacebookFieldsCollection();
         }
         
         /// <summary>
@@ -81,6 +83,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
             Identifier = identifier;
             Limit = limit;
             Until = until;
+            Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
@@ -107,8 +110,8 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         public FacebookGetPostsOptions(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) : this() {
             Identifier = identifier;
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
             Until = until;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion

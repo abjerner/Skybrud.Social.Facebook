@@ -1,3 +1,5 @@
+using System;
+using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Fields;
@@ -126,6 +128,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
         public FacebookGetPostsResponse GetPosts(FacebookGetPostsOptions options) {
+            if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(options));
         }
 
