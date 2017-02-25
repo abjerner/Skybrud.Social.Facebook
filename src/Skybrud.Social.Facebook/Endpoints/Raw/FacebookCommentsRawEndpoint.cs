@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Comments;
 using Skybrud.Social.Http;
@@ -42,6 +43,16 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
+        /// Gets information about the comment with specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the comment.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetComment(string identifier, FacebookFieldsCollection fields) {
+            return GetComment(new FacebookGetCommentOptions(identifier, fields));
+        }
+
+        /// <summary>
         /// Gets information about the comment matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
@@ -51,7 +62,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of comments for an object with the specified <paramref name="identifier"/>.
+        /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
@@ -60,7 +71,17 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of comments for an object with the specified <paramref name="identifier"/>.
+        /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetComments(string identifier, FacebookFieldsCollection fields) {
+            return GetComments(new FacebookGetCommentsOptions(identifier, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
@@ -70,7 +91,30 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets a list of comments for an object matching the specified <paramref name="options"/>.
+        /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="limit">The maximum amount of comments to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetComments(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+            return GetComments(new FacebookGetCommentsOptions(identifier, limit, after, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="limit">The maximum amount of comments to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetComments(string identifier, int limit, FacebookFieldsCollection fields) {
+            return GetComments(new FacebookGetCommentsOptions(identifier, limit, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of comments for the object matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
