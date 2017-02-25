@@ -18,7 +18,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #region Properties
 
         /// <summary>
-        /// Gets a reference of the OAuth client.
+        /// Gets a reference to the OAuth client.
         /// </summary>
         public FacebookOAuthClient Client { get; private set; }
 
@@ -35,13 +35,22 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #region Methods
 
         /// <summary>
+        /// Gets information about the current app by calling the <code>/app</code> method. This requires an app access
+        /// token.
+        /// </summary>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse GetApplication() {
+            return GetApplication(new FacebookGetApplicationOptions("app"));
+        }
+
+        /// <summary>
         /// Gets information about the app with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetApp(string identifier) {
+        public SocialHttpResponse GetApplication(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
-            return GetApp(new FacebookGetApplicationOptions(identifier));
+            return GetApplication(new FacebookGetApplicationOptions(identifier));
         }
 
         /// <summary>
@@ -50,9 +59,9 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetApp(string identifier, FacebookFieldsCollection fields) {
+        public SocialHttpResponse GetApplication(string identifier, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
-            return GetApp(new FacebookGetApplicationOptions(identifier, fields));
+            return GetApplication(new FacebookGetApplicationOptions(identifier, fields));
         }
 
         /// <summary>
@@ -60,7 +69,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetApp(FacebookGetApplicationOptions options) {
+        public SocialHttpResponse GetApplication(FacebookGetApplicationOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);

@@ -4,9 +4,9 @@ using Skybrud.Social.Facebook.Options.Applications;
 using Skybrud.Social.Facebook.Responses.Applications;
 
 namespace Skybrud.Social.Facebook.Endpoints {
-
+    
     /// <summary>
-    /// Class representing the implementation of the accounts endpoint.
+    /// Class representing the implementation of the apps endpoint.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
@@ -43,8 +43,9 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the current app by calling the <code>/app</code> method. This requires an app access
         /// token.
         /// </summary>
-        public FacebookGetApplicationResponse GetApp() {
-            return GetApp("app");
+        /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
+        public FacebookGetApplicationResponse GetApplication() {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApplication());
         }
 
         /// <summary>
@@ -52,8 +53,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
-        public FacebookGetApplicationResponse GetApp(string identifier) {
-            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(identifier));
+        public FacebookGetApplicationResponse GetApplication(string identifier) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApplication(identifier));
         }
 
         /// <summary>
@@ -62,8 +63,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
-        public FacebookGetApplicationResponse GetApp(string identifier, FacebookFieldsCollection fields) {
-            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(identifier, fields));
+        public FacebookGetApplicationResponse GetApplication(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApplication(identifier, fields));
         }
 
         /// <summary>
@@ -71,8 +72,8 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
-        public FacebookGetApplicationResponse GetApp(FacebookGetApplicationOptions options) {
-            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApp(options));
+        public FacebookGetApplicationResponse GetApplication(FacebookGetApplicationOptions options) {
+            return FacebookGetApplicationResponse.ParseResponse(Raw.GetApplication(options));
         }
 
         #endregion
