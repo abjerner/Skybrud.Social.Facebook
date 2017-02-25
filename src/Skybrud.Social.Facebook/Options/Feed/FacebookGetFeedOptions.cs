@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Interfaces.Http;
@@ -34,21 +35,77 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user, page or similar.</param>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
         public FacebookGetFeedOptions(string identifier) : this() {
             Identifier = identifier;
+            Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance based on the specified <paramref name="identifier"/> and collection of
+        /// <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user, page or similar.</param>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetFeedOptions(string identifier, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+        
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/> and
+        /// <paramref name="limit"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         public FacebookGetFeedOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
+            Fields = new FacebookFieldsCollection();
+        }
+        
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
+        /// and <paramref name="until"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
+        public FacebookGetFeedOptions(string identifier, int limit, EssentialsDateTime until) {
+            Identifier = identifier;
+            Limit = limit;
+            Until = until;
+            Fields = new FacebookFieldsCollection();
+        }
+
+        /// <summary>
+        /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
+        /// and collection of <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetFeedOptions(string identifier, int limit, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
+        
+        /// <summary>
+        /// Initializes an instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
+        /// <paramref name="until"/> and collection of <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the page or user.</param>
+        /// <param name="limit">The maximum amount of items to be returned per page.</param>
+        /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetFeedOptions(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) : this() {
+            Identifier = identifier;
+            Limit = limit;
+            Until = until;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion

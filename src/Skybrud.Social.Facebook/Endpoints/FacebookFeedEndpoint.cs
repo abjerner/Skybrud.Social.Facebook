@@ -1,11 +1,13 @@
+using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Endpoints.Raw;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Feed;
 using Skybrud.Social.Facebook.Responses.Feed;
 
 namespace Skybrud.Social.Facebook.Endpoints {
 
     /// <summary>
-    /// Class (endpoint) with methods related to the feed of a user or a page.
+    /// Class representing the implementation of the feed endpoint.
     /// </summary>
     public class FacebookFeedEndpoint {
 
@@ -34,28 +36,64 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #endregion
 
         #region Methods
-        
+
         /// <summary>
-        /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
+        /// Gets a list of items from the feed of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The ID or name of the user/page.</param>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
         public FacebookGetFeedResponse GetFeed(string identifier) {
-            return GetFeed(new FacebookGetFeedOptions(identifier));
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier));
         }
 
         /// <summary>
-        /// Gets a list of entries from the feed of the user or page with the specified <code>identifier</code>.
+        /// Gets a list of items from the feed of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The ID or name of the user/page.</param>
-        /// <param name="limit">The maximum amount of events to return.</param>
-        public FacebookGetFeedResponse GetFeed(string identifier, int limit) {
-            return GetFeed(new FacebookGetFeedOptions(identifier, limit));
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
+        public FacebookGetFeedResponse GetFeed(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, fields));
         }
 
         /// <summary>
-        /// Gets a list of entries from the feed of the user or page matching the specified <code>options</code>.
+        /// Gets a list of items from the feed of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of items to return.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit) {
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, limit));
+        }
+
+        /// <summary>
+        /// Gets a list of items from the feed of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of items to return.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit, FacebookFieldsCollection fields) {
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, limit, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of items from the feed of the user or page with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
+        /// <param name="limit">The maximum amount of items to be returned on each page.</param>
+        /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+            return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, limit, until, fields));
+        }
+
+        /// <summary>
+        /// Gets a list of items from the feed of the user or page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
         public FacebookGetFeedResponse GetFeed(FacebookGetFeedOptions options) {
             return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(options));
         }
