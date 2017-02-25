@@ -18,16 +18,16 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets the fields to be returned.
-        /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
-
-        /// <summary>
         /// Gets or sets whether a summary of metadata about the comments on the object should be included in the
         /// response. The summary will contain the total count of comments and how the comments are sorted (either
         /// <code>ranked</code> or <code>chronological</code>).
         /// </summary>
         public bool IncludeSummary { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fields to be returned.
+        /// </summary>
+        public FacebookFieldsCollection Fields { get; set; }
 
         #endregion
 
@@ -36,21 +36,23 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// <summary>
         /// Initializes the class with default options.
         /// </summary>
-        public FacebookGetCommentsOptions() { }
+        public FacebookGetCommentsOptions() {
+            Fields = new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes the class with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the comment.</param>
         public FacebookGetCommentsOptions(string identifier) {
             Identifier = identifier;
             Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetCommentsOptions(string identifier, FacebookFieldsCollection fields) {
             Identifier = identifier;
@@ -58,10 +60,10 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         }
 
         /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
-        /// <param name="limit">The limit.</param>
+        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         public FacebookGetCommentsOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
@@ -69,11 +71,11 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         }
 
         /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
+        /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
         /// <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
-        /// <param name="limit">The limit.</param>
+        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetCommentsOptions(string identifier, int limit, FacebookFieldsCollection fields) {
             Identifier = identifier;
@@ -82,26 +84,12 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         }
 
         /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
-        /// <paramref name="after"/> cursor.
-        /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
-        /// <param name="limit">The limit.</param>
-        /// <param name="after">The after cursor.</param>
-        public FacebookGetCommentsOptions(string identifier, int limit, string after) {
-            Identifier = identifier;
-            Limit = limit;
-            After = after;
-            Fields = new FacebookFieldsCollection();
-        }
-
-        /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
+        /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
         /// <paramref name="after"/> cursor and <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the parent object.</param>
-        /// <param name="limit">The limit.</param>
-        /// <param name="after">The after cursor.</param>
+        /// <param name="identifier">The identifier (ID) of the album.</param>
+        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetCommentsOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {
             Identifier = identifier;

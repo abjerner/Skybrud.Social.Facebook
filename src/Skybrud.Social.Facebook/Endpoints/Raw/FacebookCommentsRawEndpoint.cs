@@ -1,4 +1,5 @@
 ﻿using System;
+using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Comments;
@@ -64,7 +65,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetComments(string identifier) {
             return GetComments(new FacebookGetCommentsOptions(identifier));
@@ -73,7 +74,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetComments(string identifier, FacebookFieldsCollection fields) {
@@ -83,7 +84,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetComments(string identifier, int limit) {
@@ -93,7 +94,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
@@ -105,7 +106,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier of the parent object.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
@@ -120,6 +121,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetComments(FacebookGetCommentsOptions options) {
             if (options == null) throw new ArgumentException("options");
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/comments", options);
         }
 
