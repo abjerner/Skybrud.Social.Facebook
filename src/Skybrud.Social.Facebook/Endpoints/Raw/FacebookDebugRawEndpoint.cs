@@ -1,4 +1,6 @@
-﻿using Skybrud.Social.Facebook.OAuth;
+﻿using System;
+using Skybrud.Essentials.Common;
+using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
@@ -28,10 +30,19 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #region Methods
 
         /// <summary>
+        /// Gets debug information about the access token used for accessing the Graph API.
+        /// </summary>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse DebugToken() {
+            if (String.IsNullOrWhiteSpace(Client.AccessToken)) throw new PropertyNotSetException("Client.AccessToken");
+            return DebugToken(Client.AccessToken);
+        }
+
+        /// <summary>
         /// Gets debug information about the specified access token.
         /// </summary>
         /// <param name="accessToken">The access token to debug.</param>
-        /// <returns>The raw JSON response from the API.</returns>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse DebugToken(string accessToken) {
 
             // Declare the query string
