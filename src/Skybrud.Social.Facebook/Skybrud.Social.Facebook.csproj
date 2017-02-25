@@ -189,7 +189,7 @@
     <Compile Include="Responses\Authentication\FacebookTokenResponse.cs" />
     <Compile Include="Responses\Comments\FacebookGetCommentResponse.cs" />
     <Compile Include="Responses\Comments\FacebookGetCommentsResponse.cs" />
-    <Compile Include="Responses\Debug\FacebookGetDebugTokenResponse.cs" />
+    <Compile Include="Responses\Debug\FacebookDebugTokenResponse.cs" />
     <Compile Include="Responses\Events\FacebookGetEventResponse.cs" />
     <Compile Include="Responses\Events\FacebookGetEventsResponse.cs" />
     <Compile Include="Responses\FacebookResponse.cs" />
