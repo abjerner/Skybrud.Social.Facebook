@@ -42,8 +42,9 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
-        public FacebookGetAlbumsOptions(string identifier) : this() {
+        public FacebookGetAlbumsOptions(string identifier) {
             Identifier = identifier;
+            Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
@@ -51,14 +52,21 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAlbumsOptions(string identifier, FacebookFieldsCollection fields) : this(identifier, 0, null, fields) { }
+        public FacebookGetAlbumsOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
-        public FacebookGetAlbumsOptions(string identifier, int limit) : this(identifier, limit, null, null) { }
+        public FacebookGetAlbumsOptions(string identifier, int limit) {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/> and <paramref name="fields"/>.
@@ -66,7 +74,11 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAlbumsOptions(string identifier, int limit, FacebookFieldsCollection fields) : this(identifier, limit, null, fields) { }
+        public FacebookGetAlbumsOptions(string identifier, int limit, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Limit = limit;
+            Fields = fields ?? new FacebookFieldsCollection();
+        }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>, <paramref name="after"/> cursor and <paramref name="fields"/>.
