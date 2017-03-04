@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookParking : FacebookObject {
+    public class FacebookPageParking : FacebookObject {
 
         #region Properties
 
@@ -26,7 +26,7 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookParking(JObject obj) : base(obj) {
+        private FacebookPageParking(JObject obj) : base(obj) {
             Street = obj.GetBoolean("street");
             Lot = obj.GetBoolean("lot");
             Valet = obj.GetBoolean("valet");
@@ -36,8 +36,8 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Static methods
 
-        public static FacebookParking Parse(JObject obj) {
-            return obj == null ? null : new FacebookParking(obj);
+        public static FacebookPageParking Parse(JObject obj) {
+            return obj == null ? null : new FacebookPageParking(obj);
         }
 
         #endregion

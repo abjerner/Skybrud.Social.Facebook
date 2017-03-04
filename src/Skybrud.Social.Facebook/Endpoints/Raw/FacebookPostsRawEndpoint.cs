@@ -35,24 +35,24 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #region Methods
 
         /// <summary>
-        /// Gets information about the post with the specified <paramref name="postId"/>.
+        /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="postId">The ID of the post.</param>
+        /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPost(string postId) {
-            if (String.IsNullOrWhiteSpace(postId)) throw new ArgumentNullException("postId");
-            return Client.DoHttpGetRequest("/" + postId);
+        public SocialHttpResponse GetPost(string identifier) {
+            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
+            return GetPost(new FacebookGetPostOptions(identifier));
         }
 
         /// <summary>
-        /// Gets information about the post with the specified <paramref name="postId"/>.
+        /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="postId">The ID of the post.</param>
+        /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPost(string postId, FacebookFieldsCollection fields) {
-            if (String.IsNullOrWhiteSpace(postId)) throw new ArgumentNullException("postId");
-            return GetPost(new FacebookGetPostOptions(postId, fields));
+        public SocialHttpResponse GetPost(string identifier, FacebookFieldsCollection fields) {
+            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
+            return GetPost(new FacebookGetPostOptions(identifier, fields));
         }
 
         /// <summary>

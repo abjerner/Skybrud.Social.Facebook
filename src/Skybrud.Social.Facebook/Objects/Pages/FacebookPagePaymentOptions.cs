@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookPaymentOptions : FacebookObject {
+    public class FacebookPagePaymentOptions : FacebookObject {
 
         #region Properties
 
@@ -36,7 +36,7 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookPaymentOptions(JObject obj) : base(obj) {
+        private FacebookPagePaymentOptions(JObject obj) : base(obj) {
             AmericanExpress = obj.GetBoolean("amex");
             CashOnly = obj.GetBoolean("cash_only");
             Discover = obj.GetBoolean("discover");
@@ -48,8 +48,8 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Static methods
 
-        public static FacebookPaymentOptions Parse(JObject obj) {
-            return obj == null ? null : new FacebookPaymentOptions(obj);
+        public static FacebookPagePaymentOptions Parse(JObject obj) {
+            return obj == null ? null : new FacebookPagePaymentOptions(obj);
         }
 
         #endregion

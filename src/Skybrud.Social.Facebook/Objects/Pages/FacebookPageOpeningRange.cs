@@ -1,6 +1,6 @@
 ﻿namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookOpeningRange {
+    public class FacebookPageOpeningRange {
 
         public int Number { get; internal set; }
 

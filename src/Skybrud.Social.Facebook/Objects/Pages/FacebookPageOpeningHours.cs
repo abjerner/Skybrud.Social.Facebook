@@ -6,23 +6,23 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
     
-    public class FacebookOpeningHours : FacebookObject {
+    public class FacebookPageOpeningHours : FacebookObject {
 
         #region Properties
 
-        public FacebookOpeningRange[] Monday { get; private set; }
-        public FacebookOpeningRange[] Tuesday { get; private set; }
-        public FacebookOpeningRange[] Wednesday { get; private set; }
-        public FacebookOpeningRange[] Thursday { get; private set; }
-        public FacebookOpeningRange[] Friday { get; private set; }
-        public FacebookOpeningRange[] Saturday { get; private set; }
-        public FacebookOpeningRange[] Sunday { get; private set; }
+        public FacebookPageOpeningRange[] Monday { get; private set; }
+        public FacebookPageOpeningRange[] Tuesday { get; private set; }
+        public FacebookPageOpeningRange[] Wednesday { get; private set; }
+        public FacebookPageOpeningRange[] Thursday { get; private set; }
+        public FacebookPageOpeningRange[] Friday { get; private set; }
+        public FacebookPageOpeningRange[] Saturday { get; private set; }
+        public FacebookPageOpeningRange[] Sunday { get; private set; }
 
         #endregion
 
         #region Constructor
 
-        private FacebookOpeningHours(JObject obj) : base(obj) {
+        private FacebookPageOpeningHours(JObject obj) : base(obj) {
 
             var items = (
                 from property in obj.Properties()
@@ -35,17 +35,17 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
                 }
             ).ToArray();
 
-            List<FacebookOpeningRange> monday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> tuesday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> wednesday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> thursday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> friday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> saturday = new List<FacebookOpeningRange>();
-            List<FacebookOpeningRange> sunday = new List<FacebookOpeningRange>();
+            List<FacebookPageOpeningRange> monday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> tuesday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> wednesday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> thursday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> friday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> saturday = new List<FacebookPageOpeningRange>();
+            List<FacebookPageOpeningRange> sunday = new List<FacebookPageOpeningRange>();
 
             for (int i = 0; i < items.Length; i++) {
                 if (items[i].Status != "open") continue;
-                FacebookOpeningRange range = new FacebookOpeningRange {
+                FacebookPageOpeningRange range = new FacebookPageOpeningRange {
                     Number = items[i].Number,
                     Open = items[i].Value,
                     Close = items[i + 1].Value
@@ -75,8 +75,8 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Static methods
 
-        public static FacebookOpeningHours Parse(JObject obj) {
-            return obj == null ? null : new FacebookOpeningHours(obj);
+        public static FacebookPageOpeningHours Parse(JObject obj) {
+            return obj == null ? null : new FacebookPageOpeningHours(obj);
         }
 
         #endregion

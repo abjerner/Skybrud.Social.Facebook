@@ -13,7 +13,7 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         #region Properties
 
         /// <summary>
-        /// Gets or sets the identifier (ID) of the user.
+        /// Gets or sets the identifier (ID or alias) of the page.
         /// </summary>
         public string Identifier { get; set; }
 
@@ -27,18 +27,28 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         #region Constructors
 
         /// <summary>
-        /// Initializes an instance with default options.
+        /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetPageOptions() {
             Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         public FacebookGetPageOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID or alias) of the page.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetPageOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion

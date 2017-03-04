@@ -55,6 +55,7 @@
     <Compile Include="Constants\FacebookAlbumFields.cs" />
     <Compile Include="Constants\FacebookApplicationFields.cs" />
     <Compile Include="Constants\FacebookCommentFields.cs" />
+    <Compile Include="Constants\FacebookPageFields.cs" />
     <Compile Include="Constants\FacebookPostFields.cs" />
     <Compile Include="Constants\FacebookPlaceFields.cs" />
     <Compile Include="Constants\FacebookEventFields.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Enums\Events\FacebookEventCategory.cs" />
     <Compile Include="Enums\Events\FacebookEventRsvpStatus.cs" />
     <Compile Include="Enums\Events\FacebookEventType.cs" />
+    <Compile Include="Enums\Pages\FacebookDressCode.cs" />
     <Compile Include="Enums\FacebookGender.cs" />
     <Compile Include="Enums\FacebookPrivacy.cs" />
     <Compile Include="Enums\FacebookVerificationStatus.cs" />
@@ -141,14 +143,14 @@
     <Compile Include="Objects\Links\FacebookLink.cs" />
     <Compile Include="Objects\Links\FacebookLinksCollection.cs" />
     <Compile Include="Objects\Links\FacebookPostLinkSummary.cs" />
-    <Compile Include="Objects\Pages\FacebookOpeningHours.cs" />
-    <Compile Include="Objects\Pages\FacebookOpeningRange.cs" />
+    <Compile Include="Objects\Pages\FacebookPageOpeningHours.cs" />
+    <Compile Include="Objects\Pages\FacebookPageOpeningRange.cs" />
     <Compile Include="Objects\Pages\FacebookPage.cs" />
     <Compile Include="Objects\Pages\FacebookPageCategory.cs" />
-    <Compile Include="Objects\Pages\FacebookParking.cs" />
-    <Compile Include="Objects\Pages\FacebookPaymentOptions.cs" />
-    <Compile Include="Objects\Pages\FacebookRestaurantServices.cs" />
-    <Compile Include="Objects\Pages\FacebookRestaurantSpecialties.cs" />
+    <Compile Include="Objects\Pages\FacebookPageParking.cs" />
+    <Compile Include="Objects\Pages\FacebookPagePaymentOptions.cs" />
+    <Compile Include="Objects\Pages\FacebookPageRestaurantServices.cs" />
+    <Compile Include="Objects\Pages\FacebookPageRestaurantSpecialties.cs" />
     <Compile Include="Objects\Pagination\FacebookCursorBasedPagination.cs" />
     <Compile Include="Objects\Pagination\FacebookCursors.cs" />
     <Compile Include="Objects\Photos\FacebookPhoto.cs" />

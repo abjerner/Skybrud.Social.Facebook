@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Pages {
 
-    public class FacebookRestaurantServices : FacebookObject {
+    public class FacebookPageRestaurantServices : FacebookObject {
 
         #region Properties
 
@@ -56,7 +56,7 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Constructor
 
-        private FacebookRestaurantServices(JObject obj) : base(obj) {
+        private FacebookPageRestaurantServices(JObject obj) : base(obj) {
             Kids = obj.GetBoolean("kids");
             Delivery = obj.GetBoolean("delivery");
             Walkins = obj.GetBoolean("walkins");
@@ -72,8 +72,8 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         #region Static methods
 
-        public static FacebookRestaurantServices Parse(JObject obj) {
-            return obj == null ? null : new FacebookRestaurantServices(obj);
+        public static FacebookPageRestaurantServices Parse(JObject obj) {
+            return obj == null ? null : new FacebookPageRestaurantServices(obj);
         }
 
         #endregion
