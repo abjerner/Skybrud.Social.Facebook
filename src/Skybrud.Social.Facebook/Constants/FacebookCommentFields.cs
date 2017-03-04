@@ -12,6 +12,8 @@ namespace Skybrud.Social.Facebook.Constants {
     /// </see>
     public static class FacebookCommentFields {
 
+        #region Individial fields
+
         /// <summary>
         /// The comment ID.
         /// </summary>
@@ -97,6 +99,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Whether the viewer has liked this comment.
         /// </summary>
         public static readonly FacebookField UserLikes = new FacebookField("user_likes");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook comment.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, Attachment, CanComment, CanRemove, CanHide, CanLike, CanReplyPrivately, CommentCount, CreatedTime, From,
+            LikeCount, Message, MessageTags, Object, Parent, PrivateReplyConversation, UserLikes
+        };
 
     }
 
