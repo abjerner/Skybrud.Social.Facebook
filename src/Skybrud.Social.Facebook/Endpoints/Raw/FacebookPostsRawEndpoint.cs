@@ -1,4 +1,5 @@
 using System;
+using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
@@ -62,6 +63,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPost(FacebookGetPostOptions options) {
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
@@ -129,6 +131,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
         public SocialHttpResponse GetPosts(FacebookGetPostsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID or alias) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/posts", options);
         }
 
