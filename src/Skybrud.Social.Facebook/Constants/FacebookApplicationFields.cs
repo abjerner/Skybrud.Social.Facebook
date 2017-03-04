@@ -12,6 +12,8 @@ namespace Skybrud.Social.Facebook.Constants {
     /// </see>
     public static class FacebookApplicationFields {
 
+        #region Individial fields
+
         /// <summary>
         /// The app ID.
         /// </summary>
@@ -348,6 +350,24 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The number of weekly active users the app has.
         /// </summary>
         public static readonly FacebookField WeeklyActiveUsers = new FacebookField("weekly_active_users");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook application.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, AnPlatforms, AppAdDebugInfo, AppDomains, AppInstallTracked, AppName, AppType, AuthDialogDataHelpUrl, AuthDialogHeadline,
+            AuthDialogPermsExplanation, AuthReferralDefaultActivityPrivacy, AuthReferralEnabled, AuthReferralExtendedPerms,
+            AuthReferralFriendPerms, AuthReferralResponseType, AuthReferralUserPerms, CanvasFluidHeight, CanvasFluidWidth,
+            CanvasUrl, Category, ClientConfig, Company, ConfiguredIosSso, ContactEmail, Context, CreatedTime, CreatorUid,
+            DailyActiveUsers, DailyActiveUsersRank, DeauthCallbackUrl, DefaultShareMode, Description, HostingUrl, IconUrl,
+            IosBundleId, IosSupportsNativeProxyAuthFlow, IosSupportsSystemAuth, IpadAppStoreId, IphoneAppStoreId, Link, LoggingToken,
+            LogoUrl, Migrations, MobileProfileSectionUrl, MobileWebUrl, MonthlyActiveUsers, MonthlyActiveUsersRank, Name,
+            Namespace, ObjectStoreUrls, PageTabDefaultName, PageTabUrl, PrivacyPolicyUrl, ProfileSectionUrl, Restrictions,
+            SecureCanvasUrl, SecurePageTabUrl, ServerIpWhitelist, SocialDiscovery, Subcategory, SupportedPlatforms, TermsOfServiceUrl,
+            UrlSchemeSuffix, UserSupportEmail, UserSupportUrl, WebsiteUrl, WeeklyActiveUsers
+        };
 
     }
 
