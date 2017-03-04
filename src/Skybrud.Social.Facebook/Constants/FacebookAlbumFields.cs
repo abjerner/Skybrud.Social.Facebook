@@ -8,9 +8,11 @@ namespace Skybrud.Social.Facebook.Constants {
     /// implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/album</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/album</cref>
     /// </see>
     public static class FacebookAlbumFields {
+
+        #region Individial fields
 
         /// <summary>
         /// The album ID.
@@ -23,7 +25,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField CanUpload = new FacebookField("can_upload");
 
         /// <summary>
-        /// Number of photos in this album.
+        /// The approximate number of photos in the album. This is not necessarily an exact count.
         /// </summary>
         public static readonly FacebookField Count = new FacebookField("count");
 
@@ -86,6 +88,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The last time the album was updated.
         /// </summary>
         public static readonly FacebookField UpdatedTime = new FacebookField("updated_time");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook album.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, CanUpload, Count, CoverPhoto, CreatedTime, Description, Event, From, Link, Location, Name, Place, Privacy,
+            Type, UpdatedTime
+        };
 
     }
 
