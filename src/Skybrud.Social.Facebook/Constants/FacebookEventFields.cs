@@ -12,6 +12,8 @@ namespace Skybrud.Social.Facebook.Constants {
     /// </see>
     public static class FacebookEventFields {
 
+        #region Individial fields
+
         /// <summary>
         /// The event ID.
         /// </summary>
@@ -131,6 +133,17 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Last update time.
         /// </summary>
         public static readonly FacebookField UpdatedTime = new FacebookField("updated_time");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook event.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, AttendingCount, CanGuestsInvite, Category, Cover, DeclinedCount, Description, EndTime, GuestListEnabled,
+            InterestedCount, IsCanceled, IsPageOwned, IsViewerAdmin, MaybeCount, Name, NoreplyCount, Owner, ParentGroup,
+            Place, StartTime, TicketUri, Timezone, Type, UpdatedTime
+        };
 
     }
 
