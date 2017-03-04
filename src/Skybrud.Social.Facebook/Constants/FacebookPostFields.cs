@@ -12,6 +12,8 @@ namespace Skybrud.Social.Facebook.Constants {
     /// </see>
     public static class FacebookPostFields {
 
+        #region Individial fields
+
         /// <summary>
         /// The post ID.
         /// </summary>
@@ -199,6 +201,18 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Profiles tagged as being 'with' the publisher of the post.
         /// </summary>
         public static readonly FacebookField WithTags = new FacebookField("with_tags");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook post.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, AdminCreator, Application, CallToAction, Caption, CreatedTime, Description, FeedTargeting, From, Icon, InstagramEligibility,
+            IsHidden, IsInstagramEligible, IsPublished, Link, Message, MessageTags, Name, ObjectId, ParentId, PermalinkUrl,
+            Picture, Place, Privacy, Properties, Shares, Source, StatusType, Story, StoryTags, Targeting, To, Type, UpdatedTime,
+            WithTags
+        };
 
     }
 

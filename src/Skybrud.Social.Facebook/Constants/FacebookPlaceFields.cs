@@ -12,6 +12,8 @@ namespace Skybrud.Social.Facebook.Constants {
     /// </see>
     public static class FacebookPlaceFields {
 
+        #region Individial fields
+
         /// <summary>
         /// ID.
         /// </summary>
@@ -31,6 +33,15 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Overall Rating of Place, on a 5-star scale. 0 means not enough data to get a combined rating.
         /// </summary>
         public static readonly FacebookField OverallRating = new FacebookField("overall_rating");
+
+        #endregion
+
+        /// <summary>
+        /// Gets an array of all known fields available for a Facebook place.
+        /// </summary>
+        public static readonly FacebookField[] All = {
+            Id, Location, Name, OverallRating
+        };
 
     }
 
