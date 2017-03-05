@@ -1,9 +1,8 @@
 using System;
-using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Time;
-using Skybrud.Social.Facebook.Enums;
+using Skybrud.Social.Facebook.Enums.Users;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Objects.Pages;

@@ -71,16 +71,16 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
 
         /// <summary>
         /// Gets the dress code of the business. Applicable to <strong>Restaurants</strong> or
-        /// <strong>Nightlife</strong>. Can be one of <see cref="FacebookDressCode.Casual"/>,
-        /// <see cref="FacebookDressCode.Dressy"/> or <see cref="FacebookDressCode.Unspecified"/>.
+        /// <strong>Nightlife</strong>. Can be one of <see cref="FacebookAttire.Casual"/>,
+        /// <see cref="FacebookAttire.Dressy"/> or <see cref="FacebookAttire.Unspecified"/>.
         /// </summary>
-        public FacebookDressCode Attire { get; private set; }
+        public FacebookAttire Attire { get; private set; }
 
         /// <summary>
         /// Gets whether the <see cref="Attire"/> property was included in the response and has a value.
         /// </summary>
         public bool HasAttire {
-            get { return Attire != FacebookDressCode.Unspecified; }
+            get { return Attire != FacebookAttire.Unspecified; }
         }
 
         /// <summary>
@@ -1133,7 +1133,7 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
             // TODO: Add support for the "app_id" field
             // TODO: Add support for the "app_links" field
             ArtistsWeLike = obj.GetString("artists_we_like");
-            Attire = obj.GetEnum("attire", FacebookDressCode.Unspecified);
+            Attire = obj.GetEnum("attire", FacebookAttire.Unspecified);
             Awards = obj.GetString("awards");
             BandInterests = obj.GetString("band_interests");
             BandMembers = obj.GetString("band_members");

@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Time;
-using Skybrud.Social.Facebook.Enums;
+using Skybrud.Social.Facebook.Enums.Albums;
 using Skybrud.Social.Facebook.Objects.Common;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Objects.Events;

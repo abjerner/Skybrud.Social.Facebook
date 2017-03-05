@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums {
+﻿namespace Skybrud.Social.Facebook.Enums.Albums {
     
     /// <summary>
     /// Enumeration describing the type of an album.

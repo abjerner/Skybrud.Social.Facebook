@@ -1,7 +1,7 @@
-﻿namespace Skybrud.Social.Facebook.Enums {
+﻿namespace Skybrud.Social.Facebook.Enums.Users {
 
     /// <summary>
-    /// Enumeration describing the gender of a user.
+    /// Enumeration describing the gender of a Facebook user.
     /// </summary>
     public enum FacebookGender {
 
