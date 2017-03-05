@@ -163,7 +163,7 @@
     <Compile Include="Objects\Pagination\FacebookCursors.cs" />
     <Compile Include="Objects\Photos\FacebookPhoto.cs" />
     <Compile Include="Objects\Photos\FacebookPhotosCollection.cs" />
-    <Compile Include="Objects\Photos\FacebookPostPhotoSummary.cs" />
+    <Compile Include="Objects\Photos\FacebookCreatePhotoSummary.cs" />
     <Compile Include="Objects\Posts\FacebookPost.cs" />
     <Compile Include="Objects\Posts\FacebookPostsCollection.cs" />
     <Compile Include="Objects\Users\FacebookUser.cs" />

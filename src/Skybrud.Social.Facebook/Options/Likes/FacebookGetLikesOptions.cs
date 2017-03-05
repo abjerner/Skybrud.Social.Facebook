@@ -33,16 +33,16 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         #region Constructors
 
         /// <summary>
-        /// Initializes the class with default options.
+        /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetLikesOptions() {
             Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes the class with the specified <paramref name="identifier"/>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the comment.</param>
+        /// <param name="identifier">The identifier (ID or alias) of the parent object.</param>
         public FacebookGetLikesOptions(string identifier) {
             Identifier = identifier;
             Fields = new FacebookFieldsCollection();
@@ -51,7 +51,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetLikesOptions(string identifier, FacebookFieldsCollection fields) {
             Identifier = identifier;
@@ -61,7 +61,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/> and <paramref name="limit"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         public FacebookGetLikesOptions(string identifier, int limit) {
             Identifier = identifier;
@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/> and
         /// <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetLikesOptions(string identifier, int limit, FacebookFieldsCollection fields) {
@@ -86,8 +86,8 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// Initializes a new instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
         /// <paramref name="after"/> cursor and <paramref name="fields"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the album.</param>
-        /// <param name="limit">The maximum amount of albums to be returned per page.</param>
+        /// <param name="identifier">The identifier (ID) of the parent object.</param>
+        /// <param name="limit">The maximum amount of likes to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         public FacebookGetLikesOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {

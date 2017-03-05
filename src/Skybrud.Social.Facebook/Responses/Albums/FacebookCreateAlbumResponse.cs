@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Albums {
 
     /// <summary>
-    /// Class representing a response of a call to post (create) a new Facebook album.
+    /// Class representing a response of a call to create a new Facebook album.
     /// </summary>
     public class FacebookCreateAlbumResponse : FacebookResponse<FacebookCreateAlbumSummary> {
 

@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Albums {
 
     /// <summary>
-    /// Class representing a response for a single Facebook album.
+    /// Class representing a response for getting information about a single <see cref="FacebookAlbum"/>.
     /// </summary>
     public class FacebookGetAlbumResponse : FacebookResponse<FacebookAlbum> {
 
