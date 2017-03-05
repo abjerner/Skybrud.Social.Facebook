@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="identifier">The identifier (ID) of the album.</param>
         public FacebookGetAlbumOptions(string identifier) : this() {
             Identifier = identifier;
         }

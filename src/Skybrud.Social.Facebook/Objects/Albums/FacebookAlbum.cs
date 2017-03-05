@@ -94,7 +94,7 @@ namespace Skybrud.Social.Facebook.Objects.Albums {
         /// response.
         /// </summary>
         public bool HasEvent {
-            get { return !String.IsNullOrWhiteSpace(Description); }
+            get { return Event != null; }
         }
         
         /// <summary>

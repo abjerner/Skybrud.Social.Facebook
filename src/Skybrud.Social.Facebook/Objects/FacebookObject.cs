@@ -11,10 +11,10 @@ namespace Skybrud.Social.Facebook.Objects {
         #region Constructor
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookObject"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookObject"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookObject"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookObject"/>.</returns>
         protected FacebookObject(JObject obj) : base(obj) { }
 
         #endregion
