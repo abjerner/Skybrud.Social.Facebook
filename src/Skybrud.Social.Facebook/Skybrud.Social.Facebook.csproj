@@ -106,8 +106,11 @@
     <Compile Include="Objects\Common\FacebookExperience.cs" />
     <Compile Include="Objects\Common\FacebookEducationExperience.cs" />
     <Compile Include="Objects\Common\FacebookProfile.cs" />
+    <Compile Include="Objects\Posts\FacebookCreatePostSummary.cs" />
     <Compile Include="Objects\Users\FacebookUserDevice.cs" />
     <Compile Include="Options\Events\FacebookGetEventOptions.cs" />
+    <Compile Include="Options\Posts\FacebookCreatePostOptions.cs" />
+    <Compile Include="Responses\Posts\FacebookCreatePostResponse.cs" />
     <Compile Include="Scopes\FacebookScope.cs" />
     <Compile Include="Scopes\FacebookScopeCollection.cs" />
     <Compile Include="FacebookService.cs" />

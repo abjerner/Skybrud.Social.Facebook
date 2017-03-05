@@ -1,5 +1,3 @@
-using System;
-using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Fields;
@@ -43,22 +41,22 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #region Methods
 
         /// <summary>
-        /// Gets information about the post with the specified <paramref name="postId"/>.
+        /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="postId">The ID of the post.</param>
+        /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
-        public FacebookGetPostResponse GetPost(string postId) {
-            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(postId));
+        public FacebookGetPostResponse GetPost(string identifier) {
+            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(identifier));
         }
 
         /// <summary>
-        /// Gets information about the post with the specified <paramref name="postId"/>.
+        /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="postId">The ID of the post.</param>
+        /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
-        public FacebookGetPostResponse GetPost(string postId, FacebookFieldsCollection fields) {
-            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(postId, fields));
+        public FacebookGetPostResponse GetPost(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetPostResponse.ParseResponse(Raw.GetPost(identifier, fields));
         }
 
         /// <summary>
@@ -128,9 +126,16 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
         public FacebookGetPostsResponse GetPosts(FacebookGetPostsOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(options));
+        }
+
+        /// <summary>
+        /// Publishes a new post to the feed matching the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookCreatePostResponse"/> representing the response.</returns>
+        public FacebookCreatePostResponse CreatePost(FacebookCreatePostOptions options) {
+            return FacebookCreatePostResponse.ParseResponse(Raw.CreatePost(options));
         }
 
         #endregion

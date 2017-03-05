@@ -135,6 +135,17 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
             return Client.DoHttpGetRequest("/" + options.Identifier + "/posts", options);
         }
 
+        /// <summary>
+        /// Publishes a new post to the feed matching the specified <paramref name="options"/>.
+        /// </summary>
+        /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
+        public SocialHttpResponse CreatePost(FacebookCreatePostOptions options) {
+            if (options == null) throw new ArgumentNullException("options");
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID or alias) must be specified.");
+            return Client.DoHttpPostRequest("/" + options.Identifier + "/feed", options);
+        }
+
         #endregion
 
     }
