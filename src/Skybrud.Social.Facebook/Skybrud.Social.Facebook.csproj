@@ -69,7 +69,6 @@
     <Compile Include="Endpoints\FacebookEventsEndpoint.cs" />
     <Compile Include="Endpoints\FacebookFeedEndpoint.cs" />
     <Compile Include="Endpoints\FacebookLikesEndpoint.cs" />
-    <Compile Include="Endpoints\FacebookLinksEndpoint.cs" />
     <Compile Include="Endpoints\FacebookPagesEndpoint.cs" />
     <Compile Include="Endpoints\FacebookPhotosEndpoint.cs" />
     <Compile Include="Endpoints\FacebookPostsEndpoint.cs" />
@@ -82,7 +81,6 @@
     <Compile Include="Endpoints\Raw\FacebookEventsRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookFeedRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookLikesRawEndpoint.cs" />
-    <Compile Include="Endpoints\Raw\FacebookLinksRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookPagesRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookPhotosRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookPostsRawEndpoint.cs" />
@@ -148,9 +146,6 @@
     <Compile Include="Objects\Likes\FacebookLike.cs" />
     <Compile Include="Objects\Likes\FacebookLikesCollection.cs" />
     <Compile Include="Objects\Likes\FacebookLikesSummary.cs" />
-    <Compile Include="Objects\Links\FacebookLink.cs" />
-    <Compile Include="Objects\Links\FacebookLinksCollection.cs" />
-    <Compile Include="Objects\Links\FacebookPostLinkSummary.cs" />
     <Compile Include="Objects\Pages\FacebookPageOpeningHours.cs" />
     <Compile Include="Objects\Pages\FacebookPageOpeningRange.cs" />
     <Compile Include="Objects\Pages\FacebookPage.cs" />
@@ -178,8 +173,6 @@
     <Compile Include="Options\Events\FacebookGetEventsOptions.cs" />
     <Compile Include="Options\Feed\FacebookGetFeedOptions.cs" />
     <Compile Include="Options\Likes\FacebookGetLikesOptions.cs" />
-    <Compile Include="Options\Links\FacebookGetLinksOptions.cs" />
-    <Compile Include="Options\Links\FacebookPostLinkOptions.cs" />
     <Compile Include="Options\Pages\FacebookGetPageOptions.cs" />
     <Compile Include="Options\Common\Pagination\FacebookCursorBasedPaginationOptions.cs" />
     <Compile Include="Options\Common\Pagination\FacebookTimeBasedPaginationOptions.cs" />
@@ -205,9 +198,6 @@
     <Compile Include="Responses\FacebookResponse.cs" />
     <Compile Include="Responses\Feed\FacebookGetFeedResponse.cs" />
     <Compile Include="Responses\Likes\FacebookGetLikesResponse.cs" />
-    <Compile Include="Responses\Links\FacebookGetLinkResponse.cs" />
-    <Compile Include="Responses\Links\FacebookGetLinksResponse.cs" />
-    <Compile Include="Responses\Links\FacebookPostLinkResponse.cs" />
     <Compile Include="Responses\Pages\FacebookGetPageResponse.cs" />
     <Compile Include="Responses\Photos\FacebookGetPhotoResponse.cs" />
     <Compile Include="Responses\Photos\FacebookGetPhotosResponse.cs" />
