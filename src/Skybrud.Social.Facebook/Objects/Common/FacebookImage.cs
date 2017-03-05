@@ -2,7 +2,13 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Common {
-
+    
+    /// <summary>
+    /// Class with information about the image source and dimensions of Facebook photo.
+    /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/platform-image-source/</cref>
+    /// </see>
     public class FacebookImage : FacebookObject {
 
         #region Properties
@@ -36,6 +42,11 @@ namespace Skybrud.Social.Facebook.Objects.Common {
 
         #region Static methods
 
+        /// <summary>
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookImage"/>.
+        /// </summary>
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>An instance of <see cref="FacebookImage"/>.</returns>
         public static FacebookImage Parse(JObject obj) {
             return obj == null ? null : new FacebookImage(obj);
         }

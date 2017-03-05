@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Photos {
 
     /// <summary>
-    /// Class representing a response of a call to get information about a single Facebook photo.
+    /// Class representing a response of a call to get information about a single <see cref="FacebookPhoto"/>.
     /// </summary>
     public class FacebookGetPhotoResponse : FacebookResponse<FacebookPhoto> {
 
@@ -25,10 +25,10 @@ namespace Skybrud.Social.Facebook.Responses.Photos {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetPhotoResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetPhotoResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookGetPhotoResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetPhotoResponse"/> representing the response.</returns>
         public static FacebookGetPhotoResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetPhotoResponse(response);
         }

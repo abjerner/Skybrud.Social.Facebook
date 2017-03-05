@@ -56,6 +56,7 @@
     <Compile Include="Constants\FacebookApplicationFields.cs" />
     <Compile Include="Constants\FacebookCommentFields.cs" />
     <Compile Include="Constants\FacebookPageFields.cs" />
+    <Compile Include="Constants\FacebookPhotoFields.cs" />
     <Compile Include="Constants\FacebookPostFields.cs" />
     <Compile Include="Constants\FacebookPlaceFields.cs" />
     <Compile Include="Constants\FacebookEventFields.cs" />
@@ -210,7 +211,7 @@
     <Compile Include="Responses\Pages\FacebookGetPageResponse.cs" />
     <Compile Include="Responses\Photos\FacebookGetPhotoResponse.cs" />
     <Compile Include="Responses\Photos\FacebookGetPhotosResponse.cs" />
-    <Compile Include="Responses\Photos\FacebookPostPhotoResponse.cs" />
+    <Compile Include="Responses\Photos\FacebookCreatePhotoResponse.cs" />
     <Compile Include="Responses\Posts\FacebookGetPostResponse.cs" />
     <Compile Include="Responses\Posts\FacebookGetPostsResponse.cs" />
     <Compile Include="Responses\Users\FacebookGetUserResponse.cs" />
