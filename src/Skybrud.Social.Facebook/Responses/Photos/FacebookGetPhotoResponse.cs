@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Photos {
 
     /// <summary>
-    /// Class representing a response of a call to get information about a single <see cref="FacebookPhoto"/>.
+    /// Class representing a response of a request to get information about a single <see cref="FacebookPhoto"/>.
     /// </summary>
     public class FacebookGetPhotoResponse : FacebookResponse<FacebookPhoto> {
 

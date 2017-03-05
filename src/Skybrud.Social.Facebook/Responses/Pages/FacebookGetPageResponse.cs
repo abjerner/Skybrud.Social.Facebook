@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Pages {
 
     /// <summary>
-    /// Class representing a response of a call to get information about a single Facebook page.
+    /// Class representing a response of a request to get information about a single <see cref="FacebookPage"/>.
     /// </summary>
     public class FacebookGetPageResponse : FacebookResponse<FacebookPage> {
 
