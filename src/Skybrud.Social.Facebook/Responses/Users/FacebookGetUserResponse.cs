@@ -25,10 +25,10 @@ namespace Skybrud.Social.Facebook.Responses.Users {
         #region Static methods
         
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetUserResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetUserResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
         public static FacebookGetUserResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetUserResponse(response);
         }

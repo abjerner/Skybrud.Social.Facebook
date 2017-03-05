@@ -59,6 +59,7 @@
     <Compile Include="Constants\FacebookPostFields.cs" />
     <Compile Include="Constants\FacebookPlaceFields.cs" />
     <Compile Include="Constants\FacebookEventFields.cs" />
+    <Compile Include="Constants\FacebookUserFields.cs" />
     <Compile Include="Endpoints\FacebookAccountsEndpoint.cs" />
     <Compile Include="Endpoints\FacebookAlbumsEndpoint.cs" />
     <Compile Include="Endpoints\FacebookApplicationsEndpoint.cs" />
@@ -100,7 +101,13 @@
     <Compile Include="Exceptions\FacebookException.cs" />
     <Compile Include="Objects\Accounts\FacebookAccountsSummary.cs" />
     <Compile Include="Objects\Authentication\FacebookToken.cs" />
+    <Compile Include="Objects\Common\FacebookCurrency.cs" />
+    <Compile Include="Objects\Common\FacebookProjectExperience.cs" />
+    <Compile Include="Objects\Common\FacebookWorkExperience.cs" />
+    <Compile Include="Objects\Common\FacebookExperience.cs" />
+    <Compile Include="Objects\Common\FacebookEducationExperience.cs" />
     <Compile Include="Objects\Common\FacebookProfile.cs" />
+    <Compile Include="Objects\Users\FacebookUserDevice.cs" />
     <Compile Include="Options\Events\FacebookGetEventOptions.cs" />
     <Compile Include="Scopes\FacebookScope.cs" />
     <Compile Include="Scopes\FacebookScopeCollection.cs" />

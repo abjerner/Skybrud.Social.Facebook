@@ -1,5 +1,5 @@
-using System;
 using Skybrud.Social.Facebook.Endpoints.Raw;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.User;
 using Skybrud.Social.Facebook.Responses.Users;
 
@@ -37,26 +37,30 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #region Methods
 
         /// <summary>
-        /// Gets information about the authenticated user.
+        /// Gets information about the user with the specified <paramref name="identifier"/>.
         /// </summary>
-        public FacebookGetUserResponse GetUser() {
-            return GetUser("me");
+        /// <param name="identifier">The identifier of the user.</param>
+        /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
+        public FacebookGetUserResponse GetUser(string identifier) {
+            return FacebookGetUserResponse.ParseResponse(Raw.GetUser(identifier));
         }
 
         /// <summary>
-        /// Gets information about the user with the specified <code>id</code>.
+        /// Gets information about the user with the specified <paramref name="identifier"/>.
         /// </summary>
-        /// <param name="id">The ID of the user.</param>
-        public FacebookGetUserResponse GetUser(string id) {
-            return FacebookGetUserResponse.ParseResponse(Raw.GetUser(id));
+        /// <param name="identifier">The identifier of the user.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
+        public FacebookGetUserResponse GetUser(string identifier, FacebookFieldsCollection fields) {
+            return FacebookGetUserResponse.ParseResponse(Raw.GetUser(identifier, fields));
         }
 
         /// <summary>
-        /// Gets information about the user matching the specified <code>options</code>.
+        /// Gets information about the user matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
+        /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
         public FacebookGetUserResponse GetUser(FacebookGetUserOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
             return FacebookGetUserResponse.ParseResponse(Raw.GetUser(options));
         }
 

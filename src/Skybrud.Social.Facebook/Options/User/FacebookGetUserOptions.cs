@@ -8,6 +8,9 @@ namespace Skybrud.Social.Facebook.Options.User {
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single user.
     /// </summary>
+    /// <see>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/user#Reading</cref>
+    /// </see>
     public class FacebookGetUserOptions : IHttpGetOptions {
 
         #region Properties
@@ -27,18 +30,28 @@ namespace Skybrud.Social.Facebook.Options.User {
         #region Constructors
 
         /// <summary>
-        /// Initializes an instance with default options.
+        /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetUserOptions() {
             Fields = new FacebookFieldsCollection();
         }
 
         /// <summary>
-        /// Initializes an instance with the specified <code>identifier</code>.
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         public FacebookGetUserOptions(string identifier) : this() {
             Identifier = identifier;
+        }
+
+        /// <summary>
+        /// Initializes a new instance with the specified <paramref name="identifier"/>.
+        /// </summary>
+        /// <param name="identifier">The identifier (ID) of the user.</param>
+        /// <param name="fields">A collection of the fields that should be returned by the API.</param>
+        public FacebookGetUserOptions(string identifier, FacebookFieldsCollection fields) {
+            Identifier = identifier;
+            Fields = fields ?? new FacebookFieldsCollection();
         }
 
         #endregion
