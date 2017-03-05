@@ -57,11 +57,6 @@ namespace Skybrud.Social.Facebook {
         public FacebookLikesEndpoint Likes { get; private set; }
 
         /// <summary>
-        /// Gets a reference to the links endpoint.
-        /// </summary>
-        public FacebookLinksEndpoint Links { get; private set; }
-
-        /// <summary>
         /// Gets a reference to the pages endpoint.
         /// </summary>
         public FacebookPagesEndpoint Pages { get; private set; }
@@ -83,7 +78,7 @@ namespace Skybrud.Social.Facebook {
 
         #endregion
 
-        #region Constructor(s)
+        #region Constructors
 
         private FacebookService() {
             Accounts = new FacebookAccountsEndpoint(this);
@@ -94,7 +89,6 @@ namespace Skybrud.Social.Facebook {
             Events = new FacebookEventsEndpoint(this);
             Feed = new FacebookFeedEndpoint(this);
             Likes = new FacebookLikesEndpoint(this);
-            Links = new FacebookLinksEndpoint(this);
             Pages = new FacebookPagesEndpoint(this);
             Photos = new FacebookPhotosEndpoint(this);
             Posts = new FacebookPostsEndpoint(this);

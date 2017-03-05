@@ -92,11 +92,6 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookLikesRawEndpoint Likes { get; private set; }
 
         /// <summary>
-        /// Gets a reference to the links endpoint.
-        /// </summary>
-        public FacebookLinksRawEndpoint Links { get; private set; }
-
-        /// <summary>
         /// Gets a reference to the pages endpoint.
         /// </summary>
         public FacebookPagesRawEndpoint Pages { get; private set; }
@@ -134,7 +129,6 @@ namespace Skybrud.Social.Facebook.OAuth {
             Events = new FacebookEventsRawEndpoint(this);
             Feed = new FacebookFeedRawEndpoint(this);
             Likes = new FacebookLikesRawEndpoint(this);
-            Links = new FacebookLinksRawEndpoint(this);
             Pages = new FacebookPagesRawEndpoint(this);
             Photos = new FacebookPhotosRawEndpoint(this);
             Posts = new FacebookPostsRawEndpoint(this);
