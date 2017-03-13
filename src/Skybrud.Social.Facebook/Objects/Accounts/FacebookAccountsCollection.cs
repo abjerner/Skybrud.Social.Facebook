@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Social.Facebook.Objects.Pages;
 using Skybrud.Social.Facebook.Objects.Pagination;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Accounts {
 
     /// <summary>
-    /// Class representing a collection of accounts as returned by the Facebook Graph API.
+    /// Class representing a collection of accounts/pages as returned by the Facebook Graph API.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/user/accounts/</cref>
@@ -15,9 +16,9 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         #region Properties
 
         /// <summary>
-        /// Gets an array of the <see cref="FacebookAccount"/> returned in the response.
+        /// Gets an array of the <see cref="FacebookPage"/> returned in the response.
         /// </summary>
-        public FacebookAccount[] Data { get; private set; }
+        public FacebookPage[] Data { get; private set; }
 
         /// <summary>
         /// Gets pagination information about the response.
@@ -45,7 +46,7 @@ namespace Skybrud.Social.Facebook.Objects.Accounts {
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
         private FacebookAccountsCollection(JObject obj) : base(obj) {
-            Data = obj.GetArray("data", FacebookAccount.Parse);
+            Data = obj.GetArray("data", FacebookPage.Parse);
             Paging = obj.GetObject("paging", FacebookCursorBasedPagination.Parse);
             Summary = obj.GetObject("summary", FacebookAccountsSummary.Parse);
         }

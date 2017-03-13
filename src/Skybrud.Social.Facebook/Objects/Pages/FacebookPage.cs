@@ -36,7 +36,17 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
             get { return !String.IsNullOrWhiteSpace(About); }
         }
 
-        // TODO: Add support for the "access_token" field
+        /// <summary>
+        /// Gets or sets the access token you can use to act as the Page. Only visible to Page Admins. If your business requires two-factor authentication, and the person hasn't authenticated, this field may not be returned.
+        /// </summary>
+        public string AccessToken { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="AccessToken"/> property was included in the response and has a value.
+        /// </summary>
+        public bool HasAccessToken {
+            get { return !String.IsNullOrWhiteSpace(AccessToken); }
+        }
 
         // TODO: Add support for the "ad_campaign" field
 
@@ -1126,7 +1136,7 @@ namespace Skybrud.Social.Facebook.Objects.Pages {
         private FacebookPage(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             About = obj.GetString("about");
-            // TODO: Add support for the "access_token" field
+            AccessToken = obj.GetString("access_token");
             // TODO: Add support for the "ad_campaign" field
             Affiliation = obj.GetString("affiliation");
             // TODO: Add support for the "app_id" field

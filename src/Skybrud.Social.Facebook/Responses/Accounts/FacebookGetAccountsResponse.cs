@@ -1,10 +1,11 @@
 using Skybrud.Social.Facebook.Objects.Accounts;
+using Skybrud.Social.Facebook.Objects.Pages;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Accounts {
 
     /// <summary>
-    /// Class representing a response for a collection of <see cref="FacebookAccount"/>.
+    /// Class representing a response for a collection of <see cref="FacebookPage"/>.
     /// </summary>
     public class FacebookGetAccountsResponse : FacebookResponse<FacebookAccountsCollection> {
 

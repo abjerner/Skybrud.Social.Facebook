@@ -117,7 +117,6 @@
     <Compile Include="Fields\FacebookField.cs" />
     <Compile Include="Fields\FacebookFieldsCollection.cs" />
     <Compile Include="OAuth\FacebookOAuthClient.cs" />
-    <Compile Include="Objects\Accounts\FacebookAccount.cs" />
     <Compile Include="Objects\Accounts\FacebookAccountsCollection.cs" />
     <Compile Include="Objects\Albums\FacebookAlbum.cs" />
     <Compile Include="Objects\Albums\FacebookAlbumCoverPhoto.cs" />
