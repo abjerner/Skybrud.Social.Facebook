@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Objects.Common;
 namespace Skybrud.Social.Facebook.Objects.Places {
 
     /// <summary>
-    /// Class representing a Facebook event.
+    /// Class representing a Facebook place.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/place/</cref>

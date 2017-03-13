@@ -313,7 +313,7 @@ namespace Skybrud.Social.Facebook.Objects.Photos {
         /// </summary>
         /// <param name="width">The minimum width of the image.</param>
         /// <param name="height">The minimum height of the image.</param>
-        /// <returns>An isnatcne of <see cref="FacebookImage"/>, or <code>null</code> if no matching images were found.</returns>
+        /// <returns>An instance of <see cref="FacebookImage"/>, or <code>null</code> if no matching images were found.</returns>
         public FacebookImage GetImageGreaterThanOrEqualTo(int width, int height) {
             return Images.Reverse().FirstOrDefault(x => x.Width >= width && x.Height != height);
         }

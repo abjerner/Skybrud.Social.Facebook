@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Accounts {
 
     /// <summary>
-    /// Class representing a response for a collection of Facebook accounts.
+    /// Class representing a response for a collection of <see cref="FacebookAccount"/>.
     /// </summary>
     public class FacebookGetAccountsResponse : FacebookResponse<FacebookAccountsCollection> {
 
@@ -25,10 +25,10 @@ namespace Skybrud.Social.Facebook.Responses.Accounts {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetAccountsResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetAccountsResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
         public static FacebookGetAccountsResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetAccountsResponse(response);
         }

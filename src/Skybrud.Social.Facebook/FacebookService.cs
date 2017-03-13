@@ -100,8 +100,8 @@ namespace Skybrud.Social.Facebook {
         #region Static methods
 
         /// <summary>
-        /// Initialize a new service instance from the specified access token. Internally a new OAuth client will be
-        /// initialized from the access token.
+        /// Initialize a new service instance from the specified <paramref name="accessToken"/>. Internally a new OAuth
+        /// client will be initialized from the access token.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
         /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>
@@ -112,7 +112,7 @@ namespace Skybrud.Social.Facebook {
         }
 
         /// <summary>
-        /// Initialize a new service instance from the specified OAuth client.
+        /// Initialize a new service instance from the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
         /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>

@@ -4,7 +4,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Events {
 
     /// <summary>
-    /// Class representing a response for getting a list of events.
+    /// Class representing a response for getting a collection of <see cref="FacebookEvent"/>.
     /// </summary>
     public class FacebookGetEventsResponse : FacebookResponse<FacebookEventsCollection> {
 
@@ -25,10 +25,10 @@ namespace Skybrud.Social.Facebook.Responses.Events {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetEventsResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetEventsResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookGetEventsResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetEventsResponse"/> representing the response.</returns>
         public static FacebookGetEventsResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetEventsResponse(response);
         }

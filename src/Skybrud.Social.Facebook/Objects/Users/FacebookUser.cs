@@ -607,7 +607,7 @@ namespace Skybrud.Social.Facebook.Objects.Users {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookUser"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookUser"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookUser"/>.</returns>
         public static FacebookUser Parse(JObject obj) {
             return obj == null ? null : new FacebookUser(obj);
         }

@@ -4,7 +4,8 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.Responses.Comments {
 
     /// <summary>
-    /// Class representing a response of a call to get a collection of comments of a given Facebook object.
+    /// Class representing a response of a request to get a collection of <see cref="FacebookComment"/> of a given
+    /// Facebook object.
     /// </summary>
     public class FacebookGetCommentsResponse : FacebookResponse<FacebookCommentsCollection> {
 
@@ -25,10 +26,11 @@ namespace Skybrud.Social.Facebook.Responses.Comments {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookGetCommentsResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of
+        /// <see cref="FacebookGetCommentsResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookGetCommentsResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookGetCommentsResponse"/> representing the response.</returns>
         public static FacebookGetCommentsResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookGetCommentsResponse(response);
         }

@@ -61,10 +61,10 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>response</code> into an instance of <see cref="FacebookTokenResponse"/>.
+        /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookTokenResponse"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
+        /// <returns>An instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public static FacebookTokenResponse ParseResponse(SocialHttpResponse response) {
             return response == null ? null : new FacebookTokenResponse(response);
         }
