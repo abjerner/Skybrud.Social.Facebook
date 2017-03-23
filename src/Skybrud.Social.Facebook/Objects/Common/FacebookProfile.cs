@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Objects.Applications;
 using Skybrud.Social.Facebook.Objects.Events;
 using Skybrud.Social.Facebook.Objects.Pages;
@@ -35,7 +36,10 @@ namespace Skybrud.Social.Facebook.Objects.Common {
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>An instance of <see cref="FacebookProfile"/>.</returns>
-        protected FacebookProfile(JObject obj) : base(obj) { }
+        protected FacebookProfile(JObject obj) : base(obj) {
+            Id = obj.GetString("id");
+            Name = obj.GetString("name");
+        }
 
         #endregion
 
