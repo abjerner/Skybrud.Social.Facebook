@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Specialized;
+using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Objects.Authentication {
     
     /// <summary>
     /// Class describing an access token received from the Facebook Graph API.
     /// </summary>
-    public class FacebookToken {
+    public class FacebookToken : FacebookObject {
 
         #region Properties
 
@@ -15,6 +17,12 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
         /// app access token.
         /// </summary>
         public string AccessToken { get; private set; }
+
+        /// <summary>
+        /// Gets the type of the access token. Given the authentication flows supported by Skybrud.Social, this will
+        /// always be <code>bearer</code>.
+        /// </summary>
+        public string TokenType { get; private set; }
 
         /// <summary>
         /// Gets an instance of <see cref="TimeSpan"/> representing the time until the access token will expire. If
@@ -26,29 +34,21 @@ namespace Skybrud.Social.Facebook.Objects.Authentication {
 
         #region Constructors
 
-        private FacebookToken() { }
+        private FacebookToken(JObject obj) : base(obj) {
+            AccessToken = obj.GetString("access_token");
+            TokenType = obj.GetString("token_type");
+            ExpiresIn = obj.GetDouble("expires_in", TimeSpan.FromSeconds);
+        }
 
         #endregion
 
         /// <summary>
-        /// Parses the specified <code>str</code> into an instance of <see cref="FacebookToken"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookToken"/>.
         /// </summary>
-        /// <param name="str">The string to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookToken"/>.</returns>
-        public static FacebookToken Parse(string str) {
-            
-            // Parse the contents
-            NameValueCollection body = SocialUtils.Misc.ParseQueryString(str);
-
-            // Get the amount of seconds until the access token expires (0 = doesn't expire)
-            int expires = body["expires"] == null ? 0 : Int32.Parse(body["expires"]);
-
-            // Initialize the response body
-            return new FacebookToken {
-                AccessToken = body["access_token"],
-                ExpiresIn = TimeSpan.FromSeconds(expires)
-            };
-
+        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <returns>An instance of <see cref="FacebookToken"/>.</returns>
+        public static FacebookToken Parse(JObject obj) {
+            return obj == null ? null : new FacebookToken(obj);
         }
 
     }

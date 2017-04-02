@@ -9,7 +9,7 @@ using Skybrud.Social.Http;
 namespace Skybrud.Social.Facebook.OAuth {
 
     /// <summary>
-    /// Class for handling the raw communication with the Facebook API as well as any OAuth 2.0 communication.
+    /// Class for handling the raw communication with the Facebook Graph API as well as any OAuth 2.0 communication.
     /// </summary>
     public class FacebookOAuthClient : SocialHttpClient {
         
@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         #endregion
 
         /// <summary>
-        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.5</code>.
+        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.8</code>.
         /// </summary>
         public string Version { get; set; }
 
@@ -197,6 +197,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public string GetAuthorizationUrl(string state, params string[] scope) {
 
             // Some validation
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
 
@@ -206,7 +207,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             }
 
             return String.Format(
-                "https://www.facebook.com/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
+                "https://www.facebook.com/" + Version + "/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
                 ClientId,
                 RedirectUri,
                 state,
@@ -223,6 +224,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
             if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
@@ -237,7 +239,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
             
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -252,6 +254,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse RenewAccessToken(string currentToken) {
 
             // Some validation
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
             if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException("currentToken");
@@ -265,7 +268,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -280,6 +283,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAppAccessToken() {
 
             // Some validation
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
             if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
 
@@ -291,7 +295,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             };
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/oauth/access_token", query);
+            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -300,9 +304,12 @@ namespace Skybrud.Social.Facebook.OAuth {
 
         protected override void PrepareHttpRequest(SocialHttpRequest request) {
 
+            // Some validation
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
+
             // Append the HTTP scheme and API version if not already specified.
             if (request.Url.StartsWith("/")) {
-                request.Url = "https://graph.facebook.com" + (String.IsNullOrWhiteSpace(Version) ? "" : "/" + Version) + request.Url;
+                request.Url = "https://graph.facebook.com/" + Version + request.Url;
             }
             
             // Append the access token to the query string if present in the client and not already

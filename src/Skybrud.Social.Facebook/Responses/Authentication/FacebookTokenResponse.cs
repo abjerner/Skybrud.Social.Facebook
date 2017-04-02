@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
             FacebookDebug = response.Headers["X-FB-Debug"];
 
             // Parse the response body
-            Body = FacebookToken.Parse(response.Body);
+            Body = ParseJsonObject(response.Body, FacebookToken.Parse);
 
         }
 
