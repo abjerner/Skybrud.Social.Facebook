@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         #endregion
 
         /// <summary>
-        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.8</code>.
+        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.9</code>.
         /// </summary>
         public string Version { get; set; }
 
@@ -121,7 +121,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Initializes an OAuth client with empty information.
         /// </summary>
         public FacebookOAuthClient() {
-            Version = "v2.8";
+            Version = "v2.9";
             Accounts = new FacebookAccountsRawEndpoint(this);
             Applications = new FacebookApplicationsRawEndpoint(this);
             Debug = new FacebookDebugRawEndpoint(this);
