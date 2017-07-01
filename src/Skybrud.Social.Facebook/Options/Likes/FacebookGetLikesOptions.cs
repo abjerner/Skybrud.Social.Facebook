@@ -111,6 +111,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
 
             // Convert the collection of fields to a string
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
+            if (IncludeSummary) query.Set("summary", "true");
 
             // Update the query string
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
