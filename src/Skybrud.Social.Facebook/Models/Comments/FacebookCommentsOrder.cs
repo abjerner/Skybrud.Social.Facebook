@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums {
+﻿namespace Skybrud.Social.Facebook.Models.Comments {
 
     /// <summary>
     /// Enum class indicating the order of a collection of comments.

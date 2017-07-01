@@ -1,5 +1,5 @@
 ﻿using System;
-using Skybrud.Social.Facebook.Enums;
+using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common;
 using Skybrud.Social.Http;
 using Skybrud.Social.Interfaces.Http;

@@ -85,18 +85,18 @@
     <Compile Include="Endpoints\Raw\FacebookPhotosRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookPostsRawEndpoint.cs" />
     <Compile Include="Endpoints\Raw\FacebookUsersRawEndpoint.cs" />
-    <Compile Include="Enums\Albums\FacebookAlbumType.cs" />
-    <Compile Include="Enums\FacebookBoolean.cs" />
-    <Compile Include="Enums\FacebookCommentsOrder.cs" />
-    <Compile Include="Enums\Events\FacebookEventCategory.cs" />
-    <Compile Include="Enums\Events\FacebookEventRsvpStatus.cs" />
-    <Compile Include="Enums\Events\FacebookEventType.cs" />
-    <Compile Include="Enums\Pages\FacebookAttire.cs" />
-    <Compile Include="Enums\Users\FacebookGender.cs" />
-    <Compile Include="Enums\FacebookPrivacy.cs" />
-    <Compile Include="Enums\Pages\FacebookVerificationStatus.cs" />
-    <Compile Include="Enums\Posts\FacebookPostStatusType.cs" />
-    <Compile Include="Enums\Posts\FacebookPostType.cs" />
+    <Compile Include="Models\Albums\FacebookAlbumType.cs" />
+    <Compile Include="Models\Common\FacebookBoolean.cs" />
+    <Compile Include="Models\Comments\FacebookCommentsOrder.cs" />
+    <Compile Include="Models\Events\FacebookEventCategory.cs" />
+    <Compile Include="Models\Events\FacebookEventRsvpStatus.cs" />
+    <Compile Include="Models\Events\FacebookEventType.cs" />
+    <Compile Include="Models\Pages\FacebookAttire.cs" />
+    <Compile Include="Models\Users\FacebookGender.cs" />
+    <Compile Include="Models\Common\FacebookPrivacy.cs" />
+    <Compile Include="Models\Pages\FacebookVerificationStatus.cs" />
+    <Compile Include="Models\Posts\FacebookPostStatusType.cs" />
+    <Compile Include="Models\Posts\FacebookPostType.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />
     <Compile Include="Models\Accounts\FacebookAccountsSummary.cs" />
     <Compile Include="Models\Authentication\FacebookToken.cs" />
@@ -218,7 +218,9 @@
   <ItemGroup>
     <None Include="LICENSE.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>"$(SolutionDir)build\Skybrud.Social.PreBuildTool.exe" 2012-07-30 "$(ProjectPath)"</PreBuildEvent>

@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums {
+﻿namespace Skybrud.Social.Facebook.Models.Common {
 
     /// <summary>
     /// Enumeration describing describing the privacy of an object in the Facebook eco system.

@@ -1,6 +1,5 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
-using Skybrud.Social.Facebook.Enums;
 
 namespace Skybrud.Social.Facebook.Models.Comments {
 

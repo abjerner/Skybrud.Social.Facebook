@@ -4,7 +4,6 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
-using Skybrud.Social.Facebook.Enums.Pages;
 using Skybrud.Social.Facebook.Models.Common;
 
 namespace Skybrud.Social.Facebook.Models.Pages {

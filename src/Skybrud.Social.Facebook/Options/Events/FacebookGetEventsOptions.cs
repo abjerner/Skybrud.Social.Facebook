@@ -1,7 +1,7 @@
 ﻿using System;
 using Skybrud.Essentials.Strings;
-using Skybrud.Social.Facebook.Enums.Events;
 using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Events;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Interfaces.Http;
 

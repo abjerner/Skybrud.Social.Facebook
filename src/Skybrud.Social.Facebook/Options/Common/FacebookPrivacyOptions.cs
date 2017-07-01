@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Skybrud.Social.Facebook.Enums;
+using Skybrud.Social.Facebook.Models.Common;
 
 namespace Skybrud.Social.Facebook.Options.Common {
     

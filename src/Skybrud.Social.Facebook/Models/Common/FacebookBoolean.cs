@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums {
+﻿namespace Skybrud.Social.Facebook.Models.Common {
     
     /// <summary>
     /// Enum class representing a boolean value

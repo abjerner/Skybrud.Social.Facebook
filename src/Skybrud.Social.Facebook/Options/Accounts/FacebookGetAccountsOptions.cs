@@ -1,6 +1,6 @@
 ﻿using System;
-using Skybrud.Social.Facebook.Enums;
 using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 using Skybrud.Social.Interfaces.Http;
 

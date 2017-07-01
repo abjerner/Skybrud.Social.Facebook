@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums.Pages {
+﻿namespace Skybrud.Social.Facebook.Models.Pages {
 
     /// <summary>
     /// Class describing the attire (dress code) of a Facebook business.

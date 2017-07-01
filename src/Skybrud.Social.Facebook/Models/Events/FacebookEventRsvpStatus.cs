@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums.Events {
+﻿namespace Skybrud.Social.Facebook.Models.Events {
     
     /// <summary>
     /// Enum class representing the type of an event.

@@ -1,4 +1,4 @@
-﻿namespace Skybrud.Social.Facebook.Enums.Pages {
+﻿namespace Skybrud.Social.Facebook.Models.Pages {
     
     /// <summary>
     /// Enum class representing the verification status of a Facebook page.
