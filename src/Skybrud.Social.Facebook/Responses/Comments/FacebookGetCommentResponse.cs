@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Comments;
+using Skybrud.Social.Facebook.Models.Comments;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Comments {

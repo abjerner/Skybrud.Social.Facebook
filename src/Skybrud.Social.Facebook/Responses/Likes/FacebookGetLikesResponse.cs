@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Likes;
+using Skybrud.Social.Facebook.Models.Likes;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Likes {

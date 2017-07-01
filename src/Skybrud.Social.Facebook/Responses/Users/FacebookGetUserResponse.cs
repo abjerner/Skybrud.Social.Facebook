@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Users;
+using Skybrud.Social.Facebook.Models.Users;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Users {

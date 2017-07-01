@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Events;
+using Skybrud.Social.Facebook.Models.Events;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Events {

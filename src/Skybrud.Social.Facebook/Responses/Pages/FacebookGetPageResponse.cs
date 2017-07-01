@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Pages;
+using Skybrud.Social.Facebook.Models.Pages;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Pages {

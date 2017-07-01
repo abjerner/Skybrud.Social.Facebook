@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Photos;
+using Skybrud.Social.Facebook.Models.Photos;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Photos {

@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Feed;
+using Skybrud.Social.Facebook.Models.Feed;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Feed {

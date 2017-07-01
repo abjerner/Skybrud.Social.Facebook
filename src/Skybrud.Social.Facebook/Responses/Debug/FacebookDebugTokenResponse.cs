@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Debug;
+using Skybrud.Social.Facebook.Models.Debug;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Debug {

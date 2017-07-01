@@ -1,4 +1,4 @@
-using Skybrud.Social.Facebook.Objects.Albums;
+using Skybrud.Social.Facebook.Models.Albums;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Albums {
