@@ -3,7 +3,7 @@
     /// <summary>
     /// Enum class representing the verification status of a Facebook page.
     /// </summary>
-    public enum FacebookVerificationStatus {
+    public enum FacebookPageVerificationStatus {
 
         /// <summary>
         /// Indicates that the <code>verification_status</code> wasn't part of the response from the Facebook Graph API.

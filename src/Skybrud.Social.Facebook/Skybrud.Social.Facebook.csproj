@@ -91,10 +91,10 @@
     <Compile Include="Models\Events\FacebookEventCategory.cs" />
     <Compile Include="Models\Events\FacebookEventRsvpStatus.cs" />
     <Compile Include="Models\Events\FacebookEventType.cs" />
-    <Compile Include="Models\Pages\FacebookAttire.cs" />
+    <Compile Include="Models\Pages\FacebookPageAttire.cs" />
     <Compile Include="Models\Users\FacebookGender.cs" />
     <Compile Include="Models\Common\FacebookPrivacy.cs" />
-    <Compile Include="Models\Pages\FacebookVerificationStatus.cs" />
+    <Compile Include="Models\Pages\FacebookPageVerificationStatus.cs" />
     <Compile Include="Models\Posts\FacebookPostStatusType.cs" />
     <Compile Include="Models\Posts\FacebookPostType.cs" />
     <Compile Include="Exceptions\FacebookException.cs" />

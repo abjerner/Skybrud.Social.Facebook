@@ -79,16 +79,16 @@ namespace Skybrud.Social.Facebook.Models.Pages {
 
         /// <summary>
         /// Gets the dress code of the business. Applicable to <strong>Restaurants</strong> or
-        /// <strong>Nightlife</strong>. Can be one of <see cref="FacebookAttire.Casual"/>,
-        /// <see cref="FacebookAttire.Dressy"/> or <see cref="FacebookAttire.Unspecified"/>.
+        /// <strong>Nightlife</strong>. Can be one of <see cref="FacebookPageAttire.Casual"/>,
+        /// <see cref="FacebookPageAttire.Dressy"/> or <see cref="FacebookPageAttire.Unspecified"/>.
         /// </summary>
-        public FacebookAttire Attire { get; private set; }
+        public FacebookPageAttire Attire { get; private set; }
 
         /// <summary>
         /// Gets whether the <see cref="Attire"/> property was included in the response and has a value.
         /// </summary>
         public bool HasAttire {
-            get { return Attire != FacebookAttire.Unspecified; }
+            get { return Attire != FacebookPageAttire.Unspecified; }
         }
 
         /// <summary>
@@ -1090,16 +1090,16 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         }
 
         /// <summary>
-        /// Gets whether this page is verified and in what color e.g. <see cref="FacebookVerificationStatus.BlueVerified"/>,
-        /// <see cref="FacebookVerificationStatus.GreyVerified"/> or <see cref="FacebookVerificationStatus.NotVerified"/>.
+        /// Gets whether this page is verified and in what color e.g. <see cref="FacebookPageVerificationStatus.BlueVerified"/>,
+        /// <see cref="FacebookPageVerificationStatus.GreyVerified"/> or <see cref="FacebookPageVerificationStatus.NotVerified"/>.
         /// </summary>
-        public FacebookVerificationStatus VerificationStatus { get; private set; }
+        public FacebookPageVerificationStatus VerificationStatus { get; private set; }
 
         /// <summary>
         /// Gets whether the <see cref="VerificationStatus"/> property was included in the response.
         /// </summary>
         public bool HasVerificationStatus {
-            get { return VerificationStatus != FacebookVerificationStatus.NotSpecified; }
+            get { return VerificationStatus != FacebookPageVerificationStatus.NotSpecified; }
         }
 
         // TODO: Add support for the "voip_info" field
@@ -1141,7 +1141,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
             // TODO: Add support for the "app_id" field
             // TODO: Add support for the "app_links" field
             ArtistsWeLike = obj.GetString("artists_we_like");
-            Attire = obj.GetEnum("attire", FacebookAttire.Unspecified);
+            Attire = obj.GetEnum("attire", FacebookPageAttire.Unspecified);
             Awards = obj.GetString("awards");
             BandInterests = obj.GetString("band_interests");
             BandMembers = obj.GetString("band_members");
@@ -1250,7 +1250,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
             // TODO: Add support for the "unread_notif_count" field
             // TODO: Add support for the "unseen_message_count" field
             Username = obj.GetString("username");
-            VerificationStatus = obj.GetEnum("verification_status", FacebookVerificationStatus.NotSpecified);
+            VerificationStatus = obj.GetEnum("verification_status", FacebookPageVerificationStatus.NotSpecified);
             // TODO: Add support for the "voip_info" field
             Website = obj.GetString("website");
             WereHereCount = obj.GetInt32("were_here_count");
