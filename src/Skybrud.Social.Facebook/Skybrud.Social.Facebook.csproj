@@ -143,8 +143,6 @@
     <Compile Include="Models\Posts\FacebookPostProperty.cs" />
     <Compile Include="Models\Common\FacebookShares.cs" />
     <Compile Include="Models\Statuses\FacebookStatusMessage.cs" />
-    <Compile Include="Models\Feed\FacebookFeedCollection.cs" />
-    <Compile Include="Models\Feed\FacebookFeedEntry.cs" />
     <Compile Include="Models\Likes\FacebookLike.cs" />
     <Compile Include="Models\Likes\FacebookLikesCollection.cs" />
     <Compile Include="Models\Likes\FacebookLikesSummary.cs" />

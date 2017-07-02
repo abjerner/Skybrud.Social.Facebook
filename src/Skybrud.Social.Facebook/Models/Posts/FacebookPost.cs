@@ -4,7 +4,9 @@ using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Constants;
 using Skybrud.Social.Facebook.Models.Applications;
+using Skybrud.Social.Facebook.Models.Comments;
 using Skybrud.Social.Facebook.Models.Common;
+using Skybrud.Social.Facebook.Models.Likes;
 using Skybrud.Social.Facebook.Models.Places;
 using Skybrud.Social.Interfaces;
 
@@ -14,7 +16,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
     /// Class representing a Facebook post.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/post</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.9/post</cref>
     /// </see>
     public class FacebookPost : FacebookObject, ISocialTimelineEntry {
 
@@ -24,7 +26,19 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// Gets the ID of the post.
         /// </summary>
         public string Id { get; private set; }
+        
+        /// <summary>
+        /// Gets information about the app or business that created the post. Applies to pages only.
+        /// </summary>
+        public FacebookEntity AdminCreator { get; private set; }
 
+        /// <summary>
+        /// Gets whether the <see cref="AdminCreator"/> property was included in the response.
+        /// </summary>
+        public bool HasAdminCreator {
+            get { return AdminCreator != null; }
+        }
+        
         /// <summary>
         /// Gets information about the app the post was published by.
         /// </summary>
@@ -36,6 +50,8 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasApplication {
             get { return Application != null; }
         }
+        
+        // TODO: Add support for the "call_to_action" property
 
         /// <summary>
         /// Gets the link caption in post that appears below name.
@@ -98,6 +114,8 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             get { return !String.IsNullOrWhiteSpace(Icon); }
         }
 
+        // TODO: Add support for the "instagram_eligibility" property
+
         /// <summary>
         /// Gets whether this post is marked as hidden (Applies to Pages only).
         /// </summary>
@@ -109,6 +127,8 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasIsHidden {
             get { return HasJsonProperty(FacebookPostFields.IsHidden.Name); }
         }
+        
+        // TODO: Add support for the "is_instagram_eligible" property
 
         /// <summary>
         /// Gets whether this post is marked as hidden (Applies to Pages only).
@@ -219,6 +239,8 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasPlace {
             get { return Place != null; }
         }
+        
+        // TODO: Add support for the "privacy" property
 
         /// <summary>
         /// Gets a list of properties for any attached video, for example, the length of the video.
@@ -237,6 +259,37 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// been shared, this property will return <code>null</code>.
         /// </summary>
         public FacebookShares Shares { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="Shares"/> property has a value.
+        /// </summary>
+        public bool HasShares {
+            get { return Shares != null; }
+        }
+
+        /// <summary>
+        /// Gets an object with information about how the entry has been liked.
+        /// </summary>
+        public FacebookLikesCollection Likes { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="Likes"/> property has a value.
+        /// </summary>
+        public bool HasLikes {
+            get { return Likes != null; }
+        }
+        
+        /// <summary>
+        /// Gets an object with information about how the entry has been commented.
+        /// </summary>
+        public FacebookCommentsCollection Comments { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="Comments"/> property has a value.
+        /// </summary>
+        public bool HasComments {
+            get { return Comments != null; }
+        }
         
         /// <summary>
         /// Gets a URL to any Flash movie or video file attached to the post.
@@ -275,6 +328,12 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             get { return !String.IsNullOrWhiteSpace(Story); }
         }
 
+        // TODO: Add support for the "story_tags" property
+
+        // TODO: Add support for the "targeting" property
+        
+        // TODO: Add support for the "to" property
+
         /// <summary>
         /// Gets the object type of this post.
         /// </summary>
@@ -302,6 +361,8 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             get { return UpdatedTime != null; }
         }
 
+        // TODO: Add support for the "with_tags" property
+
         /// <summary>
         /// Gets a sortable date for the post. This requires the <see cref="CreatedTime"/> property to be inclided in
         /// the response - otherwise <see cref="DateTime.MinValue"/> will be returned instead.
@@ -316,7 +377,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
 
         private FacebookPost(JObject obj) : base(obj) {
             Id = obj.GetString("id");
-            // TODO: Add support for the "admin_creator" property
+            AdminCreator = obj.GetObject("admin_creator", FacebookEntity.Parse);
             Application = obj.GetObject("application", FacebookApplication.Parse);
             // TODO: Add support for the "call_to_action" property
             Caption = obj.GetString("caption");
@@ -342,9 +403,12 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             // TODO: Add support for the "privacy" property
             Properties = obj.GetArray("properties", FacebookPostProperty.Parse) ?? new FacebookPostProperty[0];
             Shares = obj.GetObject("shares", FacebookShares.Parse);
+            Likes = obj.GetObject("likes", FacebookLikesCollection.Parse);
+            Comments = obj.GetObject("comments", FacebookCommentsCollection.Parse);
             Source = obj.GetString("source");
             StatusType = obj.GetEnum("status_type", FacebookPostStatusType.NotSpecified);
             Story = obj.GetString("story");
+            // TODO: Add support for the "story_tags" property
             // TODO: Add support for the "targeting" property
             // TODO: Add support for the "to" property
             Type = obj.GetEnum("type", FacebookPostType.NotSpecified);

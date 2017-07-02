@@ -1,13 +1,13 @@
-using Skybrud.Social.Facebook.Models.Feed;
+using Skybrud.Social.Facebook.Models.Posts;
 using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Feed {
 
     /// <summary>
-    /// Class representing a response of a request to get a collection of <see cref="FacebookFeedEntry"/> of a Facebook
+    /// Class representing a response of a request to get a collection of <see cref="FacebookPost"/> of a Facebook
     /// feed.
     /// </summary>
-    public class FacebookGetFeedResponse : FacebookResponse<FacebookFeedCollection> {
+    public class FacebookGetFeedResponse : FacebookResponse<FacebookPostsCollection> {
 
         #region Constructors
 
@@ -17,7 +17,7 @@ namespace Skybrud.Social.Facebook.Responses.Feed {
             ValidateResponse(response);
 
             // Parse the response body
-            Body = ParseJsonObject(response.Body, FacebookFeedCollection.Parse);
+            Body = ParseJsonObject(response.Body, FacebookPostsCollection.Parse);
 
         }
 
