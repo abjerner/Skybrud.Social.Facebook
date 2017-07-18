@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace Skybrud.Social.Facebook.Fields {
     /// <summary>
     /// Class representing a collection of fields in the Facebook Graph API.
     /// </summary>
-    public class FacebookFieldsCollection {
+    public class FacebookFieldsCollection : IEnumerable<FacebookField> {
 
         #region Private fields
 
@@ -65,11 +66,23 @@ namespace Skybrud.Social.Facebook.Fields {
         }
 
         /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>An instance of <see cref="IEnumerator{FacebookField}"/>.</returns>
+        public IEnumerator<FacebookField> GetEnumerator() {
+            return _fields.GetEnumerator();
+        }
+
+        /// <summary>
         /// Returns a string representing the fields added to the collection using a comma as a separator.
         /// </summary>
         /// <returns>String of fields separated by a comma.</returns>
         public override string ToString() {
             return String.Join(",", from field in _fields select field.Name);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return GetEnumerator();
         }
 
         #endregion

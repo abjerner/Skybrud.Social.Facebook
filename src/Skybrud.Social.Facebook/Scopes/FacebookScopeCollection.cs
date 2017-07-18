@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace Skybrud.Social.Facebook.Scopes {
     /// <summary>
     /// Class representing a collection of scopes for the Facebook Graph API.
     /// </summary>
-    public class FacebookScopeCollection {
+    public class FacebookScopeCollection : IEnumerable<FacebookScope> {
 
         #region Private fields
 
@@ -65,11 +66,23 @@ namespace Skybrud.Social.Facebook.Scopes {
         }
 
         /// <summary>
+        /// Returns an enumerator that iterates through the collection.
+        /// </summary>
+        /// <returns>An instance of <see cref="IEnumerator{FacebookScope}"/>.</returns>
+        public IEnumerator<FacebookScope> GetEnumerator() {
+            return _list.GetEnumerator();
+        }
+
+        /// <summary>
         /// Returns a string representing the scopea added to the collection using a comma as a separator.
         /// </summary>
         /// <returns>String of scopes separated by a comma.</returns>
         public override string ToString() {
             return String.Join(",", from scope in _list select scope.Name);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return GetEnumerator();
         }
 
         #endregion
