@@ -9,7 +9,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
     /// Class representing a Facebook application (app).
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.10/application</cref>
     /// </see>
     public class FacebookApplication : FacebookObject {
 
@@ -19,6 +19,62 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// Gets the ID of the app.
         /// </summary>
         public long Id { get; private set; }
+
+        // TODO: Add support for the "an_platforms" property
+        // TODO: Add support for the "app_ad_debug_info" property
+
+        /// <summary>
+        /// Gets a list of domains and subdomains this app can use.
+        /// </summary>
+        public string[] AppDomains { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="AppDomains"/> property was included in the response and has a value.
+        /// </summary>
+        public bool HasAppDomains {
+            get { return AppDomains.Length > 0; }
+        }
+
+        // TODO: Add support for the "app_install_tracked" property
+
+        /// <summary>
+        /// Gets the app name.
+        /// </summary>
+        public string AppName { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="AppName"/> property was included in the response.
+        /// </summary>
+        public bool HasAppName {
+            get { return !String.IsNullOrWhiteSpace(AppName); }
+        }
+
+        /// <summary>
+        /// Gets the app type.
+        /// </summary>
+        public int AppType { get; private set; }
+
+        /// <summary>
+        /// Gets whether the <see cref="AppName"/> property was included in the response.
+        /// </summary>
+        public bool HasAppType {
+            get { return HasJsonProperty("app_type"); }
+        }
+        
+        // TODO: Add support for the "app_name" property
+        // TODO: Add support for the "app_type" property
+        // TODO: Add support for the "auth_dialog_data_help_url" property
+        // TODO: Add support for the "auth_dialog_headline" property
+        // TODO: Add support for the "auth_dialog_perms_explanation" property
+        // TODO: Add support for the "auth_referral_default_activity_privacy" property
+        // TODO: Add support for the "auth_referral_enabled" property
+        // TODO: Add support for the "auth_referral_extended_perms" property
+        // TODO: Add support for the "auth_referral_friend_perms" property
+        // TODO: Add support for the "auth_referral_response_type" property
+        // TODO: Add support for the "auth_referral_user_perms" property
+        // TODO: Add support for the "canvas_fluid_height" property
+        // TODO: Add support for the "canvas_fluid_width" property
+        // TODO: Add support for the "canvas_url" property
 
         /// <summary>
         /// Gets the category of the app.
@@ -32,6 +88,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
             get { return !String.IsNullOrWhiteSpace(Category); }
         }
 
+        // TODO: Add support for the "client_config" property
+
         /// <summary>
         /// Gets the name of the company the app belongs to.
         /// </summary>
@@ -44,6 +102,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
             get { return !String.IsNullOrWhiteSpace(Company); }
         }
 
+        // TODO: Add support for the "configured_ios_sso" property
+
         /// <summary>
         /// Gets the email address listed for people using the app to contact developers.
         /// </summary>
@@ -55,6 +115,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasContactEmail {
             get { return !String.IsNullOrWhiteSpace(ContactEmail); }
         }
+        
+        // TODO: Add support for the "context" property
 
         /// <summary>
         /// Gets the timestamp that indicates when the app was created.
@@ -67,6 +129,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasCreatedTime {
             get { return CreatedTime != null; }
         }
+        
+        // TODO: Add support for the "creator_uid" property
 
         /// <summary>
         /// The number of daily active users the app has.
@@ -91,6 +155,9 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasDailyActiveUsersRank {
             get { return HasJsonProperty("daily_active_users_rank"); }
         }
+        
+        // TODO: Add support for the "deauth_callback_url" property
+        // TODO: Add support for the "default_share_mode" property
 
         /// <summary>
         /// Gets the description of the app, as provided by the developer.
@@ -103,6 +170,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasDescription {
             get { return !String.IsNullOrWhiteSpace(Description); }
         }
+        
+        // TODO: Add support for the "hosting_url" property
 
         /// <summary>
         /// Gets the URL of this app's icon.
@@ -115,6 +184,12 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasIconUrl {
             get { return !String.IsNullOrWhiteSpace(IconUrl); }
         }
+        
+        // TODO: Add support for the "ios_bundle_id" property
+        // TODO: Add support for the "ios_supports_native_proxy_auth_flow" property
+        // TODO: Add support for the "ios_supports_system_auth" property
+        // TODO: Add support for the "ipad_app_store_id" property
+        // TODO: Add support for the "iphone_app_store_id" property
 
         /// <summary>
         /// Gets the link to the app on Facebook.
@@ -127,6 +202,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasLink {
             get { return !String.IsNullOrWhiteSpace(Link); }
         }
+        
+        // TODO: Add support for the "logging_token" property
 
         /// <summary>
         /// Gets the URL of the app's logo.
@@ -139,6 +216,10 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasLogoUrl {
             get { return !String.IsNullOrWhiteSpace(LogoUrl); }
         }
+        
+        // TODO: Add support for the "migrations" property
+        // TODO: Add support for the "mobile_profile_section_url" property
+        // TODO: Add support for the "mobile_web_url" property
 
         /// <summary>
         /// Gets the number of monthly active users the app has.
@@ -187,6 +268,10 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasNamespace {
             get { return !String.IsNullOrWhiteSpace(Namespace); }
         }
+        
+        // TODO: Add support for the "object_store_urls" property
+        // TODO: Add support for the "page_tab_default_name" property
+        // TODO: Add support for the "page_tab_url" property
 
         /// <summary>
         /// Gets the URL that links to a Privacy Policy for the app.
@@ -200,6 +285,13 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasPrivacyPolicyUrl {
             get { return !String.IsNullOrWhiteSpace(PrivacyPolicyUrl); }
         }
+        
+        // TODO: Add support for the "profile_section_url" property
+        // TODO: Add support for the "restrictions" property
+        // TODO: Add support for the "secure_canvas_url" property
+        // TODO: Add support for the "secure_page_tab_url" property
+        // TODO: Add support for the "server_ip_whitelist" property
+        // TODO: Add support for the "social_discovery" property
 
         /// <summary>
         /// Gets the sub category the app can be found under.
@@ -212,6 +304,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasSubCategory {
             get { return !String.IsNullOrWhiteSpace(SubCategory); }
         }
+        
+        // TODO: Add support for the "supported_platforms" property
 
         /// <summary>
         /// Gets the URL to Terms of Service that appears in the Login Dialog.
@@ -225,6 +319,8 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         public bool HasTermsOfServiceUrl {
             get { return !String.IsNullOrWhiteSpace(TermsOfServiceUrl); }
         }
+        
+        // TODO: Add support for the "url_scheme_suffix" property
 
         /// <summary>
         /// Gets the main contact email for this app where people can receive support.
@@ -283,10 +379,10 @@ namespace Skybrud.Social.Facebook.Models.Applications {
             Id = obj.GetInt64("id");
             // TODO: Add support for the "an_platforms" property
             // TODO: Add support for the "app_ad_debug_info" property
-            // TODO: Add support for the "app_domains" property
+            AppDomains = obj.GetStringArray("app_domains");
             // TODO: Add support for the "app_install_tracked" property
-            // TODO: Add support for the "app_name" property
-            // TODO: Add support for the "app_type" property
+            AppName = obj.GetString("app_name");
+            AppType = obj.GetInt32("app_type");
             // TODO: Add support for the "auth_dialog_data_help_url" property
             // TODO: Add support for the "auth_dialog_headline" property
             // TODO: Add support for the "auth_dialog_perms_explanation" property
