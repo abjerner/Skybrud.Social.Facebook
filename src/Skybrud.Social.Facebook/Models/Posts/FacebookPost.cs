@@ -367,7 +367,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// Gets a sortable date for the post. This requires the <see cref="CreatedTime"/> property to be inclided in
         /// the response - otherwise <see cref="DateTime.MinValue"/> will be returned instead.
         /// </summary>
-        public DateTime SortDate {
+        public EssentialsDateTime SortDate {
             get { return HasCreatedTime ? CreatedTime.DateTime : DateTime.MinValue; }
         }
 

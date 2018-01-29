@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Models.Pagination {
     
@@ -25,7 +26,7 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
         public int Since {
             get {
                 if (Previous != null) {
-                    NameValueCollection response = SocialUtils.Misc.ParseQueryString(Previous);
+                    SocialHttpQueryString response = SocialHttpQueryString.ParseQueryString(Previous);
                     if (response["since"] != null) return Int32.Parse(response["since"]);
                 }
                 return 0;
@@ -38,7 +39,7 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
         public int Until {
             get {
                 if (Next != null) {
-                    NameValueCollection response = SocialUtils.Misc.ParseQueryString(Next);
+                    SocialHttpQueryString response = SocialHttpQueryString.ParseQueryString(Next);
                     if (response["until"] != null) return Int32.Parse(response["until"]);
                 }
                 return 0;
