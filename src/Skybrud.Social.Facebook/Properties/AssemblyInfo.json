@@ -1,10 +1,10 @@
 {
   "title": "Skybrud.Social.Facebook",
   "description": "Authentication and service implementation for the Facebook Graph API.",
-  "company": "Skybrud.dk",
+  "company": "Skybrud.dk a/s",
   "product": "Skybrud.Social",
-  "copyright": "Copyright © 2017",
+  "copyright": "Copyright © 2018",
   "version": "1.0.0.0",
-  "informationalVersion": "1.0.0-beta3",
-  "fileVersion": "0.0.2009.3"
+  "informationalVersion": "1.0.0-beta4",
+  "fileVersion": "0.0.2009.4"
 }
