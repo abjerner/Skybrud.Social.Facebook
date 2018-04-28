@@ -368,7 +368,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// the response - otherwise <see cref="DateTime.MinValue"/> will be returned instead.
         /// </summary>
         public EssentialsDateTime SortDate {
-            get { return HasCreatedTime ? CreatedTime.DateTime : DateTime.MinValue; }
+            get { return CreatedTime; }
         }
 
         #endregion
