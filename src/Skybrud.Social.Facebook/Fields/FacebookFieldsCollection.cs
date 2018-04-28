@@ -19,6 +19,13 @@ namespace Skybrud.Social.Facebook.Fields {
         #region Properties
 
         /// <summary>
+        /// Gets the total number of fields added to the collection.
+        /// </summary>
+        public int Count {
+            get { return _fields.Count; }
+        }
+
+        /// <summary>
         /// Gets an array of all the fields added to the collection.
         /// </summary>
         public FacebookField[] Fields {
