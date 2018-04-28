@@ -1,14 +1,16 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Pages;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook page. The class is auto-generated and based
-    /// on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook page (<see cref="FacebookPage" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/page</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/page</cref>
     /// </see>
     public static class FacebookPageFields {
 
@@ -25,8 +27,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField About = new FacebookField("about");
 
         /// <summary>
-        /// The access token you can use to act as the Page. Only visible to Page Admins. If your business requires
-        /// two-factor authentication, and the person hasn't authenticated, this field may not be returned.
+        /// The Page's access token. Only returned if the User making the request has a role (other than Live
+        /// Contributor) on the Page. If your business requires two-factor authentication, the User must also be
+        /// authenticated.
         /// </summary>
         public static readonly FacebookField AccessToken = new FacebookField("access_token");
 
@@ -150,6 +153,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Context = new FacebookField("context");
 
         /// <summary>
+        /// Insight metrics that measures performance of copyright attribution. An example metric would be number of
+        /// incremental followers from attribution.
+        /// </summary>
+        public static readonly FacebookField CopyrightAttributionInsights = new FacebookField("copyright_attribution_insights");
+
+        /// <summary>
         /// If this is a Page in a Global Pages hierarchy, the number of people who are being directed to this Page.
         /// </summary>
         public static readonly FacebookField CountryPageLikes = new FacebookField("country_page_likes");
@@ -261,18 +270,22 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField HasAddedApp = new FacebookField("has_added_app");
 
         /// <summary>
+        /// Has whatsapp number.
+        /// </summary>
+        public static readonly FacebookField HasWhatsappNumber = new FacebookField("has_whatsapp_number");
+
+        /// <summary>
         /// Hometown of the band. Applicable to Bands.
         /// </summary>
         public static readonly FacebookField Hometown = new FacebookField("hometown");
 
         /// <summary>
         /// Indicates a single range of opening hours for a day. Each day can have 2 different hours ranges. The keys in
-        /// the map are in the form of <code>{day}_{number}_{status}</code>.  <code>{day}</code> should be the first 3
-        /// characters of the day of the week, <code>{number}</code> should be either 1 or 2 to allow for the two
-        /// different hours ranges per day. <code>{status}</code> should be either <code>open</code> or
-        /// <code>close</code> to delineate the start or end of a time range. An example would be
-        /// <code>mon_1_open</code> with value <code>17:00</code> and <code>mon_1_close</code> with value
-        /// <code>21:15</code> which would represent a single opening range of 5pm to 9:15pm on Mondays.
+        /// the map are in the form of <c>{day}_{number}_{status}</c>.  <c>{day}</c> should be the first 3 characters of
+        /// the day of the week, <c>{number}</c> should be either 1 or 2 to allow for the two different hours ranges per
+        /// day. <c>{status}</c> should be either <c>open</c> or <c>close</c> to delineate the start or end of a time
+        /// range. An example would be <c>mon_1_open</c> with value <c>17:00</c> and <c>mon_1_close</c> with value
+        /// <c>21:15</c> which would represent a single opening range of 5pm to 9:15pm on Mondays.
         /// </summary>
         public static readonly FacebookField Hours = new FacebookField("hours");
 
@@ -297,9 +310,34 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField IsAlwaysOpen = new FacebookField("is_always_open");
 
         /// <summary>
+        /// Indicates whether location is part of a chain.
+        /// </summary>
+        public static readonly FacebookField IsChain = new FacebookField("is_chain");
+
+        /// <summary>
         /// Indicates whether the Page is a community Page.
         /// </summary>
         public static readonly FacebookField IsCommunityPage = new FacebookField("is_community_page");
+
+        /// <summary>
+        /// Indicates whether the page is eligible for the branded content tool.
+        /// </summary>
+        public static readonly FacebookField IsEligibleForBrandedContent = new FacebookField("is_eligible_for_branded_content");
+
+        /// <summary>
+        /// Indicates whether the page is a Messenger Platform Bot with Get Started button enabled.
+        /// </summary>
+        public static readonly FacebookField IsMessengerBotGetStartedEnabled = new FacebookField("is_messenger_bot_get_started_enabled");
+
+        /// <summary>
+        /// Indicates whether the page is a Messenger Platform Bot.
+        /// </summary>
+        public static readonly FacebookField IsMessengerPlatformBot = new FacebookField("is_messenger_platform_bot");
+
+        /// <summary>
+        /// Indicates whether page is owned.
+        /// </summary>
+        public static readonly FacebookField IsOwned = new FacebookField("is_owned");
 
         /// <summary>
         /// Whether the business corresponding to this Page is permanently closed.
@@ -317,9 +355,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField IsUnclaimed = new FacebookField("is_unclaimed");
 
         /// <summary>
-        /// Pages with a large number of followers can be manually verified by Facebook as <a
-        /// href="https://www.facebook.com/help/196050490547892" target="_blank">having an authentic identity</a>. This
-        /// field indicates whether the page is verified by this process.
+        /// Deprecated, use "verification_status". Pages with a large number of followers can be manually verified by
+        /// Facebook as [having an authentic identity] (https://www.facebook.com/help/196050490547892). This field
+        /// indicates whether the page is verified by this process.
         /// </summary>
         public static readonly FacebookField IsVerified = new FacebookField("is_verified");
 
@@ -337,6 +375,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The details needed to generate an accurate preview of a lead gen form.
         /// </summary>
         public static readonly FacebookField LeadgenFormPreviewDetails = new FacebookField("leadgen_form_preview_details");
+
+        /// <summary>
+        /// Indicates whether this page hasApp subscribes page leads realtime update.
+        /// </summary>
+        public static readonly FacebookField LeadgenHasCrmIntegration = new FacebookField("leadgen_has_crm_integration");
+
+        /// <summary>
+        /// Indicates whether this pagehas App that subscribes page leads realtime update via fat ping.
+        /// </summary>
+        public static readonly FacebookField LeadgenHasFatPingCrmIntegration = new FacebookField("leadgen_has_fat_ping_crm_integration");
 
         /// <summary>
         /// Indicates the time when the TOS for running LeadGen Ads on the page was accepted.
@@ -380,6 +428,26 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField MerchantReviewStatus = new FacebookField("merchant_review_status");
 
         /// <summary>
+        /// The default ice breakers for a certain page.
+        /// </summary>
+        public static readonly FacebookField MessengerAdsDefaultIcebreakers = new FacebookField("messenger_ads_default_icebreakers");
+
+        /// <summary>
+        /// The default page welcome message for Click to Messenger Ads.
+        /// </summary>
+        public static readonly FacebookField MessengerAdsDefaultPageWelcomeMessage = new FacebookField("messenger_ads_default_page_welcome_message");
+
+        /// <summary>
+        /// The default quick replies for a certain page.
+        /// </summary>
+        public static readonly FacebookField MessengerAdsDefaultQuickReplies = new FacebookField("messenger_ads_default_quick_replies");
+
+        /// <summary>
+        /// Indicates what type this page is and we will generate different sets of quick replies based on it.
+        /// </summary>
+        public static readonly FacebookField MessengerAdsQuickRepliesType = new FacebookField("messenger_ads_quick_replies_type");
+
+        /// <summary>
         /// The company mission. Applicable to Companies.
         /// </summary>
         public static readonly FacebookField Mission = new FacebookField("mission");
@@ -395,7 +463,8 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Name = new FacebookField("name");
 
         /// <summary>
-        /// The name of the Page with its location and/or global brand descriptor.
+        /// The name of the Page with its location and/or global brand descriptor. Only visible to a page admin.
+        /// Non-page admins will get the same value as <c>name</c>.
         /// </summary>
         public static readonly FacebookField NameWithLocationDescriptor = new FacebookField("name_with_location_descriptor");
 
@@ -419,6 +488,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// guaranteed to be a strict average of user ratings.
         /// </summary>
         public static readonly FacebookField OverallStarRating = new FacebookField("overall_star_rating");
+
+        /// <summary>
+        /// Page token.
+        /// </summary>
+        public static readonly FacebookField PageToken = new FacebookField("page_token");
 
         /// <summary>
         /// Parent Page for this Page.
@@ -476,8 +550,8 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField PressContact = new FacebookField("press_contact");
 
         /// <summary>
-        /// Price range of the business. Applicable to Restaurants or Nightlife. Can be one of <code>$</code>,
-        /// <code>$$</code>, <code>$$$</code>, <code>$$$$</code> or <code>Unspecified</code>.
+        /// Price range of the business. Applicable to Restaurants or Nightlife. Can be one of <c>$</c>, <c>$$</c>,
+        /// <c>$$$</c>, <c>$$$$</c> or <c>Unspecified</c>.
         /// </summary>
         public static readonly FacebookField PriceRange = new FacebookField("price_range");
 
@@ -492,12 +566,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Products = new FacebookField("products");
 
         /// <summary>
-        /// Reason why a post isn't eligible for boosting. Only visible to Page Admins.
+        /// Boosted posts eligibility status. Only visible to a page admin.
         /// </summary>
         public static readonly FacebookField PromotionEligible = new FacebookField("promotion_eligible");
 
         /// <summary>
-        /// Reason, for which boosted posts are not eligible. Only visible to a page admin.
+        /// Reason for which boosted posts are not eligible. Only visible to a page admin.
         /// </summary>
         public static readonly FacebookField PromotionIneligibleReason = new FacebookField("promotion_ineligible_reason");
 
@@ -617,8 +691,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Username = new FacebookField("username");
 
         /// <summary>
-        /// Showing whether this Page is verified and in what color e.g. blue verified, gray verified or not
-        /// verified.
+        /// Showing whether this Page is verified and in what color e.g. blue verified, gray verified or not verified.
         /// </summary>
         public static readonly FacebookField VerificationStatus = new FacebookField("verification_status");
 
@@ -640,6 +713,11 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField WereHereCount = new FacebookField("were_here_count");
 
         /// <summary>
+        /// Whatsapp number.
+        /// </summary>
+        public static readonly FacebookField WhatsappNumber = new FacebookField("whatsapp_number");
+
+        /// <summary>
         /// The writer of the TV show. Applicable to TV Shows.
         /// </summary>
         public static readonly FacebookField WrittenBy = new FacebookField("written_by");
@@ -652,19 +730,22 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField[] All = {
             Id, About, AccessToken, AdCampaign, Affiliation, AppId, AppLinks, ArtistsWeLike, Attire, Awards, BandInterests,
             BandMembers, BestPage, Bio, Birthday, BookingAgent, Built, Business, CanCheckin, CanPost, Category, CategoryList,
-            Checkins, CompanyOverview, ContactAddress, Context, CountryPageLikes, Cover, CulinaryTeam, CurrentLocation, Description,
-            DescriptionHtml, DirectedBy, DisplaySubtext, DisplayedMessageResponseTime, Emails, Engagement, FanCount, FeaturedVideo,
-            Features, FoodStyles, Founded, GeneralInfo, GeneralManager, Genre, GlobalBrandPageName, GlobalBrandRootId, HasAddedApp,
-            Hometown, Hours, Impressum, Influences, InstantArticlesReviewStatus, IsAlwaysOpen, IsCommunityPage, IsPermanentlyClosed,
-            IsPublished, IsUnclaimed, IsVerified, IsWebhooksSubscribed, Keywords, LeadgenFormPreviewDetails, LeadgenTosAcceptanceTime,
-            LeadgenTosAccepted, LeadgenTosAcceptingUser, Link, Location, Members, MerchantId, MerchantReviewStatus, Mission,
-            Mpg, Name, NameWithLocationDescriptor, Network, NewLikeCount, OfferEligible, OverallStarRating, ParentPage, Parking,
-            PaymentOptions, PersonalInfo, PersonalInterests, PharmaSafetyInfo, Phone, PlaceType, PlotOutline, PreferredAudience,
-            PressContact, PriceRange, ProducedBy, Products, PromotionEligible, PromotionIneligibleReason, PublicTransit,
-            PublisherSpace, RatingCount, Recipient, RecordLabel, ReleaseDate, RestaurantServices, RestaurantSpecialties,
-            Schedule, ScreenplayBy, Season, SingleLineAddress, Starring, StartInfo, StoreLocationDescriptor, StoreNumber,
-            Studio, SupportsInstantArticles, TalkingAboutCount, UnreadMessageCount, UnreadNotifCount, UnseenMessageCount,
-            Username, VerificationStatus, VoipInfo, Website, WereHereCount, WrittenBy
+            Checkins, CompanyOverview, ContactAddress, Context, CopyrightAttributionInsights, CountryPageLikes, Cover, CulinaryTeam,
+            CurrentLocation, Description, DescriptionHtml, DirectedBy, DisplaySubtext, DisplayedMessageResponseTime, Emails,
+            Engagement, FanCount, FeaturedVideo, Features, FoodStyles, Founded, GeneralInfo, GeneralManager, Genre, GlobalBrandPageName,
+            GlobalBrandRootId, HasAddedApp, HasWhatsappNumber, Hometown, Hours, Impressum, Influences, InstantArticlesReviewStatus,
+            IsAlwaysOpen, IsChain, IsCommunityPage, IsEligibleForBrandedContent, IsMessengerBotGetStartedEnabled, IsMessengerPlatformBot,
+            IsOwned, IsPermanentlyClosed, IsPublished, IsUnclaimed, IsVerified, IsWebhooksSubscribed, Keywords, LeadgenFormPreviewDetails,
+            LeadgenHasCrmIntegration, LeadgenHasFatPingCrmIntegration, LeadgenTosAcceptanceTime, LeadgenTosAccepted, LeadgenTosAcceptingUser,
+            Link, Location, Members, MerchantId, MerchantReviewStatus, MessengerAdsDefaultIcebreakers, MessengerAdsDefaultPageWelcomeMessage,
+            MessengerAdsDefaultQuickReplies, MessengerAdsQuickRepliesType, Mission, Mpg, Name, NameWithLocationDescriptor,
+            Network, NewLikeCount, OfferEligible, OverallStarRating, PageToken, ParentPage, Parking, PaymentOptions, PersonalInfo,
+            PersonalInterests, PharmaSafetyInfo, Phone, PlaceType, PlotOutline, PreferredAudience, PressContact, PriceRange,
+            ProducedBy, Products, PromotionEligible, PromotionIneligibleReason, PublicTransit, PublisherSpace, RatingCount,
+            Recipient, RecordLabel, ReleaseDate, RestaurantServices, RestaurantSpecialties, Schedule, ScreenplayBy, Season,
+            SingleLineAddress, Starring, StartInfo, StoreLocationDescriptor, StoreNumber, Studio, SupportsInstantArticles,
+            TalkingAboutCount, UnreadMessageCount, UnreadNotifCount, UnseenMessageCount, Username, VerificationStatus, VoipInfo,
+            Website, WereHereCount, WhatsappNumber, WrittenBy
         };
 
     }

@@ -1,14 +1,16 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Events;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook event. The class is auto-generated and based
-    /// on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook event (<see cref="FacebookEvent" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/event</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/event</cref>
     /// </see>
     public static class FacebookEventFields {
 
@@ -25,7 +27,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField AttendingCount = new FacebookField("attending_count");
 
         /// <summary>
-        /// Can guests invite friends.
+        /// Can guests invite friends. Requires an access token of an Admin of the Event.
         /// </summary>
         public static readonly FacebookField CanGuestsInvite = new FacebookField("can_guests_invite");
 
@@ -55,7 +57,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField EndTime = new FacebookField("end_time");
 
         /// <summary>
-        /// Can see guest list.
+        /// Array of times of a multi-instance event.
+        /// </summary>
+        public static readonly FacebookField EventTimes = new FacebookField("event_times");
+
+        /// <summary>
+        /// Can see guest list. Requires an access token of an Admin of the Event.
         /// </summary>
         public static readonly FacebookField GuestListEnabled = new FacebookField("guest_list_enabled");
 
@@ -70,14 +77,14 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField IsCanceled = new FacebookField("is_canceled");
 
         /// <summary>
+        /// Whether the event is in draft mode or published. Requires an access token of an Admin of the Event.
+        /// </summary>
+        public static readonly FacebookField IsDraft = new FacebookField("is_draft");
+
+        /// <summary>
         /// Whether the event is created by page or not.
         /// </summary>
         public static readonly FacebookField IsPageOwned = new FacebookField("is_page_owned");
-
-        /// <summary>
-        /// Whether the viewer is admin or not.
-        /// </summary>
-        public static readonly FacebookField IsViewerAdmin = new FacebookField("is_viewer_admin");
 
         /// <summary>
         /// Number of people who maybe going to the event.
@@ -110,6 +117,11 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Place = new FacebookField("place");
 
         /// <summary>
+        /// Time when event is scheduled to be published.
+        /// </summary>
+        public static readonly FacebookField ScheduledPublishTime = new FacebookField("scheduled_publish_time");
+
+        /// <summary>
         /// Start time.
         /// </summary>
         public static readonly FacebookField StartTime = new FacebookField("start_time");
@@ -118,6 +130,21 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The link users can visit to buy a ticket to this event.
         /// </summary>
         public static readonly FacebookField TicketUri = new FacebookField("ticket_uri");
+
+        /// <summary>
+        /// Time when tickets go on sale.
+        /// </summary>
+        public static readonly FacebookField TicketUriStartSalesTime = new FacebookField("ticket_uri_start_sales_time");
+
+        /// <summary>
+        /// URI to seller's privacy policy for ticket purchases.
+        /// </summary>
+        public static readonly FacebookField TicketingPrivacyUri = new FacebookField("ticketing_privacy_uri");
+
+        /// <summary>
+        /// URI to seller's terms of service for ticket purchases.
+        /// </summary>
+        public static readonly FacebookField TicketingTermsUri = new FacebookField("ticketing_terms_uri");
 
         /// <summary>
         /// Timezone.
@@ -140,9 +167,10 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Gets an array of all known fields available for a Facebook event.
         /// </summary>
         public static readonly FacebookField[] All = {
-            Id, AttendingCount, CanGuestsInvite, Category, Cover, DeclinedCount, Description, EndTime, GuestListEnabled,
-            InterestedCount, IsCanceled, IsPageOwned, IsViewerAdmin, MaybeCount, Name, NoreplyCount, Owner, ParentGroup,
-            Place, StartTime, TicketUri, Timezone, Type, UpdatedTime
+            Id, AttendingCount, CanGuestsInvite, Category, Cover, DeclinedCount, Description, EndTime, EventTimes, GuestListEnabled,
+            InterestedCount, IsCanceled, IsDraft, IsPageOwned, MaybeCount, Name, NoreplyCount, Owner, ParentGroup, Place,
+            ScheduledPublishTime, StartTime, TicketUri, TicketUriStartSalesTime, TicketingPrivacyUri, TicketingTermsUri,
+            Timezone, Type, UpdatedTime
         };
 
     }

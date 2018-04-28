@@ -1,14 +1,17 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Applications;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook application. The class is auto-generated and
-    /// based on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook application (<see
+    ///  cref="FacebookApplication" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/application</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/application</cref>
     /// </see>
     public static class FacebookApplicationFields {
 
@@ -18,6 +21,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The app ID.
         /// </summary>
         public static readonly FacebookField Id = new FacebookField("id");
+
+        /// <summary>
+        /// The maximum number ofAd Spaces allowed for each Audience Network supported platform.
+        /// </summary>
+        public static readonly FacebookField AnAdSpaceLimit = new FacebookField("an_ad_space_limit");
 
         /// <summary>
         /// The platforms associated with the app in the Audience Network product. Not enforced, but when present, it
@@ -95,6 +103,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Basic user permissions that a user must grant when Authenticated Referrals are enabled.
         /// </summary>
         public static readonly FacebookField AuthReferralUserPerms = new FacebookField("auth_referral_user_perms");
+
+        /// <summary>
+        /// Business owner of this app.
+        /// </summary>
+        public static readonly FacebookField Business = new FacebookField("business");
 
         /// <summary>
         /// Indicates whether the app uses fluid or settable height values for Canvas.
@@ -177,6 +190,11 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Description = new FacebookField("description");
 
         /// <summary>
+        /// The ID for the corresponding audience network financial entity.
+        /// </summary>
+        public static readonly FacebookField FinancialId = new FacebookField("financial_id");
+
+        /// <summary>
         /// Webspace created with one of our hosting partners for this app.
         /// </summary>
         public static readonly FacebookField HostingUrl = new FacebookField("hosting_url");
@@ -210,6 +228,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// ID of the app in the iPhone App Store.
         /// </summary>
         public static readonly FacebookField IphoneAppStoreId = new FacebookField("iphone_app_store_id");
+
+        /// <summary>
+        /// Test if viewer is one of admins of this app.
+        /// </summary>
+        public static readonly FacebookField IsViewerAdmin = new FacebookField("is_viewer_admin");
+
+        /// <summary>
+        /// App latest sdk version.
+        /// </summary>
+        public static readonly FacebookField LatestSdkVersion = new FacebookField("latest_sdk_version");
 
         /// <summary>
         /// A link to the app on Facebook.
@@ -257,7 +285,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Name = new FacebookField("name");
 
         /// <summary>
-        /// The string appended to <code>apps.facebook.com/</code> to navigate to the app's canvas page.
+        /// The string appended to <c>apps.facebook.com/</c> to navigate to the app's canvas page.
         /// </summary>
         public static readonly FacebookField Namespace = new FacebookField("namespace");
 
@@ -275,6 +303,11 @@ namespace Skybrud.Social.Facebook.Constants {
         /// The non-secure URL from which Page Tab app content is loaded.
         /// </summary>
         public static readonly FacebookField PageTabUrl = new FacebookField("page_tab_url");
+
+        /// <summary>
+        /// The URL of the app photo.
+        /// </summary>
+        public static readonly FacebookField PhotoUrl = new FacebookField("photo_url");
 
         /// <summary>
         /// The URL that links to a Privacy Policy for the app.
@@ -357,16 +390,17 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Gets an array of all known fields available for a Facebook application.
         /// </summary>
         public static readonly FacebookField[] All = {
-            Id, AnPlatforms, AppAdDebugInfo, AppDomains, AppInstallTracked, AppName, AppType, AuthDialogDataHelpUrl, AuthDialogHeadline,
-            AuthDialogPermsExplanation, AuthReferralDefaultActivityPrivacy, AuthReferralEnabled, AuthReferralExtendedPerms,
-            AuthReferralFriendPerms, AuthReferralResponseType, AuthReferralUserPerms, CanvasFluidHeight, CanvasFluidWidth,
+            Id, AnAdSpaceLimit, AnPlatforms, AppAdDebugInfo, AppDomains, AppInstallTracked, AppName, AppType, AuthDialogDataHelpUrl,
+            AuthDialogHeadline, AuthDialogPermsExplanation, AuthReferralDefaultActivityPrivacy, AuthReferralEnabled, AuthReferralExtendedPerms,
+            AuthReferralFriendPerms, AuthReferralResponseType, AuthReferralUserPerms, Business, CanvasFluidHeight, CanvasFluidWidth,
             CanvasUrl, Category, ClientConfig, Company, ConfiguredIosSso, ContactEmail, Context, CreatedTime, CreatorUid,
-            DailyActiveUsers, DailyActiveUsersRank, DeauthCallbackUrl, DefaultShareMode, Description, HostingUrl, IconUrl,
-            IosBundleId, IosSupportsNativeProxyAuthFlow, IosSupportsSystemAuth, IpadAppStoreId, IphoneAppStoreId, Link, LoggingToken,
-            LogoUrl, Migrations, MobileProfileSectionUrl, MobileWebUrl, MonthlyActiveUsers, MonthlyActiveUsersRank, Name,
-            Namespace, ObjectStoreUrls, PageTabDefaultName, PageTabUrl, PrivacyPolicyUrl, ProfileSectionUrl, Restrictions,
-            SecureCanvasUrl, SecurePageTabUrl, ServerIpWhitelist, SocialDiscovery, Subcategory, SupportedPlatforms, TermsOfServiceUrl,
-            UrlSchemeSuffix, UserSupportEmail, UserSupportUrl, WebsiteUrl, WeeklyActiveUsers
+            DailyActiveUsers, DailyActiveUsersRank, DeauthCallbackUrl, DefaultShareMode, Description, FinancialId, HostingUrl,
+            IconUrl, IosBundleId, IosSupportsNativeProxyAuthFlow, IosSupportsSystemAuth, IpadAppStoreId, IphoneAppStoreId,
+            IsViewerAdmin, LatestSdkVersion, Link, LoggingToken, LogoUrl, Migrations, MobileProfileSectionUrl, MobileWebUrl,
+            MonthlyActiveUsers, MonthlyActiveUsersRank, Name, Namespace, ObjectStoreUrls, PageTabDefaultName, PageTabUrl,
+            PhotoUrl, PrivacyPolicyUrl, ProfileSectionUrl, Restrictions, SecureCanvasUrl, SecurePageTabUrl, ServerIpWhitelist,
+            SocialDiscovery, Subcategory, SupportedPlatforms, TermsOfServiceUrl, UrlSchemeSuffix, UserSupportEmail, UserSupportUrl,
+            WebsiteUrl, WeeklyActiveUsers
         };
 
     }

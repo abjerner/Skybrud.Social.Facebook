@@ -1,14 +1,16 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Photos;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook comment. The class is auto-generated and
-    /// based on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook comment (<see cref="FacebookPhoto" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/comment</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/comment</cref>
     /// </see>
     public static class FacebookCommentFields {
 
@@ -20,7 +22,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Id = new FacebookField("id");
 
         /// <summary>
-        /// Link or photo attached to the comment.
+        /// Link, video, sticker, or photo attached to the comment.
         /// </summary>
         public static readonly FacebookField Attachment = new FacebookField("attachment");
 
@@ -75,7 +77,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Message = new FacebookField("message");
 
         /// <summary>
-        /// An array of Profiles tagged in <code>message</code>.
+        /// An array of Profiles tagged in <c>message</c>.
         /// </summary>
         public static readonly FacebookField MessageTags = new FacebookField("message_tags");
 

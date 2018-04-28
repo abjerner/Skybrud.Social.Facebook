@@ -1,14 +1,16 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Photos;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook photo. The class is auto-generated and based
-    /// on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook photo (<see cref="FacebookPhoto" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/photo</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/photo</cref>
     /// </see>
     public static class FacebookPhotoFields {
 
@@ -86,7 +88,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Link = new FacebookField("link");
 
         /// <summary>
-        /// The user-provided caption given to this photo. Corresponds to <code>caption</code> when creating photos.
+        /// The user-provided caption given to this photo. Corresponds to <c>caption</c> when creating photos.
         /// </summary>
         public static readonly FacebookField Name = new FacebookField("name");
 
@@ -118,7 +120,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Position = new FacebookField("position");
 
         /// <summary>
-        /// Deprecated. Use <code>images</code> instead.
+        /// Deprecated. Use <c>images</c> instead.
         /// </summary>
         public static readonly FacebookField Source = new FacebookField("source");
 

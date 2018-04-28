@@ -1,18 +1,25 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Photos;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook user. The class is auto-generated and based
-    /// on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook user (<see cref="FacebookPhoto" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/user</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/user</cref>
     /// </see>
     public static class FacebookUserFields {
 
         #region Individial fields
+
+        /// <summary>
+        /// <em>Returns no data as of April 4, 2018.</em>.
+        /// </summary>
+        public static readonly FacebookField About = new FacebookField("about");
 
         /// <summary>
         /// The id of this person's user account. This ID is unique to each app and cannot be used across different
@@ -22,9 +29,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Id = new FacebookField("id");
 
         /// <summary>
-        /// Equivalent to the <code>bio</code> field.
+        /// The person's address.
         /// </summary>
-        public static readonly FacebookField About = new FacebookField("about");
+        public static readonly FacebookField Address = new FacebookField("address");
 
         /// <summary>
         /// Notes added by viewing page on this person.
@@ -38,9 +45,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField AgeRange = new FacebookField("age_range");
 
         /// <summary>
-        /// The person's birthday.  This is a fixed format string, like <code>MM/DD/YYYY</code>.  However, people can
-        /// control who can see the year they were born separately from the month and day so this string can be only the
-        /// year (YYYY) or the month + day (MM/DD).
+        /// The person's birthday.  This is a fixed format string, like <c>MM/DD/YYYY</c>.  However, people can control
+        /// who can see the year they were born separately from the month and day so this string can be only the year
+        /// (YYYY) or the month + day (MM/DD).
         /// </summary>
         public static readonly FacebookField Birthday = new FacebookField("birthday");
 
@@ -65,7 +72,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Devices = new FacebookField("devices");
 
         /// <summary>
-        /// The person's education.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField Education = new FacebookField("education");
 
@@ -96,9 +103,9 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField FirstName = new FacebookField("first_name");
 
         /// <summary>
-        /// The gender selected by this person, <code>male</code> or <code>female</code>. If the gender is set to a
-        /// custom value, this value will be based off of the preferred pronoun; it will be omitted if the preferred
-        /// preferred pronoun is neutral.
+        /// The gender selected by this person, <c>male</c> or <c>female</c>. If the gender is set to a custom value,
+        /// this value will be based off of the preferred pronoun; it will be omitted if the preferred preferred pronoun
+        /// is neutral.
         /// </summary>
         public static readonly FacebookField Gender = new FacebookField("gender");
 
@@ -118,12 +125,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField InstallType = new FacebookField("install_type");
 
         /// <summary>
-        /// Is the app making the request installed?.
+        /// Is the app making the request installed?
         /// </summary>
         public static readonly FacebookField Installed = new FacebookField("installed");
 
         /// <summary>
-        /// Genders the person is interested in.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField InterestedIn = new FacebookField("interested_in");
 
@@ -136,7 +143,7 @@ namespace Skybrud.Social.Facebook.Constants {
         /// People with large numbers of followers can have the authenticity of their identity <a
         /// href="https://www.facebook.com/help/196050490547892" target="_blank">manually verified by Facebook</a>. This
         /// field indicates whether the person's profile is verified in this way. This is distinct from the
-        /// <code>verified</code> field.
+        /// <c>verified</c> field.
         /// </summary>
         public static readonly FacebookField IsVerified = new FacebookField("is_verified");
 
@@ -159,6 +166,16 @@ namespace Skybrud.Social.Facebook.Constants {
         /// A link to the person's Timeline.
         /// </summary>
         public static readonly FacebookField Link = new FacebookField("link");
+
+        /// <summary>
+        /// Display megaphone for local news bookmark.
+        /// </summary>
+        public static readonly FacebookField LocalNewsMegaphoneDismissStatus = new FacebookField("local_news_megaphone_dismiss_status");
+
+        /// <summary>
+        /// Daily local news notification.
+        /// </summary>
+        public static readonly FacebookField LocalNewsSubscriptionStatus = new FacebookField("local_news_subscription_status");
 
         /// <summary>
         /// The person's locale.
@@ -196,7 +213,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField PaymentPricepoints = new FacebookField("payment_pricepoints");
 
         /// <summary>
-        /// The person's political views.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField Political = new FacebookField("political");
 
@@ -211,12 +228,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Quotes = new FacebookField("quotes");
 
         /// <summary>
-        /// The person's relationship status.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField RelationshipStatus = new FacebookField("relationship_status");
 
         /// <summary>
-        /// The person's religion.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField Religion = new FacebookField("religion");
 
@@ -268,8 +285,8 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField UpdatedTime = new FacebookField("updated_time");
 
         /// <summary>
-        /// Indicates whether the account has been verified. This is distinct from the <code>is_verified</code> field.
-        /// Someone is considered verified if they take any of the following actions:.
+        /// Indicates whether the account has been verified. This is distinct from the <c>is_verified</c> field. Someone
+        /// is considered verified if they take any of the following actions:.
         /// </summary>
         public static readonly FacebookField Verified = new FacebookField("verified");
 
@@ -284,12 +301,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField ViewerCanSendGift = new FacebookField("viewer_can_send_gift");
 
         /// <summary>
-        /// The person's website.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField Website = new FacebookField("website");
 
         /// <summary>
-        /// Details of a person`s work experience.
+        /// <em>Returns no data as of April 4, 2018.</em>.
         /// </summary>
         public static readonly FacebookField Work = new FacebookField("work");
 
@@ -299,12 +316,13 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Gets an array of all known fields available for a Facebook user.
         /// </summary>
         public static readonly FacebookField[] All = {
-            Id, About, AdminNotes, AgeRange, Birthday, Context, Cover, Currency, Devices, Education, Email, EmployeeNumber,
+            About, Id, Address, AdminNotes, AgeRange, Birthday, Context, Cover, Currency, Devices, Education, Email, EmployeeNumber,
             FavoriteAthletes, FavoriteTeams, FirstName, Gender, Hometown, InspirationalPeople, InstallType, Installed, InterestedIn,
-            IsSharedLogin, IsVerified, Labels, Languages, LastName, Link, Locale, Location, MeetingFor, MiddleName, Name,
-            NameFormat, PaymentPricepoints, Political, PublicKey, Quotes, RelationshipStatus, Religion, SecuritySettings,
-            SharedLoginUpgradeRequiredBy, SignificantOther, Sports, TestGroup, ThirdPartyId, Timezone, TokenForBusiness,
-            UpdatedTime, Verified, VideoUploadLimits, ViewerCanSendGift, Website, Work
+            IsSharedLogin, IsVerified, Labels, Languages, LastName, Link, LocalNewsMegaphoneDismissStatus, LocalNewsSubscriptionStatus,
+            Locale, Location, MeetingFor, MiddleName, Name, NameFormat, PaymentPricepoints, Political, PublicKey, Quotes,
+            RelationshipStatus, Religion, SecuritySettings, SharedLoginUpgradeRequiredBy, SignificantOther, Sports, TestGroup,
+            ThirdPartyId, Timezone, TokenForBusiness, UpdatedTime, Verified, VideoUploadLimits, ViewerCanSendGift, Website,
+            Work
         };
 
     }

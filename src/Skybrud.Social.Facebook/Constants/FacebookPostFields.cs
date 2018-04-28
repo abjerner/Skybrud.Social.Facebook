@@ -1,14 +1,16 @@
-﻿using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Fields;
+using Skybrud.Social.Facebook.Models.Photos;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    /// Static class with constants for the fields available for a Facebook post. The class is auto-generated and based
-    /// on the fields listed in the Facebook Graph API documentation. Not all fields may have been mapped for the
-    /// implementation in Skybrud.Social.
+    ///  Static class with constants for the fields available for a Facebook post (<see cref="FacebookPhoto" />).
+    ///  
+    ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
+    ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/post</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/post</cref>
     /// </see>
     public static class FacebookPostFields {
 
@@ -20,7 +22,8 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Id = new FacebookField("id");
 
         /// <summary>
-        /// ID of admin, app or business that created the post.  Applies to pages only.
+        /// The admin creator of a Page post. If the Page has only one admin, no data will be returned. Requires a Page
+        /// Access Token and the.
         /// </summary>
         public static readonly FacebookField AdminCreator = new FacebookField("admin_creator");
 
@@ -30,11 +33,15 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Application = new FacebookField("application");
 
         /// <summary>
-        /// The call to action type used in any Page posts for <a
-        /// href="https://developers.facebook.com/docs/ads-for-apps/mobile-app-ads-engagement" target="_blank">mobile
-        /// app engagement ads</a>.
+        /// The call to action type used in any Page posts for.
         /// </summary>
         public static readonly FacebookField CallToAction = new FacebookField("call_to_action");
+
+        /// <summary>
+        /// Whether the Page viewer can send a private reply to this Post. Requires the <c>read_page_mailboxes</c>
+        /// permission.
+        /// </summary>
+        public static readonly FacebookField CanReplyPrivately = new FacebookField("can_reply_privately");
 
         /// <summary>
         /// Link caption in post that appears below name. The caption must be an actual URLs and should accurately
@@ -49,22 +56,27 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField CreatedTime = new FacebookField("created_time");
 
         /// <summary>
-        /// A description of a link in the post (appears beneath the <code>caption</code>).
+        /// A description of a link in the post (appears beneath the.
         /// </summary>
         public static readonly FacebookField Description = new FacebookField("description");
 
         /// <summary>
-        /// Object that controls <a href="https://www.facebook.com/help/352402648173466" target="_blank">news feed
-        /// targeting</a> for this post. Anyone in these groups will be more likely to see this post, others will be
-        /// less likely, but may still see it anyway. Any of the targeting fields shown here can be used, none are
-        /// required (applies to Pages only).
+        /// Object that controls.
         /// </summary>
         public static readonly FacebookField FeedTargeting = new FacebookField("feed_targeting");
 
         /// <summary>
-        /// Information about the profile that posted the message.
+        /// Information (<c>name</c> and <c>id</c>) about the <a
+        /// href="https://developers.facebook.com/docs/graph-api/reference/profile" target="_blank">Profile</a> that
+        /// created the Post.
         /// </summary>
         public static readonly FacebookField From = new FacebookField("from");
+
+        /// <summary>
+        /// URL to a full-sized version of the Photo published in the Post or scraped from a <c>link</c> in the Post. If
+        /// the photo's largest dimension exceeds 720 pixels, it will be resized, with the largest dimension set to 720.
+        /// </summary>
+        public static readonly FacebookField FullPicture = new FacebookField("full_picture");
 
         /// <summary>
         /// A link to an icon representing the type of this post.
@@ -89,7 +101,7 @@ namespace Skybrud.Social.Facebook.Constants {
 
         /// <summary>
         /// Indicates whether a scheduled post was published (applies to scheduled Page Post only, for users post and
-        /// instanlty published posts this value is always <code>true</code>).
+        /// instantly published posts this value is always.
         /// </summary>
         public static readonly FacebookField IsPublished = new FacebookField("is_published");
 
@@ -104,12 +116,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Message = new FacebookField("message");
 
         /// <summary>
-        /// Profiles tagged in <code>message</code>. This is an object with a unique key for each tag in the message.
+        /// An array of profiles tagged in the.
         /// </summary>
         public static readonly FacebookField MessageTags = new FacebookField("message_tags");
 
         /// <summary>
-        /// The name of the <code>link</code>.
+        /// The name of the.
         /// </summary>
         public static readonly FacebookField Name = new FacebookField("name");
 
@@ -120,7 +132,7 @@ namespace Skybrud.Social.Facebook.Constants {
 
         /// <summary>
         /// The ID of a parent post for this post, if it exists.  For example, if this story is a 'Your Page was
-        /// mentioned in a post' story, the <code>parent_id</code> will be the original post where the mention happened.
+        /// mentioned in a post' story, the.
         /// </summary>
         public static readonly FacebookField ParentId = new FacebookField("parent_id");
 
@@ -130,7 +142,8 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField PermalinkUrl = new FacebookField("permalink_url");
 
         /// <summary>
-        /// The picture scraped from any <code>link</code> included with the post.
+        /// URL to a resized version of the Photo published in the Post or scraped from a <c>link</c> in the Post. If
+        /// the photo's largest dimension exceeds 130 pixels, it will be resized, with the largest dimension set to 130.
         /// </summary>
         public static readonly FacebookField Picture = new FacebookField("picture");
 
@@ -145,12 +158,23 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Privacy = new FacebookField("privacy");
 
         /// <summary>
+        /// ID of post to use for promotion for stories that cannot be promoted directly.
+        /// </summary>
+        public static readonly FacebookField PromotableId = new FacebookField("promotable_id");
+
+        /// <summary>
+        /// Status of the promotion. Requires Page admin privileges. Possible values:.
+        /// </summary>
+        public static readonly FacebookField PromotionStatus = new FacebookField("promotion_status");
+
+        /// <summary>
         /// A list of properties for any attached video, for example, the length of the video.
         /// </summary>
         public static readonly FacebookField Properties = new FacebookField("properties");
 
         /// <summary>
-        /// The shares count of this post.
+        /// The shares count of this post. The share count may include deleted posts and posts you cannot see for
+        /// privacy reasons.
         /// </summary>
         public static readonly FacebookField Shares = new FacebookField("shares");
 
@@ -171,14 +195,12 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Story = new FacebookField("story");
 
         /// <summary>
-        /// Deprecated field, same as <code>message_tags</code>.
+        /// Deprecated field, same as.
         /// </summary>
         public static readonly FacebookField StoryTags = new FacebookField("story_tags");
 
         /// <summary>
-        /// Object that <a href="https://www.facebook.com/help/352402648173466" target="_blank">limited the audience</a>
-        /// for this content. Anyone not in these demographics will not be able to view this content. This will not
-        /// override any Page-level demographic restrictions that may be in place.
+        /// Object that.
         /// </summary>
         public static readonly FacebookField Targeting = new FacebookField("targeting");
 
@@ -193,7 +215,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Type = new FacebookField("type");
 
         /// <summary>
-        /// The time when the post was created, last edited or the time of the last comment that was left on the post.
+        /// This field's behavior depends on the type of object the Post is on:.
         /// </summary>
         public static readonly FacebookField UpdatedTime = new FacebookField("updated_time");
 
@@ -208,10 +230,10 @@ namespace Skybrud.Social.Facebook.Constants {
         /// Gets an array of all known fields available for a Facebook post.
         /// </summary>
         public static readonly FacebookField[] All = {
-            Id, AdminCreator, Application, CallToAction, Caption, CreatedTime, Description, FeedTargeting, From, Icon, InstagramEligibility,
-            IsHidden, IsInstagramEligible, IsPublished, Link, Message, MessageTags, Name, ObjectId, ParentId, PermalinkUrl,
-            Picture, Place, Privacy, Properties, Shares, Source, StatusType, Story, StoryTags, Targeting, To, Type, UpdatedTime,
-            WithTags
+            Id, AdminCreator, Application, CallToAction, CanReplyPrivately, Caption, CreatedTime, Description, FeedTargeting,
+            From, FullPicture, Icon, InstagramEligibility, IsHidden, IsInstagramEligible, IsPublished, Link, Message, MessageTags,
+            Name, ObjectId, ParentId, PermalinkUrl, Picture, Place, Privacy, PromotableId, PromotionStatus, Properties, Shares,
+            Source, StatusType, Story, StoryTags, Targeting, To, Type, UpdatedTime, WithTags
         };
 
     }
