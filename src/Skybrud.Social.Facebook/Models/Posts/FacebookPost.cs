@@ -6,6 +6,7 @@ using Skybrud.Social.Facebook.Constants;
 using Skybrud.Social.Facebook.Models.Applications;
 using Skybrud.Social.Facebook.Models.Comments;
 using Skybrud.Social.Facebook.Models.Common;
+using Skybrud.Social.Facebook.Models.Common.Tags;
 using Skybrud.Social.Facebook.Models.Likes;
 using Skybrud.Social.Facebook.Models.Places;
 using Skybrud.Social.Interfaces;
@@ -16,7 +17,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
     /// Class representing a Facebook post.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.9/post</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/post</cref>
     /// </see>
     public class FacebookPost : FacebookObject, ISocialTimelineEntry {
 
@@ -165,7 +166,17 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasMessage {
             get { return !String.IsNullOrWhiteSpace(Message); }
         }
-        
+
+        /// <summary>
+        /// Gets an array of the profiles tagged in the <see cref="Message"/> property.
+        /// </summary>
+        public FacebookProfileTag[] MessageTags { get; }
+
+        /// <summary>
+        /// Gets whether the <see cref="MessageTags"/> property was included in the response.
+        /// </summary>
+        public bool HasMessageTags => MessageTags.Length > 0;
+
         /// <summary>
         /// Gets the name of the <see cref="Link"/>.
         /// </summary>
@@ -328,7 +339,15 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             get { return !String.IsNullOrWhiteSpace(Story); }
         }
 
-        // TODO: Add support for the "story_tags" property
+        /// <summary>
+        /// Gets an array of the profiles tagged in the <see cref="Story"/> property.
+        /// </summary>
+        public FacebookProfileTag[] StoryTags { get; }
+
+        /// <summary>
+        /// Gets whether the <see cref="StoryTags"/> property was included in the response.
+        /// </summary>
+        public bool HasStoryTags => StoryTags.Length > 0;
 
         // TODO: Add support for the "targeting" property
         
@@ -392,8 +411,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             IsPublished = obj.GetBoolean("is_published");
             Link = obj.GetString("link");
             Message = obj.GetString("message");
-            // TODO: Add support for the "is_instagram_eligible" property
-            // TODO: Add support for the "message_tags" property
+            MessageTags = obj.GetArrayItems("message_tags", FacebookProfileTag.Parse);
             Name = obj.GetString("name");
             ObjectId = obj.GetString("object_id");
             ParentId = obj.GetString("parent_id");
@@ -408,7 +426,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             Source = obj.GetString("source");
             StatusType = obj.GetEnum("status_type", FacebookPostStatusType.NotSpecified);
             Story = obj.GetString("story");
-            // TODO: Add support for the "story_tags" property
+            StoryTags = obj.GetArrayItems("story_tags", FacebookProfileTag.Parse);
             // TODO: Add support for the "targeting" property
             // TODO: Add support for the "to" property
             Type = obj.GetEnum("type", FacebookPostType.NotSpecified);
