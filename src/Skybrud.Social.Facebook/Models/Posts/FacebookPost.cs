@@ -262,8 +262,16 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasPlace {
             get { return Place != null; }
         }
-        
-        // TODO: Add support for the "privacy" property
+
+        /// <summary>
+        /// Gets the privacy settings of the post.
+        /// </summary>
+        public FacebookPostPrivacy Privacy { get; }
+
+        /// <summary>
+        /// Gets whether the <see cref="Privacy"/> property was included in the response.
+        /// </summary>
+        public bool HasPrivacy => Privacy != null;
 
         /// <summary>
         /// Gets a list of properties for any attached video, for example, the length of the video.
@@ -431,7 +439,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             PermalinkUrl = obj.GetString("permalink_url");
             Picture = obj.GetString("picture");
             Place = obj.GetObject("place", FacebookPlace.Parse);
-            // TODO: Add support for the "privacy" property
+            Privacy = obj.GetObject("privacy", FacebookPostPrivacy.Parse);
             Properties = obj.GetArray("properties", FacebookPostProperty.Parse) ?? new FacebookPostProperty[0];
             Shares = obj.GetObject("shares", FacebookShares.Parse);
             Likes = obj.GetObject("likes", FacebookLikesCollection.Parse);
