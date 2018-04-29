@@ -51,7 +51,17 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasApplication {
             get { return Application != null; }
         }
-        
+
+        /// <summary>
+        /// Gets a collection of the attachments of the post. Not all posts have attachments.
+        /// </summary>
+        public FacebookPostAttachments Attachments { get; }
+
+        /// <summary>
+        /// Gets whether the response for the post included any attachments.
+        /// </summary>
+        public bool HasAttachments => Attachments != null && Attachments.Count > 0;
+
         // TODO: Add support for the "call_to_action" property
 
         /// <summary>
@@ -418,7 +428,9 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             Id = obj.GetString("id");
             AdminCreator = obj.GetObject("admin_creator", FacebookEntity.Parse);
             Application = obj.GetObject("application", FacebookApplication.Parse);
+            Attachments = obj.GetObject("attachments", FacebookPostAttachments.Parse);
             // TODO: Add support for the "call_to_action" property
+            // TODO: Add support for the "can_reply_privately" property
             Caption = obj.GetString("caption");
             CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
             Description = obj.GetString("description");
