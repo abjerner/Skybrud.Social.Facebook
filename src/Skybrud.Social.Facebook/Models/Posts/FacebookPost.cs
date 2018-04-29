@@ -104,6 +104,18 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         }
 
         /// <summary>
+        /// Gets the URL to a full-sized version of the photo published in the post or scraped from a link in the post.
+        /// If the photo's largest dimension exceeds 720 pixels, it will be resized, with the largest dimension set to
+        /// 720.
+        /// </summary>
+        public string FullPicture { get; }
+
+        /// <summary>
+        /// Gets whether the <see cref="FullPicture"/> property was included in the response.
+        /// </summary>
+        public bool HasFullPicture => !String.IsNullOrWhiteSpace(FullPicture);
+
+        /// <summary>
         /// Gets a link to an icon representing the type of this post.
         /// </summary>
         public string Icon { get; private set; }
@@ -404,6 +416,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             Description = obj.GetString("description");
             // TODO: Add support for the "feed_targeting" property
             From = obj.GetObject("from", FacebookProfile.Parse);
+            FullPicture = obj.GetString("full_picture");
             Icon = obj.GetString("icon");
             // TODO: Add support for the "instagram_eligibility" property
             IsHidden = obj.GetBoolean(FacebookPostFields.IsHidden.Name); 
