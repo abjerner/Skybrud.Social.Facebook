@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
@@ -30,7 +29,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets the timestamp for when the token will expire.
         /// </summary>
-        public DateTime? ExpiresAt { get; private set; }
+        public EssentialsDateTime ExpiresAt { get; private set; }
 
         /// <summary>
         /// Gets whether the the access token is valid.
@@ -61,10 +60,10 @@ namespace Skybrud.Social.Facebook.Models.Debug {
 
             // If an access token doesn't have an expire date, it may be specified as "0". In other scenarios, the
             // property is not present at all. In either case, we should set the "ExpiresAt" property to "NULL".
-            DateTime? expiresAt = null;
+            EssentialsDateTime expiresAt = null;
             if (obj.HasValue("expires_at")) {
                 int value = obj.GetInt32("expires_at");
-                if (value > 0) expiresAt = TimeHelper.GetDateTimeFromUnixTime(value);
+                if (value > 0) expiresAt = EssentialsDateTime.FromUnixTimestamp(value);
             }
 
             // Parse the array of scopes
