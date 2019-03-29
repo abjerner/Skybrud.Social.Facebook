@@ -3,7 +3,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;net45;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;net45;net46;net47</TargetFrameworks>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <RunBuildTargets>true</RunBuildTargets>
   </PropertyGroup>
@@ -30,7 +30,7 @@
     <DefineConstants>NET_STANDARD</DefineConstants>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46'">
+  <PropertyGroup Condition="'$(TargetFramework)'=='net45' OR '$(TargetFramework)'=='net46' OR '$(TargetFramework)'=='net47'">
     <DefineConstants>NET_FRAMEWORK</DefineConstants>
   </PropertyGroup>
 
