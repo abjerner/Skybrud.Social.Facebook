@@ -3,7 +3,7 @@ using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Albums;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
 
@@ -41,8 +41,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the album with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID of the album.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbum(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbum(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbum(new FacebookGetAlbumOptions(identifier));
         }
@@ -52,8 +52,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID of the album.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbum(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbum(string identifier, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbum(new FacebookGetAlbumOptions(identifier, fields));
         }
@@ -62,8 +62,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the album matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbum(FacebookGetAlbumOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbum(FacebookGetAlbumOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
@@ -73,8 +73,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of albums of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID of the user or page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier));
         }
@@ -84,8 +84,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(string identifier, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier, fields));
         }
@@ -95,8 +95,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID of the user or page.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(string identifier, int limit) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(string identifier, int limit) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit));
         }
@@ -107,8 +107,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The ID of the user or page.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(string identifier, int limit, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(string identifier, int limit, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID) must be specified.");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit, fields));
         }
@@ -120,8 +120,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of albums to be returned on each page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(string identifier, int limit, string after, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetAlbums(new FacebookGetAlbumsOptions(identifier, limit, after, fields));
         }
@@ -130,8 +130,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of albums of the user or page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetAlbums(FacebookGetAlbumsOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetAlbums(FacebookGetAlbumsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/albums", options);
@@ -141,8 +141,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Creates a new album for the page or user matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse CreateAlbum(FacebookCreateAlbumOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse CreateAlbum(FacebookCreateAlbumOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             if (String.IsNullOrWhiteSpace(options.Name)) throw new PropertyNotSetException("options.Name", "CreateAlbum: An album name must be specified.");

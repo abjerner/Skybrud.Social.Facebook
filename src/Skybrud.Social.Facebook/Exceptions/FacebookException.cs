@@ -1,5 +1,5 @@
 using System;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Exceptions {
 
@@ -11,9 +11,9 @@ namespace Skybrud.Social.Facebook.Exceptions {
         #region Properties
 
         /// <summary>
-        /// Gets a reference to the underlying <see cref="SocialHttpResponse"/>.
+        /// Gets a reference to the underlying <see cref="IHttpResponse"/>.
         /// </summary>
-        public SocialHttpResponse Response { get; private set; }
+        public IHttpResponse Response { get; private set; }
 
         /// <summary>
         /// Gets the error code received from the Facebook API.
@@ -38,12 +38,12 @@ namespace Skybrud.Social.Facebook.Exceptions {
         /// <summary>
         /// Initializes a new exception based on the specified <code>response</code>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the response.</param>
         /// <param name="code">The error code.</param>
         /// <param name="type">The error type.</param>
         /// <param name="message">The error message.</param>
         /// <param name="subcode">The error subcode.</param>
-        public FacebookException(SocialHttpResponse response, int code, string type, string message, int subcode = 0) : base(message) {
+        public FacebookException(IHttpResponse response, int code, string type, string message, int subcode = 0) : base(message) {
             Response = response;
             Code = code;
             Type = type;

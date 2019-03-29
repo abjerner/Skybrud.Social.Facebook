@@ -1,5 +1,5 @@
-﻿using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
+﻿using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 
 namespace Skybrud.Social.Facebook.Options.Common.Pagination {
     
@@ -36,7 +36,7 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public virtual IHttpQueryString GetQueryString() {
-            SocialHttpQueryString query = new SocialHttpQueryString();
+            HttpQueryString query = new HttpQueryString();
             if (Limit != null && Limit.Value >= 0) query.Set("limit", Limit.Value);
             if (Before != null) query.Set("before", Before);
             if (After != null) query.Set("after", After);

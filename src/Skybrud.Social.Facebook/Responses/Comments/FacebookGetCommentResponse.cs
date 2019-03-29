@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Comments;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Comments {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Responses.Comments {
 
         #region Constructors
 
-        private FacebookGetCommentResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetCommentResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -28,9 +28,9 @@ namespace Skybrud.Social.Facebook.Responses.Comments {
         /// Parses the specified <paramref name="response"/> into an instance of
         /// <see cref="FacebookGetCommentResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookGetCommentResponse"/> representing the response.</returns>
-        public static FacebookGetCommentResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookGetCommentResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookGetCommentResponse(response);
         }
 

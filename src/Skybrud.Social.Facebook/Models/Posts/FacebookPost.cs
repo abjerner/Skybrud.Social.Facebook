@@ -9,7 +9,6 @@ using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Models.Common.Tags;
 using Skybrud.Social.Facebook.Models.Likes;
 using Skybrud.Social.Facebook.Models.Places;
-using Skybrud.Social.Interfaces;
 
 namespace Skybrud.Social.Facebook.Models.Posts {
 
@@ -19,7 +18,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.12/post</cref>
     /// </see>
-    public class FacebookPost : FacebookObject, ISocialTimelineEntry {
+    public class FacebookPost : FacebookObject {
 
         #region Properties
 
@@ -411,14 +410,6 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         }
 
         // TODO: Add support for the "with_tags" property
-
-        /// <summary>
-        /// Gets a sortable date for the post. This requires the <see cref="CreatedTime"/> property to be inclided in
-        /// the response - otherwise <see cref="DateTime.MinValue"/> will be returned instead.
-        /// </summary>
-        public EssentialsDateTime SortDate {
-            get { return CreatedTime; }
-        }
 
         #endregion
 

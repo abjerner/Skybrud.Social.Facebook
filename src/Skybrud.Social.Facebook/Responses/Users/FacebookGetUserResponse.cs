@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Users;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Users {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Responses.Users {
 
         #region Constructors
 
-        private FacebookGetUserResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetUserResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -27,9 +27,9 @@ namespace Skybrud.Social.Facebook.Responses.Users {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetUserResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
-        public static FacebookGetUserResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookGetUserResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookGetUserResponse(response);
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using Newtonsoft.Json.Linq;
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Exceptions;
-using Skybrud.Social.Http;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Responses {
@@ -9,15 +9,15 @@ namespace Skybrud.Social.Facebook.Responses {
     /// <summary>
     /// Class representing a response from the Facebook Graph API.
     /// </summary>
-    public class FacebookResponse : SocialResponse {
+    public class FacebookResponse : HttpResponseBase {
 
         #region Constructors
 
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        protected FacebookResponse(SocialHttpResponse response) : base(response) { }
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
+        protected FacebookResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 
@@ -26,8 +26,8 @@ namespace Skybrud.Social.Facebook.Responses {
         /// <summary>
         /// Validates the specified <paramref name="response"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        public static void ValidateResponse(SocialHttpResponse response) {
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
+        public static void ValidateResponse(IHttpResponse response) {
 
             // Skip error checking if the server responds with an OK status code
             if (response.StatusCode == HttpStatusCode.OK) return;
@@ -68,8 +68,8 @@ namespace Skybrud.Social.Facebook.Responses {
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="response"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
-        protected FacebookResponse(SocialHttpResponse response) : base(response) { }
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
+        protected FacebookResponse(IHttpResponse response) : base(response) { }
 
         #endregion
 

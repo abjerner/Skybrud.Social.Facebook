@@ -1,7 +1,7 @@
 ﻿using System;
+using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Pages {
 
@@ -64,7 +64,7 @@ namespace Skybrud.Social.Facebook.Options.Pages {
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();
 
             // Construct the query string
-            SocialHttpQueryString query = new SocialHttpQueryString();
+            HttpQueryString query = new HttpQueryString();
             if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
 
             return query;

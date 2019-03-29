@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Likes;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Likes {
 
@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Responses.Likes {
 
         #region Constructors
 
-        private FacebookGetLikesResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetLikesResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -28,9 +28,9 @@ namespace Skybrud.Social.Facebook.Responses.Likes {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetLikesResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookGetLikesResponse"/> representing the response.</returns>
-        public static FacebookGetLikesResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookGetLikesResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookGetLikesResponse(response);
         }
 

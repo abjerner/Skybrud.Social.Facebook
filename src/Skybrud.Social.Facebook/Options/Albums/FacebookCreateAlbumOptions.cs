@@ -1,8 +1,8 @@
 ﻿using System;
+using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
     
@@ -66,14 +66,14 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public IHttpQueryString GetQueryString() {
-            return new SocialHttpQueryString();
+            return new HttpQueryString();
         }
 
         /// <summary>
         /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
         /// </summary>
         public IHttpPostData GetPostData() {
-            SocialHttpPostData postData = new SocialHttpPostData();
+            IHttpPostData postData = new HttpPostData();
             if (IsDefault) postData.Add("is_default", "true");
             if (!String.IsNullOrWhiteSpace(Location)) postData.Add("location", Location);
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);

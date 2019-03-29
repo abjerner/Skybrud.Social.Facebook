@@ -1,8 +1,8 @@
 ﻿using System;
+using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Feed {
 

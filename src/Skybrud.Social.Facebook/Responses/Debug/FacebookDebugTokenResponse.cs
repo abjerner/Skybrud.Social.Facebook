@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Debug;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Debug {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Responses.Debug {
 
         #region Constructors
 
-        private FacebookDebugTokenResponse(SocialHttpResponse response) : base(response) {
+        private FacebookDebugTokenResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -27,9 +27,9 @@ namespace Skybrud.Social.Facebook.Responses.Debug {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookDebugTokenResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookDebugTokenResponse"/> representing the response.</returns>
-        public static FacebookDebugTokenResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookDebugTokenResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookDebugTokenResponse(response);
         }
 

@@ -1,5 +1,5 @@
-﻿using Skybrud.Social.Facebook.Models.Authentication;
-using Skybrud.Social.Http;
+﻿using Skybrud.Essentials.Http;
+using Skybrud.Social.Facebook.Models.Authentication;
 
 namespace Skybrud.Social.Facebook.Responses.Authentication {
 
@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
 
         #region Constructors
 
-        private FacebookTokenResponse(SocialHttpResponse response) : base(response) {
+        private FacebookTokenResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -63,9 +63,9 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookTokenResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
-        public static FacebookTokenResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookTokenResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookTokenResponse(response);
         }
 

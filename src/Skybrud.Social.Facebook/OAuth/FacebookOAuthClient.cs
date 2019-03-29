@@ -1,18 +1,18 @@
 using System;
-using System.Collections.Specialized;
 using Skybrud.Essentials.Common;
+using Skybrud.Essentials.Http;
+using Skybrud.Essentials.Http.Client;
+using Skybrud.Essentials.Http.Collections;
 using Skybrud.Social.Facebook.Endpoints.Raw;
 using Skybrud.Social.Facebook.Responses.Authentication;
 using Skybrud.Social.Facebook.Scopes;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.OAuth {
 
     /// <summary>
     /// Class for handling the raw communication with the Facebook Graph API as well as any OAuth 2.0 communication.
     /// </summary>
-    public class FacebookOAuthClient : SocialHttpClient {
+    public class FacebookOAuthClient : HttpClient {
         
         #region Properties
 
@@ -232,14 +232,14 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (String.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException("authCode");
 
             // Initialize the query string
-            IHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new HttpQueryString();
             query.Add("client_id", ClientId);
             query.Add("redirect_uri", RedirectUri);
             query.Add("client_secret", ClientSecret);
             query.Add("code", authCode);
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
             
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -260,14 +260,14 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException("currentToken");
 
             // Initialize the query string
-            IHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new HttpQueryString();
             query.Add("grant_type", "fb_exchange_token");
             query.Add("client_id", ClientId);
             query.Add("client_secret", ClientSecret);
             query.Add("fb_exchange_token", currentToken);
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -287,20 +287,20 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
 
             // Initialize the query string
-            IHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new HttpQueryString();
             query.Add("client_id", ClientId);
             query.Add("client_secret", ClientSecret);
             query.Add("grant_type", "client_credentials");
 
             // Make the call to the API
-            SocialHttpResponse response = SocialUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
 
         }
 
-        protected override void PrepareHttpRequest(SocialHttpRequest request) {
+        protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Some validation
             if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");

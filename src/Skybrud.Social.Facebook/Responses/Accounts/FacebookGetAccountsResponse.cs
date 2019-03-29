@@ -1,6 +1,6 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Accounts;
 using Skybrud.Social.Facebook.Models.Pages;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Accounts {
 
@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Responses.Accounts {
 
         #region Constructors
 
-        private FacebookGetAccountsResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetAccountsResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -28,9 +28,9 @@ namespace Skybrud.Social.Facebook.Responses.Accounts {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetAccountsResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
-        public static FacebookGetAccountsResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookGetAccountsResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookGetAccountsResponse(response);
         }
 

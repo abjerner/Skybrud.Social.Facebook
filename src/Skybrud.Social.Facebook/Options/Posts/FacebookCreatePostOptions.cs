@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
+using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 
 namespace Skybrud.Social.Facebook.Options.Posts {
     
@@ -94,14 +93,14 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public IHttpQueryString GetQueryString() {
-            return new SocialHttpQueryString();
+            return new HttpQueryString();
         }
 
         /// <summary>
         /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
         /// </summary>
         public IHttpPostData GetPostData() {
-            SocialHttpPostData postData = new SocialHttpPostData();
+            IHttpPostData postData = new HttpPostData();
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
             if (!String.IsNullOrWhiteSpace(Link)) postData.Add("link", Link);
             if (!String.IsNullOrWhiteSpace(Picture)) postData.Add("picture", Picture);

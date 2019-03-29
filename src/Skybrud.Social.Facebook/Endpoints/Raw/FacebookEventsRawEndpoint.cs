@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Events;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
     
@@ -39,8 +39,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the event with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID of the event.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetEvent(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetEvent(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetEvent(new FacebookGetEventOptions(identifier));
         }
@@ -49,8 +49,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the event matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetEvent(FacebookGetEventOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetEvent(FacebookGetEventOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
@@ -60,8 +60,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of events of a user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetEvents(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetEvents(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetEvents(new FacebookGetEventsOptions(identifier));
         }
@@ -71,8 +71,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The ID or name of the user/page.</param>
         /// <param name="limit">The maximum amount of events to return.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetEvents(string identifier, int limit) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetEvents(string identifier, int limit) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetEvents(new FacebookGetEventsOptions(identifier) { Limit = limit });
         }
@@ -81,8 +81,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of events for a user or page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetEvents(FacebookGetEventsOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetEvents(FacebookGetEventsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/events", options);

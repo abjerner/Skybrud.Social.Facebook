@@ -1,7 +1,7 @@
 ﻿using System;
+using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Events {
     
@@ -54,7 +54,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         public IHttpQueryString GetQueryString() {
 
             // Get the query string
-            IHttpQueryString query = new SocialHttpQueryString();
+            IHttpQueryString query = new HttpQueryString();
 
             // Convert the collection of fields to a string
             string fields = (Fields == null ? "" : Fields.ToString()).Trim();

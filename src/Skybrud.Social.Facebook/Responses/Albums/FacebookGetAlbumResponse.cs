@@ -1,5 +1,5 @@
+using Skybrud.Essentials.Http;
 using Skybrud.Social.Facebook.Models.Albums;
-using Skybrud.Social.Http;
 
 namespace Skybrud.Social.Facebook.Responses.Albums {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Responses.Albums {
 
         #region Constructors
 
-        private FacebookGetAlbumResponse(SocialHttpResponse response) : base(response) {
+        private FacebookGetAlbumResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -27,9 +27,9 @@ namespace Skybrud.Social.Facebook.Responses.Albums {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetAlbumResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookGetAlbumResponse"/> representing the response.</returns>
-        public static FacebookGetAlbumResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookGetAlbumResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookGetAlbumResponse(response);
         }
 

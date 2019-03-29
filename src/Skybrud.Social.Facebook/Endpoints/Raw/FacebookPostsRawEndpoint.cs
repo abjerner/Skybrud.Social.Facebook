@@ -4,7 +4,7 @@ using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Posts;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
     
@@ -39,8 +39,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the post.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPost(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPost(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetPost(new FacebookGetPostOptions(identifier));
         }
@@ -50,8 +50,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPost(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPost(string identifier, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier");
             return GetPost(new FacebookGetPostOptions(identifier, fields));
         }
@@ -60,8 +60,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the post matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPost(FacebookGetPostOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPost(FacebookGetPostOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
@@ -71,8 +71,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of posts of the user or page with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(string identifier) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier));
         }
@@ -82,8 +82,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(string identifier, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier, fields));
         }
@@ -93,8 +93,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(string identifier, int limit) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(string identifier, int limit) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier, limit));
         }
@@ -105,8 +105,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="limit"></param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(string identifier, int limit, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(string identifier, int limit, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier, limit, fields));
         }
@@ -118,8 +118,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of posts to be returned on each page.</param>
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException("identifier", "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier, limit, until, fields));
         }
@@ -128,8 +128,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of posts of the user or page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetPosts(FacebookGetPostsOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetPosts(FacebookGetPostsOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID or alias) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/posts", options);
@@ -139,8 +139,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Publishes a new post to the feed matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse CreatePost(FacebookCreatePostOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse CreatePost(FacebookCreatePostOptions options) {
             if (options == null) throw new ArgumentNullException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier", "A Facebook identifier (ID or alias) must be specified.");
             return Client.DoHttpPostRequest("/" + options.Identifier + "/feed", options);

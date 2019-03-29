@@ -3,7 +3,7 @@ using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Comments;
-using Skybrud.Social.Http;
+using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
 
@@ -38,8 +38,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the comment with specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the comment.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComment(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComment(string identifier) {
             return GetComment(new FacebookGetCommentOptions(identifier));
         }
 
@@ -48,8 +48,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the comment.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComment(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComment(string identifier, FacebookFieldsCollection fields) {
             return GetComment(new FacebookGetCommentOptions(identifier, fields));
         }
 
@@ -57,8 +57,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets information about the comment matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComment(FacebookGetCommentOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComment(FacebookGetCommentOptions options) {
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
@@ -66,8 +66,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of comments for the object with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(string identifier) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(string identifier) {
             return GetComments(new FacebookGetCommentsOptions(identifier));
         }
 
@@ -76,8 +76,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(string identifier, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(string identifier, FacebookFieldsCollection fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, fields));
         }
 
@@ -86,8 +86,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(string identifier, int limit) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(string identifier, int limit) {
             return GetComments(new FacebookGetCommentsOptions(identifier, limit));
         }
 
@@ -98,8 +98,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(string identifier, int limit, string after, FacebookFieldsCollection fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, limit, after, fields));
         }
 
@@ -109,8 +109,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(string identifier, int limit, FacebookFieldsCollection fields) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(string identifier, int limit, FacebookFieldsCollection fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, limit, fields));
         }
 
@@ -118,8 +118,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// Gets a list of comments for the object matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="SocialHttpResponse"/> representing the raw response.</returns>
-        public SocialHttpResponse GetComments(FacebookGetCommentsOptions options) {
+        /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
+        public IHttpResponse GetComments(FacebookGetCommentsOptions options) {
             if (options == null) throw new ArgumentException("options");
             if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/comments", options);

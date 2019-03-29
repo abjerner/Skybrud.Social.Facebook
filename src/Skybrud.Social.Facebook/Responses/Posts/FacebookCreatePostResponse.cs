@@ -1,5 +1,5 @@
-﻿using Skybrud.Social.Facebook.Models.Posts;
-using Skybrud.Social.Http;
+﻿using Skybrud.Essentials.Http;
+using Skybrud.Social.Facebook.Models.Posts;
 
 namespace Skybrud.Social.Facebook.Responses.Posts {
 
@@ -10,7 +10,7 @@ namespace Skybrud.Social.Facebook.Responses.Posts {
 
         #region Constructors
 
-        private FacebookCreatePostResponse(SocialHttpResponse response) : base(response) {
+        private FacebookCreatePostResponse(IHttpResponse response) : base(response) {
 
             // Validate the response
             ValidateResponse(response);
@@ -27,9 +27,9 @@ namespace Skybrud.Social.Facebook.Responses.Posts {
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookCreatePostResponse"/>.
         /// </summary>
-        /// <param name="response">The instance of <see cref="SocialHttpResponse"/> representing the raw response.</param>
+        /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the raw response.</param>
         /// <returns>An instance of <see cref="FacebookCreatePostResponse"/> representing the response.</returns>
-        public static FacebookCreatePostResponse ParseResponse(SocialHttpResponse response) {
+        public static FacebookCreatePostResponse ParseResponse(IHttpResponse response) {
             return response == null ? null : new FacebookCreatePostResponse(response);
         }
 

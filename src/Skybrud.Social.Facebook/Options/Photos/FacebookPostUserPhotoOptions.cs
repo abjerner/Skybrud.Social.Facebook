@@ -1,7 +1,7 @@
 ﻿using System;
+using Skybrud.Essentials.Http.Collections;
+using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Options.Common;
-using Skybrud.Social.Http;
-using Skybrud.Social.Interfaces.Http;
 
 namespace Skybrud.Social.Facebook.Options.Photos {
 
@@ -60,14 +60,14 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public IHttpQueryString GetQueryString() {
-            return new SocialHttpQueryString();
+            return new HttpQueryString();
         }
 
         /// <summary>
         /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
         /// </summary>
         public IHttpPostData GetPostData() {
-            SocialHttpPostData postData = new SocialHttpPostData {IsMultipart = !String.IsNullOrWhiteSpace(Source)};
+            IHttpPostData postData = new HttpPostData { IsMultipart = !String.IsNullOrWhiteSpace(Source)};
             if (!String.IsNullOrWhiteSpace(Source)) postData.AddFile("source", Source);
             if (!String.IsNullOrWhiteSpace(Url)) postData.Add("url", Url);
             if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);

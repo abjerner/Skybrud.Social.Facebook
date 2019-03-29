@@ -3,8 +3,8 @@
   "description": "Authentication and service implementation for the Facebook Graph API.",
   "company": "Skybrud.dk a/s",
   "product": "Skybrud.Social",
-  "copyright": "Copyright © 2018",
+  "copyright": "Copyright © 2019",
   "version": "1.0.0.0",
   "informationalVersion": "1.0.0-beta5",
-  "fileVersion": "0.0.2099.2"
+  "fileVersion": "0.0.2433.5"
 }
