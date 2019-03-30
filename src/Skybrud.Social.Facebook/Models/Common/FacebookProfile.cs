@@ -20,12 +20,12 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the ID of the profile.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the name of the profile.
         /// </summary>
-        public string Name { get; internal set; }
+        public string Name { get; }
 
         #endregion
 

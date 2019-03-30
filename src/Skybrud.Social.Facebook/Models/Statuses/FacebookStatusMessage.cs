@@ -12,38 +12,38 @@ namespace Skybrud.Social.Facebook.Models.Statuses {
         /// <summary>
         /// Gets the ID of the status message.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets brief information about the entity (eg. user) that posted the status message.
         /// </summary>
-        public FacebookEntity From { get; private set; }
+        public FacebookEntity From { get; }
 
         /// <summary>
         /// Gets the text of the status message.
         /// </summary>
-        public string Message { get; private set; }
+        public string Message { get; }
 
         /// <summary>
         /// Gets an array of all tags used in the message.
         /// </summary>
-        public FacebookMessageTag[] MessageTags { get; private set; }
+        public FacebookMessageTag[] MessageTags { get; }
 
         /// <summary>
         /// Gets brief information about the application used to post the status message. If the status message was
         /// posted directly from facebook.com, this property will return <code>null</code>.
         /// </summary>
-        public FacebookEntity Application { get; private set; }
+        public FacebookEntity Application { get; }
 
         /// <summary>
         /// Gets the timestamp for when the status message was created.
         /// </summary>
-        public DateTime CreatedTime { get; private set; }
+        public DateTime CreatedTime { get; }
 
         /// <summary>
         /// ets the timestamp for when the status message was last updated.
         /// </summary>
-        public DateTime UpdatedTime { get; private set; }
+        public DateTime UpdatedTime { get; }
 
         #endregion
 

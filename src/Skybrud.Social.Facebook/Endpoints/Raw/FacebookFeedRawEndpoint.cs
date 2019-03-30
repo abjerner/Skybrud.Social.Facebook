@@ -18,7 +18,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a reference to the OAuth client.
         /// </summary>
-        public FacebookOAuthClient Client { get; private set; }
+        public FacebookOAuthClient Client { get; }
 
         #endregion
 
@@ -90,8 +90,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetFeed(FacebookGetFeedOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException("options.Identifier");
+            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
             return Client.DoHttpGetRequest("/" + options.Identifier + "/feed", options);
         }
 

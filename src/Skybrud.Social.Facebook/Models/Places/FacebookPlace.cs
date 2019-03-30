@@ -18,31 +18,27 @@ namespace Skybrud.Social.Facebook.Models.Places {
         /// <summary>
         /// Gets the ID of the place.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets whether the place has an ID.
         /// </summary>
-        public bool HasId {
-            get { return !String.IsNullOrWhiteSpace(Id); }
-        }
+        public bool HasId => !String.IsNullOrWhiteSpace(Id);
 
         /// <summary>
         /// Gets the name of place.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets information about the location of the place.
         /// </summary>
-        public FacebookLocation Location { get; private set; }
+        public FacebookLocation Location { get; }
 
         /// <summary>
         /// Gets whether a location has been specified for the place.
         /// </summary>
-        public bool HasLocation {
-            get { return Location != null; }
-        }
+        public bool HasLocation => Location != null;
 
         #endregion
 

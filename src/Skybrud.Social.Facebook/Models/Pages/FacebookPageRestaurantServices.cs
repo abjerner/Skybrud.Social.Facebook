@@ -10,47 +10,47 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the restaurant is kids-friendly.
         /// </summary>
-        public bool Kids { get; private set; }
+        public bool Kids { get; }
 
         /// <summary>
         /// Gets whether the restaurant has delivery service.
         /// </summary>
-        public bool Delivery { get; private set; }
+        public bool Delivery { get; }
 
         /// <summary>
         /// Gets whether the restaurant welcomes walkins.
         /// </summary>
-        public bool Walkins { get; private set; }
+        public bool Walkins { get; }
 
         /// <summary>
         /// Gets whether the restaurant has catering service.
         /// </summary>
-        public bool Catering { get; private set; }
+        public bool Catering { get; }
 
         /// <summary>
         /// Gets whether the restaurant takes reservations.
         /// </summary>
-        public bool Reserve { get; private set; }
+        public bool Reserve { get; }
 
         /// <summary>
         /// Gets whether the restaurant is group-friendly.
         /// </summary>
-        public bool Groups { get; private set; }
+        public bool Groups { get; }
 
         /// <summary>
         /// Gets whether the restaurant has waiters.
         /// </summary>
-        public bool Waiter { get; private set; }
+        public bool Waiter { get; }
 
         /// <summary>
         /// Gets whether the restaurant has outdoor seating.
         /// </summary>
-        public bool Outdoor { get; private set; }
+        public bool Outdoor { get; }
 
         /// <summary>
         /// Gets whether the restaurant has takeout service.
         /// </summary>
-        public bool Takeout { get; private set; }
+        public bool Takeout { get; }
 
         #endregion
 

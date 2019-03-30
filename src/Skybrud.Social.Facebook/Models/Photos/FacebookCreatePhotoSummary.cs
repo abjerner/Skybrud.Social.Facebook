@@ -20,19 +20,17 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets the ID of the photo.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the ID of the post about the photo.
         /// </summary>
-        public string PostId { get; private set; }
+        public string PostId { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PostId"/> property was included in the response.
         /// </summary>
-        public bool HasPostId {
-            get { return !String.IsNullOrWhiteSpace(PostId); }
-        }
+        public bool HasPostId => !String.IsNullOrWhiteSpace(PostId);
 
         #endregion
 

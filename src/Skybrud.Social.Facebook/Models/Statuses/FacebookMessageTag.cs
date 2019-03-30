@@ -8,11 +8,15 @@ namespace Skybrud.Social.Facebook.Models.Statuses {
 
         #region Properties
 
-        public string Id { get; private set; }
-        public string Name { get; private set; }
-        public string Type { get; private set; }
-        public int Offset { get; private set; }
-        public int Length { get; private set; }
+        public string Id { get; }
+
+        public string Name { get; }
+
+        public string Type { get; }
+
+        public int Offset { get; }
+
+        public int Length { get; }
 
         #endregion
 

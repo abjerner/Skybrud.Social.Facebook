@@ -19,38 +19,38 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets the ID of the application this access token is for.
         /// </summary>
-        public long AppId { get; private set; }
+        public long AppId { get; }
 
         /// <summary>
         /// Gets the name of the application this access token is for.
         /// </summary>
-        public string Application { get; private set; }
+        public string Application { get; }
 
         /// <summary>
         /// Gets the timestamp for when the token will expire.
         /// </summary>
-        public EssentialsDateTime ExpiresAt { get; private set; }
+        public EssentialsDateTime ExpiresAt { get; }
 
         /// <summary>
         /// Gets whether the the access token is valid.
         /// </summary>
-        public bool IsValid { get; private set; }
+        public bool IsValid { get; }
 
         /// <summary>
         /// Gets the timestamp for when the token was issued.
         /// </summary>
-        public EssentialsDateTime IssuedAt { get; private set; }
+        public EssentialsDateTime IssuedAt { get; }
 
         /// <summary>
         /// Gets the ID of the user. The ID is only present for user access tokens.
         /// </summary>
-        public string UserId { get; private set; }
+        public string UserId { get; }
 
         /// <summary>
         /// For user access tokens, the user will grant the app one or multiple scopes. This property will be an array
         /// of all granted scopes. For any other types of access tokens, this array will be empty.
         /// </summary>
-        public FacebookScope[] Scopes { get; private set; }
+        public FacebookScope[] Scopes { get; }
 
         #endregion
 

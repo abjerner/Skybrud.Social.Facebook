@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a reference to the OAuth client.
         /// </summary>
-        public FacebookOAuthClient Client { get; private set; }
+        public FacebookOAuthClient Client { get; }
 
         #endregion
 
@@ -103,7 +103,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetAccounts(FacebookGetAccountsOptions options) {
-            if (options == null) throw new ArgumentNullException("options");
+            if (options == null) throw new ArgumentNullException(nameof(options));
             return Client.DoHttpGetRequest("/me/accounts", options);
         }
 

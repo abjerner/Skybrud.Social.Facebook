@@ -13,17 +13,17 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         /// <summary>
         /// Gets the total number of people who liked the parent object.
         /// </summary>
-        public int TotalCount { get; private set; }
+        public int TotalCount { get; }
 
         /// <summary>
         /// Gets whether the authenticated user can like the parent object.
         /// </summary>
-        public bool CanLike { get; private set; }
+        public bool CanLike { get; }
 
         /// <summary>
         /// Gets whether the authenticated user has liked the parent object.
         /// </summary>
-        public bool HasLiked { get; private set; }
+        public bool HasLiked { get; }
 
         #endregion
 

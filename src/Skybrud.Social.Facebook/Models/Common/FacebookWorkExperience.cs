@@ -21,115 +21,97 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the ID.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the description about the experience.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
-        
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+
         /// <summary>
         /// 
         /// </summary>
-        public FacebookPage Employer { get; private set; }
+        public FacebookPage Employer { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasEmployer {
-            get { return Employer != null; }
-        }
+        public bool HasEmployer => Employer != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public EssentialsDateTime EndDate { get; private set; }
+        public EssentialsDateTime EndDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="EndDate"/> property was included in the response.
         /// </summary>
-        public bool HasEndDate {
-            get { return EndDate != null; }
-        }
+        public bool HasEndDate => EndDate != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public FacebookUser From { get; private set; }
+        public FacebookUser From { get; }
 
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public FacebookPage Location { get; private set; }
+        public FacebookPage Location { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Location"/> property was included in the response.
         /// </summary>
-        public bool HasLocation {
-            get { return Location != null; }
-        }
+        public bool HasLocation => Location != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public FacebookPage Position { get; private set; }
+        public FacebookPage Position { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Position"/> property was included in the response.
         /// </summary>
-        public bool HasPosition {
-            get { return Position != null; }
-        }
+        public bool HasPosition => Position != null;
 
         /// <summary>
         /// Gets an array of projects the person has worked on.
         /// </summary>
-        public FacebookProjectExperience[] Projects { get; private set; }
+        public FacebookProjectExperience[] Projects { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Projects"/> property was included in the response.
         /// </summary>
-        public bool HasProjects {
-            get { return Projects.Any(); }
-        }
+        public bool HasProjects => Projects.Any();
 
         /// <summary>
         /// 
         /// </summary>
-        public EssentialsDateTime StartDate { get; private set; }
+        public EssentialsDateTime StartDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StartDate"/> property was included in the response.
         /// </summary>
-        public bool HasStartDate {
-            get { return StartDate != null; }
-        }
+        public bool HasStartDate => StartDate != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public FacebookUser[] With { get; private set; }
+        public FacebookUser[] With { get; }
 
         /// <summary>
         /// Gets whether the <see cref="With"/> property was included in the response.
         /// </summary>
-        public bool HasWith {
-            get { return With.Any(); }
-        }
+        public bool HasWith => With.Any();
 
         #endregion
 

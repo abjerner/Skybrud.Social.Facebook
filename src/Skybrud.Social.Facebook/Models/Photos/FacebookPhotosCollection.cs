@@ -20,12 +20,12 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets an array of the <see cref="FacebookPhoto"/> returned in the response.
         /// </summary>
-        public FacebookPhoto[] Data { get; private set; }
+        public FacebookPhoto[] Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         #endregion
         

@@ -14,24 +14,22 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the name of the property.
         /// </summary>
-        public string Name { get; internal set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the textual value of the property.
         /// </summary>
-        public string Text { get; internal set; }
+        public string Text { get; }
 
         /// <summary>
         /// Gets the link associated with the property.
         /// </summary>
-        public string Href { get; internal set; }
+        public string Href { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Href"/> property was included in the response.
         /// </summary>
-        public bool HasHref {
-            get { return !String.IsNullOrWhiteSpace(Href); }
-        }
+        public bool HasHref => !String.IsNullOrWhiteSpace(Href);
 
         #endregion
 

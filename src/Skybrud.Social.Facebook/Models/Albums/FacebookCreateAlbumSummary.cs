@@ -22,7 +22,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets the ID of the album.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         #endregion
 

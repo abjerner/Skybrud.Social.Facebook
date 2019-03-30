@@ -15,24 +15,22 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets the ID of the cover photo.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets a timestamp representing the creation time of the cover photo.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
         /// Gets the name of the cover photo, or <code>null</code> if not specified.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the album has a name.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         #endregion
 

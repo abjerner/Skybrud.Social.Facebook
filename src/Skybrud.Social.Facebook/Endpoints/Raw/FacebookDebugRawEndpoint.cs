@@ -16,7 +16,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <summary>
         /// Gets a reference to the OAuth client.
         /// </summary>
-        public FacebookOAuthClient Client { get; private set; }
+        public FacebookOAuthClient Client { get; }
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse DebugToken() {
-            if (String.IsNullOrWhiteSpace(Client.AccessToken)) throw new PropertyNotSetException("Client.AccessToken");
+            if (String.IsNullOrWhiteSpace(Client.AccessToken)) throw new PropertyNotSetException(nameof(Client.AccessToken));
             return DebugToken(Client.AccessToken);
         }
 

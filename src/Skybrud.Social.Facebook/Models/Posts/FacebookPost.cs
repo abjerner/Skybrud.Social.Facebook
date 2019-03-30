@@ -25,31 +25,27 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the ID of the post.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
         
         /// <summary>
         /// Gets information about the app or business that created the post. Applies to pages only.
         /// </summary>
-        public FacebookEntity AdminCreator { get; private set; }
+        public FacebookEntity AdminCreator { get; }
 
         /// <summary>
         /// Gets whether the <see cref="AdminCreator"/> property was included in the response.
         /// </summary>
-        public bool HasAdminCreator {
-            get { return AdminCreator != null; }
-        }
-        
+        public bool HasAdminCreator => AdminCreator != null;
+
         /// <summary>
         /// Gets information about the app the post was published by.
         /// </summary>
-        public FacebookApplication Application { get; private set; }
+        public FacebookApplication Application { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Application"/> property was included in the response.
         /// </summary>
-        public bool HasApplication {
-            get { return Application != null; }
-        }
+        public bool HasApplication => Application != null;
 
         /// <summary>
         /// Gets a collection of the attachments of the post. Not all posts have attachments.
@@ -66,51 +62,43 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the link caption in post that appears below name.
         /// </summary>
-        public string Caption { get; private set; }
+        public string Caption { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Caption"/> property was included in the response.
         /// </summary>
-        public bool HasCaption {
-            get { return !String.IsNullOrWhiteSpace(Caption); }
-        }
+        public bool HasCaption => !String.IsNullOrWhiteSpace(Caption);
 
         /// <summary>
         /// Gets the time the post was initially published. For a post about a life event, this will be the date and
         /// time of the life event.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasCreatedTime {
-            get { return CreatedTime != null; }
-        }
+        public bool HasCreatedTime => CreatedTime != null;
 
         /// <summary>
         /// Gets a description of a link in the post (appears beneath the <see cref="Caption"/>).
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
 
         /// <summary>
         /// Gets information about the profile that posted the message.
         /// </summary>
-        public FacebookProfile From { get; private set; }
+        public FacebookProfile From { get; }
 
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// Gets the URL to a full-sized version of the photo published in the post or scraped from a link in the post.
@@ -127,66 +115,56 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets a link to an icon representing the type of this post.
         /// </summary>
-        public string Icon { get; private set; }
+        public string Icon { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Icon"/> property was included in the response.
         /// </summary>
-        public bool HasIcon {
-            get { return !String.IsNullOrWhiteSpace(Icon); }
-        }
+        public bool HasIcon => !String.IsNullOrWhiteSpace(Icon);
 
         // TODO: Add support for the "instagram_eligibility" property
 
         /// <summary>
         /// Gets whether this post is marked as hidden (Applies to Pages only).
         /// </summary>
-        public bool IsHidden { get; private set; }
+        public bool IsHidden { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsHidden"/> property was included in the response.
         /// </summary>
-        public bool HasIsHidden {
-            get { return HasJsonProperty(FacebookPostFields.IsHidden.Name); }
-        }
-        
+        public bool HasIsHidden => HasJsonProperty(FacebookPostFields.IsHidden.Name);
+
         // TODO: Add support for the "is_instagram_eligible" property
 
         /// <summary>
         /// Gets whether this post is marked as hidden (Applies to Pages only).
         /// </summary>
-        public bool IsPublished { get; private set; }
+        public bool IsPublished { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsPublished"/> property was included in the response.
         /// </summary>
-        public bool HasIsPublished {
-            get { return HasJsonProperty("is_published"); }
-        }
+        public bool HasIsPublished => HasJsonProperty("is_published");
 
         /// <summary>
         /// Gets the link attached to this post.
         /// </summary>
-        public string Link { get; private set; }
+        public string Link { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink {
-            get { return !String.IsNullOrWhiteSpace(Link); }
-        }
+        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
 
         /// <summary>
         /// Gets the status message in the post.
         /// </summary>
-        public string Message { get; private set; }
+        public string Message { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Message"/> property was included in the response.
         /// </summary>
-        public bool HasMessage {
-            get { return !String.IsNullOrWhiteSpace(Message); }
-        }
+        public bool HasMessage => !String.IsNullOrWhiteSpace(Message);
 
         /// <summary>
         /// Gets an array of the profiles tagged in the <see cref="Message"/> property.
@@ -201,76 +179,64 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the name of the <see cref="Link"/>.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
-        
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+
         /// <summary>
         /// Gets the ID of any uploaded photo or video attached to the post.
         /// </summary>
-        public string ObjectId { get; private set; }
+        public string ObjectId { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ObjectId"/> property was included in the response.
         /// </summary>
-        public bool HasObjectId {
-            get { return !String.IsNullOrWhiteSpace(ObjectId); }
-        }
-        
+        public bool HasObjectId => !String.IsNullOrWhiteSpace(ObjectId);
+
         /// <summary>
         /// Gets the ID of a parent post for this post, if it exists. For example, if this story is a
         /// 'Your Page was mentioned in a post' story, the <see cref="ParentId"/> will be the original post where the
         /// mention happened.
         /// </summary>
-        public string ParentId { get; private set; }
+        public string ParentId { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ParentId"/> property was included in the response.
         /// </summary>
-        public bool HasParentId {
-            get { return !String.IsNullOrWhiteSpace(ParentId); }
-        }
-        
+        public bool HasParentId => !String.IsNullOrWhiteSpace(ParentId);
+
         /// <summary>
         /// Gets the URL to the permalink page of the post.
         /// </summary>
-        public string PermalinkUrl { get; private set; }
+        public string PermalinkUrl { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PermalinkUrl"/> property was included in the response.
         /// </summary>
-        public bool HasPermalinkUrl {
-            get { return !String.IsNullOrWhiteSpace(PermalinkUrl); }
-        }
+        public bool HasPermalinkUrl => !String.IsNullOrWhiteSpace(PermalinkUrl);
 
         /// <summary>
         /// Gets the picture scraped from any <see cref="Link"/> included with the post.
         /// </summary>
-        public string Picture { get; private set; }
+        public string Picture { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Picture"/> property was included in the response.
         /// </summary>
-        public bool HasPicture {
-            get { return !String.IsNullOrWhiteSpace(Picture); }
-        }
+        public bool HasPicture => !String.IsNullOrWhiteSpace(Picture);
 
         /// <summary>
         /// Gets any location information attached to the post.
         /// </summary>
-        public FacebookPlace Place { get; private set; }
+        public FacebookPlace Place { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Place"/> property was included in the response.
         /// </summary>
-        public bool HasPlace {
-            get { return Place != null; }
-        }
+        public bool HasPlace => Place != null;
 
         /// <summary>
         /// Gets the privacy settings of the post.
@@ -285,88 +251,74 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets a list of properties for any attached video, for example, the length of the video.
         /// </summary>
-        public FacebookPostProperty[] Properties { get; private set; }
+        public FacebookPostProperty[] Properties { get; }
 
         /// <summary>
         /// Gets whether the post has any <see cref="Properties"/>.
         /// </summary>
-        public bool HasProperties {
-            get { return Properties.Length > 0; }
-        }
-        
+        public bool HasProperties => Properties.Length > 0;
+
         /// <summary>
         /// Gets information about how many times the post has been shared. If the post hasn't yet
         /// been shared, this property will return <code>null</code>.
         /// </summary>
-        public FacebookShares Shares { get; private set; }
+        public FacebookShares Shares { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Shares"/> property has a value.
         /// </summary>
-        public bool HasShares {
-            get { return Shares != null; }
-        }
+        public bool HasShares => Shares != null;
 
         /// <summary>
         /// Gets an object with information about how the entry has been liked.
         /// </summary>
-        public FacebookLikesCollection Likes { get; private set; }
+        public FacebookLikesCollection Likes { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Likes"/> property has a value.
         /// </summary>
-        public bool HasLikes {
-            get { return Likes != null; }
-        }
-        
+        public bool HasLikes => Likes != null;
+
         /// <summary>
         /// Gets an object with information about how the entry has been commented.
         /// </summary>
-        public FacebookCommentsCollection Comments { get; private set; }
+        public FacebookCommentsCollection Comments { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Comments"/> property has a value.
         /// </summary>
-        public bool HasComments {
-            get { return Comments != null; }
-        }
-        
+        public bool HasComments => Comments != null;
+
         /// <summary>
         /// Gets a URL to any Flash movie or video file attached to the post.
         /// </summary>
-        public string Source { get; private set; }
+        public string Source { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Source"/> property was included in the response.
         /// </summary>
-        public bool HasSource {
-            get { return !String.IsNullOrWhiteSpace(Source); }
-        }
-        
+        public bool HasSource => !String.IsNullOrWhiteSpace(Source);
+
         /// <summary>
         /// Gets the type of a status update.
         /// </summary>
-        public FacebookPostStatusType StatusType { get; private set; }
+        public FacebookPostStatusType StatusType { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StatusType"/> property was included in the response.
         /// </summary>
-        public bool HasStatusType {
-            get { return StatusType == FacebookPostStatusType.NotSpecified; }
-        }
+        public bool HasStatusType => StatusType == FacebookPostStatusType.NotSpecified;
 
         /// <summary>
         /// Gets text from stories not intentionally generated by users, such as those generated when two people become
         /// friends, or when someone else posts on the person's wall.
         /// </summary>
-        public string Story { get; private set; }
+        public string Story { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Story"/> property was included in the response.
         /// </summary>
-        public bool HasStory {
-            get { return !String.IsNullOrWhiteSpace(Story); }
-        }
+        public bool HasStory => !String.IsNullOrWhiteSpace(Story);
 
         /// <summary>
         /// Gets an array of the profiles tagged in the <see cref="Story"/> property.
@@ -385,14 +337,12 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the object type of this post.
         /// </summary>
-        public FacebookPostType Type { get; private set; }
+        public FacebookPostType Type { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
-        public bool HasType {
-            get { return Type == FacebookPostType.NotSpecified; }
-        }
+        public bool HasType => Type == FacebookPostType.NotSpecified;
 
         /// <summary>
         /// Gets the time when the post was created, last edited or the time of the last comment that was left on the
@@ -400,14 +350,12 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// 
         /// For a post about a life event, this will be the date and time of the life event.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; private set; }
+        public EssentialsDateTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasUpdatedTime {
-            get { return UpdatedTime != null; }
-        }
+        public bool HasUpdatedTime => UpdatedTime != null;
 
         // TODO: Add support for the "with_tags" property
 

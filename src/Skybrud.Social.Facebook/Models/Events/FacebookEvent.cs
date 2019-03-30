@@ -37,285 +37,241 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets the ID of the event.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the number of people attending the event. Use <see cref="HasAttendingCount"/> to check whether this
         /// property was included in the response.
         /// </summary>
-        public int AttendingCount { get; private set; }
+        public int AttendingCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="AttendingCount"/> property was included in the response.
         /// </summary>
-        public bool HasAttendingCount {
-            get { return HasJsonProperty("attending_count"); }
-        }
+        public bool HasAttendingCount => HasJsonProperty("attending_count");
 
         /// <summary>
         /// Gets whether guests can invite friends. Use <see cref="HasCanGuestsInvite"/> to check whether this
         /// property was included in the response.
         /// </summary>
-        public bool CanGuestsInvite { get; private set; }
+        public bool CanGuestsInvite { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanGuestsInvite"/> property was included in the response.
         /// </summary>
-        public bool HasCanGuestsInvite {
-            get { return HasJsonProperty("can_guests_invite"); }
-        }
+        public bool HasCanGuestsInvite => HasJsonProperty("can_guests_invite");
 
         /// <summary>
         /// Gets the category of the event.
         /// </summary>
-        public FacebookEventCategory Category { get; private set; }
+        public FacebookEventCategory Category { get; }
 
         /// <summary>
         /// Gets whether the category of the event was included in the response.
         /// </summary>
-        public bool HasCategory {
-            get { return Category != FacebookEventCategory.Unspecified; }
-        }
+        public bool HasCategory => Category != FacebookEventCategory.Unspecified;
 
         /// <summary>
         /// Gets the cover photo of the event, or <code>null</code> if not available/specified. Requires the
         /// <see cref="FacebookEventFields.Cover"/> field.
         /// </summary>
-        public FacebookCoverPhoto Cover { get; private set; }
+        public FacebookCoverPhoto Cover { get; }
 
         /// <summary>
         /// Gets whether the event has a cover. The cover will only be included in the response if the
         /// <see cref="FacebookEventFields.Cover"/> field is requested.
         /// </summary>
-        public bool HasCover {
-            get { return Cover != null; }
-        }
+        public bool HasCover => Cover != null;
 
         /// <summary>
         /// Gets the number of people who declined the event. Use <see cref="HasDeclinedCount"/> to check whether this
         /// property was included in the response.
         /// </summary>
-        public int DeclinedCount { get; private set; }
+        public int DeclinedCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="DeclinedCount"/> property was included in the response.
         /// </summary>
-        public bool HasDeclinedCount {
-            get { return HasJsonProperty("declined_count"); }
-        }
+        public bool HasDeclinedCount => HasJsonProperty("declined_count");
 
         /// <summary>
         /// Gets the description of the event, or <code>null</code> if not available/specified. Use
         /// <see cref="HasDescription"/> to check whether this property was specified and included in the response.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the description of the event has been specified and was included in the response.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
 
         /// <summary>
         /// Gets the end time of the event. Not all events have an end time.
         /// </summary>
-        public EssentialsDateTime EndTime { get; private set; }
+        public EssentialsDateTime EndTime { get; }
 
         /// <summary>
         /// Gets whether an end time was specified for the event and included in the response.
         /// </summary>
-        public bool HasEndTime {
-            get { return EndTime != null; }
-        }
+        public bool HasEndTime => EndTime != null;
 
         /// <summary>
         /// Gets whether the guest list is visible. Use <see cref="HasGuestListEnabled"/> to check whether this
         /// property was included in the response.
         /// </summary>
-        public bool GuestListEnabled { get; private set; }
+        public bool GuestListEnabled { get; }
 
         /// <summary>
         /// Gets whether the <see cref="GuestListEnabled"/> property was included in the response.
         /// </summary>
-        public bool HasGuestListEnabled {
-            get { return HasJsonProperty("guest_list_enabled"); }
-        }
-        
+        public bool HasGuestListEnabled => HasJsonProperty("guest_list_enabled");
+
         /// <summary>
         /// Gets the number of people interested in the event. Use <see cref="HasInterestedCount"/> to check whether this property was included in the response.
         /// </summary>
-        public int InterestedCount { get; private set; }
+        public int InterestedCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="InterestedCount"/> property was included in the response.
         /// </summary>
-        public bool HasInterestedCount {
-            get { return HasJsonProperty("interested_count"); }
-        }
+        public bool HasInterestedCount => HasJsonProperty("interested_count");
 
         /// <summary>
         /// Gets whether the event has been marked as canceled. Use <see cref="HasIsCanceled"/> to check whether this property was included in the response.
         /// </summary>
-        public bool IsCanceled { get; private set; }
+        public bool IsCanceled { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsCanceled"/> property was included in the response.
         /// </summary>
-        public bool HasIsCanceled {
-            get { return HasJsonProperty("is_canceled"); }
-        }
+        public bool HasIsCanceled => HasJsonProperty("is_canceled");
 
         /// <summary>
         /// Gets whether the event is created by page. Use <see cref="HasIsPageOwned"/> to check whether this property was included in the response.
         /// </summary>
-        public bool IsPageOwned { get; private set; }
+        public bool IsPageOwned { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsPageOwned"/> property was included in the response.
         /// </summary>
-        public bool HasIsPageOwned {
-            get { return HasJsonProperty("is_page_owned"); }
-        }
+        public bool HasIsPageOwned => HasJsonProperty("is_page_owned");
 
         /// <summary>
         /// Gets whether the event has been marked as canceled. Use <see cref="HasIsViewerAdmin"/> to check whether this property was included in the response.
         /// </summary>
-        public bool IsViewerAdmin { get; private set; }
+        public bool IsViewerAdmin { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsViewerAdmin"/> property was included in the response.
         /// </summary>
-        public bool HasIsViewerAdmin {
-            get { return HasJsonProperty("is_viewer_admin"); }
-        }
+        public bool HasIsViewerAdmin => HasJsonProperty("is_viewer_admin");
 
         /// <summary>
         /// Gets the number of people who maybe going to the event. Use <see cref="HasMaybeCount"/> to check whether this property was included in the response.
         /// </summary>
-        public int MaybeCount { get; private set; }
+        public int MaybeCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="MaybeCount"/> property was included in the response.
         /// </summary>
-        public bool HasMaybeCount {
-            get { return HasJsonProperty("maybe_count"); }
-        }
+        public bool HasMaybeCount => HasJsonProperty("maybe_count");
 
         /// <summary>
         /// Gets the name of the event, or <code>null</code> if not included in the response.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the name of the event was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         /// <summary>
         /// Gets the number of people who did not reply to the event. Use <see cref="HasNoreplyCount"/> to check whether this property was included in the response.
         /// </summary>
-        public int NoreplyCount { get; private set; }
+        public int NoreplyCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="NoreplyCount"/> property was included in the response.
         /// </summary>
-        public bool HasNoreplyCount {
-            get { return HasJsonProperty("noreply_count"); }
-        }
+        public bool HasNoreplyCount => HasJsonProperty("noreply_count");
 
         /// <summary>
         /// Gets a reference to the profile that created the event, or <code>null</code> if not available.
         /// </summary>
-        public FacebookEventOwner Owner { get; private set; }
+        public FacebookEventOwner Owner { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Owner"/> property was included in the response. The owner will only be included
         /// in the response if the <see cref="FacebookEventFields.Owner"/> field is requested.
         /// </summary>
-        public bool HasOwner {
-            get { return Owner != null; }
-        }
-        
+        public bool HasOwner => Owner != null;
+
         // TODO: Add support for the "parent_group" property
 
         /// <summary>
         /// Gets a reference to the place of the event, or <code>null</code> if not available.
         /// </summary>
-        public FacebookPlace Place { get; private set; }
+        public FacebookPlace Place { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Place"/> property was specified for the event and included in the response.
         /// </summary>
-        public bool HasPlace {
-            get { return Place != null; }
-        }
+        public bool HasPlace => Place != null;
 
         /// <summary>
         /// Gets the start time of the event.
         /// </summary>
-        public EssentialsDateTime StartTime { get; private set; }
+        public EssentialsDateTime StartTime { get; }
 
         /// <summary>
         /// Gets whether a start time was specified for the event and included in the response.
         /// </summary>
-        public bool HasStartTime {
-            get { return StartTime != null; }
-        }
+        public bool HasStartTime => StartTime != null;
 
         /// <summary>
         /// Gets the link users can visit to buy a ticket to this event. Use <see cref="HasTicketUri"/> to check
         /// whether this property was specified and included in the response.
         /// </summary>
-        public string TicketUri { get; private set; }
+        public string TicketUri { get; }
 
         /// <summary>
         /// Gets whether the <see cref="TicketUri"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasTicketUri {
-            get { return !String.IsNullOrWhiteSpace(TicketUri); }
-        }
+        public bool HasTicketUri => !String.IsNullOrWhiteSpace(TicketUri);
 
         /// <summary>
         /// Gets the timezone of the event. Use <see cref="HasTimezone"/> to check whether this property was specified
         /// and included in the response.
         /// </summary>
-        public string Timezone { get; private set; }
+        public string Timezone { get; }
 
         /// <summary>
         /// Gets whether the <see cref="HasTimezone"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasTimezone {
-            get { return !String.IsNullOrWhiteSpace(Timezone); }
-        }
+        public bool HasTimezone => !String.IsNullOrWhiteSpace(Timezone);
 
         /// <summary>
         /// Gets the type of the event. Use <see cref="HasType"/> to check whether this property was included in the
         /// response.
         /// </summary>
-        public FacebookEventType Type { get; private set; }
+        public FacebookEventType Type { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
-        public bool HasType {
-            get { return Type != FacebookEventType.Unspecified; }
-        }
+        public bool HasType => Type != FacebookEventType.Unspecified;
 
         /// <summary>
         /// Gets the last time the event was updated. Use <see cref="HasUpdatedTime"/> to check whether this property
         /// was included in the response.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; private set; }
+        public EssentialsDateTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasUpdatedTime {
-            get { return UpdatedTime != null; }
-        }
+        public bool HasUpdatedTime => UpdatedTime != null;
 
         #endregion
 

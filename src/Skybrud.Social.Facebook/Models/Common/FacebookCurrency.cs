@@ -19,23 +19,23 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// usually displayed with two decimal places. <strong>JPY</strong> does not use decimal places, so the API
         /// will return <code>1</code>.
         /// </summary>
-        public int CurrencyOffset { get; private set; }
+        public int CurrencyOffset { get; }
 
         /// <summary>
         /// Gets the exchange rate between the person's preferred currency and US Dollars.
         /// </summary>
-        public float UsdExchange { get; private set; }
+        public float UsdExchange { get; }
 
         /// <summary>
         /// Gets the inverse of <see cref="UsdExchange"/>.
         /// </summary>
-        public float UsdExchangeInverse { get; private set; }
+        public float UsdExchangeInverse { get; }
 
         /// <summary>
         /// Gets the <strong>ISO-4217-3</strong> code for the person's preferred currency (defaulting to
         /// <strong>USD</strong> if the person hasn't set one).
         /// </summary>
-        public string UserCurrency { get; private set; }
+        public string UserCurrency { get; }
 
         #endregion
 

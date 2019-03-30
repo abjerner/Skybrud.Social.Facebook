@@ -17,26 +17,22 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets information about the hardware of the device.
         /// </summary>
-        public string Hardware { get; private set; }
+        public string Hardware { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Hardware"/> property was included in the response.
         /// </summary>
-        public bool HasHardware {
-            get { return !String.IsNullOrWhiteSpace(Hardware); }
-        }
-        
+        public bool HasHardware => !String.IsNullOrWhiteSpace(Hardware);
+
         /// <summary>
         /// Gets information about the OS of the device.
         /// </summary>
-        public string Os { get; private set; }
+        public string Os { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Os"/> property was included in the response.
         /// </summary>
-        public bool HasOs {
-            get { return !String.IsNullOrWhiteSpace(Os); }
-        }
+        public bool HasOs => !String.IsNullOrWhiteSpace(Os);
 
         #endregion
 

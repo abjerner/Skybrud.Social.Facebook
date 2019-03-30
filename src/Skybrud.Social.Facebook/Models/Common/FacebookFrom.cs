@@ -13,22 +13,22 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the ID of the user or page.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the name of the user or page.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the primary category of a page. Is <code>null</code> for users.
         /// </summary>
-        public string Category { get; private set; }
+        public string Category { get; }
 
         /// <summary>
         /// Gets list of sub categories of a page. Is <code>null</code> for users.
         /// </summary>
-        public FacebookEntity[] CategoryList { get; private set; }
+        public FacebookEntity[] CategoryList { get; }
 
         #endregion
 

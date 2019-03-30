@@ -21,9 +21,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <summary>
         /// Gets an array of all the scopes added to the collection.
         /// </summary>
-        public FacebookScope[] Items {
-            get { return _list.ToArray(); }
-        }
+        public FacebookScope[] Items => _list.ToArray();
 
         #endregion
 

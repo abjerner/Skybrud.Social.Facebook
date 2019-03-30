@@ -13,12 +13,12 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets the ID of the user or page.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the name of the user or page.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         #endregion
 

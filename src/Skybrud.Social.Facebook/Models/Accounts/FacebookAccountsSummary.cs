@@ -13,7 +13,7 @@ namespace Skybrud.Social.Facebook.Models.Accounts {
         /// <summary>
         /// Gets the total number of connected pages.
         /// </summary>
-        public int TotalCount { get; private set; }
+        public int TotalCount { get; }
 
         #endregion
 

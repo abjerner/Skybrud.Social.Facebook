@@ -15,18 +15,18 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         /// <summary>
         /// Gets an array of likes.
         /// </summary>
-        public FacebookLike[] Data { get; private set; }
+        public FacebookLike[] Data { get; }
 
         /// <summary>
         /// Gets pagination information.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         /// <summary>
         /// Gets a summary for all likes. The summary is only present in the response if
         /// <see cref="FacebookGetLikesOptions.IncludeSummary"/> was <code>true</code> in the request options.
         /// </summary>
-        public FacebookLikesSummary Summary { get; private set; }
+        public FacebookLikesSummary Summary { get; }
 
         #endregion
         

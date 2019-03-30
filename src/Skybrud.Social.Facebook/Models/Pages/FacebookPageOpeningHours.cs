@@ -10,13 +10,13 @@ namespace Skybrud.Social.Facebook.Models.Pages {
 
         #region Properties
 
-        public FacebookPageOpeningRange[] Monday { get; private set; }
-        public FacebookPageOpeningRange[] Tuesday { get; private set; }
-        public FacebookPageOpeningRange[] Wednesday { get; private set; }
-        public FacebookPageOpeningRange[] Thursday { get; private set; }
-        public FacebookPageOpeningRange[] Friday { get; private set; }
-        public FacebookPageOpeningRange[] Saturday { get; private set; }
-        public FacebookPageOpeningRange[] Sunday { get; private set; }
+        public FacebookPageOpeningRange[] Monday { get; }
+        public FacebookPageOpeningRange[] Tuesday { get; }
+        public FacebookPageOpeningRange[] Wednesday { get; }
+        public FacebookPageOpeningRange[] Thursday { get; }
+        public FacebookPageOpeningRange[] Friday { get; }
+        public FacebookPageOpeningRange[] Saturday { get; }
+        public FacebookPageOpeningRange[] Sunday { get; }
 
         #endregion
 

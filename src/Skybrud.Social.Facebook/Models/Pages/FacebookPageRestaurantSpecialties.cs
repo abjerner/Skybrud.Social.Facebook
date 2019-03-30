@@ -10,27 +10,27 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the restaurant serves coffee.
         /// </summary>
-        public bool Coffee { get; private set; }
+        public bool Coffee { get; }
 
         /// <summary>
         /// Gets whether the restaurant serves drinks.
         /// </summary>
-        public bool Drinks { get; private set; }
+        public bool Drinks { get; }
 
         /// <summary>
         /// Gets whether the restaurant serves breakfast.
         /// </summary>
-        public bool Breakfast { get; private set; }
+        public bool Breakfast { get; }
 
         /// <summary>
         /// Gets whether the restaurant serves dinner.
         /// </summary>
-        public bool Dinner { get; private set; }
+        public bool Dinner { get; }
 
         /// <summary>
         /// Gets whether the restaurant serves lunch.
         /// </summary>
-        public bool Lunch { get; private set; }
+        public bool Lunch { get; }
 
         #endregion
 

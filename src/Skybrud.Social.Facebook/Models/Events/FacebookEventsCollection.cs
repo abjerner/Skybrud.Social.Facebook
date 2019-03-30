@@ -17,12 +17,12 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets an array of the <see cref="FacebookEvent"/> returned in the response.
         /// </summary>
-        public FacebookEvent[] Data { get; private set; }
+        public FacebookEvent[] Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         #endregion
 

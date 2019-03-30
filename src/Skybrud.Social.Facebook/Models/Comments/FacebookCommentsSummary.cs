@@ -15,7 +15,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// interesting comments are sorted first. <see cref="FacebookCommentsOrder.Chronological"/> indicates comments
         /// are sorted by the oldest comments first.
         /// </summary>
-        public FacebookCommentsOrder Order { get; private set; }
+        public FacebookCommentsOrder Order { get; }
 
         /// <summary>
         /// Gets the count of comments on this object. It is important to note that this value is changed depending on
@@ -28,12 +28,12 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// - <code>stream</code> - all-level comments in <code>chronological</code> order. This filter is useful for
         /// comment moderation tools where it is helpful to see a chronological list of all comments.
         /// </summary>
-        public int TotalCount { get; private set; }
+        public int TotalCount { get; }
 
         /// <summary>
         /// Gets whether the authenticated user can post on the parent object.
         /// </summary>
-        public bool CanComment { get; private set; }
+        public bool CanComment { get; }
 
         #endregion
 

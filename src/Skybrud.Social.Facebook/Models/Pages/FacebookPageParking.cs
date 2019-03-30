@@ -10,17 +10,17 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Indicates street parking is available.
         /// </summary>
-        public bool Street { get; private set; }
+        public bool Street { get; }
 
         /// <summary>
         /// Indicates a parking lot is available.
         /// </summary>
-        public bool Lot { get; private set; }
+        public bool Lot { get; }
 
         /// <summary>
         /// Indicates a valet is available.
         /// </summary>
-        public bool Valet { get; private set; }
+        public bool Valet { get; }
 
         #endregion
 

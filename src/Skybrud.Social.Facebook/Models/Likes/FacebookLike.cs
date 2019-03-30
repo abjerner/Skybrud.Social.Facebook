@@ -13,12 +13,12 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         /// <summary>
         /// The ID of the person.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// The name of the person.
         /// </summary>
-        public string Name { get; internal set; }
+        public string Name { get; }
 
         #endregion
 

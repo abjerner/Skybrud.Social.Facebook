@@ -21,178 +21,150 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets the ID of the album.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets whether the authenticated user or page can upload photos to this album.
         /// </summary>
-        public bool CanUpload { get; private set; }
+        public bool CanUpload { get; }
         
         /// <summary>
         /// Gets whether the <see cref="CanUpload"/> property was included in the response.
         /// </summary>
-        public bool HasCanUpload {
-            get { return HasJsonProperty("can_upload"); }
-        }
+        public bool HasCanUpload => HasJsonProperty("can_upload");
 
         /// <summary>
         /// Ghe approximate number of photos in the album. This is not necessarily an exact count.
         /// </summary>
-        public int Count { get; private set; }
+        public int Count { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Count"/> property was included in the response.
         /// </summary>
-        public bool HasCount {
-            get { return HasJsonProperty("count"); }
-        }
+        public bool HasCount => HasJsonProperty("count");
 
         /// <summary>
         /// Gets a summary of the album's cover photo.
         /// </summary>
-        public FacebookAlbumCoverPhoto CoverPhoto { get; private set; }
+        public FacebookAlbumCoverPhoto CoverPhoto { get; }
 
         /// <summary>
         /// Gets whether the the album has a cover photo and whether it was included in the response.
         /// </summary>
-        public bool HasCoverPhoto {
-            get { return CoverPhoto != null; }
-        }
+        public bool HasCoverPhoto => CoverPhoto != null;
 
         /// <summary>
         /// Gets the time the album was initially created.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasCreatedTime {
-            get { return CreatedTime != null; }
-        }
+        public bool HasCreatedTime => CreatedTime != null;
 
         /// <summary>
         /// Gets the description of the album.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the description of the album has been specified and was included in the response.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
 
         /// <summary>
         /// Gets a reference to the event associated with this album.
         /// </summary>
-        public FacebookEvent Event { get; private set; }
+        public FacebookEvent Event { get; }
 
         /// <summary>
         /// Gets whether the album has been associated with an event and whether the property was included in the
         /// response.
         /// </summary>
-        public bool HasEvent {
-            get { return Event != null; }
-        }
-        
+        public bool HasEvent => Event != null;
+
         /// <summary>
         /// Gets the profile that created the album.
         /// </summary>
-        public FacebookFrom From { get; private set; }
+        public FacebookFrom From { get; }
 
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// Gets the link to this album on Facebook.
         /// </summary>
-        public string Link { get; private set; }
+        public string Link { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink {
-            get { return !String.IsNullOrWhiteSpace(Link); }
-        }
+        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
 
         /// <summary>
         /// Gets the textual location of the album.
         /// </summary>
-        public string Location { get; private set; }
+        public string Location { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Location"/> property of the the album has been specified and was included in
         /// the response.
         /// </summary>
-        public bool HasLocation {
-            get { return !String.IsNullOrWhiteSpace(Location); }
-        }
+        public bool HasLocation => !String.IsNullOrWhiteSpace(Location);
 
         /// <summary>
         /// Gets the title of the album.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         /// <summary>
         /// Gets a reference to the place associated with this album.
         /// </summary>
-        public FacebookPlace Place { get; private set; }
+        public FacebookPlace Place { get; }
 
         /// <summary>
         /// Gets whether the album has been associated with a place and whether the property was included in the
         /// response.
         /// </summary>
-        public bool HasPlace {
-            get { return Place != null; }
-        }
+        public bool HasPlace => Place != null;
 
         /// <summary>
         /// Gets the privacy settings for the album.
         /// </summary>
-        public string Privacy { get; private set; }
+        public string Privacy { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Privacy"/> property was included in the response.
         /// </summary>
-        public bool HasPrivacy {
-            get { return !String.IsNullOrWhiteSpace(Privacy); }
-        }
+        public bool HasPrivacy => !String.IsNullOrWhiteSpace(Privacy);
 
         /// <summary>
         /// Gets the type of the album.
         /// </summary>
-        public FacebookAlbumType Type { get; private set; }
+        public FacebookAlbumType Type { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
-        public bool HasType {
-            get { return Type != FacebookAlbumType.Unspecified; }
-        }
+        public bool HasType => Type != FacebookAlbumType.Unspecified;
 
         /// <summary>
         /// Gets the last time the album was updated.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; private set; }
+        public EssentialsDateTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasUpdatedTime {
-            get { return UpdatedTime != null; }
-        }
+        public bool HasUpdatedTime => UpdatedTime != null;
 
         #endregion
 

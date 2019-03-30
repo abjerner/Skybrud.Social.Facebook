@@ -21,16 +21,12 @@ namespace Skybrud.Social.Facebook.Fields {
         /// <summary>
         /// Gets the total number of fields added to the collection.
         /// </summary>
-        public int Count {
-            get { return _fields.Count; }
-        }
+        public int Count => _fields.Count;
 
         /// <summary>
         /// Gets an array of all the fields added to the collection.
         /// </summary>
-        public FacebookField[] Fields {
-            get { return _fields.ToArray(); }
-        }
+        public FacebookField[] Fields => _fields.ToArray();
 
         #endregion
 

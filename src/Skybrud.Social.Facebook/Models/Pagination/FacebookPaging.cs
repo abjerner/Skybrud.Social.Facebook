@@ -12,12 +12,12 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
         /// <summary>
         /// A link to the previous page.
         /// </summary>
-        public string Previous { get; private set; }
+        public string Previous { get; }
 
         /// <summary>
         /// A link to the next page.
         /// </summary>
-        public string Next { get; private set; }
+        public string Next { get; }
 
         /// <summary>
         /// The timestamp used for the <see cref="Previous"/> link.

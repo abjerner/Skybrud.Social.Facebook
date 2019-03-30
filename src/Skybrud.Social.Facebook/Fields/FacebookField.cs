@@ -10,7 +10,7 @@
         /// <summary>
         /// Gets the name of the field.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         #endregion
 

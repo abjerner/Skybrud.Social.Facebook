@@ -18,24 +18,22 @@ namespace Skybrud.Social.Facebook.Models.Accounts {
         /// <summary>
         /// Gets an array of the <see cref="FacebookPage"/> returned in the response.
         /// </summary>
-        public FacebookPage[] Data { get; private set; }
+        public FacebookPage[] Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         /// <summary>
         /// Gets a summary about the collection. Use <see cref="HasSummary"/> to check whether the summary was included in the response.
         /// </summary>
-        public FacebookAccountsSummary Summary { get; private set; }
+        public FacebookAccountsSummary Summary { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Summary"/> property was included in the response.
         /// </summary>
-        public bool HasSummary {
-            get { return Summary != null; }
-        }
+        public bool HasSummary => Summary != null;
 
         #endregion
 

@@ -15,25 +15,23 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// <summary>
         /// Gets an array of comments.
         /// </summary>
-        public FacebookComment[] Data { get; private set; }
+        public FacebookComment[] Data { get; }
 
         /// <summary>
         /// Gets pagination information.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         /// <summary>
         /// Gets a summary for all comments. The summary is only present in the response if
         /// <see cref="FacebookGetCommentsOptions.IncludeSummary"/> was <code>true</code> in the request options.
         /// </summary>
-        public FacebookCommentsSummary Summary { get; private set; }
+        public FacebookCommentsSummary Summary { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Summary"/> property is present.
         /// </summary>
-        public bool HasSummary {
-            get { return Summary != null; }
-        }
+        public bool HasSummary => Summary != null;
 
         #endregion
         

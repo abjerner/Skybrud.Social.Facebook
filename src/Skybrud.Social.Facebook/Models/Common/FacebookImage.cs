@@ -16,17 +16,17 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the width of the image.
         /// </summary>
-        public int Width { get; private set; }
+        public int Width { get; }
 
         /// <summary>
         /// Gets the height of the image.
         /// </summary>
-        public int Height { get; private set; }
+        public int Height { get; }
 
         /// <summary>
         /// Gets the URL of the image.
         /// </summary>
-        public string Source { get; private set; }
+        public string Source { get; }
 
         #endregion
 

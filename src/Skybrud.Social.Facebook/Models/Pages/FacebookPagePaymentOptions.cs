@@ -10,27 +10,27 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Indicates American Express is accepted.
         /// </summary>
-        public bool AmericanExpress { get; private set; }
+        public bool AmericanExpress { get; }
 
         /// <summary>
         /// Indicates cash is accepted.
         /// </summary>
-        public bool CashOnly { get; private set; }
+        public bool CashOnly { get; }
 
         /// <summary>
         /// Indicates Discover accepted.
         /// </summary>
-        public bool Discover { get; private set; }
+        public bool Discover { get; }
 
         /// <summary>
         /// Indicates MasterCard is accepted.
         /// </summary>
-        public bool MasterCard { get; private set; }
+        public bool MasterCard { get; }
 
         /// <summary>
         /// Indicates Visa is accepted.
         /// </summary>
-        public bool Visa { get; private set; }
+        public bool Visa { get; }
 
         #endregion
 

@@ -16,7 +16,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets a referennce to the metadata about the access token.
         /// </summary>
-        public FacebookDebugTokenData Data { get; private set; }
+        public FacebookDebugTokenData Data { get; }
 
         #endregion
         

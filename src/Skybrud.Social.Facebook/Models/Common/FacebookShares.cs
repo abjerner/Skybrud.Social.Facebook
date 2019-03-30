@@ -13,7 +13,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the amount of shares the object has received.
         /// </summary>
-        public int Count { get; private set; }
+        public int Count { get; }
 
         #endregion
 

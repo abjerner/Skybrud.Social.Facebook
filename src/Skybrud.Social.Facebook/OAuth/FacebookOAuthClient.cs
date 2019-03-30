@@ -55,62 +55,62 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <summary>
         /// Gets a reference to the accounts endpoint.
         /// </summary>
-        public FacebookAccountsRawEndpoint Accounts { get; private set; }
+        public FacebookAccountsRawEndpoint Accounts { get; }
 
         /// <summary>
         /// Gets a reference to the albums endpoint.
         /// </summary>
-        public FacebookAlbumsRawEndpoint Albums { get; private set; }
+        public FacebookAlbumsRawEndpoint Albums { get; }
 
         /// <summary>
         /// Gets a reference to the apps endpoint.
         /// </summary>
-        public FacebookApplicationsRawEndpoint Applications { get; private set; }
+        public FacebookApplicationsRawEndpoint Applications { get; }
 
         /// <summary>
         /// Gets a reference to the debug endpoint.
         /// </summary>
-        public FacebookDebugRawEndpoint Debug { get; private set; }
+        public FacebookDebugRawEndpoint Debug { get; }
 
         /// <summary>
         /// Gets a reference to the comments endpoint.
         /// </summary>
-        public FacebookCommentsRawEndpoint Comments { get; private set; }
+        public FacebookCommentsRawEndpoint Comments { get; }
 
         /// <summary>
         /// Gets a reference to the events endpoint.
         /// </summary>
-        public FacebookEventsRawEndpoint Events { get; private set; }
+        public FacebookEventsRawEndpoint Events { get; }
 
         /// <summary>
         /// Gets a reference to the feed endpoint.
         /// </summary>
-        public FacebookFeedRawEndpoint Feed { get; private set; }
+        public FacebookFeedRawEndpoint Feed { get; }
 
         /// <summary>
         /// Gets a reference to the likes endpoint.
         /// </summary>
-        public FacebookLikesRawEndpoint Likes { get; private set; }
+        public FacebookLikesRawEndpoint Likes { get; }
 
         /// <summary>
         /// Gets a reference to the pages endpoint.
         /// </summary>
-        public FacebookPagesRawEndpoint Pages { get; private set; }
+        public FacebookPagesRawEndpoint Pages { get; }
 
         /// <summary>
         /// Gets a reference to the photos endpoint.
         /// </summary>
-        public FacebookPhotosRawEndpoint Photos { get; private set; }
+        public FacebookPhotosRawEndpoint Photos { get; }
 
         /// <summary>
         /// Gets a reference to the posts endpoint.
         /// </summary>
-        public FacebookPostsRawEndpoint Posts { get; private set; }
+        public FacebookPostsRawEndpoint Posts { get; }
 
         /// <summary>
         /// Gets a reference to the posts endpoint.
         /// </summary>
-        public FacebookUsersRawEndpoint Users { get; private set; }
+        public FacebookUsersRawEndpoint Users { get; }
 
         #endregion
 

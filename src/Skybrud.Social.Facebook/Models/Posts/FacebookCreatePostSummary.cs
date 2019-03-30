@@ -13,7 +13,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the ID of the post.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         #endregion
 

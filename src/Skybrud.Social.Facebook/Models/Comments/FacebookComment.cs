@@ -16,79 +16,67 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// <summary>
         /// Gets the ID of the comment.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets information about the person that made the comment.
         /// </summary>
-        public FacebookFrom From { get; private set; }
+        public FacebookFrom From { get; }
 
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// Gets the text of the comment.
         /// </summary>
-        public string Message { get; private set; }
+        public string Message { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Message"/> property was included in the response.
         /// </summary>
-        public bool HasMessage {
-            get { return !String.IsNullOrWhiteSpace(Message); }
-        }
+        public bool HasMessage => !String.IsNullOrWhiteSpace(Message);
 
         /// <summary>
         /// Gets whether the authenticated user can remove the comment.
         /// </summary>
-        public bool CanRemove { get; private set; }
+        public bool CanRemove { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanRemove"/> property was included in the response.
         /// </summary>
-        public bool HasCanRemove {
-            get { return HasJsonProperty("can_remove"); }
-        }
+        public bool HasCanRemove => HasJsonProperty("can_remove");
 
         /// <summary>
         /// Gets the time the comment was made.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasCreatedTime {
-            get { return CreatedTime != null; }
-        }
+        public bool HasCreatedTime => CreatedTime != null;
 
         /// <summary>
         /// Gets the number of times the comment was liked.
         /// </summary>
-        public int LikeCount { get; private set; }
+        public int LikeCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="LikeCount"/> property was included in the response.
         /// </summary>
-        public bool HasLikeCount {
-            get { return HasJsonProperty("like_count"); }
-        }
+        public bool HasLikeCount => HasJsonProperty("like_count");
 
         /// <summary>
         /// Gets whether the authenticated has like the comment.
         /// </summary>
-        public bool UserLikes { get; private set; }
+        public bool UserLikes { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UserLikes"/> property was included in the response.
         /// </summary>
-        public bool HasUserLikes {
-            get { return HasJsonProperty("user_likes"); }
-        }
+        public bool HasUserLikes => HasJsonProperty("user_likes");
 
         // TODO: Add more properties: https://developers.facebook.com/docs/graph-api/reference/v2.8/comment#fields
 

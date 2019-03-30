@@ -19,62 +19,62 @@ namespace Skybrud.Social.Facebook {
         /// <summary>
         /// Gets a reference to the accounts endpoint.
         /// </summary>
-        public FacebookAccountsEndpoint Accounts { get; private set; }
+        public FacebookAccountsEndpoint Accounts { get; }
 
         /// <summary>
         /// Gets a reference to the albums endpoint.
         /// </summary>
-        public FacebookAlbumsEndpoint Albums { get; private set; }
+        public FacebookAlbumsEndpoint Albums { get; }
 
         /// <summary>
         /// Gets a reference to the apps endpoint.
         /// </summary>
-        public FacebookApplicationsEndpoint Applications { get; private set; }
+        public FacebookApplicationsEndpoint Applications { get; }
 
         /// <summary>
         /// Gets a reference to the debug endpoint.
         /// </summary>
-        public FacebookDebugEndpoint Debug { get; private set; }
+        public FacebookDebugEndpoint Debug { get; }
 
         /// <summary>
         /// Gets a reference to the comments endpoint.
         /// </summary>
-        public FacebookCommentsEndpoint Comments { get; private set; }
+        public FacebookCommentsEndpoint Comments { get; }
 
         /// <summary>
         /// Gets a reference to the events endpoint.
         /// </summary>
-        public FacebookEventsEndpoint Events { get; private set; }
+        public FacebookEventsEndpoint Events { get; }
 
         /// <summary>
         /// Gets a reference to the feed endpoint.
         /// </summary>
-        public FacebookFeedEndpoint Feed { get; private set; }
+        public FacebookFeedEndpoint Feed { get; }
 
         /// <summary>
         /// Gets a reference to the likes endpoint.
         /// </summary>
-        public FacebookLikesEndpoint Likes { get; private set; }
+        public FacebookLikesEndpoint Likes { get; }
 
         /// <summary>
         /// Gets a reference to the pages endpoint.
         /// </summary>
-        public FacebookPagesEndpoint Pages { get; private set; }
+        public FacebookPagesEndpoint Pages { get; }
 
         /// <summary>
         /// Gets a reference to the photos endpoint.
         /// </summary>
-        public FacebookPhotosEndpoint Photos { get; private set; }
+        public FacebookPhotosEndpoint Photos { get; }
 
         /// <summary>
         /// Gets a reference to the posts endpoint.
         /// </summary>
-        public FacebookPostsEndpoint Posts { get; private set; }
+        public FacebookPostsEndpoint Posts { get; }
 
         /// <summary>
         /// Gets a reference to the users endpoint.
         /// </summary>
-        public FacebookUsersEndpoint Users { get; private set; }
+        public FacebookUsersEndpoint Users { get; }
 
         #endregion
 

@@ -7,11 +7,11 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
 
         #region Properties
 
-        public FacebookCursors Cursors { get; private set; }
+        public FacebookCursors Cursors { get; }
 
-        public string Previous { get; private set; }
+        public string Previous { get; }
 
-        public string Next { get; private set; }
+        public string Next { get; }
 
         #endregion
 

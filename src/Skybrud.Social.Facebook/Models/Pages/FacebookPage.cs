@@ -21,45 +21,39 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the ID of the page.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets information about the page.
         /// </summary>
-        public string About { get; private set; }
+        public string About { get; }
 
         /// <summary>
         /// Gets whether the <see cref="About"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAbout {
-            get { return !String.IsNullOrWhiteSpace(About); }
-        }
+        public bool HasAbout => !String.IsNullOrWhiteSpace(About);
 
         /// <summary>
         /// Gets or sets the access token you can use to act as the Page. Only visible to Page Admins. If your business requires two-factor authentication, and the person hasn't authenticated, this field may not be returned.
         /// </summary>
-        public string AccessToken { get; private set; }
+        public string AccessToken { get; }
 
         /// <summary>
         /// Gets whether the <see cref="AccessToken"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAccessToken {
-            get { return !String.IsNullOrWhiteSpace(AccessToken); }
-        }
+        public bool HasAccessToken => !String.IsNullOrWhiteSpace(AccessToken);
 
         // TODO: Add support for the "ad_campaign" field
 
         /// <summary>
         /// Gets the affiliation of this person. Applicable to pages representing people.
         /// </summary>
-        public string Affiliation { get; private set; }
+        public string Affiliation { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Affiliation"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAffiliation {
-            get { return !String.IsNullOrWhiteSpace(Affiliation); }
-        }
+        public bool HasAffiliation => !String.IsNullOrWhiteSpace(Affiliation);
 
         // TODO: Add support for the "app_id" field (applies to app-owned pages)
 
@@ -68,189 +62,159 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets a list of artists the band likes. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string ArtistsWeLike { get; private set; }
+        public string ArtistsWeLike { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ArtistsWeLike"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasArtistsWeLike {
-            get { return !String.IsNullOrWhiteSpace(ArtistsWeLike); }
-        }
+        public bool HasArtistsWeLike => !String.IsNullOrWhiteSpace(ArtistsWeLike);
 
         /// <summary>
         /// Gets the dress code of the business. Applicable to <strong>Restaurants</strong> or
         /// <strong>Nightlife</strong>. Can be one of <see cref="FacebookPageAttire.Casual"/>,
         /// <see cref="FacebookPageAttire.Dressy"/> or <see cref="FacebookPageAttire.Unspecified"/>.
         /// </summary>
-        public FacebookPageAttire Attire { get; private set; }
+        public FacebookPageAttire Attire { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Attire"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAttire {
-            get { return Attire != FacebookPageAttire.Unspecified; }
-        }
+        public bool HasAttire => Attire != FacebookPageAttire.Unspecified;
 
         /// <summary>
         /// Gets the awards information of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string Awards { get; private set; }
+        public string Awards { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Awards"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAwards {
-            get { return !String.IsNullOrWhiteSpace(Awards); }
-        }
+        public bool HasAwards => !String.IsNullOrWhiteSpace(Awards);
 
         /// <summary>
         /// Gets the interests of the band.
         /// </summary>
-        public string BandInterests { get; private set; }
+        public string BandInterests { get; }
 
         /// <summary>
         /// Gets whether the <see cref="BandInterests"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBandInterests {
-            get { return !String.IsNullOrWhiteSpace(BandInterests); }
-        }
+        public bool HasBandInterests => !String.IsNullOrWhiteSpace(BandInterests);
 
         /// <summary>
         /// Gets the members of the band.
         /// </summary>
-        public string BandMembers { get; private set; }
+        public string BandMembers { get; }
 
         /// <summary>
         /// Gets whether the <see cref="BandMembers"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBandMembers {
-            get { return !String.IsNullOrWhiteSpace(BandMembers); }
-        }
+        public bool HasBandMembers => !String.IsNullOrWhiteSpace(BandMembers);
 
         // TODO: Add support for the "best_page" field
 
         /// <summary>
         /// Gets the biography of the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string Bio { get; private set; }
+        public string Bio { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Bio"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBio {
-            get { return !String.IsNullOrWhiteSpace(Bio); }
-        }
+        public bool HasBio => !String.IsNullOrWhiteSpace(Bio);
 
         /// <summary>
         /// Gets the birthday of this person. Applicable to pages representing people.
         /// </summary>
-        public EssentialsDateTime Birthday { get; private set; }
+        public EssentialsDateTime Birthday { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Birthday"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBirthday {
-            get { return Birthday != null; }
-        }
+        public bool HasBirthday => Birthday != null;
 
         /// <summary>
         /// Gets the booking agent of the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string BookingAgent { get; private set; }
+        public string BookingAgent { get; }
 
         /// <summary>
         /// Gets whether the <see cref="BookingAgent"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBookingAgent {
-            get { return !String.IsNullOrWhiteSpace(BookingAgent); }
-        }
+        public bool HasBookingAgent => !String.IsNullOrWhiteSpace(BookingAgent);
 
         /// <summary>
         /// Gets the year the vehicle was built. Applicable to <strong>Vehicles</strong>.
         /// </summary>
-        public string Built { get; private set; }
+        public string Built { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Built"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBuilt {
-            get { return !String.IsNullOrWhiteSpace(Built); }
-        }
+        public bool HasBuilt => !String.IsNullOrWhiteSpace(Built);
 
         // TODO: Add support for the "business" field
 
         /// <summary>
         /// Gets whether this page has checkin functionality enabled.
         /// </summary>
-        public bool CanCheckin { get; private set; }
+        public bool CanCheckin { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanCheckin"/> property was included in the response.
         /// </summary>
-        public bool HasCanCheckin {
-            get { return JObject.HasValue("can_checkin"); }
-        }
+        public bool HasCanCheckin => JObject.HasValue("can_checkin");
 
         /// <summary>
         /// Gets whether the authenticated user can post to the page.
         /// </summary>
-        public bool CanPost { get; private set; }
+        public bool CanPost { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanPost"/> property was included in the response.
         /// </summary>
-        public bool HasCanPost {
-            get { return JObject.HasValue("can_post"); }
-        }
+        public bool HasCanPost => JObject.HasValue("can_post");
 
         /// <summary>
         /// Gets the main category of the page.
         /// </summary>
-        public string Category { get; private set; }
+        public string Category { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Category"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCategory {
-            get { return !String.IsNullOrWhiteSpace(Category); }
-        }
+        public bool HasCategory => !String.IsNullOrWhiteSpace(Category);
 
         /// <summary>
         /// Gets a list of all sub categories.
         /// </summary>
-        public FacebookPageCategory[] CategoryList { get; private set; }
+        public FacebookPageCategory[] CategoryList { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CategoryList"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCategoryList {
-            get { return CategoryList.Length > 0; }
-        }
+        public bool HasCategoryList => CategoryList.Length > 0;
 
         /// <summary>
         /// Gets the number of checkins at a place represented by the page.
         /// </summary>
-        public int Checkins { get; private set; }
+        public int Checkins { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Checkins"/> property was included in the response.
         /// </summary>
-        public bool HasCheckins {
-            get { return JObject.HasValue("checkins"); }
-        }
+        public bool HasCheckins => JObject.HasValue("checkins");
 
         /// <summary>
         /// Gets the company overview. Applicable to <strong>Companies</strong>.
         /// </summary>
-        public string CompanyOverview { get; private set; }
+        public string CompanyOverview { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CompanyOverview"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCompanyOverview {
-            get { return !String.IsNullOrWhiteSpace(CompanyOverview); }
-        }
-        
+        public bool HasCompanyOverview => !String.IsNullOrWhiteSpace(CompanyOverview);
+
         // TODO: Add support for the "contact_address" field
         
         // TODO: Add support for the "context" field
@@ -260,75 +224,63 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets information about the cover photo of the page.
         /// </summary>
-        public FacebookCoverPhoto Cover { get; private set; }
+        public FacebookCoverPhoto Cover { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Cover"/> property was included in the response.
         /// </summary>
-        public bool HasCover {
-            get { return Cover != null; }
-        }
+        public bool HasCover => Cover != null;
 
         /// <summary>
         /// Gets the culinary team of the business. Applicable to <strong>Restaurants</strong> or <strong>Nightlife</strong>.
         /// </summary>
-        public string CulinaryTeam { get; private set; }
+        public string CulinaryTeam { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CulinaryTeam"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCulinaryTeam {
-            get { return !String.IsNullOrWhiteSpace(CulinaryTeam); }
-        }
+        public bool HasCulinaryTeam => !String.IsNullOrWhiteSpace(CulinaryTeam);
 
         /// <summary>
         /// Gets the current location of the page.
         /// </summary>
-        public string CurrentLocation { get; private set; }
+        public string CurrentLocation { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CurrentLocation"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCurrentLocation {
-            get { return !String.IsNullOrWhiteSpace(CurrentLocation); }
-        }
+        public bool HasCurrentLocation => !String.IsNullOrWhiteSpace(CurrentLocation);
 
         /// <summary>
         /// Gets the description of the page.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
 
         /// <summary>
         /// Gets the description of the page in raw HTML.
         /// </summary>
-        public string DescriptionHtml { get; private set; }
+        public string DescriptionHtml { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CompanyOverview"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDescriptionHtml {
-            get { return !String.IsNullOrWhiteSpace(DescriptionHtml); }
-        }
+        public bool HasDescriptionHtml => !String.IsNullOrWhiteSpace(DescriptionHtml);
 
         /// <summary>
         /// Gets the director of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string DirectedBy { get; private set; }
+        public string DirectedBy { get; }
 
         /// <summary>
         /// Gets whether the <see cref="DirectedBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDirectedBy {
-            get { return !String.IsNullOrWhiteSpace(DirectedBy); }
-        }
-        
+        public bool HasDirectedBy => !String.IsNullOrWhiteSpace(DirectedBy);
+
         // TODO: Add support for the "display_subtext" field
         
         // TODO: Add support for the "displayed_message_response_time" field
@@ -336,28 +288,24 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets an array with the emails listed in the about section of the page.
         /// </summary>
-        public string[] Emails { get; private set; }
+        public string[] Emails { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Emails"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasEmails {
-            get { return Emails.Any(); }
-        }
-        
+        public bool HasEmails => Emails.Any();
+
         // TODO: Add support for the "engagement" field
 
         /// <summary>
         /// Gets the number of users who like the page. For <strong>Global Pages</strong> this is the count for all pages across the brand.
         /// </summary>
-        public int FanCount { get; private set; }
+        public int FanCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="FanCount"/> property was included in the response.
         /// </summary>
-        public bool HasFanCount {
-            get { return JObject.HasValue("fan_count"); }
-        }
+        public bool HasFanCount => JObject.HasValue("fan_count");
 
         // TODO: Add support for the "fan_count" field
         
@@ -366,75 +314,63 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets an array with the features of the vehicle. Applicable to <strong>Vehicles</strong>.
         /// </summary>
-        public string Features { get; private set; }
+        public string Features { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Features"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFeatures {
-            get { return !String.IsNullOrWhiteSpace(Features); }
-        }
+        public bool HasFeatures => !String.IsNullOrWhiteSpace(Features);
 
         /// <summary>
         /// Gets the restaurant's food styles. Applicable to <strong>Restaurants</strong>.
         /// </summary>
-        public string[] FoodStyles { get; private set; }
+        public string[] FoodStyles { get; }
 
         /// <summary>
         /// Gets whether the <see cref="FoodStyles"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFoodStyles {
-            get { return FoodStyles.Any(); }
-        }
+        public bool HasFoodStyles => FoodStyles.Any();
 
         /// <summary>
         /// Gets when the company was founded. Applicable to <strong>Companies</strong>.
         /// </summary>
-        public string Founded { get; private set; }
+        public string Founded { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Founded"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFounded {
-            get { return !String.IsNullOrWhiteSpace(Founded); }
-        }
+        public bool HasFounded => !String.IsNullOrWhiteSpace(Founded);
 
         /// <summary>
         /// General information provided by the page.
         /// </summary>
-        public string GeneralInfo { get; private set; }
+        public string GeneralInfo { get; }
 
         /// <summary>
         /// Gets whether the <see cref="GeneralInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGeneralInfo {
-            get { return !String.IsNullOrWhiteSpace(GeneralInfo); }
-        }
+        public bool HasGeneralInfo => !String.IsNullOrWhiteSpace(GeneralInfo);
 
         /// <summary>
         /// Gets the general manager of the business. Applicable to <strong>Restaurants</strong> or
         /// <strong>Nightlife</strong>.
         /// </summary>
-        public string GeneralManager { get; private set; }
+        public string GeneralManager { get; }
 
         /// <summary>
         /// Gets whether the <see cref="GeneralManager"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGeneralManager {
-            get { return !String.IsNullOrWhiteSpace(GeneralManager); }
-        }
+        public bool HasGeneralManager => !String.IsNullOrWhiteSpace(GeneralManager);
 
         /// <summary>
         /// Gets the genre of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string Genre { get; private set; }
+        public string Genre { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Genre"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGenre {
-            get { return !String.IsNullOrWhiteSpace(Genre); }
-        }
+        public bool HasGenre => !String.IsNullOrWhiteSpace(Genre);
 
         // TODO: Add support for the "global_brand_page_name" field
         
@@ -445,126 +381,106 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the hometown of the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string Hometown { get; private set; }
+        public string Hometown { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Hometown"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasHometown {
-            get { return !String.IsNullOrWhiteSpace(Hometown); }
-        }
+        public bool HasHometown => !String.IsNullOrWhiteSpace(Hometown);
 
         /// <summary>
         /// Gets the opening hours for the page.
         /// </summary>
-        public FacebookPageOpeningHours Hours { get; private set; }
+        public FacebookPageOpeningHours Hours { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Hours"/> property was included in the response.
         /// </summary>
-        public bool HasHours {
-            get { return Hours != null; }
-        }
+        public bool HasHours => Hours != null;
 
         /// <summary>
         /// Gets the legal information about the page publishers.
         /// </summary>
-        public string Impressum { get; private set; }
+        public string Impressum { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Impressum"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasImpressum {
-            get { return !String.IsNullOrWhiteSpace(Impressum); }
-        }
+        public bool HasImpressum => !String.IsNullOrWhiteSpace(Impressum);
 
         /// <summary>
         /// Gets the influences on the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string Influences { get; private set; }
+        public string Influences { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Influences"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasInfluences {
-            get { return !String.IsNullOrWhiteSpace(Influences); }
-        }
+        public bool HasInfluences => !String.IsNullOrWhiteSpace(Influences);
 
         // TODO: Add support for the "instant_articles_review_status" field
 
         /// <summary>
         /// Gets whether this location is always open.
         /// </summary>
-        public bool IsAlwaysOpen { get; private set; }
+        public bool IsAlwaysOpen { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsAlwaysOpen"/> property was included in the response.
         /// </summary>
-        public bool HasIsAlwaysOpen {
-            get { return JObject.HasValue("is_always_open"); }
-        }
+        public bool HasIsAlwaysOpen => JObject.HasValue("is_always_open");
 
         /// <summary>
         /// Gets whether the page is a community page.
         /// </summary>
-        public bool IsCommunityPage { get; private set; }
+        public bool IsCommunityPage { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsCommunityPage"/> property was included in the response.
         /// </summary>
-        public bool HasIsCommunityPage {
-            get { return JObject.HasValue("is_community_page"); }
-        }
+        public bool HasIsCommunityPage => JObject.HasValue("is_community_page");
 
         /// <summary>
         /// For businesses that are no longer operating.
         /// </summary>
-        public bool IsPermantlyClosed { get; private set; }
+        public bool IsPermantlyClosed { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsPermantlyClosed"/> property was included in the response.
         /// </summary>
-        public bool HasIsPermantlyClosed {
-            get { return JObject.HasValue("is_permanently_closed"); }
-        }
+        public bool HasIsPermantlyClosed => JObject.HasValue("is_permanently_closed");
 
         /// <summary>
         /// Gets whether the page is published and visible to non-admins.
         /// </summary>
-        public bool IsPublished { get; private set; }
+        public bool IsPublished { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsPublished"/> property was included in the response.
         /// </summary>
-        public bool HasIsPublished {
-            get { return JObject.HasValue("is_published"); }
-        }
+        public bool HasIsPublished => JObject.HasValue("is_published");
 
         /// <summary>
         /// Gets whether the page is unclaimed.
         /// </summary>
-        public bool IsUnclaimed { get; private set; }
+        public bool IsUnclaimed { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsUnclaimed"/> property was included in the response.
         /// </summary>
-        public bool HasIsUnclaimed {
-            get { return JObject.HasValue("is_unclaimed"); }
-        }
+        public bool HasIsUnclaimed => JObject.HasValue("is_unclaimed");
 
         /// <summary>
         /// Pages with a large number of followers can be manually verified by Facebook as having an authentic
         /// identity. This property indicates whether the page is verified by this process.
         /// </summary>
-        public bool IsVerified { get; private set; }
+        public bool IsVerified { get; }
 
         /// <summary>
         /// Gets whether the <see cref="IsVerified"/> property was included in the response.
         /// </summary>
-        public bool HasIsVerified {
-            get { return JObject.HasValue("is_verified"); }
-        }
-        
+        public bool HasIsVerified => JObject.HasValue("is_verified");
+
         // TODO: Add support for the "is_webhooks_subscribed" field
         
         // TODO: Add support for the "leadgen_form_preview_details" field
@@ -578,38 +494,32 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the Facebook URL of the page.
         /// </summary>
-        public string Link { get; private set; }
+        public string Link { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLink {
-            get { return !String.IsNullOrWhiteSpace(Link); }
-        }
+        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
 
         /// <summary>
         /// Gets the location of the place. Applicable to all <strong>Places</strong>.
         /// </summary>
-        public FacebookLocation Location { get; private set; }
+        public FacebookLocation Location { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Location"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLocation {
-            get { return Location != null; }
-        }
+        public bool HasLocation => Location != null;
 
         /// <summary>
         /// Gets the members of this org. Applicable to pages representing <strong>Team Orgs</strong>.
         /// </summary>
-        public string Members { get; private set; }
+        public string Members { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Members"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMembers {
-            get { return !String.IsNullOrWhiteSpace(Members); }
-        }
+        public bool HasMembers => !String.IsNullOrWhiteSpace(Members);
 
         // TODO: Add support for the "merchant_id" field
         
@@ -618,446 +528,376 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the company mission. Applicable to <strong>Companies</strong>.
         /// </summary>
-        public string Mission { get; private set; }
+        public string Mission { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Mission"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMission {
-            get { return !String.IsNullOrWhiteSpace(Mission); }
-        }
+        public bool HasMission => !String.IsNullOrWhiteSpace(Mission);
 
         /// <summary>
         /// Gets the MPG of the vehicle. Applicable to <strong>Vehicles</strong>.
         /// </summary>
-        public string Mpg { get; private set; }
+        public string Mpg { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Mpg"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMpg {
-            get { return !String.IsNullOrWhiteSpace(Mpg); }
-        }
+        public bool HasMpg => !String.IsNullOrWhiteSpace(Mpg);
 
         /// <summary>
         /// Gets the name of the page.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         /// <summary>
         /// Gets the name of the page with its location and/or global brand descriptor.
         /// </summary>
-        public string NameWithLocationDescriptor { get; private set; }
+        public string NameWithLocationDescriptor { get; }
 
         /// <summary>
         /// Gets whether the <see cref="NameWithLocationDescriptor"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasNameWithLocationDescriptor {
-            get { return !String.IsNullOrWhiteSpace(NameWithLocationDescriptor); }
-        }
+        public bool HasNameWithLocationDescriptor => !String.IsNullOrWhiteSpace(NameWithLocationDescriptor);
 
         /// <summary>
         /// Gets the TV network for the TV show. Applicable to <strong>TV Shows</strong>.
         /// </summary>
-        public string Network { get; private set; }
+        public string Network { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Network"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasNetwork {
-            get { return !String.IsNullOrWhiteSpace(Network); }
-        }
+        public bool HasNetwork => !String.IsNullOrWhiteSpace(Network);
 
         /// <summary>
         /// Gets the number of people who have liked the page, since the last login. Only visible to a page admin.
         /// </summary>
-        public int NewLikeCount { get; private set; }
+        public int NewLikeCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="NewLikeCount"/> property was included in the response.
         /// </summary>
-        public bool HasNewLikeCount {
-            get { return JObject.HasValue("new_like_count"); }
-        }
-        
+        public bool HasNewLikeCount => JObject.HasValue("new_like_count");
+
         // TODO: Add support for the "offer_eligible" field
 
         /// <summary>
         /// Gets the Overall page rating based on rating survey from users on a scale of 1-5. This value is normalized
         /// and is not guaranteed to be a strict average of user ratings.
         /// </summary>
-        public float OverallStarRating { get; private set; }
+        public float OverallStarRating { get; }
 
         /// <summary>
         /// Gets whether the <see cref="NewLikeCount"/> property was included in the response.
         /// </summary>
-        public bool HasOverallStarRating {
-            get { return JObject.HasValue("overall_star_rating"); }
-        }
+        public bool HasOverallStarRating => JObject.HasValue("overall_star_rating");
 
         /// <summary>
         /// Gets the parent page for this page.
         /// </summary>
-        public FacebookPage ParentPage { get; private set; }
+        public FacebookPage ParentPage { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ParentPage"/> property was included in the response.
         /// </summary>
-        public bool HasParentPage {
-            get { return ParentPage != null; }
-        }
+        public bool HasParentPage => ParentPage != null;
 
         /// <summary>
         /// Gets information about the parking available at a place.
         /// </summary>
-        public FacebookPageParking Parking { get; private set; }
+        public FacebookPageParking Parking { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Parking"/> property was included in the response.
         /// </summary>
-        public bool HasParking {
-            get { return Parking != null; }
-        }
+        public bool HasParking => Parking != null;
 
         /// <summary>
         /// Gets information about the available payment options at a place.
         /// </summary>
-        public FacebookPagePaymentOptions PaymentOptions { get; private set; }
+        public FacebookPagePaymentOptions PaymentOptions { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PaymentOptions"/> property was included in the response.
         /// </summary>
-        public bool HasPaymentOptions {
-            get { return PaymentOptions != null; }
-        }
+        public bool HasPaymentOptions => PaymentOptions != null;
 
         /// <summary>
         /// Gets the personal information. Applicable to pages representing people.
         /// </summary>
-        public string PersonalInfo { get; private set; }
+        public string PersonalInfo { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PersonalInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPersonalInfo {
-            get { return !String.IsNullOrWhiteSpace(PersonalInfo); }
-        }
+        public bool HasPersonalInfo => !String.IsNullOrWhiteSpace(PersonalInfo);
 
         /// <summary>
         /// Gets the personal interests. Applicable to pages representing people.
         /// </summary>
-        public string PersonalInterests { get; private set; }
+        public string PersonalInterests { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PersonalInterests"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPersonalInterests {
-            get { return !String.IsNullOrWhiteSpace(PersonalInterests); }
-        }
+        public bool HasPersonalInterests => !String.IsNullOrWhiteSpace(PersonalInterests);
 
         /// <summary>
         /// Gets pharmacy safety information. Applicable to pharmaceutical companies.
         /// </summary>
-        public string PharmaSafetyInfo { get; private set; }
+        public string PharmaSafetyInfo { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PharmaSafetyInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPharmaSafetyInfo {
-            get { return !String.IsNullOrWhiteSpace(PharmaSafetyInfo); }
-        }
+        public bool HasPharmaSafetyInfo => !String.IsNullOrWhiteSpace(PharmaSafetyInfo);
 
         /// <summary>
         /// Gets the phone number provided by a page.
         /// </summary>
-        public string Phone { get; private set; }
+        public string Phone { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Phone"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPhone {
-            get { return !String.IsNullOrWhiteSpace(Phone); }
-        }
+        public bool HasPhone => !String.IsNullOrWhiteSpace(Phone);
 
         /// <summary>
         /// For places, the category of the place.
         /// </summary>
-        public string PlaceType { get; private set; }
+        public string PlaceType { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PlaceType"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPlaceType {
-            get { return !String.IsNullOrWhiteSpace(PlaceType); }
-        }
+        public bool HasPlaceType => !String.IsNullOrWhiteSpace(PlaceType);
 
         /// <summary>
         /// Gets the plot outline of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string PlotOutline { get; private set; }
+        public string PlotOutline { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PlotOutline"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPlotOutline {
-            get { return !String.IsNullOrWhiteSpace(PlotOutline); }
-        }
+        public bool HasPlotOutline => !String.IsNullOrWhiteSpace(PlotOutline);
 
         // TODO: Add support for the "preferred_audience" field
 
         /// <summary>
         /// Gets the press contact information of the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string PressContact { get; private set; }
+        public string PressContact { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PressContact"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPressContact {
-            get { return !String.IsNullOrWhiteSpace(PressContact); }
-        }
+        public bool HasPressContact => !String.IsNullOrWhiteSpace(PressContact);
 
         /// <summary>
         /// Price range of the business. Applicable to <strong>Restaurants</strong> or
         /// <strong>Nightlife</strong>.
         /// </summary>
-        public string PriceRange { get; private set; }
+        public string PriceRange { get; }
 
         /// <summary>
         /// Gets the productor of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string ProducedBy { get; private set; }
+        public string ProducedBy { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ProducedBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasProducedBy {
-            get { return !String.IsNullOrWhiteSpace(ProducedBy); }
-        }
+        public bool HasProducedBy => !String.IsNullOrWhiteSpace(ProducedBy);
 
         /// <summary>
         /// Gets the products of this company. Applicable to <strong>Companies</strong>.
         /// </summary>
-        public string Products { get; private set; }
+        public string Products { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Products"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasProducts {
-            get { return !String.IsNullOrWhiteSpace(Products); }
-        }
+        public bool HasProducts => !String.IsNullOrWhiteSpace(Products);
 
         /// <summary>
         /// Gets whether the page is eligible for promotion.
         /// </summary>
-        public bool PromotionEligible { get; private set; }
+        public bool PromotionEligible { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PromotionEligible"/> property was included in the response.
         /// </summary>
-        public bool HasPromotionEligible {
-            get { return JObject.HasValue("promotion_eligible"); }
-        }
+        public bool HasPromotionEligible => JObject.HasValue("promotion_eligible");
 
         /// <summary>
         /// Gets the reason, for which boosted posts are not eligible. Only visible to a page admin.
         /// </summary>
-        public string PromotionIneligibleReason { get; private set; }
+        public string PromotionIneligibleReason { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PromotionIneligibleReason"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPromotionIneligibleReason {
-            get { return !String.IsNullOrWhiteSpace(PromotionIneligibleReason); }
-        }
+        public bool HasPromotionIneligibleReason => !String.IsNullOrWhiteSpace(PromotionIneligibleReason);
 
         /// <summary>
         /// Gets information about public transit to the business. Applicable to <strong>Restaurants</strong> or <strong>Nightlife</strong>.
         /// </summary>
-        public string PublicTransit { get; private set; }
+        public string PublicTransit { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PublicTransit"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPublicTransit {
-            get { return !String.IsNullOrWhiteSpace(PublicTransit); }
-        }
-        
+        public bool HasPublicTransit => !String.IsNullOrWhiteSpace(PublicTransit);
+
         // TODO: Add support for the "publisher_space" field
 
         /// <summary>
         /// Gets the number of ratings for the page.
         /// </summary>
-        public int RatingCount { get; private set; }
+        public int RatingCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="RatingCount"/> property was included in the response.
         /// </summary>
-        public bool HasRatingCount {
-            get { return JObject.HasValue("rating_count"); }
-        }
+        public bool HasRatingCount => JObject.HasValue("rating_count");
 
         // TODO: Add support for the "recipient" field
 
         /// <summary>
         /// Gets the record label of the band. Applicable to <strong>Bands</strong>.
         /// </summary>
-        public string RecordLabel { get; private set; }
+        public string RecordLabel { get; }
 
         /// <summary>
         /// Gets whether the <see cref="RecordLabel"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasRecordLabel {
-            get { return !String.IsNullOrWhiteSpace(RecordLabel); }
-        }
+        public bool HasRecordLabel => !String.IsNullOrWhiteSpace(RecordLabel);
 
         /// <summary>
         /// Gets the film's release date. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string ReleaseDate { get; private set; }
+        public string ReleaseDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ReleaseDate"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasReleaseDate {
-            get { return !String.IsNullOrWhiteSpace(ReleaseDate); }
-        }
+        public bool HasReleaseDate => !String.IsNullOrWhiteSpace(ReleaseDate);
 
         /// <summary>
         /// Services the restaurant provides. Applicable to <strong>Restaurants</strong>.
         /// </summary>
-        public FacebookPageRestaurantServices RestaurantServices { get; private set; }
+        public FacebookPageRestaurantServices RestaurantServices { get; }
 
         /// <summary>
         /// Gets whether the <see cref="RestaurantServices"/> property was included in the response.
         /// </summary>
-        public bool HasRestaurantServices {
-            get { return RestaurantServices != null; }
-        }
+        public bool HasRestaurantServices => RestaurantServices != null;
 
         /// <summary>
         /// The restaurant's specialties. Applicable to <strong>Restaurants</strong>.
         /// </summary>
-        public FacebookPageRestaurantSpecialties RestaurantSpecialties { get; private set; }
+        public FacebookPageRestaurantSpecialties RestaurantSpecialties { get; }
 
         /// <summary>
         /// Gets whether the <see cref="RestaurantSpecialties"/> property was included in the response.
         /// </summary>
-        public bool HasRestaurantSpecialties {
-            get { return RestaurantSpecialties != null; }
-        }
+        public bool HasRestaurantSpecialties => RestaurantSpecialties != null;
 
         /// <summary>
         /// Gets the air schedule of the TV show. Applicable to <strong>TV Shows</strong>.
         /// </summary>
-        public string Schedule { get; private set; }
+        public string Schedule { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Schedule"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSchedule {
-            get { return !String.IsNullOrWhiteSpace(Schedule); }
-        }
+        public bool HasSchedule => !String.IsNullOrWhiteSpace(Schedule);
 
         /// <summary>
         /// Gets the screenwriter of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string ScreenplayBy { get; private set; }
+        public string ScreenplayBy { get; }
 
         /// <summary>
         /// Gets whether the <see cref="ScreenplayBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasScreenplayBy {
-            get { return !String.IsNullOrWhiteSpace(ScreenplayBy); }
-        }
+        public bool HasScreenplayBy => !String.IsNullOrWhiteSpace(ScreenplayBy);
 
         /// <summary>
         /// Gets the season information of the TV Show. Applicable to <strong>TV Shows</strong>.
         /// </summary>
-        public string Season { get; private set; }
+        public string Season { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Season"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSeason {
-            get { return !String.IsNullOrWhiteSpace(Season); }
-        }
+        public bool HasSeason => !String.IsNullOrWhiteSpace(Season);
 
         /// <summary>
         /// Gets the page address, if any, in a simple single line format.
         /// </summary>
-        public string SingleLineAddress { get; private set; }
+        public string SingleLineAddress { get; }
 
         /// <summary>
         /// Gets whether the <see cref="SingleLineAddress"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSingleLineAddress {
-            get { return !String.IsNullOrWhiteSpace(SingleLineAddress); }
-        }
+        public bool HasSingleLineAddress => !String.IsNullOrWhiteSpace(SingleLineAddress);
 
         /// <summary>
         /// Gets the cast of the film. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string Starring { get; private set; }
+        public string Starring { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Starring"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStarring {
-            get { return !String.IsNullOrWhiteSpace(Starring); }
-        }
+        public bool HasStarring => !String.IsNullOrWhiteSpace(Starring);
 
         // TODO: Add support for the "start_info" field
 
         /// <summary>
         /// Gets the location page's store location descriptor.
         /// </summary>
-        public string StoreLocationDescriptor { get; private set; }
+        public string StoreLocationDescriptor { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StoreLocationDescriptor"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStoreLocationDescriptor {
-            get { return !String.IsNullOrWhiteSpace(StoreLocationDescriptor); }
-        }
+        public bool HasStoreLocationDescriptor => !String.IsNullOrWhiteSpace(StoreLocationDescriptor);
 
         /// <summary>
         /// Gets the unique store number for this location page.
         /// </summary>
-        public int StoreNumber { get; private set; }
+        public int StoreNumber { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StoreNumber"/> property was included in the response.
         /// </summary>
-        public bool HasStoreNumber {
-            get { return JObject.HasValue("store_number"); }
-        }
+        public bool HasStoreNumber => JObject.HasValue("store_number");
 
         /// <summary>
         /// Gets the studio for the film production. Applicable to <strong>Films</strong>.
         /// </summary>
-        public string Studio { get; private set; }
+        public string Studio { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Studio"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStudio {
-            get { return !String.IsNullOrWhiteSpace(Studio); }
-        }
-        
+        public bool HasStudio => !String.IsNullOrWhiteSpace(Studio);
+
         // TODO: Add support for the "supports_instant_articles" field
 
         /// <summary>
         /// Gets the number of people talking about the page.
         /// </summary>
-        public int TalkingAboutCount { get; private set; }
+        public int TalkingAboutCount { get; }
         
         // TODO: Add support for the "unread_message_count" field
         
@@ -1068,65 +908,55 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the alias of the page. For example, for www.facebook.com/platform the username is <code>platform</code>.
         /// </summary>
-        public string Username { get; private set; }
+        public string Username { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Username"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasUsername {
-            get { return !String.IsNullOrWhiteSpace(Username); }
-        }
+        public bool HasUsername => !String.IsNullOrWhiteSpace(Username);
 
         /// <summary>
         /// Gets the URL to the website of the page.
         /// </summary>
-        public string Website { get; private set; }
+        public string Website { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Website"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasWebsite {
-            get { return !String.IsNullOrWhiteSpace(Website); }
-        }
+        public bool HasWebsite => !String.IsNullOrWhiteSpace(Website);
 
         /// <summary>
         /// Gets whether this page is verified and in what color e.g. <see cref="FacebookPageVerificationStatus.BlueVerified"/>,
         /// <see cref="FacebookPageVerificationStatus.GreyVerified"/> or <see cref="FacebookPageVerificationStatus.NotVerified"/>.
         /// </summary>
-        public FacebookPageVerificationStatus VerificationStatus { get; private set; }
+        public FacebookPageVerificationStatus VerificationStatus { get; }
 
         /// <summary>
         /// Gets whether the <see cref="VerificationStatus"/> property was included in the response.
         /// </summary>
-        public bool HasVerificationStatus {
-            get { return VerificationStatus != FacebookPageVerificationStatus.NotSpecified; }
-        }
+        public bool HasVerificationStatus => VerificationStatus != FacebookPageVerificationStatus.NotSpecified;
 
         // TODO: Add support for the "voip_info" field
 
         /// <summary>
         /// Gets the number of visits to location of the page.
         /// </summary>
-        public int WereHereCount { get; private set; }
+        public int WereHereCount { get; }
 
         /// <summary>
         /// Gets whether the <see cref="WereHereCount"/> property was included in the response.
         /// </summary>
-        public bool HasWereHereCount {
-            get { return JObject.HasValue("were_here_count"); }
-        }
+        public bool HasWereHereCount => JObject.HasValue("were_here_count");
 
         /// <summary>
         /// Gets the writer of the TV show. Applicable to <strong>TV Shows</strong>.
         /// </summary>
-        public string WrittenBy { get; private set; }
+        public string WrittenBy { get; }
 
         /// <summary>
         /// Gets whether the <see cref="WrittenBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasWrittenBy {
-            get { return !String.IsNullOrWhiteSpace(WrittenBy); }
-        }
+        public bool HasWrittenBy => !String.IsNullOrWhiteSpace(WrittenBy);
 
         #endregion
 

@@ -1,10 +1,10 @@
 using Skybrud.Social.Facebook.Fields;
-using Skybrud.Social.Facebook.Models.Photos;
+using Skybrud.Social.Facebook.Models.Users;
 
 namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
-    ///  Static class with constants for the fields available for a Facebook user (<see cref="FacebookPhoto" />).
+    ///  Static class with constants for the fields available for a Facebook user (<see cref="FacebookUser" />).
     ///  
     ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
     ///  fields may have been mapped for the implementation in Skybrud.Social.

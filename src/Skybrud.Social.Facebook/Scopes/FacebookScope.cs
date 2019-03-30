@@ -19,17 +19,17 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <summary>
         /// Gets the name of the scope.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the description of the scope.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Indicates whether the scope requires your app to be reviewed by Facebook.
         /// </summary>
-        public FacebookScopeReview Review { get; private set; }
+        public FacebookScopeReview Review { get; }
 
         #endregion
 

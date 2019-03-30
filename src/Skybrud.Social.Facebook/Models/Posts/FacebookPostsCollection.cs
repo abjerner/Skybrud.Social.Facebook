@@ -14,12 +14,12 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets an array of <see cref="FacebookPost"/> representing the posts.
         /// </summary>
-        public FacebookPost[] Data { get; private set; }
+        public FacebookPost[] Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.
         /// </summary>
-        public FacebookPaging Paging { get; private set; }
+        public FacebookPaging Paging { get; }
 
         #endregion
 

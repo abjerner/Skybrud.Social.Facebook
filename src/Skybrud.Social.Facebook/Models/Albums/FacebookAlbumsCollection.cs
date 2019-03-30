@@ -19,12 +19,12 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets an array of the <see cref="FacebookAlbum"/> returned in the response.
         /// </summary>
-        public FacebookAlbum[] Data { get; private set; }
+        public FacebookAlbum[] Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.
         /// </summary>
-        public FacebookCursorBasedPagination Paging { get; private set; }
+        public FacebookCursorBasedPagination Paging { get; }
 
         #endregion
 

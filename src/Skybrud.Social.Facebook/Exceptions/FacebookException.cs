@@ -13,23 +13,23 @@ namespace Skybrud.Social.Facebook.Exceptions {
         /// <summary>
         /// Gets a reference to the underlying <see cref="IHttpResponse"/>.
         /// </summary>
-        public IHttpResponse Response { get; private set; }
+        public IHttpResponse Response { get; }
 
         /// <summary>
         /// Gets the error code received from the Facebook API.
         /// </summary>
-        public int Code { get; private set; }
+        public int Code { get; }
 
         /// <summary>
         /// Gets the type of the error received from the Facebook API.
         /// </summary>
-        public string Type { get; private set; }
+        public string Type { get; }
 
         /// <summary>
         /// Gets the sub error code received from the Facebook API. If a sub error code isn't specified in the
         /// response, <code>0</code> will be returned.
         /// </summary>
-        public int Subcode { get; private set; }
+        public int Subcode { get; }
 
         #endregion
 

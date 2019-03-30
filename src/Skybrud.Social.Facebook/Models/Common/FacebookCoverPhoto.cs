@@ -13,22 +13,22 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the ID of the photo that represents the cover photo.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the URL of the photo that represents the cover photo.
         /// </summary>
-        public string Source { get; internal set; }
+        public string Source { get; }
 
         /// <summary>
         /// Gets the vertical offset in pixels of the photo from the bottom.
         /// </summary>
-        public int OffsetY { get; internal set; }
+        public int OffsetY { get; }
 
         /// <summary>
         /// Gets the horizontal offset in pixels of the photo from the left.
         /// </summary>
-        public int OffsetX { get; internal set; }
+        public int OffsetX { get; }
 
         #endregion
 

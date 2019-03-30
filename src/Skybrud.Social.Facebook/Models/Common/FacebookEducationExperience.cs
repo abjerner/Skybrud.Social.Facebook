@@ -25,86 +25,72 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets an array of the classes taken.
         /// </summary>
-        public FacebookExperience[] Classes { get; private set; }
+        public FacebookExperience[] Classes { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Classes"/> property was included in the response.
         /// </summary>
-        public bool HasClasses {
-            get { return Classes.Any(); }
-        }
+        public bool HasClasses => Classes.Any();
 
         /// <summary>
         /// Gets an array of the Facebook pages representing subjects studied.
         /// </summary>
-        public FacebookPage[] Concentration { get; private set; }
+        public FacebookPage[] Concentration { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Classes"/> property was included in the response.
         /// </summary>
-        public bool HasConcentration {
-            get { return Concentration.Any(); }
-        }
+        public bool HasConcentration => Concentration.Any();
 
         /// <summary>
         /// Gets the Facebook Page for the degree obtained
         /// </summary>
-        public FacebookPage Degree { get; private set; }
+        public FacebookPage Degree { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Degree"/> property was included in the response.
         /// </summary>
-        public bool HasDegree {
-            get { return Degree != null; }
-        }
+        public bool HasDegree => Degree != null;
 
         /// <summary>
         /// Gets the Facebook page for this school.
         /// </summary>
-        public FacebookPage School { get; private set; }
+        public FacebookPage School { get; }
 
         /// <summary>
         /// Gets whether the <see cref="School"/> property was included in the response.
         /// </summary>
-        public bool HasSchool {
-            get { return School != null; }
-        }
+        public bool HasSchool => School != null;
 
         /// <summary>
         /// Gets the type of educational institution.
         /// </summary>
-        public string Type { get; private set; }
+        public string Type { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
-        public bool HasType {
-            get { return !String.IsNullOrWhiteSpace(Type); }
-        }
+        public bool HasType => !String.IsNullOrWhiteSpace(Type);
 
         /// <summary>
         /// Gets an array of the people tagged who went to school with this person.
         /// </summary>
-        public FacebookUser[] With { get; private set; }
+        public FacebookUser[] With { get; }
 
         /// <summary>
         /// Gets whether the <see cref="With"/> property was included in the response.
         /// </summary>
-        public bool HasWith {
-            get { return With.Any(); }
-        }
+        public bool HasWith => With.Any();
 
         /// <summary>
         /// Gets the Facebook page for the year this person graduated.
         /// </summary>
-        public FacebookPage Year { get; private set; }
+        public FacebookPage Year { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Year"/> property was included in the response.
         /// </summary>
-        public bool HasYear {
-            get { return Year != null; }
-        }
+        public bool HasYear => Year != null;
 
         #endregion
 

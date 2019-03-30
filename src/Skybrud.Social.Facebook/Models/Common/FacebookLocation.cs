@@ -17,42 +17,42 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the city of the location.
         /// </summary>
-        public string City { get; private set; }
+        public string City { get; }
 
         /// <summary>
         /// Gets the country of the location.
         /// </summary>
-        public string Country { get; private set; }
+        public string Country { get; }
 
         /// <summary>
         /// Gets the latitude of the location.
         /// </summary>
-        public double Latitude { get; private set; }
+        public double Latitude { get; }
 
         /// <summary>
         /// Gets the longitude of the location.
         /// </summary>
-        public double Longitude { get; private set; }
+        public double Longitude { get; }
 
         /// <summary>
         /// Gets the name of the location.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets the state of the location.
         /// </summary>
-        public string State { get; private set; }
+        public string State { get; }
 
         /// <summary>
         /// Gets the street of the location.
         /// </summary>
-        public string Street { get; private set; }
+        public string Street { get; }
 
         /// <summary>
         /// Gets the zip code of the location.
         /// </summary>
-        public string Zip { get; private set; }
+        public string Zip { get; }
 
         #endregion
 

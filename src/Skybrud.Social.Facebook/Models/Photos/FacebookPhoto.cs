@@ -23,103 +23,87 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets the ID of the photo.
         /// </summary>
-        public string Id { get; private set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets a reference to the album this photo is in.
         /// </summary>
-        public FacebookAlbum Album { get; private set; }
+        public FacebookAlbum Album { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Album"/> property was included in the response.
         /// </summary>
-        public bool HasAlbum {
-            get { return Album != null; }
-        }
+        public bool HasAlbum => Album != null;
 
         /// <summary>
         /// Gets a user-specified time for when this object was created.
         /// </summary>
-        public EssentialsDateTime BackdatedTime { get; private set; }
+        public EssentialsDateTime BackdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Width"/> property was included in the response.
         /// </summary>
-        public bool HasBackdatedTime {
-            get { return BackdatedTime != null; }
-        }
+        public bool HasBackdatedTime => BackdatedTime != null;
 
         /// <summary>
         /// Gets how accurate the backdated time is.
         /// </summary>
-        public string BackdatedTimeGranularity { get; private set; }
+        public string BackdatedTimeGranularity { get; }
 
         /// <summary>
         /// Gets whether the <see cref="BackdatedTimeGranularity"/> property was included in the response.
         /// </summary>
-        public bool HasBackdatedTimeGranularity {
-            get { return !String.IsNullOrWhiteSpace(BackdatedTimeGranularity); }
-        }
+        public bool HasBackdatedTimeGranularity => !String.IsNullOrWhiteSpace(BackdatedTimeGranularity);
 
         /// <summary>
         /// Gets whether the viewer can backdate the photo.
         /// </summary>
-        public bool CanBackdate { get; private set; }
+        public bool CanBackdate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanTag"/> property was included in the response.
         /// </summary>
-        public bool HasCanBackdate {
-            get { return JObject.HasValue("can_backdate"); }
-        }
+        public bool HasCanBackdate => JObject.HasValue("can_backdate");
 
         /// <summary>
         /// Gets whether the viewer can delete the photo.
         /// </summary>
-        public bool CanDelete { get; private set; }
+        public bool CanDelete { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanDelete"/> property was included in the response.
         /// </summary>
-        public bool HasCanDelete {
-            get { return JObject.HasValue("can_delete"); }
-        }
+        public bool HasCanDelete => JObject.HasValue("can_delete");
 
         /// <summary>
         /// Gets whether the viewer can tag the photo.
         /// </summary>
-        public bool CanTag { get; private set; }
+        public bool CanTag { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CanTag"/> property was included in the response.
         /// </summary>
-        public bool HasCanTag {
-            get { return JObject.HasValue("can_tag"); }
-        }
+        public bool HasCanTag => JObject.HasValue("can_tag");
 
         /// <summary>
         /// Gets the time this photo was published.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; private set; }
+        public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasCreatedTime {
-            get { return CreatedTime != null; }
-        }
+        public bool HasCreatedTime => CreatedTime != null;
 
         /// <summary>
         /// If this object has a place, the event associated with the place.
         /// </summary>
-        public FacebookEvent Event { get; private set; }
+        public FacebookEvent Event { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Event"/> property was included in the response.
         /// </summary>
-        public bool HasEvent {
-            get { return Event != null; }
-        }
+        public bool HasEvent => Event != null;
 
         /// <summary>
         /// Gets a reference to the profile (user or page) that uploaded this photo.
@@ -129,70 +113,58 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// Gets the height of this photo in pixels.
         /// </summary>
-        public int Height { get; private set; }
+        public int Height { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Height"/> property was included in the response.
         /// </summary>
-        public bool HasHeight {
-            get { return Height > 0; }
-        }
+        public bool HasHeight => Height > 0;
 
         /// <summary>
         /// Gets the icon that Facebook displays when photos are published to News Feed.
         /// </summary>
-        public string Icon { get; private set; }
+        public string Icon { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Icon"/> property was included in the response.
         /// </summary>
-        public bool HasIcon {
-            get { return !String.IsNullOrWhiteSpace(Icon); }
-        }
+        public bool HasIcon => !String.IsNullOrWhiteSpace(Icon);
 
         /// <summary>
         /// Gets the different stored representations of the photo. Can vary in number based upon the size of the original photo.
         /// </summary>
-        public FacebookImage[] Images { get; private set; }
+        public FacebookImage[] Images { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Width"/> property was included in the response.
         /// </summary>
-        public bool HasImages {
-            get { return Images.Any(); }
-        }
+        public bool HasImages => Images.Any();
 
         /// <summary>
         /// Gets the link to the photo on Facebook.
         /// </summary>
-        public string Link { get; private set; }
+        public string Link { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink {
-            get { return !String.IsNullOrWhiteSpace(Link); }
-        }
+        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
 
         /// <summary>
         /// Gets the user-provided caption given to this photo. Corresponds to <code>caption</code> when creating
         /// photos.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         // TODO: Add support for the "name_tags" field
 
@@ -200,79 +172,67 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// Gets the ID of the page story this corresponds to. May not be on all photos. Applies only to published
         /// photos.
         /// </summary>
-        public string PageStoryId { get; private set; }
+        public string PageStoryId { get; }
 
         /// <summary>
         /// Gets whether the <see cref="PageStoryId"/> property was included in the response.
         /// </summary>
-        public bool HasPageStoryId {
-            get { return !String.IsNullOrWhiteSpace(PageStoryId); }
-        }
+        public bool HasPageStoryId => !String.IsNullOrWhiteSpace(PageStoryId);
 
         /// <summary>
         /// Gets the link to the 100px wide representation of this photo.
         /// </summary>
-        public string Picture { get; private set; }
+        public string Picture { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Picture"/> property was included in the response.
         /// </summary>
-        public bool HasPicture {
-            get { return !String.IsNullOrWhiteSpace(Picture); }
-        }
+        public bool HasPicture => !String.IsNullOrWhiteSpace(Picture);
 
         /// <summary>
         /// Gets the place the photo was taken. It is possible to upload photos to Facebook without
         /// specifying a place, and in such cases the property will be <code>null</code>.
         /// </summary>
-        public FacebookPlace Place { get; private set; }
+        public FacebookPlace Place { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Place"/> property was included in the response.
         /// </summary>
-        public bool HasPlace {
-            get { return Place != null; }
-        }
+        public bool HasPlace => Place != null;
 
         // TODO: Add support for the "target" field
 
         /// <summary>
         /// Gets the last time the photo was updated.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; private set; }
+        public EssentialsDateTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
         /// </summary>
-        public bool HasUpdatedTime {
-            get { return UpdatedTime != null; }
-        }
+        public bool HasUpdatedTime => UpdatedTime != null;
 
         /// <summary>
         /// Gets the different stored representations of the photo in webp format. Can vary in number based upon the
         /// size of the original photo.
         /// </summary>
-        public FacebookImage[] WebpImages { get; private set; }
+        public FacebookImage[] WebpImages { get; }
 
         /// <summary>
         /// Gets whether the <see cref="WebpImages"/> property was included in the response.
         /// </summary>
-        public bool HasWebpImages {
-            get { return WebpImages.Any(); }
-        }
+        public bool HasWebpImages => WebpImages.Any();
 
         /// <summary>
         /// Gets the width of this photo in pixels.
         /// </summary>
-        public int Width { get; private set; }
+        public int Width { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Width"/> property was included in the response.
         /// </summary>
-        public bool HasWidth {
-            get { return Width > 0; }
-        }
-        
+        public bool HasWidth => Width > 0;
+
         #endregion
 
         #region Constructors

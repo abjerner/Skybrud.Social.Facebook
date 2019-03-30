@@ -20,79 +20,67 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the ID.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the description about the experience.
         /// </summary>
-        public string Description { get; private set; }
+        public string Description { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription {
-            get { return !String.IsNullOrWhiteSpace(Description); }
-        }
-        
+        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+
         /// <summary>
         /// Gets the end date of the project experience.
         /// </summary>
-        public EssentialsDateTime EndDate { get; private set; }
+        public EssentialsDateTime EndDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="EndDate"/> property was included in the response.
         /// </summary>
-        public bool HasEndDate {
-            get { return EndDate != null; }
-        }
+        public bool HasEndDate => EndDate != null;
 
         /// <summary>
         /// 
         /// </summary>
-        public FacebookUser From { get; private set; }
+        public FacebookUser From { get; }
 
         /// <summary>
         /// Gets whether the <see cref="From"/> property was included in the response.
         /// </summary>
-        public bool HasFrom {
-            get { return From != null; }
-        }
+        public bool HasFrom => From != null;
 
         /// <summary>
         /// Gets the name of the experience.
         /// </summary>
-        public string Name { get; private set; }
+        public string Name { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName {
-            get { return !String.IsNullOrWhiteSpace(Name); }
-        }
+        public bool HasName => !String.IsNullOrWhiteSpace(Name);
 
         /// <summary>
         /// Gets the start date of the project experience.
         /// </summary>
-        public EssentialsDateTime StartDate { get; private set; }
+        public EssentialsDateTime StartDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StartDate"/> property was included in the response.
         /// </summary>
-        public bool HasStartDate {
-            get { return StartDate != null; }
-        }
+        public bool HasStartDate => StartDate != null;
 
         /// <summary>
         /// Gets an array of users tagged in the experience.
         /// </summary>
-        public FacebookUser[] With { get; private set; }
+        public FacebookUser[] With { get; }
 
         /// <summary>
         /// Gets whether the <see cref="With"/> property was included in the response.
         /// </summary>
-        public bool HasWith {
-            get { return With.Any(); }
-        }
+        public bool HasWith => With.Any();
 
         #endregion
 

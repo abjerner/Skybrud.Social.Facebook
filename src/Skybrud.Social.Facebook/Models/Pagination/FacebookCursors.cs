@@ -7,9 +7,9 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
 
         #region Properties
 
-        public string After { get; private set; }
+        public string After { get; }
 
-        public string Before { get; private set; }
+        public string Before { get; }
 
         #endregion
 
