@@ -22,7 +22,7 @@ namespace Skybrud.Social.Facebook.Models {
         #region Member methods
 
         /// <summary>
-        /// Gets whether the underlying JSON object has a property with the specified <see cref="propertyName"/>.
+        /// Gets whether the underlying JSON object has a property with the specified <paramref name="propertyName"/>.
         /// </summary>
         /// <param name="propertyName">The name of the property.</param>
         /// <returns><c>true</c> if the property exists, otherwise <c>false</c>.</returns>
