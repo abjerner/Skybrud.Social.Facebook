@@ -14,7 +14,7 @@ namespace Skybrud.Social.Facebook {
         /// <summary>
         /// Gets a reference to the internal OAuth client for communication with the Facebook API.
         /// </summary>
-        public FacebookOAuthClient Client { get; private set; }
+        public FacebookOAuthClient Client { get; }
 
         /// <summary>
         /// Gets a reference to the accounts endpoint.
@@ -80,7 +80,8 @@ namespace Skybrud.Social.Facebook {
 
         #region Constructors
 
-        private FacebookService() {
+        private FacebookService(FacebookOAuthClient client) {
+            Client = client;
             Accounts = new FacebookAccountsEndpoint(this);
             Albums = new FacebookAlbumsEndpoint(this);
             Applications = new FacebookApplicationsEndpoint(this);
@@ -104,23 +105,19 @@ namespace Skybrud.Social.Facebook {
         /// client will be initialized from the access token.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
-        /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>
+        /// <returns>The created instance of <see cref="FacebookService" />.</returns>
         public static FacebookService CreateFromAccessToken(string accessToken) {
-            return new FacebookService {
-                Client = new FacebookOAuthClient(accessToken)
-            };
+            return new FacebookService(new FacebookOAuthClient(accessToken));
         }
 
         /// <summary>
         /// Initialize a new service instance from the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
-        /// <returns>Returns the created instance of <see cref="Skybrud.Social.Facebook.FacebookService" />.</returns>
+        /// <returns>The created instance of <see cref="FacebookService" />.</returns>
         public static FacebookService CreateFromOAuthClient(FacebookOAuthClient client) {
-            if (client == null) throw new ArgumentNullException("client");
-            return new FacebookService {
-                Client = client
-            };
+            if (client == null) throw new ArgumentNullException(nameof(client));
+            return new FacebookService(client);
         }
 
         #endregion
