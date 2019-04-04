@@ -99,7 +99,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookComment"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookComment"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="FacebookComment"/>.</returns>

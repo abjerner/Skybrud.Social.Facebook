@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
 
         /// <summary>
         /// Gets a summary for all likes. The summary is only present in the response if
-        /// <see cref="FacebookGetLikesOptions.IncludeSummary"/> was <code>true</code> in the request options.
+        /// <see cref="FacebookGetLikesOptions.IncludeSummary"/> was <c>true</c> in the request options.
         /// </summary>
         public FacebookLikesSummary Summary { get; }
 
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookLikesCollection"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLikesCollection"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookLikesCollection"/>.</returns>

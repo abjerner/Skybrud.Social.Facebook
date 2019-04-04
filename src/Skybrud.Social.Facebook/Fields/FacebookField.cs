@@ -17,7 +17,7 @@
         #region Constructors
 
         /// <summary>
-        /// Initializes a new field with the specified <code>name</code>.
+        /// Initializes a new field with the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the field.</param>
         public FacebookField(string name) {
@@ -27,9 +27,9 @@
         #endregion
 
         #region Operators
-       
+
         /// <summary>
-        /// Initializes a new field based on the specified <code>name</code>.
+        /// Initializes a new field based on the specified <paramref name="name"/>.
         /// </summary>
         /// <param name="name">The name of the field.</param>
         public static implicit operator FacebookField(string name) {

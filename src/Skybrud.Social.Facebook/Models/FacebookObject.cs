@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Models {
         /// Gets whether the underlying JSON object has a property with the specified <see cref="propertyName"/>.
         /// </summary>
         /// <param name="propertyName">The name of the property.</param>
-        /// <returns><code>true</code> if the property exists, otherwise <code>false</code>.</returns>
+        /// <returns><c>true</c> if the property exists, otherwise <c>false</c>.</returns>
         protected bool HasJsonProperty(string propertyName) {
             return JObject != null && JObject.Property(propertyName) != null;
         }

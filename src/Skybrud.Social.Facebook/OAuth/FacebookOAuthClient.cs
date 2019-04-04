@@ -41,7 +41,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         #endregion
 
         /// <summary>
-        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <code>v2.9</code>.
+        /// Gets or sets the version of the Facebook Graph API to be used. Defaults to <c>v2.9</c>.
         /// </summary>
         public string Version { get; set; }
 
@@ -138,38 +138,37 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified <code>accessToken</code>. Using this initializer, the client
+        /// Initializes an OAuth client with the specified <paramref name="accessToken"/>. Using this initializer, the client
         /// will have no information about your app.
         /// </summary>
         /// <param name="accessToken">A valid access token.</param>
         public FacebookOAuthClient(string accessToken) : this() {
-            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException("accessToken");
+            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
             AccessToken = accessToken;
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified <code>clientId</code> and <code>clientSecret</code>.
+        /// Initializes an OAuth client with the specified <paramref name="clientId"/> and <paramref name="clientSecret"/>.
         /// </summary>
         /// <param name="clientId">The client ID of the app.</param>
         /// <param name="clientSecret">The client secret of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret) : this() {
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
             ClientId = clientId;
             ClientSecret = clientSecret;
         }
 
         /// <summary>
-        /// Initializes an OAuth client with the specified <code>clientId</code>, <code>clientSecret</code> and
-        /// <code>redirectUri</code>.
+        /// Initializes an OAuth client with the specified <paramref name="clientId"/>, <paramref name="clientSecret"/> and <paramref name="redirectUri"/>.
         /// </summary>
         /// <param name="clientId">The client ID of the app.</param>
         /// <param name="clientSecret">The client secret of the app.</param>
         /// <param name="redirectUri">The redirect URI of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret, string redirectUri) : this() {
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException("clientId");
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException("clientSecret");
-            if (String.IsNullOrWhiteSpace(redirectUri)) throw new ArgumentNullException("redirectUri");
+            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (String.IsNullOrWhiteSpace(redirectUri)) throw new ArgumentNullException(nameof(redirectUri));
             ClientId = clientId;
             ClientSecret = clientSecret;
             RedirectUri = redirectUri;
@@ -184,9 +183,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// </summary>
         /// <param name="state">The state to send to Facebook's OAuth login page.</param>
         /// <param name="scope">The scope of the application.</param>
-        /// <returns>Returns an authorization URL based on <code>state</code> and <code>scope</code>.</returns>
+        /// <returns>Returns an authorization URL based on <paramref name="state"/> and <paramref name="scope"/>.</returns>
         public string GetAuthorizationUrl(string state, FacebookScopeCollection scope) {
-            return GetAuthorizationUrl(state, scope == null ? null : scope.ToString());
+            return GetAuthorizationUrl(state, scope?.ToString());
         }
 
         /// <summary>
@@ -194,17 +193,17 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// </summary>
         /// <param name="state">The state to send to Facebook's OAuth login page.</param>
         /// <param name="scope">The scope of the application.</param>
-        /// <returns>Returns an authorization URL based on <code>state</code> and <code>scope</code>.</returns>
+        /// <returns>Returns an authorization URL based on <paramref name="state"/> and <paramref name="scope"/>.</returns>
         public string GetAuthorizationUrl(string state, params string[] scope) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
 
             // Do we have a valid "state" ?
             if (String.IsNullOrWhiteSpace(state)) {
-                throw new ArgumentNullException("state", "A valid state should be specified as it is part of the security of OAuth 2.0.");
+                throw new ArgumentNullException(nameof(state), "A valid state should be specified as it is part of the security of OAuth 2.0.");
             }
 
             return String.Format(
@@ -225,11 +224,11 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException("RedirectUri");
-            if (String.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException("authCode");
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
+            if (String.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException(nameof(authCode));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -247,17 +246,17 @@ namespace Skybrud.Social.Facebook.OAuth {
         }
 
         /// <summary>
-        /// Attempts to renew a user access token. The specified <code>currentToken</code> must be valid.
+        /// Attempts to renew a user access token. The specified <paramref name="currentToken"/> must be valid.
         /// </summary>
         /// <param name="currentToken">The current access token.</param>
         /// <returns>Returns an instance of <see cref="FacebookTokenResponse"/> representing the response.</returns>
         public FacebookTokenResponse RenewAccessToken(string currentToken) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
-            if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException("currentToken");
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException(nameof(currentToken));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -282,9 +281,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAppAccessToken() {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException("ClientId");
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException("ClientSecret");
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -303,7 +302,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException("Version");
+            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
 
             // Append the HTTP scheme and API version if not already specified.
             if (request.Url.StartsWith("/")) {

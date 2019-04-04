@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #region Methods
 
         /// <summary>
-        /// Gets information about the current app by calling the <code>/app</code> method. This requires an app access
+        /// Gets information about the current app by calling the <c>/app</c> method. This requires an app access
         /// token.
         /// </summary>
         /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>

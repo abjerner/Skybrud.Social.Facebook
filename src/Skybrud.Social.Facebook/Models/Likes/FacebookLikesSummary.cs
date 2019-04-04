@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookLikesSummary"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLikesSummary"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="FacebookLikesSummary"/>.</returns>

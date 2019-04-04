@@ -411,7 +411,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookApplication"/>.
+        /// Parses the specified <c>obj</c> into an instance of <see cref="FacebookApplication"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookApplication"/>.</returns>

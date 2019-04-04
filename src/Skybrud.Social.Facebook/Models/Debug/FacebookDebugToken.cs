@@ -31,7 +31,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookDebugToken"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookDebugToken"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookDebugToken"/>.</returns>

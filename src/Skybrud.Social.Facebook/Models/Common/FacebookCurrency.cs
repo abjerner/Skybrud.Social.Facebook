@@ -15,9 +15,9 @@ namespace Skybrud.Social.Facebook.Models.Common {
 
         /// <summary>
         /// Will return a number that describes the number of additional decimal places to include when displaying the
-        /// person's currency. For example, the API will return <code>100</code> because <strong>USD</strong> is
+        /// person's currency. For example, the API will return <c>100</c> because <strong>USD</strong> is
         /// usually displayed with two decimal places. <strong>JPY</strong> does not use decimal places, so the API
-        /// will return <code>1</code>.
+        /// will return <c>1</c>.
         /// </summary>
         public int CurrencyOffset { get; }
 

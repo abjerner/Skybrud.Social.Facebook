@@ -260,7 +260,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
 
         /// <summary>
         /// Gets information about how many times the post has been shared. If the post hasn't yet
-        /// been shared, this property will return <code>null</code>.
+        /// been shared, this property will return <c>null</c>.
         /// </summary>
         public FacebookShares Shares { get; }
 

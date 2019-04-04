@@ -21,11 +21,11 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// Gets the count of comments on this object. It is important to note that this value is changed depending on
         /// the filter modifier being used (where comment replies are available):
         /// 
-        /// - <code>toplevel</code> - this is the default, returns all top-level comments in either <code>ranked</code>
-        /// or <code>chronological</code> order depending on how the comments are ordered on Facebook. This filter is
+        /// - <c>toplevel</c> - this is the default, returns all top-level comments in either <c>ranked</c>
+        /// or <c>chronological</c> order depending on how the comments are ordered on Facebook. This filter is
         /// useful for displaying comments in the same structure as they appear on Facebook.
         /// 
-        /// - <code>stream</code> - all-level comments in <code>chronological</code> order. This filter is useful for
+        /// - <c>stream</c> - all-level comments in <c>chronological</c> order. This filter is useful for
         /// comment moderation tools where it is helpful to see a chronological list of all comments.
         /// </summary>
         public int TotalCount { get; }
@@ -50,7 +50,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookCommentsSummary"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookCommentsSummary"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="FacebookCommentsSummary"/>.</returns>

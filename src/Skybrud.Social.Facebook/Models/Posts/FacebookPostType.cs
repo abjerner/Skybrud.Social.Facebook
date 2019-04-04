@@ -6,7 +6,7 @@
     public enum FacebookPostType {
 
         /// <summary>
-        /// Indicates that the <code>type</code> property wasn't part of the response from the Facebook Graph API.
+        /// Indicates that the <c>type</c> property wasn't part of the response from the Facebook Graph API.
         /// </summary>
         NotSpecified,
 

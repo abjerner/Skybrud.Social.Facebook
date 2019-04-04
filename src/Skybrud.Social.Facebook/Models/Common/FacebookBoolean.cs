@@ -11,12 +11,12 @@
         Unspecified,
 
         /// <summary>
-        /// Indicates that a boolean value is <code>false</code>.
+        /// Indicates that a boolean value is <c>false</c>.
         /// </summary>
         False,
  
         /// <summary>
-        /// Indicates that a boolean value is <code>true</code>.
+        /// Indicates that a boolean value is <c>true</c>.
         /// </summary>
         True
 

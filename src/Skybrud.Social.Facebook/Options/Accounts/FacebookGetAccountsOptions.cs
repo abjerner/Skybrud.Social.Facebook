@@ -42,7 +42,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         public FacebookFieldsCollection Fields { get; set; }
 
         /// <summary>
-        /// Gets or sets whether a summary should be included in the response. Default is <code>false</code>.
+        /// Gets or sets whether a summary should be included in the response. Default is <c>false</c>.
         /// </summary>
         public bool IncludeSummary { get; set; }
 

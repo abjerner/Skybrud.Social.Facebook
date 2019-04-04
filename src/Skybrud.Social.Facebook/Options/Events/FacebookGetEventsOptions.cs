@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets whether canceled events should be included in the response. Default is <code>false</code>.
+        /// Gets or sets whether canceled events should be included in the response. Default is <c>false</c>.
         /// </summary>
         public bool IncludeCanceled { get; set; }
 

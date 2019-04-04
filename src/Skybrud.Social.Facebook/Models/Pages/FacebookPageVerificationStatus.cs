@@ -6,7 +6,7 @@
     public enum FacebookPageVerificationStatus {
 
         /// <summary>
-        /// Indicates that the <code>verification_status</code> wasn't part of the response from the Facebook Graph API.
+        /// Indicates that the <c>verification_status</c> wasn't part of the response from the Facebook Graph API.
         /// </summary>
         NotSpecified,
 

@@ -40,7 +40,7 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         public string Place { get; set; }
 
         /// <summary>
-        /// If set to <code>true</code>, this will suppress the feed story that is automatically generated on a
+        /// If set to <c>true</c>, this will suppress the feed story that is automatically generated on a
         /// person's profile when they upload a photo using your app.
         /// </summary>
         public bool NoStory { get; set; }

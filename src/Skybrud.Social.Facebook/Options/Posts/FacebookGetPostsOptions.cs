@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
 
         /// <summary>
         /// Gets or sets whether or not to include any posts that were hidden by the Page. Defaults to
-        /// <code>false</code>.
+        /// <c>false</c>.
         /// </summary>
         public bool IncludeHidden { get; set; }
 

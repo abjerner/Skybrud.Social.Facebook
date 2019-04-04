@@ -6,7 +6,7 @@
     public enum FacebookGender {
 
         /// <summary>
-        /// Indicates that the <code>gender</code> field wasn't specified in the response from the Graph API.
+        /// Indicates that the <c>gender</c> field wasn't specified in the response from the Graph API.
         /// </summary>
         NotSpecified,
         

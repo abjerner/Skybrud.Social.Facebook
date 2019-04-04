@@ -22,7 +22,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <summary>
         /// Gets or sets the main body of the post, otherwise called the status message. Either <see cref="Link"/> or
         /// <see cref="Message"/> must be supplied. The message can contain mentions of Facebook Pages using the
-        /// following syntax: <code>@[page-id]</code>
+        /// following syntax: <c>@[page-id]</c>
         /// </summary>
         public string Message { get; set; }
 

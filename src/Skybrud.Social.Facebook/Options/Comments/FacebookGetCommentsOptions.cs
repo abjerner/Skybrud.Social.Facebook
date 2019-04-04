@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// <summary>
         /// Gets or sets whether a summary of metadata about the comments on the object should be included in the
         /// response. The summary will contain the total count of comments and how the comments are sorted (either
-        /// <code>ranked</code> or <code>chronological</code>).
+        /// <c>ranked</c> or <c>chronological</c>).
         /// </summary>
         public bool IncludeSummary { get; set; }
 

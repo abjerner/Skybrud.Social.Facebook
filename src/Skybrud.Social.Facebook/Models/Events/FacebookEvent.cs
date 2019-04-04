@@ -72,7 +72,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         public bool HasCategory => Category != FacebookEventCategory.Unspecified;
 
         /// <summary>
-        /// Gets the cover photo of the event, or <code>null</code> if not available/specified. Requires the
+        /// Gets the cover photo of the event, or <c>null</c> if not available/specified. Requires the
         /// <see cref="FacebookEventFields.Cover"/> field.
         /// </summary>
         public FacebookCoverPhoto Cover { get; }
@@ -95,7 +95,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         public bool HasDeclinedCount => HasJsonProperty("declined_count");
 
         /// <summary>
-        /// Gets the description of the event, or <code>null</code> if not available/specified. Use
+        /// Gets the description of the event, or <c>null</c> if not available/specified. Use
         /// <see cref="HasDescription"/> to check whether this property was specified and included in the response.
         /// </summary>
         public string Description { get; }
@@ -177,7 +177,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         public bool HasMaybeCount => HasJsonProperty("maybe_count");
 
         /// <summary>
-        /// Gets the name of the event, or <code>null</code> if not included in the response.
+        /// Gets the name of the event, or <c>null</c> if not included in the response.
         /// </summary>
         public string Name { get; }
 
@@ -197,7 +197,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         public bool HasNoreplyCount => HasJsonProperty("noreply_count");
 
         /// <summary>
-        /// Gets a reference to the profile that created the event, or <code>null</code> if not available.
+        /// Gets a reference to the profile that created the event, or <c>null</c> if not available.
         /// </summary>
         public FacebookEventOwner Owner { get; }
 
@@ -210,7 +210,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         // TODO: Add support for the "parent_group" property
 
         /// <summary>
-        /// Gets a reference to the place of the event, or <code>null</code> if not available.
+        /// Gets a reference to the place of the event, or <c>null</c> if not available.
         /// </summary>
         public FacebookPlace Place { get; }
 

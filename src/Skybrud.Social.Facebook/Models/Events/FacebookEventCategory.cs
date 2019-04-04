@@ -6,7 +6,7 @@
     public enum FacebookEventCategory {
 
         /// <summary>
-        /// Indicates that the category of the event wasn't specified. This means that the <code>category</code> property was missing in
+        /// Indicates that the category of the event wasn't specified. This means that the <c>category</c> property was missing in
         /// the JSON returned by the Facebook Graph API.
         /// </summary>
         Unspecified,

@@ -906,7 +906,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         // TODO: Add support for the "unseen_message_count" field
 
         /// <summary>
-        /// Gets the alias of the page. For example, for www.facebook.com/platform the username is <code>platform</code>.
+        /// Gets the alias of the page. For example, for www.facebook.com/platform the username is <c>platform</c>.
         /// </summary>
         public string Username { get; }
 

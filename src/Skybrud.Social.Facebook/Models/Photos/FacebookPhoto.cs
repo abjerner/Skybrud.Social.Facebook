@@ -156,7 +156,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         public bool HasLink => !String.IsNullOrWhiteSpace(Link);
 
         /// <summary>
-        /// Gets the user-provided caption given to this photo. Corresponds to <code>caption</code> when creating
+        /// Gets the user-provided caption given to this photo. Corresponds to <c>caption</c> when creating
         /// photos.
         /// </summary>
         public string Name { get; }
@@ -191,7 +191,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
 
         /// <summary>
         /// Gets the place the photo was taken. It is possible to upload photos to Facebook without
-        /// specifying a place, and in such cases the property will be <code>null</code>.
+        /// specifying a place, and in such cases the property will be <c>null</c>.
         /// </summary>
         public FacebookPlace Place { get; }
 
@@ -273,7 +273,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// </summary>
         /// <param name="width">The minimum width of the image.</param>
         /// <param name="height">The minimum height of the image.</param>
-        /// <returns>An instance of <see cref="FacebookImage"/>, or <code>null</code> if no matching images were found.</returns>
+        /// <returns>An instance of <see cref="FacebookImage"/>, or <c>null</c> if no matching images were found.</returns>
         public FacebookImage GetImageGreaterThanOrEqualTo(int width, int height) {
             return Images.Reverse().FirstOrDefault(x => x.Width >= width && x.Height != height);
         }

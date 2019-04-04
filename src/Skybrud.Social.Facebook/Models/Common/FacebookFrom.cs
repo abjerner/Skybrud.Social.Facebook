@@ -21,12 +21,12 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public string Name { get; }
 
         /// <summary>
-        /// Gets the primary category of a page. Is <code>null</code> for users.
+        /// Gets the primary category of a page. Is <c>null</c> for users.
         /// </summary>
         public string Category { get; }
 
         /// <summary>
-        /// Gets list of sub categories of a page. Is <code>null</code> for users.
+        /// Gets list of sub categories of a page. Is <c>null</c> for users.
         /// </summary>
         public FacebookEntity[] CategoryList { get; }
 
@@ -46,7 +46,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookFrom"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookFrom"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookFrom"/>.</returns>

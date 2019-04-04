@@ -16,8 +16,8 @@ namespace Skybrud.Social.Facebook.Options.Common {
 
         /// <summary>
         /// When <see cref="Value"/> is <see cref="FacebookPrivacy.Custom"/>, this is a comma-separated list of user
-        /// IDs and friend list IDs that <strong>can</strong> see the post. This can also be <code>ALL_FRIENDS</code>
-        /// or <code>FRIENDS_OF_FRIENDS</code> to include all members of those sets.
+        /// IDs and friend list IDs that <strong>can</strong> see the post. This can also be <c>ALL_FRIENDS</c>
+        /// or <c>FRIENDS_OF_FRIENDS</c> to include all members of those sets.
         /// </summary>
         public string[] Allow { get; set; }
 

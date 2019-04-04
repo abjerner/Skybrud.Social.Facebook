@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         );
 
         /// <summary>
-        /// Provides access to the person's primary email address via the <code>email</code> property on the <code>user</code> object.
+        /// Provides access to the person's primary email address via the <c>email</c> property on the <c>user</c> object.
         /// </summary>
         /// <see>
         ///     <cref>https://developers.facebook.com/docs/facebook-login/permissions#reference-email</cref>
@@ -41,7 +41,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// 
         /// In order for a person to show up in one person's friend list, both people must have decided to share their
         /// list of friends with your app and not disabled that permission during login. Also both friends must have
-        /// been asked for <code>user_friends</code> during the login process.
+        /// been asked for <c>user_friends</c> during the login process.
         /// </summary>
         public static readonly FacebookScope UserFriends = new FacebookScope(
             "user_friends",
@@ -54,8 +54,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         #region Extended user permissions
 
         /// <summary>
-        /// Provides access to a person's personal description (the 'About Me' section on their Profile) through the
-        /// <code>bio</code> property on the <code>User</code> object.
+        /// Provides access to a person's personal description (the 'About Me' section on their Profile) through the <c>bio</c> property on the <c>User</c> object.
         /// </summary>
         public static readonly FacebookScope UserAboutMe = new FacebookScope(
             "user_about_me",
@@ -67,8 +66,8 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// Access the date and month of a person's birthday. This may or may not include the person's year of birth,
         /// dependent upon their privacy settings and the access token being used to query this field.
         /// 
-        /// Please note most integrations will only need <code>age_range</code> which comes as part of the
-        /// <code>public_profile</code> permission.
+        /// Please note most integrations will only need <c>age_range</c> which comes as part of the
+        /// <c>public_profile</c> permission.
         /// </summary>
         public static readonly FacebookScope UserBirthday = new FacebookScope(
             "user_birthday",
@@ -77,7 +76,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         );
 
         /// <summary>
-        /// Provides access to a person's education history through the <code>education</code> field.
+        /// Provides access to a person's education history through the <c>education</c> field.
         /// </summary>
         public static readonly FacebookScope UserEducationHistory = new FacebookScope(
             "user_education_history",
@@ -104,7 +103,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         );
 
         /// <summary>
-        /// Provides access to a person's hometown location through the <code>hometown</code> field on the
+        /// Provides access to a person's hometown location through the <c>hometown</c> field on the
         /// <a href="https://developers.facebook.com/docs/graph-api/reference/user">User object</a>. This is set by the
         /// user in their profile.
         /// </summary>

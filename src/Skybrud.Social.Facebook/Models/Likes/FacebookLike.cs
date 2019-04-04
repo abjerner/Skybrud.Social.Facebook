@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookLike"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLike"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="FacebookLike"/>.</returns>

@@ -28,7 +28,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         public string Identifier { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the request will create an application specific album. Default is <code>false</code>.
+        /// Gets or sets whether the request will create an application specific album. Default is <c>false</c>.
         /// </summary>
         public bool IsDefault { get; set; }
 

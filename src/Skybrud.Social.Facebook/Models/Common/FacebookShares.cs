@@ -28,7 +28,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookShares"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookShares"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>Returns an instance of <see cref="FacebookShares"/>.</returns>

@@ -23,7 +23,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         public EssentialsDateTime CreatedTime { get; }
 
         /// <summary>
-        /// Gets the name of the cover photo, or <code>null</code> if not specified.
+        /// Gets the name of the cover photo, or <c>null</c> if not specified.
         /// </summary>
         public string Name { get; }
 

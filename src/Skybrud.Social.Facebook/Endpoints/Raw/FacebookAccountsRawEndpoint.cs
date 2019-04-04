@@ -34,8 +34,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         #region Methods
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetAccounts() {
@@ -43,8 +43,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
@@ -53,8 +53,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
@@ -63,8 +63,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
@@ -74,8 +74,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
@@ -85,8 +85,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
@@ -97,8 +97,8 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         }
 
         /// <summary>
-        /// Gets information about accounts associated with the current user by calling the <code>/me/accounts</code>
-        /// method. This call requires a user access token as well as the <code>manage_scope</code>.
+        /// Gets information about accounts associated with the current user by calling the <c>/me/accounts</c>
+        /// method. This call requires a user access token as well as the <c>manage_scope</c>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>

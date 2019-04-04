@@ -26,8 +26,7 @@ namespace Skybrud.Social.Facebook.Exceptions {
         public string Type { get; }
 
         /// <summary>
-        /// Gets the sub error code received from the Facebook API. If a sub error code isn't specified in the
-        /// response, <code>0</code> will be returned.
+        /// Gets the sub error code received from the Facebook API. If a sub error code isn't specified in the response, <c>0</c> will be returned.
         /// </summary>
         public int Subcode { get; }
 
@@ -36,7 +35,7 @@ namespace Skybrud.Social.Facebook.Exceptions {
         #region Constructors
 
         /// <summary>
-        /// Initializes a new exception based on the specified <code>response</code>.
+        /// Initializes a new exception based on the specified <paramref name="response"/>.
         /// </summary>
         /// <param name="response">The instance of <see cref="IHttpResponse"/> representing the response.</param>
         /// <param name="code">The error code.</param>

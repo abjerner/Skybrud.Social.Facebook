@@ -18,14 +18,13 @@ namespace Skybrud.Social.Facebook.Models.Authentication {
         public string AccessToken { get; }
 
         /// <summary>
-        /// Gets the type of the access token. Given the authentication flows supported by Skybrud.Social, this will
-        /// always be <code>bearer</code>.
+        /// Gets the type of the access token. Given the authentication flows supported by Skybrud.Social, this will always be <c>bearer</c>.
         /// </summary>
         public string TokenType { get; }
 
         /// <summary>
         /// Gets an instance of <see cref="TimeSpan"/> representing the time until the access token will expire. If
-        /// <see cref="TimeSpan.TotalSeconds"/> is <code>0</code>, the token will not expire (eg. an app access token).
+        /// <see cref="TimeSpan.TotalSeconds"/> is <c>0</c>, the token will not expire (eg. an app access token).
         /// </summary>
         public TimeSpan ExpiresIn { get; }
 

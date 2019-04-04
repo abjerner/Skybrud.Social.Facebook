@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
 
         /// <summary>
         /// Gets a summary for all comments. The summary is only present in the response if
-        /// <see cref="FacebookGetCommentsOptions.IncludeSummary"/> was <code>true</code> in the request options.
+        /// <see cref="FacebookGetCommentsOptions.IncludeSummary"/> was <c>true</c> in the request options.
         /// </summary>
         public FacebookCommentsSummary Summary { get; }
 
@@ -48,7 +48,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <code>obj</code> into an instance of <see cref="FacebookCommentsCollection"/>.
+        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookCommentsCollection"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
         /// <returns>Returns an instance of <see cref="FacebookCommentsCollection"/>.</returns>
