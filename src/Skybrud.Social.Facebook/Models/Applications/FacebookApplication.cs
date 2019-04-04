@@ -414,7 +414,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// Parses the specified <c>obj</c> into an instance of <see cref="FacebookApplication"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookApplication"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookApplication"/>.</returns>
         public static FacebookApplication Parse(JObject obj) {
             return obj == null ? null : new FacebookApplication(obj);
         }

@@ -53,7 +53,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookCommentsSummary"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
-        /// <returns>Returns an instance of <see cref="FacebookCommentsSummary"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookCommentsSummary"/>.</returns>
         public static FacebookCommentsSummary Parse(JObject obj) {
             return obj == null ? null : new FacebookCommentsSummary(obj);
         }

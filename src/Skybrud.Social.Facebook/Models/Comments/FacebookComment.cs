@@ -102,7 +102,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookComment"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to parse.</param>
-        /// <returns>Returns an instance of <see cref="FacebookComment"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookComment"/>.</returns>
         public static FacebookComment Parse(JObject obj) {
             return obj == null ? null : new FacebookComment(obj);
         }

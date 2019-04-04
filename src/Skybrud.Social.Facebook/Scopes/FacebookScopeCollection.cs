@@ -91,7 +91,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// Initializes a new collection based on a single <paramref name="scope"/>.
         /// </summary>
         /// <param name="scope">The scope the collection should be based on.</param>
-        /// <returns>Returns a new collection based on a single <paramref name="scope"/>.</returns>
+        /// <returns>A new collection based on a single <paramref name="scope"/>.</returns>
         public static implicit operator FacebookScopeCollection(FacebookScope scope) {
             return new FacebookScopeCollection(scope);
         }
@@ -100,7 +100,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// Initializes a new collection based on an <paramref name="array"/> of scopes.
         /// </summary>
         /// <param name="array">The array of scopes the collection should be based on.</param>
-        /// <returns>Returns a new collection based on an <paramref name="array"/> of scopes.</returns>
+        /// <returns>A new collection based on an <paramref name="array"/> of scopes.</returns>
         public static implicit operator FacebookScopeCollection(FacebookScope[] array) {
             return new FacebookScopeCollection(array ?? new FacebookScope[0]);
         }

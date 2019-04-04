@@ -54,7 +54,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookAlbumCoverPhoto"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookAlbumCoverPhoto"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookAlbumCoverPhoto"/>.</returns>
         public static FacebookAlbumCoverPhoto Parse(JObject obj) {
             return obj == null ? null : new FacebookAlbumCoverPhoto(obj);
         }

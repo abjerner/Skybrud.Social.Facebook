@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookDebugToken"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookDebugToken"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookDebugToken"/>.</returns>
         public static FacebookDebugToken Parse(JObject obj) {
             return obj == null ? null : new FacebookDebugToken(obj);
         }

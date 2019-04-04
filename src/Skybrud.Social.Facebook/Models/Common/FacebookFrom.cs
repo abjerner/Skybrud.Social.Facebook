@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookFrom"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookFrom"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookFrom"/>.</returns>
         public static FacebookFrom Parse(JObject obj) {
             return obj == null ? null : new FacebookFrom(obj);
         }

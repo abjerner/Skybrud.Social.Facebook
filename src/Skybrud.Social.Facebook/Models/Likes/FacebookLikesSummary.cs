@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLikesSummary"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="Newtonsoft.Json.Linq.JObject"/> to parse.</param>
-        /// <returns>Returns an instance of <see cref="FacebookLikesSummary"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookLikesSummary"/>.</returns>
         public static FacebookLikesSummary Parse(JObject obj) {
             return obj == null ? null : new FacebookLikesSummary(obj);
         }

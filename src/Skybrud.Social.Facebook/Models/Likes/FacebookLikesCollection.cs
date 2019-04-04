@@ -46,7 +46,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookLikesCollection"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookLikesCollection"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookLikesCollection"/>.</returns>
         public static FacebookLikesCollection Parse(JObject obj) {
             return obj == null ? null : new FacebookLikesCollection(obj);
         }

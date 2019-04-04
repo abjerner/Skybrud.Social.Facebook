@@ -67,7 +67,7 @@ namespace Skybrud.Social.Facebook.Models.Statuses {
         /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookStatusMessage"/>.
         /// </summary>
         /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
-        /// <returns>Returns an instance of <see cref="FacebookStatusMessage"/>.</returns>
+        /// <returns>An instance of <see cref="FacebookStatusMessage"/>.</returns>
         public static FacebookStatusMessage Parse(JObject obj) {
             return obj == null ? null : new FacebookStatusMessage(obj);
         }
