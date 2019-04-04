@@ -299,6 +299,7 @@ namespace Skybrud.Social.Facebook.OAuth {
 
         }
 
+        /// <inheritdoc />
         protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Some validation
