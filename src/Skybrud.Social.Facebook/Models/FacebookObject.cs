@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json;
+using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Time;
 
 namespace Skybrud.Social.Facebook.Models {
 
@@ -28,6 +30,20 @@ namespace Skybrud.Social.Facebook.Models {
         /// <returns><c>true</c> if the property exists, otherwise <c>false</c>.</returns>
         protected bool HasJsonProperty(string propertyName) {
             return JObject?.Property(propertyName) != null;
+        }
+
+        /// <summary>
+        /// Parses the Unix timestamp at <paramref name="path"/>.
+        /// 
+        /// In some cases, the Graph APi may return <c>0</c> indicating no value - if this is the case, this method will return <c>null</c> instead of <see cref="EssentialsTime.Zero"/>.
+        /// </summary>
+        /// <param name="obj">The parent object.</param>
+        /// <param name="path">A <see cref="string"/> that contains a JPath expression.</param>
+        /// <returns></returns>
+        protected EssentialsTime ParseUnixTimestamp(JObject obj, string path) {
+            if (obj.HasValue(path) == false) return null;
+            int value = obj.GetInt32(path);
+            return value > 0 ? EssentialsTime.FromUnixTimestamp(value) : null;
         }
 
         #endregion

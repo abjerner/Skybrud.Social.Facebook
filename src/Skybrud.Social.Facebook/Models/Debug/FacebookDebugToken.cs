@@ -2,12 +2,12 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Debug {
-    
+
     /// <summary>
     /// Class representing the response body of a call to get metadata about a given access token.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/debug_token#read</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v3.2/debug_token#read</cref>
     /// </see>
     public class FacebookDebugToken : FacebookObject {
 

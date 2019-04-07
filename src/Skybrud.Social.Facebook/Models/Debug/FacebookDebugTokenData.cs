@@ -5,12 +5,12 @@ using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Scopes;
 
 namespace Skybrud.Social.Facebook.Models.Debug {
-    
+
     /// <summary>
     /// Class representing the metadata about a given access token.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.5/debug_token#read</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v3.2/debug_token#read</cref>
     /// </see>
     public class FacebookDebugTokenData : FacebookObject {
 
@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets the ID of the application this access token is for.
         /// </summary>
-        public long AppId { get; }
+        public string AppId { get; }
 
         /// <summary>
         /// Gets the name of the application this access token is for.
@@ -30,6 +30,11 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// Gets the timestamp for when the token will expire.
         /// </summary>
         public EssentialsTime ExpiresAt { get; }
+
+        /// <summary>
+        /// Gets the timestamp for when app's access to user data expires.
+        /// </summary>
+        public EssentialsTime DataAccessExpiresAt { get; }
 
         /// <summary>
         /// Gets whether the the access token is valid.
@@ -57,30 +62,28 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         #region Constructors
 
         private FacebookDebugTokenData(JObject obj) : base(obj) {
-
-            // If an access token doesn't have an expire date, it may be specified as "0". In other scenarios, the
-            // property is not present at all. In either case, we should set the "ExpiresAt" property to "NULL".
-            EssentialsTime expiresAt = null;
-            if (obj.HasValue("expires_at")) {
-                int value = obj.GetInt32("expires_at");
-                if (value > 0) expiresAt = EssentialsTime.FromUnixTimestamp(value);
-            }
-
-            // Parse the array of scopes
-            FacebookScope[] scopes = (
-                from name in obj.GetArray("scopes", x => x.ToString()) ?? new string[0]
-                select FacebookScope.GetScope(name) ?? new FacebookScope(name)
-            ).ToArray();
-
-            // Populate the properties
-            AppId = obj.GetInt64("app_id");
+            AppId = obj.GetString("app_id");
+            // TODO: Add support for the "type" property (not documented by Facebook)
             Application = obj.GetString("application");
-            ExpiresAt = expiresAt;
+            ExpiresAt = ParseUnixTimestamp(obj, "expires_at");
+            DataAccessExpiresAt = ParseUnixTimestamp(obj, "data_access_expires_at");
             IsValid = obj.GetBoolean("is_valid");
             IssuedAt = obj.HasValue("issued_at") ? obj.GetInt64("issued_at", EssentialsTime.FromUnixTimestamp) : null;
+            // TODO: Add support for the "metadata" property
+            // TODO: Add support for the "profile_id" property
             UserId = obj.GetString("user_id");
-            Scopes = scopes;
+            Scopes = ParseScopes(obj);
+        }
 
+        #endregion
+
+        #region Member methods
+
+        private FacebookScope[] ParseScopes(JObject obj) {
+            return (
+                from name in obj.GetStringArray("scopes")
+                select FacebookScope.GetScope(name) ?? new FacebookScope(name)
+            ).ToArray();
         }
 
         #endregion
