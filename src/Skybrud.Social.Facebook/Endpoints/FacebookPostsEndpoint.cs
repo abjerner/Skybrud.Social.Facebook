@@ -114,7 +114,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
-        public FacebookGetPostsResponse GetPosts(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit, until, fields));
         }
 

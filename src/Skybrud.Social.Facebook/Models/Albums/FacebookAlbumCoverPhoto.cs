@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets a timestamp representing the creation time of the cover photo.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets the name of the cover photo, or <c>null</c> if not specified.
@@ -42,7 +42,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <param name="obj">The instance of <see cref="JObject"/> representing the event.</param>
         private FacebookAlbumCoverPhoto(JObject obj) : base(obj) {
             Id = obj.GetString("id");
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             Name = obj.GetString("name");
         }
 

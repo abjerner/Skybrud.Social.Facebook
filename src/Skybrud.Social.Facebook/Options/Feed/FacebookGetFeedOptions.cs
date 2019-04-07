@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
-        public FacebookGetFeedOptions(string identifier, int limit, EssentialsDateTime until) {
+        public FacebookGetFeedOptions(string identifier, int limit, EssentialsTime until) {
             Identifier = identifier;
             Limit = limit;
             Until = until;
@@ -101,7 +101,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetFeedOptions(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) : this() {
+        public FacebookGetFeedOptions(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) : this() {
             Identifier = identifier;
             Limit = limit;
             Until = until;

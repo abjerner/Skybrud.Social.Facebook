@@ -51,7 +51,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// <summary>
         /// Gets the time the comment was made.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
@@ -89,7 +89,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
             From = obj.GetObject("from", FacebookFrom.Parse);
             Message = obj.GetString("message");
             CanRemove = obj.GetBoolean("can_remove");
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             LikeCount = obj.GetInt32("like_count");
             UserLikes = obj.GetBoolean("user_likes");
         }

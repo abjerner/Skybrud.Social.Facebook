@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets the timestamp for when the token will expire.
         /// </summary>
-        public EssentialsDateTime ExpiresAt { get; }
+        public EssentialsTime ExpiresAt { get; }
 
         /// <summary>
         /// Gets whether the the access token is valid.
@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         /// <summary>
         /// Gets the timestamp for when the token was issued.
         /// </summary>
-        public EssentialsDateTime IssuedAt { get; }
+        public EssentialsTime IssuedAt { get; }
 
         /// <summary>
         /// Gets the ID of the user. The ID is only present for user access tokens.
@@ -60,10 +60,10 @@ namespace Skybrud.Social.Facebook.Models.Debug {
 
             // If an access token doesn't have an expire date, it may be specified as "0". In other scenarios, the
             // property is not present at all. In either case, we should set the "ExpiresAt" property to "NULL".
-            EssentialsDateTime expiresAt = null;
+            EssentialsTime expiresAt = null;
             if (obj.HasValue("expires_at")) {
                 int value = obj.GetInt32("expires_at");
-                if (value > 0) expiresAt = EssentialsDateTime.FromUnixTimestamp(value);
+                if (value > 0) expiresAt = EssentialsTime.FromUnixTimestamp(value);
             }
 
             // Parse the array of scopes
@@ -77,7 +77,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
             Application = obj.GetString("application");
             ExpiresAt = expiresAt;
             IsValid = obj.GetBoolean("is_valid");
-            IssuedAt = obj.HasValue("issued_at") ? obj.GetInt64("issued_at", EssentialsDateTime.FromUnixTimestamp) : null;
+            IssuedAt = obj.HasValue("issued_at") ? obj.GetInt64("issued_at", EssentialsTime.FromUnixTimestamp) : null;
             UserId = obj.GetString("user_id");
             Scopes = scopes;
 

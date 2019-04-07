@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the end date of the project experience.
         /// </summary>
-        public EssentialsDateTime EndDate { get; }
+        public EssentialsTime EndDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="EndDate"/> property was included in the response.
@@ -65,7 +65,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets the start date of the project experience.
         /// </summary>
-        public EssentialsDateTime StartDate { get; }
+        public EssentialsTime StartDate { get; }
 
         /// <summary>
         /// Gets whether the <see cref="StartDate"/> property was included in the response.
@@ -89,10 +89,10 @@ namespace Skybrud.Social.Facebook.Models.Common {
         private FacebookProjectExperience(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             Description = obj.GetString("description");
-            EndDate = obj.GetString("end_date", EssentialsDateTime.Parse);
+            EndDate = obj.GetString("end_date", EssentialsTime.Parse);
             From = obj.GetObject("from", FacebookUser.Parse);
             Name = obj.GetString("name");
-            StartDate = obj.GetString("start_date", EssentialsDateTime.Parse);
+            StartDate = obj.GetString("start_date", EssentialsTime.Parse);
             With = obj.GetArrayItems("with", FacebookUser.Parse);
         }
 

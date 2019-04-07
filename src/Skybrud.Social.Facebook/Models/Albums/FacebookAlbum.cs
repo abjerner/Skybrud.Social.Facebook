@@ -56,7 +56,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets the time the album was initially created.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
@@ -159,7 +159,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets the last time the album was updated.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; }
+        public EssentialsTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
@@ -179,7 +179,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
             CanUpload = obj.GetBoolean("can_upload");
             Count = obj.GetInt32("count");
             CoverPhoto = obj.GetObject("cover_photo", FacebookAlbumCoverPhoto.Parse);
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             Description = obj.GetString("description");
             Event = obj.GetObject("event", FacebookEvent.Parse);
             From = obj.GetObject("from", FacebookFrom.Parse);
@@ -189,7 +189,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
             Place = obj.GetObject("place", FacebookPlace.Parse);
             Privacy = obj.GetString("privacy");
             Type = obj.GetEnum("type", FacebookAlbumType.Unspecified);
-            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsTime.Parse);
         }
 
         #endregion

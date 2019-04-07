@@ -23,12 +23,12 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// <summary>
         /// Gets or sets the timestamp that points to the start of the range of time-based data.
         /// </summary>
-        public EssentialsDateTime Since { get; set; }
+        public EssentialsTime Since { get; set; }
 
         /// <summary>
         /// Gets or sets the timestamp that points to the end of the range of time-based data.
         /// </summary>
-        public EssentialsDateTime Until { get; set; }
+        public EssentialsTime Until { get; set; }
 
         #endregion
 

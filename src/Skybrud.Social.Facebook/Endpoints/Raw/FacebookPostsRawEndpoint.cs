@@ -119,7 +119,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPosts(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+        public IHttpResponse GetPosts(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
             if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPosts(new FacebookGetPostsOptions(identifier, limit, until, fields));
         }

@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets a user-specified time for when this object was created.
         /// </summary>
-        public EssentialsDateTime BackdatedTime { get; }
+        public EssentialsTime BackdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Width"/> property was included in the response.
@@ -88,7 +88,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets the time this photo was published.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
@@ -205,7 +205,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets the last time the photo was updated.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; }
+        public EssentialsTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
@@ -240,12 +240,12 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         private FacebookPhoto(JObject obj) : base(obj) {
             Id = obj.GetString("id");
             Album = obj.GetObject("album", FacebookAlbum.Parse);
-            BackdatedTime = obj.GetString("backdated_time", EssentialsDateTime.Parse);
+            BackdatedTime = obj.GetString("backdated_time", EssentialsTime.Parse);
             BackdatedTimeGranularity = obj.GetString("backdated_time_granularity");
             CanBackdate = obj.GetBoolean("can_backdate");
             CanDelete = obj.GetBoolean("can_delete");
             CanTag = obj.GetBoolean("can_tag");
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             Event = obj.GetObject("event", FacebookEvent.Parse);
             From = obj.GetObject("from", FacebookEntity.Parse);
             Height = obj.GetInt32("height");
@@ -258,7 +258,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
             Picture = obj.GetString("picture");
             Place = obj.GetObject("place", FacebookPlace.Parse);
             // TODO: Add support for the "target" field
-            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsTime.Parse);
             WebpImages = obj.GetArray("webp_images", FacebookImage.Parse);
             Width = obj.GetInt32("width");
         }

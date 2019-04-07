@@ -80,7 +80,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetFeed(string identifier, int limit, EssentialsDateTime until, FacebookFieldsCollection fields) {
+        public IHttpResponse GetFeed(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
             return GetFeed(new FacebookGetFeedOptions(identifier, limit, until, fields));
         }
 

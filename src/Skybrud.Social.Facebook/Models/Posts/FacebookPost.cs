@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// Gets the time the post was initially published. For a post about a life event, this will be the date and
         /// time of the life event.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
@@ -350,7 +350,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// 
         /// For a post about a life event, this will be the date and time of the life event.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; }
+        public EssentialsTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
@@ -371,7 +371,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             // TODO: Add support for the "call_to_action" property
             // TODO: Add support for the "can_reply_privately" property
             Caption = obj.GetString("caption");
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             Description = obj.GetString("description");
             // TODO: Add support for the "feed_targeting" property
             From = obj.GetObject("from", FacebookProfile.Parse);
@@ -402,7 +402,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             // TODO: Add support for the "targeting" property
             // TODO: Add support for the "to" property
             Type = obj.GetEnum("type", FacebookPostType.NotSpecified);
-            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsTime.Parse);
             // TODO: Add support for the "with_tags" property
         }
 

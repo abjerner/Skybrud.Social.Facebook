@@ -126,7 +126,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the birthday of this person. Applicable to pages representing people.
         /// </summary>
-        public EssentialsDateTime Birthday { get; }
+        public EssentialsDate Birthday { get; }
 
         /// <summary>
         /// Gets whether the <see cref="Birthday"/> property was included in the response and has a value.
@@ -1091,9 +1091,9 @@ namespace Skybrud.Social.Facebook.Models.Pages {
 
         #region Member methods
 
-        private EssentialsDateTime ParseBirthday(string str) {
+        private EssentialsDate ParseBirthday(string str) {
             if (String.IsNullOrWhiteSpace(str)) return null;
-            return DateTime.ParseExact(str, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+            return new EssentialsDate(DateTime.ParseExact(str, "MM/dd/yyyy", CultureInfo.InvariantCulture));
         } 
 
         #endregion

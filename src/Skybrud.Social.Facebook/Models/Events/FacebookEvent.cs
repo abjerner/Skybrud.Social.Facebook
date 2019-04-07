@@ -108,7 +108,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets the end time of the event. Not all events have an end time.
         /// </summary>
-        public EssentialsDateTime EndTime { get; }
+        public EssentialsTime EndTime { get; }
 
         /// <summary>
         /// Gets whether an end time was specified for the event and included in the response.
@@ -222,7 +222,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets the start time of the event.
         /// </summary>
-        public EssentialsDateTime StartTime { get; }
+        public EssentialsTime StartTime { get; }
 
         /// <summary>
         /// Gets whether a start time was specified for the event and included in the response.
@@ -266,7 +266,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// Gets the last time the event was updated. Use <see cref="HasUpdatedTime"/> to check whether this property
         /// was included in the response.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; }
+        public EssentialsTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
@@ -289,7 +289,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
             Cover = obj.GetObject("cover", FacebookCoverPhoto.Parse);
             DeclinedCount = obj.GetInt32("declined_count");
             Description = obj.GetString("description");
-            EndTime = obj.GetString("end_time", EssentialsDateTime.Parse);
+            EndTime = obj.GetString("end_time", EssentialsTime.Parse);
             GuestListEnabled = obj.GetBoolean("guest_list_enabled");
             InterestedCount = obj.GetInt32("interested_count");
             IsCanceled = obj.GetBoolean("is_canceled");
@@ -301,11 +301,11 @@ namespace Skybrud.Social.Facebook.Models.Events {
             Owner = obj.GetObject("owner", FacebookEventOwner.Parse);
             // parent_group");
             Place = obj.GetObject("place", FacebookPlace.Parse);
-            StartTime = obj.GetString("start_time", EssentialsDateTime.Parse);
+            StartTime = obj.GetString("start_time", EssentialsTime.Parse);
             TicketUri = obj.GetString("ticket_uri");
             Timezone = obj.GetString("timezone");
             Type = obj.GetEnum("type", FacebookEventType.Unspecified);
-            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsTime.Parse);
         }
 
         #endregion

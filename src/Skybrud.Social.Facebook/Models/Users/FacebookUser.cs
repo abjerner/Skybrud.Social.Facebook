@@ -412,7 +412,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets the update time of the user.
         /// </summary>
-        public EssentialsDateTime UpdatedTime { get; }
+        public EssentialsTime UpdatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="UpdatedTime"/> property was included in the response.
@@ -510,7 +510,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
             ThirdPartyId = obj.GetString("third_party_id");
             Timezone = obj.GetFloat("timezone");
             // TODO: Add support for the "token_for_business" field
-            UpdatedTime = obj.GetString("updated_time", EssentialsDateTime.Parse);
+            UpdatedTime = obj.GetString("updated_time", EssentialsTime.Parse);
             Verified = obj.GetBoolean("verified");
             // TODO: Add support for the "video_upload_limits" field
             // TODO: Add support for the "viewer_can_send_gift" field

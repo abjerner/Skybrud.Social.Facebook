@@ -109,7 +109,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets the timestamp that indicates when the app was created.
         /// </summary>
-        public EssentialsDateTime CreatedTime { get; }
+        public EssentialsTime CreatedTime { get; }
 
         /// <summary>
         /// Gets whether the <see cref="CreatedTime"/> property was included in the response.
@@ -353,7 +353,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
             // TODO: Add support for the "configured_ios_sso" property
             ContactEmail = obj.GetString("contact_email");
             // TODO: Add support for the "context" property
-            CreatedTime = obj.GetString("created_time", EssentialsDateTime.Parse);
+            CreatedTime = obj.GetString("created_time", EssentialsTime.Parse);
             // TODO: Add support for the "creator_uid" property
             DailyActiveUsers = obj.GetInt64("daily_active_users");
             DailyActiveUsersRank = GetUnsignedInt32(obj, "daily_active_users_rank");
