@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Common;
+﻿using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Collections;
@@ -35,7 +34,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse DebugToken() {
-            if (String.IsNullOrWhiteSpace(Client.AccessToken)) throw new PropertyNotSetException(nameof(Client.AccessToken));
+            if (string.IsNullOrWhiteSpace(Client.AccessToken)) throw new PropertyNotSetException(nameof(Client.AccessToken));
             return DebugToken(Client.AccessToken);
         }
 

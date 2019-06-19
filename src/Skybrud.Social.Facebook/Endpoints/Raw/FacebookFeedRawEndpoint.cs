@@ -91,7 +91,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetFeed(FacebookGetFeedOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
             return Client.DoHttpGetRequest("/" + options.Identifier + "/feed", options);
         }
 

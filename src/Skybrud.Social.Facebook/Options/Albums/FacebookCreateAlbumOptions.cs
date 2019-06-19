@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common;
@@ -75,10 +74,10 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         public IHttpPostData GetPostData() {
             IHttpPostData postData = new HttpPostData();
             if (IsDefault) postData.Add("is_default", "true");
-            if (!String.IsNullOrWhiteSpace(Location)) postData.Add("location", Location);
-            if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
-            if (!String.IsNullOrWhiteSpace(Name)) postData.Add("name", Name);
-            if (!String.IsNullOrWhiteSpace(Place)) postData.Add("place", Place);
+            if (string.IsNullOrWhiteSpace(Location) == false) postData.Add("location", Location);
+            if (string.IsNullOrWhiteSpace(Message) == false) postData.Add("message", Message);
+            if (string.IsNullOrWhiteSpace(Name) == false) postData.Add("name", Name);
+            if (string.IsNullOrWhiteSpace(Place) == false) postData.Add("place", Place);
             if (Privacy != null && Privacy.Value != FacebookPrivacy.Default) postData.Add("privacy", Privacy.ToString());
             return postData;
         }

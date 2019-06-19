@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
@@ -36,7 +35,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="About"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAbout => !String.IsNullOrWhiteSpace(About);
+        public bool HasAbout => string.IsNullOrWhiteSpace(About) == false;
 
         /// <summary>
         /// Gets the birthday of the user.
@@ -46,7 +45,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Birthday"/> property was included in the response.
         /// </summary>
-        public bool HasBirthday => !String.IsNullOrWhiteSpace(Birthday);
+        public bool HasBirthday => string.IsNullOrWhiteSpace(Birthday) == false;
 
         // TODO: Add support for the "can_review_measurement_request" field
 
@@ -100,7 +99,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Email"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasEmail => !String.IsNullOrWhiteSpace(Email);
+        public bool HasEmail => string.IsNullOrWhiteSpace(Email) == false;
 
         /// <summary>
         /// Gets the he person's employee number, as set by the company via SCIM API.
@@ -110,7 +109,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="EmployeeNumber"/> property was included in the response.
         /// </summary>
-        public bool HasEmployeeNumber => !String.IsNullOrWhiteSpace(EmployeeNumber);
+        public bool HasEmployeeNumber => string.IsNullOrWhiteSpace(EmployeeNumber) == false;
 
         /// <summary>
         /// Gets an array of athletes the person likes.
@@ -140,7 +139,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="FirstName"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFirstName => !String.IsNullOrWhiteSpace(FirstName);
+        public bool HasFirstName => string.IsNullOrWhiteSpace(FirstName) == false;
 
         /// <summary>
         /// Gets the gender of the user.
@@ -235,7 +234,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="LastName"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLastName => !String.IsNullOrWhiteSpace(LastName);
+        public bool HasLastName => string.IsNullOrWhiteSpace(LastName) == false;
 
         /// <summary>
         /// Gets a link to the profile of the user.
@@ -245,7 +244,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         /// <summary>
         /// Gets the selected locale of the user.
@@ -255,7 +254,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Locale"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLocale => !String.IsNullOrWhiteSpace(Locale);
+        public bool HasLocale => string.IsNullOrWhiteSpace(Locale) == false;
 
         /// <summary>
         /// Gets the person's current location as entered by them on their profile. This field is not related to
@@ -286,7 +285,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="MiddleName"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMiddleName => !String.IsNullOrWhiteSpace(MiddleName);
+        public bool HasMiddleName => string.IsNullOrWhiteSpace(MiddleName) == false;
 
         /// <summary>
         /// Gets the full name of the user.
@@ -296,7 +295,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets the person's name formatted to correctly handle Chinese, Japanese, or Korean ordering.
@@ -306,7 +305,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="NameFormat"/> property was included in the response.
         /// </summary>
-        public bool HasNameFormat => !String.IsNullOrWhiteSpace(NameFormat);
+        public bool HasNameFormat => string.IsNullOrWhiteSpace(NameFormat) == false;
 
         // TODO: Add support for the "payment_pricepoints" field
 
@@ -318,7 +317,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Political"/> property was included in the response.
         /// </summary>
-        public bool HasPolitical => !String.IsNullOrWhiteSpace(Political);
+        public bool HasPolitical => string.IsNullOrWhiteSpace(Political) == false;
 
         /// <summary>
         /// Gets the person's PGP public key.
@@ -328,7 +327,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="PublicKey"/> property was included in the response.
         /// </summary>
-        public bool HasPublicKey => !String.IsNullOrWhiteSpace(PublicKey);
+        public bool HasPublicKey => string.IsNullOrWhiteSpace(PublicKey) == false;
 
         /// <summary>
         /// Gets the person's favorite quotes.
@@ -338,7 +337,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Quotes"/> property was included in the response.
         /// </summary>
-        public bool HasQuotes => !String.IsNullOrWhiteSpace(Quotes);
+        public bool HasQuotes => string.IsNullOrWhiteSpace(Quotes) == false;
 
         /// <summary>
         /// Gets the person's relationship status.
@@ -348,7 +347,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="RelationshipStatus"/> property was included in the response.
         /// </summary>
-        public bool HasRelationshipStatus => !String.IsNullOrWhiteSpace(RelationshipStatus);
+        public bool HasRelationshipStatus => string.IsNullOrWhiteSpace(RelationshipStatus) == false;
 
         /// <summary>
         /// Gets the person's religion.
@@ -358,7 +357,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Religion"/> property was included in the response.
         /// </summary>
-        public bool HasReligion => !String.IsNullOrWhiteSpace(Religion);
+        public bool HasReligion => string.IsNullOrWhiteSpace(Religion) == false;
 
         // TODO: Add support for the "security_settings" field
 
@@ -395,7 +394,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="ThirdPartyId"/> property was included in the response.
         /// </summary>
-        public bool HasThirdPartyId => !String.IsNullOrWhiteSpace(ThirdPartyId);
+        public bool HasThirdPartyId => string.IsNullOrWhiteSpace(ThirdPartyId) == false;
 
         /// <summary>
         /// Gets the selected timezone of the user. The timezone is specified as the offset in hours from UTC.
@@ -445,7 +444,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Website"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasWebsite => !String.IsNullOrWhiteSpace(Website);
+        public bool HasWebsite => string.IsNullOrWhiteSpace(Website) == false;
 
         /// <summary>
         /// Gets an array of the person`s work experience.

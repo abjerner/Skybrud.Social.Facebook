@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
@@ -117,15 +116,15 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         public override IHttpQueryString GetQueryString() {
 
             // Convert the collection of fields to a string
-            string fields = (Fields == null ? "" : Fields.ToString()).Trim();
+            string fields = (Fields == null ? string.Empty : Fields.ToString()).Trim();
 
             // Construct the query string
             IHttpQueryString query = base.GetQueryString();
-            if (!String.IsNullOrWhiteSpace(BusinessId)) query.Set("business_id", BusinessId);
+            if (string.IsNullOrWhiteSpace(BusinessId) == false) query.Set("business_id", BusinessId);
             if (IsBusiness != FacebookBoolean.Unspecified) query.Set("is_business", IsBusiness);
             if (IsPlace != FacebookBoolean.Unspecified) query.Set("is_place", IsPlace);
             if (IsPromotable != FacebookBoolean.Unspecified) query.Set("is_promotable", IsPromotable);
-            if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
+            if (string.IsNullOrWhiteSpace(fields) == false) query.Set("fields", fields);
             if (IncludeSummary) query.Add("summary", "true");
 
             return query;

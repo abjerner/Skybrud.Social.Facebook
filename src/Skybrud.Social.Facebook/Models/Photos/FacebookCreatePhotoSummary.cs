@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Photos {
@@ -30,7 +29,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="PostId"/> property was included in the response.
         /// </summary>
-        public bool HasPostId => !String.IsNullOrWhiteSpace(PostId);
+        public bool HasPostId => string.IsNullOrWhiteSpace(PostId) == false;
 
         #endregion
 

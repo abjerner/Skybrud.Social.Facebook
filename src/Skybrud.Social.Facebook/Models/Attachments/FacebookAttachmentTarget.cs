@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Attachments {
@@ -19,7 +18,7 @@ namespace Skybrud.Social.Facebook.Models.Attachments {
         /// <summary>
         /// Gets whether the <see cref="Id"/> property was included in the response.
         /// </summary>
-        public bool HasId => !String.IsNullOrWhiteSpace(Id);
+        public bool HasId => string.IsNullOrWhiteSpace(Id) == false;
 
         /// <summary>
         /// Gets the URL to the attachment.

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Models.Users;
@@ -29,7 +28,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// From.
@@ -49,7 +48,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets an array of the tagged users.

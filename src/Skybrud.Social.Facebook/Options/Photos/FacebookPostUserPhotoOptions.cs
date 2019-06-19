@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Options.Common;
 
@@ -67,11 +66,11 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// Gets an instance of <see cref="IHttpPostData"/> representing the POST parameters.
         /// </summary>
         public IHttpPostData GetPostData() {
-            IHttpPostData postData = new HttpPostData { IsMultipart = !String.IsNullOrWhiteSpace(Source)};
-            if (!String.IsNullOrWhiteSpace(Source)) postData.AddFile("source", Source);
-            if (!String.IsNullOrWhiteSpace(Url)) postData.Add("url", Url);
-            if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
-            if (!String.IsNullOrWhiteSpace(Place)) postData.Add("place", Place);
+            IHttpPostData postData = new HttpPostData { IsMultipart = string.IsNullOrWhiteSpace(Source) == false };
+            if (string.IsNullOrWhiteSpace(Source) == false) postData.AddFile("source", Source);
+            if (string.IsNullOrWhiteSpace(Url) == false) postData.Add("url", Url);
+            if (string.IsNullOrWhiteSpace(Message) == false) postData.Add("message", Message);
+            if (string.IsNullOrWhiteSpace(Place) == false) postData.Add("place", Place);
             if (NoStory) postData.Add("no_story", "true");
             return postData;
         }

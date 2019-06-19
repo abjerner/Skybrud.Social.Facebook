@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Http.Options;
 
 namespace Skybrud.Social.Facebook.Options.Posts {
@@ -101,14 +100,14 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// </summary>
         public IHttpPostData GetPostData() {
             IHttpPostData postData = new HttpPostData();
-            if (!String.IsNullOrWhiteSpace(Message)) postData.Add("message", Message);
-            if (!String.IsNullOrWhiteSpace(Link)) postData.Add("link", Link);
-            if (!String.IsNullOrWhiteSpace(Picture)) postData.Add("picture", Picture);
-            if (!String.IsNullOrWhiteSpace(Name)) postData.Add("name", Name);
-            if (!String.IsNullOrWhiteSpace(Caption)) postData.Add("caption", Caption);
-            if (!String.IsNullOrWhiteSpace(Description)) postData.Add("description", Description);
-            if (!String.IsNullOrWhiteSpace(Place)) postData.Add("place", Place);
-            if (Tags != null && Tags.Length > 0) postData.Add("tags", String.Join(",", Tags));
+            if (string.IsNullOrWhiteSpace(Message) == false) postData.Add("message", Message);
+            if (string.IsNullOrWhiteSpace(Link) == false) postData.Add("link", Link);
+            if (string.IsNullOrWhiteSpace(Picture) == false) postData.Add("picture", Picture);
+            if (string.IsNullOrWhiteSpace(Name) == false) postData.Add("name", Name);
+            if (string.IsNullOrWhiteSpace(Caption) == false) postData.Add("caption", Caption);
+            if (string.IsNullOrWhiteSpace(Description) == false) postData.Add("description", Description);
+            if (string.IsNullOrWhiteSpace(Place) == false) postData.Add("place", Place);
+            if (Tags != null && Tags.Length > 0) postData.Add("tags", string.Join(",", Tags));
             return postData;
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Models.Common.Tags;
 
@@ -23,7 +22,7 @@ namespace Skybrud.Social.Facebook.Models.Attachments {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets an array of the profiles tagged in the <see cref="Description"/> property.

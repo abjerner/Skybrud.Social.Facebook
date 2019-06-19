@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
@@ -29,7 +28,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Href"/> property was included in the response.
         /// </summary>
-        public bool HasHref => !String.IsNullOrWhiteSpace(Href);
+        public bool HasHref => string.IsNullOrWhiteSpace(Href) == false;
 
         #endregion
 

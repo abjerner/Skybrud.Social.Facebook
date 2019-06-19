@@ -37,7 +37,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the photo.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhoto(string identifier) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + identifier);
         }
 
@@ -48,7 +48,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhoto(string identifier, FacebookFieldsCollection fields) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
             return GetPhoto(new FacebookGetPhotoOptions(identifier, fields));
         }
 
@@ -59,7 +59,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhoto(FacebookGetPhotoOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID) must be specified.");
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
@@ -69,7 +69,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID or alias) of the parent object.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhotos(string identifier) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier));
         }
 
@@ -80,7 +80,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhotos(string identifier, FacebookFieldsCollection fields) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, fields));
         }
 
@@ -103,7 +103,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhotos(string identifier, int limit, string after, FacebookFieldsCollection fields) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, limit, after, fields));
         }
 
@@ -115,7 +115,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhotos(string identifier, int limit, FacebookFieldsCollection fields) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, limit, fields));
         }
 
@@ -126,7 +126,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPhotos(FacebookGetPhotosOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID or alias) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/photos", options);
         }
 
@@ -137,7 +137,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse PostPhoto(FacebookPostUserPhotoOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID or alias) must be specified.");
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID or alias) must be specified.");
             return Client.DoHttpPostRequest("/" + options.Identifier + "/photos", options);
         }
 

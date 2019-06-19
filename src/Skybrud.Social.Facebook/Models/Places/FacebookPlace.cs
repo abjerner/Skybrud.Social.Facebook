@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Models.Common;
 
@@ -23,7 +22,7 @@ namespace Skybrud.Social.Facebook.Models.Places {
         /// <summary>
         /// Gets whether the place has an ID.
         /// </summary>
-        public bool HasId => !String.IsNullOrWhiteSpace(Id);
+        public bool HasId => string.IsNullOrWhiteSpace(Id) == false;
 
         /// <summary>
         /// Gets the name of place.

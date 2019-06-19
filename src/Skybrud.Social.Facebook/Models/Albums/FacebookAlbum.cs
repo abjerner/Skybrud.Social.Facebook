@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
@@ -71,7 +70,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets whether the description of the album has been specified and was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets a reference to the event associated with this album.
@@ -102,7 +101,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         /// <summary>
         /// Gets the textual location of the album.
@@ -113,7 +112,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// Gets whether the <see cref="Location"/> property of the the album has been specified and was included in
         /// the response.
         /// </summary>
-        public bool HasLocation => !String.IsNullOrWhiteSpace(Location);
+        public bool HasLocation => string.IsNullOrWhiteSpace(Location) == false;
 
         /// <summary>
         /// Gets the title of the album.
@@ -123,7 +122,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets a reference to the place associated with this album.
@@ -144,7 +143,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// <summary>
         /// Gets whether the <see cref="Privacy"/> property was included in the response.
         /// </summary>
-        public bool HasPrivacy => !String.IsNullOrWhiteSpace(Privacy);
+        public bool HasPrivacy => string.IsNullOrWhiteSpace(Privacy) == false;
 
         /// <summary>
         /// Gets the type of the album.

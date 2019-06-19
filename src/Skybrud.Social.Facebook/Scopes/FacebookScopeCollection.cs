@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,7 +75,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// </summary>
         /// <returns>String of scopes separated by a comma.</returns>
         public override string ToString() {
-            return String.Join(",", from scope in _list select scope.Name);
+            return string.Join(",", from scope in _list select scope.Name);
         }
 
         IEnumerator IEnumerable.GetEnumerator() {

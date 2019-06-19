@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Users {
@@ -22,7 +21,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Hardware"/> property was included in the response.
         /// </summary>
-        public bool HasHardware => !String.IsNullOrWhiteSpace(Hardware);
+        public bool HasHardware => string.IsNullOrWhiteSpace(Hardware) == false;
 
         /// <summary>
         /// Gets information about the OS of the device.
@@ -32,7 +31,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
         /// <summary>
         /// Gets whether the <see cref="Os"/> property was included in the response.
         /// </summary>
-        public bool HasOs => !String.IsNullOrWhiteSpace(Os);
+        public bool HasOs => string.IsNullOrWhiteSpace(Os) == false;
 
         #endregion
 

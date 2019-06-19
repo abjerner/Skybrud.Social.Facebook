@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Models.Common;
@@ -36,7 +35,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// <summary>
         /// Gets whether the <see cref="Message"/> property was included in the response.
         /// </summary>
-        public bool HasMessage => !String.IsNullOrWhiteSpace(Message);
+        public bool HasMessage => string.IsNullOrWhiteSpace(Message) == false;
 
         /// <summary>
         /// Gets whether the authenticated user can remove the comment.

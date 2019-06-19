@@ -143,7 +143,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// </summary>
         /// <param name="accessToken">A valid access token.</param>
         public FacebookOAuthClient(string accessToken) : this() {
-            if (String.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
+            if (string.IsNullOrWhiteSpace(accessToken)) throw new ArgumentNullException(nameof(accessToken));
             AccessToken = accessToken;
         }
 
@@ -153,8 +153,8 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="clientId">The client ID of the app.</param>
         /// <param name="clientSecret">The client secret of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret) : this() {
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (string.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
             ClientId = clientId;
             ClientSecret = clientSecret;
         }
@@ -166,9 +166,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="clientSecret">The client secret of the app.</param>
         /// <param name="redirectUri">The redirect URI of the app.</param>
         public FacebookOAuthClient(string clientId, string clientSecret, string redirectUri) : this() {
-            if (String.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
-            if (String.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
-            if (String.IsNullOrWhiteSpace(redirectUri)) throw new ArgumentNullException(nameof(redirectUri));
+            if (string.IsNullOrWhiteSpace(clientId)) throw new ArgumentNullException(nameof(clientId));
+            if (string.IsNullOrWhiteSpace(clientSecret)) throw new ArgumentNullException(nameof(clientSecret));
+            if (string.IsNullOrWhiteSpace(redirectUri)) throw new ArgumentNullException(nameof(redirectUri));
             ClientId = clientId;
             ClientSecret = clientSecret;
             RedirectUri = redirectUri;
@@ -197,21 +197,21 @@ namespace Skybrud.Social.Facebook.OAuth {
         public string GetAuthorizationUrl(string state, params string[] scope) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
+            if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
 
             // Do we have a valid "state" ?
-            if (String.IsNullOrWhiteSpace(state)) {
+            if (string.IsNullOrWhiteSpace(state)) {
                 throw new ArgumentNullException(nameof(state), "A valid state should be specified as it is part of the security of OAuth 2.0.");
             }
 
-            return String.Format(
+            return string.Format(
                 "https://www.facebook.com/" + Version + "/dialog/oauth?client_id={0}&redirect_uri={1}&state={2}&scope={3}",
                 ClientId,
                 RedirectUri,
                 state,
-                String.Join(",", scope)
+                string.Join(",", scope)
             );
         
         }
@@ -224,11 +224,11 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAccessTokenFromAuthCode(string authCode) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
-            if (String.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
-            if (String.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException(nameof(authCode));
+            if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (string.IsNullOrWhiteSpace(RedirectUri)) throw new PropertyNotSetException(nameof(RedirectUri));
+            if (string.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException(nameof(authCode));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -253,10 +253,10 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse RenewAccessToken(string currentToken) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
-            if (String.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException(nameof(currentToken));
+            if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (string.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException(nameof(currentToken));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -281,9 +281,9 @@ namespace Skybrud.Social.Facebook.OAuth {
         public FacebookTokenResponse GetAppAccessToken() {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
-            if (String.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
-            if (String.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
+            if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (string.IsNullOrWhiteSpace(ClientId)) throw new PropertyNotSetException(nameof(ClientId));
+            if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Initialize the query string
             IHttpQueryString query = new HttpQueryString();
@@ -303,7 +303,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         protected override void PrepareHttpRequest(IHttpRequest request) {
 
             // Some validation
-            if (String.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
+            if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
 
             // Append the HTTP scheme and API version if not already specified.
             if (request.Url.StartsWith("/")) {
@@ -312,13 +312,13 @@ namespace Skybrud.Social.Facebook.OAuth {
             
             // Append the access token to the query string if present in the client and not already
             // specified in the query string
-            if (!request.QueryString.ContainsKey("access_token") && !String.IsNullOrWhiteSpace(AccessToken)) {
+            if (request.QueryString.ContainsKey("access_token") == false && string.IsNullOrWhiteSpace(AccessToken) == false) {
                 request.QueryString.Add("access_token", AccessToken);
             }
 
             // Append the locale to the query string if present in the client and not already
             // specified in the query string
-            if (!request.QueryString.ContainsKey("locale") && !String.IsNullOrWhiteSpace(Locale)) {
+            if (request.QueryString.ContainsKey("locale") == false && string.IsNullOrWhiteSpace(Locale) == false) {
                 request.QueryString.Add("locale", Locale);
             }
 

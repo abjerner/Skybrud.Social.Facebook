@@ -41,7 +41,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The ID of the event.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetEvent(string identifier) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
             return GetEvent(new FacebookGetEventOptions(identifier));
         }
 
@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetEvent(FacebookGetEventOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
             return Client.DoHttpGetRequest("/" + options.Identifier, options);
         }
 
@@ -62,7 +62,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The ID or name of the user/page.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetEvents(string identifier) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
             return GetEvents(new FacebookGetEventsOptions(identifier));
         }
 
@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of events to return.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetEvents(string identifier, int limit) {
-            if (String.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
+            if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier));
             return GetEvents(new FacebookGetEventsOptions(identifier) { Limit = limit });
         }
 
@@ -84,7 +84,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetEvents(FacebookGetEventsOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (String.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
+            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier));
             return Client.DoHttpGetRequest("/" + options.Identifier + "/events", options);
         }
 

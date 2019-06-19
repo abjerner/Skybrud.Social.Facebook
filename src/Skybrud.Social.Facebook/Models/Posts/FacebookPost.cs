@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
@@ -67,7 +66,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Caption"/> property was included in the response.
         /// </summary>
-        public bool HasCaption => !String.IsNullOrWhiteSpace(Caption);
+        public bool HasCaption => string.IsNullOrWhiteSpace(Caption) == false;
 
         /// <summary>
         /// Gets the time the post was initially published. For a post about a life event, this will be the date and
@@ -88,7 +87,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets information about the profile that posted the message.
@@ -110,7 +109,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="FullPicture"/> property was included in the response.
         /// </summary>
-        public bool HasFullPicture => !String.IsNullOrWhiteSpace(FullPicture);
+        public bool HasFullPicture => string.IsNullOrWhiteSpace(FullPicture) == false;
 
         /// <summary>
         /// Gets a link to an icon representing the type of this post.
@@ -120,7 +119,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Icon"/> property was included in the response.
         /// </summary>
-        public bool HasIcon => !String.IsNullOrWhiteSpace(Icon);
+        public bool HasIcon => string.IsNullOrWhiteSpace(Icon) == false;
 
         // TODO: Add support for the "instagram_eligibility" property
 
@@ -154,7 +153,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         /// <summary>
         /// Gets the status message in the post.
@@ -164,7 +163,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Message"/> property was included in the response.
         /// </summary>
-        public bool HasMessage => !String.IsNullOrWhiteSpace(Message);
+        public bool HasMessage => string.IsNullOrWhiteSpace(Message) == false;
 
         /// <summary>
         /// Gets an array of the profiles tagged in the <see cref="Message"/> property.
@@ -184,7 +183,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets the ID of any uploaded photo or video attached to the post.
@@ -194,7 +193,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="ObjectId"/> property was included in the response.
         /// </summary>
-        public bool HasObjectId => !String.IsNullOrWhiteSpace(ObjectId);
+        public bool HasObjectId => string.IsNullOrWhiteSpace(ObjectId) == false;
 
         /// <summary>
         /// Gets the ID of a parent post for this post, if it exists. For example, if this story is a
@@ -206,7 +205,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="ParentId"/> property was included in the response.
         /// </summary>
-        public bool HasParentId => !String.IsNullOrWhiteSpace(ParentId);
+        public bool HasParentId => string.IsNullOrWhiteSpace(ParentId) == false;
 
         /// <summary>
         /// Gets the URL to the permalink page of the post.
@@ -216,7 +215,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="PermalinkUrl"/> property was included in the response.
         /// </summary>
-        public bool HasPermalinkUrl => !String.IsNullOrWhiteSpace(PermalinkUrl);
+        public bool HasPermalinkUrl => string.IsNullOrWhiteSpace(PermalinkUrl) == false;
 
         /// <summary>
         /// Gets the picture scraped from any <see cref="Link"/> included with the post.
@@ -226,7 +225,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Picture"/> property was included in the response.
         /// </summary>
-        public bool HasPicture => !String.IsNullOrWhiteSpace(Picture);
+        public bool HasPicture => string.IsNullOrWhiteSpace(Picture) == false;
 
         /// <summary>
         /// Gets any location information attached to the post.
@@ -297,7 +296,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Source"/> property was included in the response.
         /// </summary>
-        public bool HasSource => !String.IsNullOrWhiteSpace(Source);
+        public bool HasSource => string.IsNullOrWhiteSpace(Source) == false;
 
         /// <summary>
         /// Gets the type of a status update.
@@ -318,7 +317,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="Story"/> property was included in the response.
         /// </summary>
-        public bool HasStory => !String.IsNullOrWhiteSpace(Story);
+        public bool HasStory => string.IsNullOrWhiteSpace(Story) == false;
 
         /// <summary>
         /// Gets an array of the profiles tagged in the <see cref="Story"/> property.

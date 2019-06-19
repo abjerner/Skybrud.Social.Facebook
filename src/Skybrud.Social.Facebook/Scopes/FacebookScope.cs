@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Skybrud.Social.Facebook.Scopes {
@@ -42,7 +41,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <param name="description">The description of the scope.</param>
         public FacebookScope(string name, string description = null) {
             Name = name;
-            Description = String.IsNullOrWhiteSpace(description) ? null : description.Trim();
+            Description = string.IsNullOrWhiteSpace(description) ? null : description.Trim();
         }
 
         /// <summary>
@@ -53,7 +52,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <param name="review">Whether the scope requires your app to be reviewed by Facebook.</param>
         public FacebookScope(string name, string description, FacebookScopeReview review = FacebookScopeReview.Unspecified) {
             Name = name;
-            Description = String.IsNullOrWhiteSpace(description) ? null : description.Trim();
+            Description = string.IsNullOrWhiteSpace(description) ? null : description.Trim();
             Review = review;
         }
 
@@ -61,6 +60,10 @@ namespace Skybrud.Social.Facebook.Scopes {
 
         #region Member methods
 
+        /// <summary>
+        /// Returns a string representation (the name) of the scope.
+        /// </summary>
+        /// <returns>A string representation of the scope.</returns>
         public override string ToString() {
             return Name;
         }
@@ -86,8 +89,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <param name="name">The name of the scope.</param>
         /// <returns>Gets a scope matching the specified <paramref name="name"/>, or <c>null</c> if not found-</returns>
         public static FacebookScope GetScope(string name) {
-            FacebookScope scope;
-            return Scopes.TryGetValue(name, out scope) ? scope : null;
+            return Scopes.TryGetValue(name, out var scope) ? scope : null;
         }
 
         /// <summary>

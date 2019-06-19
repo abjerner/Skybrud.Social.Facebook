@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Json.Extensions;
@@ -26,7 +25,7 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
             get {
                 if (Previous != null) {
                     HttpQueryString response = HttpQueryString.ParseQueryString(Previous);
-                    if (response["since"] != null) return Int32.Parse(response["since"]);
+                    if (response["since"] != null) return int.Parse(response["since"]);
                 }
                 return 0;
             }
@@ -39,7 +38,7 @@ namespace Skybrud.Social.Facebook.Models.Pagination {
             get {
                 if (Next != null) {
                     HttpQueryString response = HttpQueryString.ParseQueryString(Next);
-                    if (response["until"] != null) return Int32.Parse(response["until"]);
+                    if (response["until"] != null) return int.Parse(response["until"]);
                 }
                 return 0;
             }

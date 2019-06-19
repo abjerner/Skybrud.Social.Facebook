@@ -1,4 +1,3 @@
-using System;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
@@ -103,7 +102,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets whether the description of the event has been specified and was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets the end time of the event. Not all events have an end time.
@@ -184,7 +183,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets whether the name of the event was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets the number of people who did not reply to the event. Use <see cref="HasNoreplyCount"/> to check whether this property was included in the response.
@@ -238,7 +237,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets whether the <see cref="TicketUri"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasTicketUri => !String.IsNullOrWhiteSpace(TicketUri);
+        public bool HasTicketUri => string.IsNullOrWhiteSpace(TicketUri) == false;
 
         /// <summary>
         /// Gets the timezone of the event. Use <see cref="HasTimezone"/> to check whether this property was specified
@@ -249,7 +248,7 @@ namespace Skybrud.Social.Facebook.Models.Events {
         /// <summary>
         /// Gets whether the <see cref="HasTimezone"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasTimezone => !String.IsNullOrWhiteSpace(Timezone);
+        public bool HasTimezone => string.IsNullOrWhiteSpace(Timezone) == false;
 
         /// <summary>
         /// Gets the type of the event. Use <see cref="HasType"/> to check whether this property was included in the

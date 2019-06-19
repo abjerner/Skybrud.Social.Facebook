@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
@@ -57,10 +56,10 @@ namespace Skybrud.Social.Facebook.Options.Events {
             IHttpQueryString query = new HttpQueryString();
 
             // Convert the collection of fields to a string
-            string fields = (Fields == null ? "" : Fields.ToString()).Trim();
+            string fields = (Fields == null ? string.Empty : Fields.ToString()).Trim();
 
             // Update the query string
-            if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
+            if (string.IsNullOrWhiteSpace(fields) == false) query.Set("fields", fields);
 
             return query;
 

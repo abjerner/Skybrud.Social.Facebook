@@ -81,7 +81,7 @@ namespace Skybrud.Social.Facebook.Fields {
         /// </summary>
         /// <returns>String of fields separated by a comma.</returns>
         public override string ToString() {
-            return String.Join(",", from field in _fields select field.Name);
+            return string.Join(",", from field in _fields select field.Name);
         }
 
         IEnumerator IEnumerable.GetEnumerator() {
@@ -99,7 +99,7 @@ namespace Skybrud.Social.Facebook.Fields {
         /// <returns>A new collection based on a string of <paramref name="fields"/>.</returns>
         public static implicit operator FacebookFieldsCollection(string fields) {
             FacebookFieldsCollection collection = new FacebookFieldsCollection();
-            foreach (string name in (fields ?? "").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
+            foreach (string name in (fields ?? string.Empty).Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)) {
                 collection.Add(name);
             }
             return collection;

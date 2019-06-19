@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Models.Pages;
@@ -70,7 +69,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets whether the <see cref="Type"/> property was included in the response.
         /// </summary>
-        public bool HasType => !String.IsNullOrWhiteSpace(Type);
+        public bool HasType => string.IsNullOrWhiteSpace(Type);
 
         /// <summary>
         /// Gets an array of the people tagged who went to school with this person.

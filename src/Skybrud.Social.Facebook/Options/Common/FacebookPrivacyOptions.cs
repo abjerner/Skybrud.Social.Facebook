@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Models.Common;
 
@@ -34,13 +33,13 @@ namespace Skybrud.Social.Facebook.Options.Common {
         public override string ToString() {
            
             // If set to "Default", the privacy shouldn't be specified
-            if (Value == FacebookPrivacy.Default) return "";
+            if (Value == FacebookPrivacy.Default) return string.Empty;
             
             // Initialize an instance of JObject
             JObject json = new JObject();
 
             // Add the "Value" property
-            string value = "";
+            string value = string.Empty;
             foreach (char chr in Value.ToString()) {
                 if (chr >= 65 && chr <= 90) {
                     value += "_" + chr;
@@ -54,8 +53,8 @@ namespace Skybrud.Social.Facebook.Options.Common {
 
             // Add the "Allow" and/or "Deny" properties
             if (Value == FacebookPrivacy.Custom) {
-                if (Allow != null && Allow.Length > 0) json.Add("allow", String.Join(",", Allow));
-                if (Deny != null && Deny.Length > 0) json.Add("deny", String.Join(",", Deny));
+                if (Allow != null && Allow.Length > 0) json.Add("allow", string.Join(",", Allow));
+                if (Deny != null && Deny.Length > 0) json.Add("deny", string.Join(",", Deny));
             }
 
             // Serialize to a JSON string

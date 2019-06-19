@@ -31,7 +31,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="About"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAbout => !String.IsNullOrWhiteSpace(About);
+        public bool HasAbout => string.IsNullOrWhiteSpace(About) == false;
 
         /// <summary>
         /// Gets or sets the access token you can use to act as the Page. Only visible to Page Admins. If your business requires two-factor authentication, and the person hasn't authenticated, this field may not be returned.
@@ -41,7 +41,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="AccessToken"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAccessToken => !String.IsNullOrWhiteSpace(AccessToken);
+        public bool HasAccessToken => string.IsNullOrWhiteSpace(AccessToken) == false;
 
         // TODO: Add support for the "ad_campaign" field
 
@@ -53,7 +53,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Affiliation"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAffiliation => !String.IsNullOrWhiteSpace(Affiliation);
+        public bool HasAffiliation => string.IsNullOrWhiteSpace(Affiliation) == false;
 
         // TODO: Add support for the "app_id" field (applies to app-owned pages)
 
@@ -67,7 +67,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="ArtistsWeLike"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasArtistsWeLike => !String.IsNullOrWhiteSpace(ArtistsWeLike);
+        public bool HasArtistsWeLike => string.IsNullOrWhiteSpace(ArtistsWeLike) == false;
 
         /// <summary>
         /// Gets the dress code of the business. Applicable to <strong>Restaurants</strong> or
@@ -89,7 +89,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Awards"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasAwards => !String.IsNullOrWhiteSpace(Awards);
+        public bool HasAwards => string.IsNullOrWhiteSpace(Awards) == false;
 
         /// <summary>
         /// Gets the interests of the band.
@@ -99,7 +99,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="BandInterests"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBandInterests => !String.IsNullOrWhiteSpace(BandInterests);
+        public bool HasBandInterests => string.IsNullOrWhiteSpace(BandInterests) == false;
 
         /// <summary>
         /// Gets the members of the band.
@@ -109,7 +109,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="BandMembers"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBandMembers => !String.IsNullOrWhiteSpace(BandMembers);
+        public bool HasBandMembers => string.IsNullOrWhiteSpace(BandMembers) == false;
 
         // TODO: Add support for the "best_page" field
 
@@ -121,7 +121,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Bio"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBio => !String.IsNullOrWhiteSpace(Bio);
+        public bool HasBio => string.IsNullOrWhiteSpace(Bio) == false;
 
         /// <summary>
         /// Gets the birthday of this person. Applicable to pages representing people.
@@ -141,7 +141,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="BookingAgent"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBookingAgent => !String.IsNullOrWhiteSpace(BookingAgent);
+        public bool HasBookingAgent => string.IsNullOrWhiteSpace(BookingAgent) == false;
 
         /// <summary>
         /// Gets the year the vehicle was built. Applicable to <strong>Vehicles</strong>.
@@ -151,7 +151,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Built"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasBuilt => !String.IsNullOrWhiteSpace(Built);
+        public bool HasBuilt => string.IsNullOrWhiteSpace(Built) == false;
 
         // TODO: Add support for the "business" field
 
@@ -183,7 +183,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Category"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCategory => !String.IsNullOrWhiteSpace(Category);
+        public bool HasCategory => string.IsNullOrWhiteSpace(Category) == false;
 
         /// <summary>
         /// Gets a list of all sub categories.
@@ -213,7 +213,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="CompanyOverview"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCompanyOverview => !String.IsNullOrWhiteSpace(CompanyOverview);
+        public bool HasCompanyOverview => string.IsNullOrWhiteSpace(CompanyOverview) == false;
 
         // TODO: Add support for the "contact_address" field
         
@@ -239,7 +239,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="CulinaryTeam"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCulinaryTeam => !String.IsNullOrWhiteSpace(CulinaryTeam);
+        public bool HasCulinaryTeam => string.IsNullOrWhiteSpace(CulinaryTeam) == false;
 
         /// <summary>
         /// Gets the current location of the page.
@@ -249,7 +249,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="CurrentLocation"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasCurrentLocation => !String.IsNullOrWhiteSpace(CurrentLocation);
+        public bool HasCurrentLocation => string.IsNullOrWhiteSpace(CurrentLocation) == false;
 
         /// <summary>
         /// Gets the description of the page.
@@ -259,7 +259,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets the description of the page in raw HTML.
@@ -269,7 +269,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="CompanyOverview"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDescriptionHtml => !String.IsNullOrWhiteSpace(DescriptionHtml);
+        public bool HasDescriptionHtml => string.IsNullOrWhiteSpace(DescriptionHtml) == false;
 
         /// <summary>
         /// Gets the director of the film. Applicable to <strong>Films</strong>.
@@ -279,7 +279,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="DirectedBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasDirectedBy => !String.IsNullOrWhiteSpace(DirectedBy);
+        public bool HasDirectedBy => string.IsNullOrWhiteSpace(DirectedBy) == false;
 
         // TODO: Add support for the "display_subtext" field
         
@@ -319,7 +319,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Features"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFeatures => !String.IsNullOrWhiteSpace(Features);
+        public bool HasFeatures => string.IsNullOrWhiteSpace(Features) == false;
 
         /// <summary>
         /// Gets the restaurant's food styles. Applicable to <strong>Restaurants</strong>.
@@ -339,7 +339,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Founded"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasFounded => !String.IsNullOrWhiteSpace(Founded);
+        public bool HasFounded => string.IsNullOrWhiteSpace(Founded) == false;
 
         /// <summary>
         /// General information provided by the page.
@@ -349,7 +349,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="GeneralInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGeneralInfo => !String.IsNullOrWhiteSpace(GeneralInfo);
+        public bool HasGeneralInfo => string.IsNullOrWhiteSpace(GeneralInfo) == false;
 
         /// <summary>
         /// Gets the general manager of the business. Applicable to <strong>Restaurants</strong> or
@@ -360,7 +360,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="GeneralManager"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGeneralManager => !String.IsNullOrWhiteSpace(GeneralManager);
+        public bool HasGeneralManager => string.IsNullOrWhiteSpace(GeneralManager) == false;
 
         /// <summary>
         /// Gets the genre of the film. Applicable to <strong>Films</strong>.
@@ -370,7 +370,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Genre"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasGenre => !String.IsNullOrWhiteSpace(Genre);
+        public bool HasGenre => string.IsNullOrWhiteSpace(Genre) == false;
 
         // TODO: Add support for the "global_brand_page_name" field
         
@@ -386,7 +386,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Hometown"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasHometown => !String.IsNullOrWhiteSpace(Hometown);
+        public bool HasHometown => string.IsNullOrWhiteSpace(Hometown) == false;
 
         /// <summary>
         /// Gets the opening hours for the page.
@@ -406,7 +406,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Impressum"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasImpressum => !String.IsNullOrWhiteSpace(Impressum);
+        public bool HasImpressum => string.IsNullOrWhiteSpace(Impressum) == false;
 
         /// <summary>
         /// Gets the influences on the band. Applicable to <strong>Bands</strong>.
@@ -416,7 +416,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Influences"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasInfluences => !String.IsNullOrWhiteSpace(Influences);
+        public bool HasInfluences => string.IsNullOrWhiteSpace(Influences) == false;
 
         // TODO: Add support for the "instant_articles_review_status" field
 
@@ -499,7 +499,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         /// <summary>
         /// Gets the location of the place. Applicable to all <strong>Places</strong>.
@@ -519,7 +519,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Members"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMembers => !String.IsNullOrWhiteSpace(Members);
+        public bool HasMembers => string.IsNullOrWhiteSpace(Members) == false;
 
         // TODO: Add support for the "merchant_id" field
         
@@ -533,7 +533,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Mission"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMission => !String.IsNullOrWhiteSpace(Mission);
+        public bool HasMission => string.IsNullOrWhiteSpace(Mission) == false;
 
         /// <summary>
         /// Gets the MPG of the vehicle. Applicable to <strong>Vehicles</strong>.
@@ -543,7 +543,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Mpg"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasMpg => !String.IsNullOrWhiteSpace(Mpg);
+        public bool HasMpg => string.IsNullOrWhiteSpace(Mpg) == false;
 
         /// <summary>
         /// Gets the name of the page.
@@ -553,7 +553,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets the name of the page with its location and/or global brand descriptor.
@@ -563,7 +563,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="NameWithLocationDescriptor"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasNameWithLocationDescriptor => !String.IsNullOrWhiteSpace(NameWithLocationDescriptor);
+        public bool HasNameWithLocationDescriptor => string.IsNullOrWhiteSpace(NameWithLocationDescriptor) == false;
 
         /// <summary>
         /// Gets the TV network for the TV show. Applicable to <strong>TV Shows</strong>.
@@ -573,7 +573,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Network"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasNetwork => !String.IsNullOrWhiteSpace(Network);
+        public bool HasNetwork => string.IsNullOrWhiteSpace(Network) == false;
 
         /// <summary>
         /// Gets the number of people who have liked the page, since the last login. Only visible to a page admin.
@@ -636,7 +636,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PersonalInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPersonalInfo => !String.IsNullOrWhiteSpace(PersonalInfo);
+        public bool HasPersonalInfo => string.IsNullOrWhiteSpace(PersonalInfo) == false;
 
         /// <summary>
         /// Gets the personal interests. Applicable to pages representing people.
@@ -646,7 +646,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PersonalInterests"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPersonalInterests => !String.IsNullOrWhiteSpace(PersonalInterests);
+        public bool HasPersonalInterests => string.IsNullOrWhiteSpace(PersonalInterests) == false;
 
         /// <summary>
         /// Gets pharmacy safety information. Applicable to pharmaceutical companies.
@@ -656,7 +656,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PharmaSafetyInfo"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPharmaSafetyInfo => !String.IsNullOrWhiteSpace(PharmaSafetyInfo);
+        public bool HasPharmaSafetyInfo => string.IsNullOrWhiteSpace(PharmaSafetyInfo) == false;
 
         /// <summary>
         /// Gets the phone number provided by a page.
@@ -666,7 +666,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Phone"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPhone => !String.IsNullOrWhiteSpace(Phone);
+        public bool HasPhone => string.IsNullOrWhiteSpace(Phone) == false;
 
         /// <summary>
         /// For places, the category of the place.
@@ -676,7 +676,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PlaceType"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPlaceType => !String.IsNullOrWhiteSpace(PlaceType);
+        public bool HasPlaceType => string.IsNullOrWhiteSpace(PlaceType) == false;
 
         /// <summary>
         /// Gets the plot outline of the film. Applicable to <strong>Films</strong>.
@@ -686,7 +686,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PlotOutline"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPlotOutline => !String.IsNullOrWhiteSpace(PlotOutline);
+        public bool HasPlotOutline => string.IsNullOrWhiteSpace(PlotOutline) == false;
 
         // TODO: Add support for the "preferred_audience" field
 
@@ -698,7 +698,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PressContact"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPressContact => !String.IsNullOrWhiteSpace(PressContact);
+        public bool HasPressContact => string.IsNullOrWhiteSpace(PressContact) == false;
 
         /// <summary>
         /// Price range of the business. Applicable to <strong>Restaurants</strong> or
@@ -714,7 +714,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="ProducedBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasProducedBy => !String.IsNullOrWhiteSpace(ProducedBy);
+        public bool HasProducedBy => string.IsNullOrWhiteSpace(ProducedBy) == false;
 
         /// <summary>
         /// Gets the products of this company. Applicable to <strong>Companies</strong>.
@@ -724,7 +724,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Products"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasProducts => !String.IsNullOrWhiteSpace(Products);
+        public bool HasProducts => string.IsNullOrWhiteSpace(Products) == false;
 
         /// <summary>
         /// Gets whether the page is eligible for promotion.
@@ -744,7 +744,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PromotionIneligibleReason"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPromotionIneligibleReason => !String.IsNullOrWhiteSpace(PromotionIneligibleReason);
+        public bool HasPromotionIneligibleReason => string.IsNullOrWhiteSpace(PromotionIneligibleReason) == false;
 
         /// <summary>
         /// Gets information about public transit to the business. Applicable to <strong>Restaurants</strong> or <strong>Nightlife</strong>.
@@ -754,7 +754,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="PublicTransit"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasPublicTransit => !String.IsNullOrWhiteSpace(PublicTransit);
+        public bool HasPublicTransit => string.IsNullOrWhiteSpace(PublicTransit) == false;
 
         // TODO: Add support for the "publisher_space" field
 
@@ -778,7 +778,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="RecordLabel"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasRecordLabel => !String.IsNullOrWhiteSpace(RecordLabel);
+        public bool HasRecordLabel => string.IsNullOrWhiteSpace(RecordLabel) == false;
 
         /// <summary>
         /// Gets the film's release date. Applicable to <strong>Films</strong>.
@@ -788,7 +788,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="ReleaseDate"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasReleaseDate => !String.IsNullOrWhiteSpace(ReleaseDate);
+        public bool HasReleaseDate => string.IsNullOrWhiteSpace(ReleaseDate) == false;
 
         /// <summary>
         /// Services the restaurant provides. Applicable to <strong>Restaurants</strong>.
@@ -818,7 +818,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Schedule"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSchedule => !String.IsNullOrWhiteSpace(Schedule);
+        public bool HasSchedule => string.IsNullOrWhiteSpace(Schedule) == false;
 
         /// <summary>
         /// Gets the screenwriter of the film. Applicable to <strong>Films</strong>.
@@ -828,7 +828,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="ScreenplayBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasScreenplayBy => !String.IsNullOrWhiteSpace(ScreenplayBy);
+        public bool HasScreenplayBy => string.IsNullOrWhiteSpace(ScreenplayBy) == false;
 
         /// <summary>
         /// Gets the season information of the TV Show. Applicable to <strong>TV Shows</strong>.
@@ -838,7 +838,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Season"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSeason => !String.IsNullOrWhiteSpace(Season);
+        public bool HasSeason => string.IsNullOrWhiteSpace(Season) == false;
 
         /// <summary>
         /// Gets the page address, if any, in a simple single line format.
@@ -848,7 +848,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="SingleLineAddress"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasSingleLineAddress => !String.IsNullOrWhiteSpace(SingleLineAddress);
+        public bool HasSingleLineAddress => string.IsNullOrWhiteSpace(SingleLineAddress) == false;
 
         /// <summary>
         /// Gets the cast of the film. Applicable to <strong>Films</strong>.
@@ -858,7 +858,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Starring"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStarring => !String.IsNullOrWhiteSpace(Starring);
+        public bool HasStarring => string.IsNullOrWhiteSpace(Starring) == false;
 
         // TODO: Add support for the "start_info" field
 
@@ -870,7 +870,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="StoreLocationDescriptor"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStoreLocationDescriptor => !String.IsNullOrWhiteSpace(StoreLocationDescriptor);
+        public bool HasStoreLocationDescriptor => string.IsNullOrWhiteSpace(StoreLocationDescriptor) == false;
 
         /// <summary>
         /// Gets the unique store number for this location page.
@@ -890,7 +890,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Studio"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasStudio => !String.IsNullOrWhiteSpace(Studio);
+        public bool HasStudio => string.IsNullOrWhiteSpace(Studio) == false;
 
         // TODO: Add support for the "supports_instant_articles" field
 
@@ -913,7 +913,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Username"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasUsername => !String.IsNullOrWhiteSpace(Username);
+        public bool HasUsername => string.IsNullOrWhiteSpace(Username) == false;
 
         /// <summary>
         /// Gets the URL to the website of the page.
@@ -923,7 +923,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="Website"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasWebsite => !String.IsNullOrWhiteSpace(Website);
+        public bool HasWebsite => string.IsNullOrWhiteSpace(Website) == false;
 
         /// <summary>
         /// Gets whether this page is verified and in what color e.g. <see cref="FacebookPageVerificationStatus.BlueVerified"/>,
@@ -956,7 +956,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets whether the <see cref="WrittenBy"/> property was included in the response and has a value.
         /// </summary>
-        public bool HasWrittenBy => !String.IsNullOrWhiteSpace(WrittenBy);
+        public bool HasWrittenBy => string.IsNullOrWhiteSpace(WrittenBy) == false;
 
         #endregion
 
@@ -1092,8 +1092,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         #region Member methods
 
         private EssentialsDate ParseBirthday(string str) {
-            if (String.IsNullOrWhiteSpace(str)) return null;
-            return new EssentialsDate(DateTime.ParseExact(str, "MM/dd/yyyy", CultureInfo.InvariantCulture));
+            return string.IsNullOrWhiteSpace(str) ? null : new EssentialsDate(DateTime.ParseExact(str, "MM/dd/yyyy", CultureInfo.InvariantCulture));
         } 
 
         #endregion

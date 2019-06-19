@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
@@ -53,7 +52,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="BackdatedTimeGranularity"/> property was included in the response.
         /// </summary>
-        public bool HasBackdatedTimeGranularity => !String.IsNullOrWhiteSpace(BackdatedTimeGranularity);
+        public bool HasBackdatedTimeGranularity => string.IsNullOrWhiteSpace(BackdatedTimeGranularity) == false;
 
         /// <summary>
         /// Gets whether the viewer can backdate the photo.
@@ -133,7 +132,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="Icon"/> property was included in the response.
         /// </summary>
-        public bool HasIcon => !String.IsNullOrWhiteSpace(Icon);
+        public bool HasIcon => string.IsNullOrWhiteSpace(Icon) == false;
 
         /// <summary>
         /// Gets the different stored representations of the photo. Can vary in number based upon the size of the original photo.
@@ -153,7 +152,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property was included in the response.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         /// <summary>
         /// Gets the user-provided caption given to this photo. Corresponds to <c>caption</c> when creating
@@ -164,7 +163,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         // TODO: Add support for the "name_tags" field
 
@@ -177,7 +176,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="PageStoryId"/> property was included in the response.
         /// </summary>
-        public bool HasPageStoryId => !String.IsNullOrWhiteSpace(PageStoryId);
+        public bool HasPageStoryId => string.IsNullOrWhiteSpace(PageStoryId) == false;
 
         /// <summary>
         /// Gets the link to the 100px wide representation of this photo.
@@ -187,7 +186,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         /// <summary>
         /// Gets whether the <see cref="Picture"/> property was included in the response.
         /// </summary>
-        public bool HasPicture => !String.IsNullOrWhiteSpace(Picture);
+        public bool HasPicture => string.IsNullOrWhiteSpace(Picture) == false;
 
         /// <summary>
         /// Gets the place the photo was taken. It is possible to upload photos to Facebook without

@@ -1,5 +1,4 @@
-﻿using System;
-using Skybrud.Essentials.Http.Collections;
+﻿using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
@@ -121,10 +120,10 @@ namespace Skybrud.Social.Facebook.Options.Feed {
             IHttpQueryString query = base.GetQueryString();
 
             // Convert the collection of fields to a string
-            string fields = (Fields == null ? "" : Fields.ToString()).Trim();
+            string fields = (Fields == null ? string.Empty : Fields.ToString()).Trim();
 
             // Update the query string
-            if (!String.IsNullOrWhiteSpace(fields)) query.Set("fields", fields);
+            if (string.IsNullOrWhiteSpace(fields) == false) query.Set("fields", fields);
 
             return query;
 

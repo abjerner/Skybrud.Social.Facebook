@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
 
@@ -43,7 +42,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="AppName"/> property was included in the response.
         /// </summary>
-        public bool HasAppName => !String.IsNullOrWhiteSpace(AppName);
+        public bool HasAppName => string.IsNullOrWhiteSpace(AppName) == false;
 
         /// <summary>
         /// Gets the app type.
@@ -78,7 +77,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Category"/> property was included in the response.
         /// </summary>
-        public bool HasCategory => !String.IsNullOrWhiteSpace(Category);
+        public bool HasCategory => string.IsNullOrWhiteSpace(Category) == false;
 
         // TODO: Add support for the "client_config" property
 
@@ -90,7 +89,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Company"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasCompany => !String.IsNullOrWhiteSpace(Company);
+        public bool HasCompany => string.IsNullOrWhiteSpace(Company) == false;
 
         // TODO: Add support for the "configured_ios_sso" property
 
@@ -102,7 +101,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="ContactEmail"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasContactEmail => !String.IsNullOrWhiteSpace(ContactEmail);
+        public bool HasContactEmail => string.IsNullOrWhiteSpace(ContactEmail) == false;
 
         // TODO: Add support for the "context" property
 
@@ -149,7 +148,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasDescription => !String.IsNullOrWhiteSpace(Description);
+        public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         // TODO: Add support for the "hosting_url" property
 
@@ -161,7 +160,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="IconUrl"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasIconUrl => !String.IsNullOrWhiteSpace(IconUrl);
+        public bool HasIconUrl => string.IsNullOrWhiteSpace(IconUrl) == false;
 
         // TODO: Add support for the "ios_bundle_id" property
         // TODO: Add support for the "ios_supports_native_proxy_auth_flow" property
@@ -177,7 +176,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Link"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasLink => !String.IsNullOrWhiteSpace(Link);
+        public bool HasLink => string.IsNullOrWhiteSpace(Link) == false;
 
         // TODO: Add support for the "logging_token" property
 
@@ -189,7 +188,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Description"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasLogoUrl => !String.IsNullOrWhiteSpace(LogoUrl);
+        public bool HasLogoUrl => string.IsNullOrWhiteSpace(LogoUrl) == false;
 
         // TODO: Add support for the "migrations" property
         // TODO: Add support for the "mobile_profile_section_url" property
@@ -223,7 +222,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Name"/> property was included in the response.
         /// </summary>
-        public bool HasName => !String.IsNullOrWhiteSpace(Name);
+        public bool HasName => string.IsNullOrWhiteSpace(Name) == false;
 
         /// <summary>
         /// Gets the namespace of the app.
@@ -233,7 +232,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="Namespace"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasNamespace => !String.IsNullOrWhiteSpace(Namespace);
+        public bool HasNamespace => string.IsNullOrWhiteSpace(Namespace) == false;
 
         // TODO: Add support for the "object_store_urls" property
         // TODO: Add support for the "page_tab_default_name" property
@@ -248,7 +247,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// Gets whether the <see cref="PrivacyPolicyUrl"/> property has been specified and was included in the
         /// response.
         /// </summary>
-        public bool HasPrivacyPolicyUrl => !String.IsNullOrWhiteSpace(PrivacyPolicyUrl);
+        public bool HasPrivacyPolicyUrl => string.IsNullOrWhiteSpace(PrivacyPolicyUrl) == false;
 
         // TODO: Add support for the "profile_section_url" property
         // TODO: Add support for the "restrictions" property
@@ -265,7 +264,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="SubCategory"/> property was included in the response.
         /// </summary>
-        public bool HasSubCategory => !String.IsNullOrWhiteSpace(SubCategory);
+        public bool HasSubCategory => string.IsNullOrWhiteSpace(SubCategory) == false;
 
         // TODO: Add support for the "supported_platforms" property
 
@@ -278,7 +277,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// Gets whether the <see cref="TermsOfServiceUrl"/> property has been specified and was included in the
         /// response.
         /// </summary>
-        public bool HasTermsOfServiceUrl => !String.IsNullOrWhiteSpace(TermsOfServiceUrl);
+        public bool HasTermsOfServiceUrl => string.IsNullOrWhiteSpace(TermsOfServiceUrl) == false;
 
         // TODO: Add support for the "url_scheme_suffix" property
 
@@ -291,7 +290,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// Gets whether the <see cref="UserSupportEmail"/> property has been specified and was included in the
         /// response.
         /// </summary>
-        public bool HasUserSupportEmail => !String.IsNullOrWhiteSpace(UserSupportEmail);
+        public bool HasUserSupportEmail => string.IsNullOrWhiteSpace(UserSupportEmail) == false;
 
         /// <summary>
         /// Gets the URL shown in the Canvas footer that people can visit to get support for the app.
@@ -301,7 +300,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="UserSupportUrl"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasUserSupportUrl => !String.IsNullOrWhiteSpace(UserSupportUrl);
+        public bool HasUserSupportUrl => string.IsNullOrWhiteSpace(UserSupportUrl) == false;
 
         /// <summary>
         /// Gets the URL of a website that integrates with this app.
@@ -311,7 +310,7 @@ namespace Skybrud.Social.Facebook.Models.Applications {
         /// <summary>
         /// Gets whether the <see cref="WebsiteUrl"/> property has been specified and was included in the response.
         /// </summary>
-        public bool HasWebsiteUrl => !String.IsNullOrWhiteSpace(Description);
+        public bool HasWebsiteUrl => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
         /// Gets the the number of weekly active users the app has.
