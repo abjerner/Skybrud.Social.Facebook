@@ -7,7 +7,7 @@ namespace Skybrud.Social.Facebook.Responses.Feed {
     /// Class representing a response of a request to get a collection of <see cref="FacebookPost"/> of a Facebook
     /// feed.
     /// </summary>
-    public class FacebookGetFeedResponse : FacebookResponse<FacebookPostsCollection> {
+    public class FacebookGetFeedResponse : FacebookResponse<FacebookPostList> {
 
         #region Constructors
 
@@ -17,7 +17,7 @@ namespace Skybrud.Social.Facebook.Responses.Feed {
             ValidateResponse(response);
 
             // Parse the response body
-            Body = ParseJsonObject(response.Body, FacebookPostsCollection.Parse);
+            Body = ParseJsonObject(response.Body, FacebookPostList.Parse);
 
         }
 

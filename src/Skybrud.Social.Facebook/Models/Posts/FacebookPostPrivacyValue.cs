@@ -1,11 +1,19 @@
-﻿using Skybrud.Social.Facebook.Models.Posts;
+﻿using Newtonsoft.Json;
+using Skybrud.Essentials.Json.Converters.Enums;
+using Skybrud.Essentials.Strings;
 
 namespace Skybrud.Social.Facebook.Models.Posts {
 
     /// <summary>
     /// Enum class representing the privacy setting of a <see cref="FacebookPost"/>.
     /// </summary>
+    [JsonConverter(typeof(EnumStringConverter), TextCasing.Underscore)]
     public enum FacebookPostPrivacyValue {
+
+        /// <summary>
+        /// Indiciates a value that is currently not supported by this package.
+        /// </summary>
+        Unknown,
 
         /// <summary>
         /// Indicates that everyone can see the post.

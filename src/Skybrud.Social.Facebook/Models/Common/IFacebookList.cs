@@ -11,7 +11,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         /// <summary>
         /// Gets an array of the <typeparamref name="T"/> returned in the response.
         /// </summary>
-        public abstract IReadOnlyCollection<T> Data { get; }
+        public abstract IReadOnlyList<T> Data { get; }
 
     }
 

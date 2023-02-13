@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets an array of the <see cref="FacebookPage"/> returned in the response.
         /// </summary>
-        public IReadOnlyCollection<FacebookPage> Data { get; }
+        public IReadOnlyList<FacebookPage> Data { get; }
 
         /// <summary>
         /// Gets pagination information about the response.

@@ -18,17 +18,17 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// <summary>
         /// Gets or sets the number of individual objects that are returned in each page.
         /// </summary>
-        public int Limit { get; set; }
+        public int? Limit { get; set; }
 
         /// <summary>
         /// Gets or sets the timestamp that points to the start of the range of time-based data.
         /// </summary>
-        public EssentialsTime Since { get; set; }
+        public EssentialsTime? Since { get; set; }
 
         /// <summary>
         /// Gets or sets the timestamp that points to the end of the range of time-based data.
         /// </summary>
-        public EssentialsTime Until { get; set; }
+        public EssentialsTime? Until { get; set; }
 
         #endregion
 
@@ -37,9 +37,7 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// <summary>
         /// Initializes a new instance with default values.
         /// </summary>
-        protected FacebookTimeBasedPaginationOptions() {
-            Limit = -1;
-        }
+        protected FacebookTimeBasedPaginationOptions() { }
 
         #endregion
 
@@ -49,10 +47,10 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public virtual IHttpQueryString GetQueryString() {
-            HttpQueryString query = new HttpQueryString();
+            HttpQueryString query = new();
             if (Limit >= 0) query.Set("limit", Limit);
-            if (Since != null && Since.UnixTimestamp > 0) query.Set("since", Since.UnixTimestamp);
-            if (Until != null && Until.UnixTimestamp > 0) query.Set("until", Until.UnixTimestamp);
+            if (Since != null && Since.UnixTimeSeconds > 0) query.Set("since", Since.UnixTimeSeconds);
+            if (Until != null && Until.UnixTimeSeconds > 0) query.Set("until", Until.UnixTimeSeconds);
             return query;
         }
 
