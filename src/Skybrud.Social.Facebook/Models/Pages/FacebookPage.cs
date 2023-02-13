@@ -2,8 +2,9 @@ using System;
 using System.Globalization;
 using System.Linq;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Time;
+using Skybrud.Social.Facebook.Extensions;
 using Skybrud.Social.Facebook.Models.Common;
 
 namespace Skybrud.Social.Facebook.Models.Pages {

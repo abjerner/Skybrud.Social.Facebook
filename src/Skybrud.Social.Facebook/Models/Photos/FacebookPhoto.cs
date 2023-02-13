@@ -1,7 +1,8 @@
 using System.Linq;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Time;
+using Skybrud.Social.Facebook.Extensions;
 using Skybrud.Social.Facebook.Models.Albums;
 using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Models.Events;

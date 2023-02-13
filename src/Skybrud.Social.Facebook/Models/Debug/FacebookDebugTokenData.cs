@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Time;
+using Skybrud.Social.Facebook.Extensions;
 using Skybrud.Social.Facebook.Scopes;
 
 namespace Skybrud.Social.Facebook.Models.Debug {
@@ -73,6 +74,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
             // TODO: Add support for the "profile_id" property
             UserId = obj.GetString("user_id");
             Scopes = ParseScopes(obj);
+
         }
 
         #endregion

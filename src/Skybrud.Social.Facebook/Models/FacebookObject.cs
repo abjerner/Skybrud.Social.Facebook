@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using Skybrud.Essentials.Json;
-using Skybrud.Essentials.Json.Extensions;
+using Skybrud.Essentials.Json.Newtonsoft;
+using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Time;
 
 namespace Skybrud.Social.Facebook.Models {
@@ -41,9 +41,7 @@ namespace Skybrud.Social.Facebook.Models {
         /// <param name="path">A <see cref="string"/> that contains a JPath expression.</param>
         /// <returns></returns>
         protected EssentialsTime ParseUnixTimestamp(JObject obj, string path) {
-            if (obj.HasValue(path) == false) return null;
-            int value = obj.GetInt32(path);
-            return value > 0 ? EssentialsTime.FromUnixTimestamp(value) : null;
+            return obj.TryGetInt32ByPath(path, out int value) ? EssentialsTime.FromUnixTimeSeconds(value) : null;
         }
 
         #endregion
