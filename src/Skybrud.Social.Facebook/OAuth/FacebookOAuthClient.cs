@@ -1,4 +1,5 @@
 using System;
+using Skybrud.Essentials.Collections;
 using Skybrud.Essentials.Common;
 using Skybrud.Essentials.Http;
 using Skybrud.Essentials.Http.Client;
@@ -21,22 +22,22 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <summary>
         /// Gets or sets the client ID of the app.
         /// </summary>
-        public string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// Gets or sets the client secret of the app.
         /// </summary>
-        public string ClientSecret { get; set; }
+        public string? ClientSecret { get; set; }
 
         /// <summary>
         /// Gets or sets the redirect URI of your application.
         /// </summary>
-        public string RedirectUri { get; set; }
+        public string? RedirectUri { get; set; }
 
         /// <summary>
         /// Gets or sets the access token.
         /// </summary>
-        public string AccessToken { get; set; }
+        public string? AccessToken { get; set; }
 
         #endregion
 
@@ -48,7 +49,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <summary>
         /// Gets or sets the locale of the client.
         /// </summary>
-        public string Locale { get; set; }
+        public string? Locale { get; set; }
 
         #region Endpoints
 
@@ -184,8 +185,10 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="state">The state to send to Facebook's OAuth login page.</param>
         /// <param name="scope">The scope of the application.</param>
         /// <returns>An authorization URL based on <paramref name="state"/> and <paramref name="scope"/>.</returns>
-        public string GetAuthorizationUrl(string state, FacebookScopeList scope) {
-            return GetAuthorizationUrl(state, scope?.ToString());
+        public string GetAuthorizationUrl(string state, FacebookScopeList? scope) {
+            string? value = scope?.ToString();
+            string[] array = string.IsNullOrWhiteSpace(value) ? ArrayUtils.Empty<string>() : new[] { value! };
+            return GetAuthorizationUrl(state, array);
         }
 
         /// <summary>
@@ -194,7 +197,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="state">The state to send to Facebook's OAuth login page.</param>
         /// <param name="scope">The scope of the application.</param>
         /// <returns>An authorization URL based on <paramref name="state"/> and <paramref name="scope"/>.</returns>
-        public string GetAuthorizationUrl(string state, params string[] scope) {
+        public string GetAuthorizationUrl(string state, params string[]? scope) {
 
             // Some validation
             if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
@@ -211,7 +214,7 @@ namespace Skybrud.Social.Facebook.OAuth {
                 ClientId,
                 RedirectUri,
                 state,
-                string.Join(",", scope)
+                scope == null ? string.Empty : string.Join(",", scope)
             );
 
         }
@@ -231,14 +234,15 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (string.IsNullOrWhiteSpace(authCode)) throw new ArgumentNullException(nameof(authCode));
 
             // Initialize the query string
-            IHttpQueryString query = new HttpQueryString();
-            query.Add("client_id", ClientId);
-            query.Add("redirect_uri", RedirectUri);
-            query.Add("client_secret", ClientSecret);
-            query.Add("code", authCode);
+            IHttpQueryString query = new HttpQueryString {
+                { "client_id", ClientId! },
+                { "redirect_uri", RedirectUri! },
+                { "client_secret", ClientSecret! },
+                { "code", authCode }
+            };
 
             // Make the call to the API
-            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Requests.Get($"https://graph.facebook.com/{Version}/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -259,14 +263,15 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (string.IsNullOrWhiteSpace(currentToken)) throw new ArgumentNullException(nameof(currentToken));
 
             // Initialize the query string
-            IHttpQueryString query = new HttpQueryString();
-            query.Add("grant_type", "fb_exchange_token");
-            query.Add("client_id", ClientId);
-            query.Add("client_secret", ClientSecret);
-            query.Add("fb_exchange_token", currentToken);
+            IHttpQueryString query = new HttpQueryString {
+                { "grant_type", "fb_exchange_token" },
+                { "client_id", ClientId! },
+                { "client_secret", ClientSecret! },
+                { "fb_exchange_token", currentToken }
+            };
 
             // Make the call to the API
-            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Requests.Get($"https://graph.facebook.com/{Version}/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -286,13 +291,14 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (string.IsNullOrWhiteSpace(ClientSecret)) throw new PropertyNotSetException(nameof(ClientSecret));
 
             // Initialize the query string
-            IHttpQueryString query = new HttpQueryString();
-            query.Add("client_id", ClientId);
-            query.Add("client_secret", ClientSecret);
-            query.Add("grant_type", "client_credentials");
+            IHttpQueryString query = new HttpQueryString {
+                { "client_id", ClientId! },
+                { "client_secret", ClientSecret! },
+                { "grant_type", "client_credentials" }
+            };
 
             // Make the call to the API
-            IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
+            IHttpResponse response = HttpUtils.Requests.Get($"https://graph.facebook.com/{Version}/oauth/access_token", query);
 
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
@@ -306,20 +312,18 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (string.IsNullOrWhiteSpace(Version)) throw new PropertyNotSetException(nameof(Version));
 
             // Append the HTTP scheme and API version if not already specified.
-            if (request.Url.StartsWith("/")) {
-                request.Url = "https://graph.facebook.com/" + Version + request.Url;
-            }
+            if (request.Url.StartsWith("/")) request.Url = $"https://graph.facebook.com/{Version}{request.Url}";
 
             // Append the access token to the query string if present in the client and not already
             // specified in the query string
             if (request.QueryString.ContainsKey("access_token") == false && string.IsNullOrWhiteSpace(AccessToken) == false) {
-                request.QueryString.Add("access_token", AccessToken);
+                request.QueryString.Add("access_token", AccessToken!);
             }
 
             // Append the locale to the query string if present in the client and not already
             // specified in the query string
             if (request.QueryString.ContainsKey("locale") == false && string.IsNullOrWhiteSpace(Locale) == false) {
-                request.QueryString.Add("locale", Locale);
+                request.QueryString.Add("locale", Locale!);
             }
 
         }
