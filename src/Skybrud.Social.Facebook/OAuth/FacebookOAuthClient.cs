@@ -184,7 +184,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// <param name="state">The state to send to Facebook's OAuth login page.</param>
         /// <param name="scope">The scope of the application.</param>
         /// <returns>An authorization URL based on <paramref name="state"/> and <paramref name="scope"/>.</returns>
-        public string GetAuthorizationUrl(string state, FacebookScopeCollection scope) {
+        public string GetAuthorizationUrl(string state, FacebookScopeList scope) {
             return GetAuthorizationUrl(state, scope?.ToString());
         }
 

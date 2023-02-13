@@ -81,8 +81,8 @@ namespace Skybrud.Social.Facebook.Models.Debug {
 
         private FacebookScope[] ParseScopes(JObject obj) {
             return (
-                from name in obj.GetStringArray("scopes")
-                select FacebookScope.GetScope(name) ?? new FacebookScope(name)
+                from alias in obj.GetStringArray("scopes")
+                select FacebookScope.GetScope(alias) ?? new FacebookScope(alias, alias)
             ).ToArray();
         }
 
