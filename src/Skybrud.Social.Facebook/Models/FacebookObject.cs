@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Newtonsoft;
 using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 using Skybrud.Essentials.Time;
@@ -10,14 +11,24 @@ namespace Skybrud.Social.Facebook.Models {
     /// </summary>
     public class FacebookObject : JsonObjectBase {
 
+        #region Properties
+
+        /// <summary>
+        /// Gets the internal Newtonsoft.Json.Linq.JObject the object was created from.
+        /// </summary>
+        [JsonIgnore]
+        public new JObject JObject => base.JObject!;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
-        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookObject"/>.
+        /// Parses the specified <paramref name="json"/> object into an instance of <see cref="FacebookObject"/>.
         /// </summary>
-        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <param name="json">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>An instance of <see cref="FacebookObject"/>.</returns>
-        protected FacebookObject(JObject obj) : base(obj) { }
+        protected FacebookObject(JObject json) : base(json) { }
 
         #endregion
 
@@ -29,7 +40,7 @@ namespace Skybrud.Social.Facebook.Models {
         /// <param name="propertyName">The name of the property.</param>
         /// <returns><c>true</c> if the property exists, otherwise <c>false</c>.</returns>
         protected bool HasJsonProperty(string propertyName) {
-            return JObject?.Property(propertyName) != null;
+            return JObject.Property(propertyName) != null;
         }
 
         /// <summary>
@@ -40,7 +51,7 @@ namespace Skybrud.Social.Facebook.Models {
         /// <param name="obj">The parent object.</param>
         /// <param name="path">A <see cref="string"/> that contains a JPath expression.</param>
         /// <returns></returns>
-        protected EssentialsTime ParseUnixTimestamp(JObject obj, string path) {
+        protected EssentialsTime? ParseUnixTimestamp(JObject? obj, string path) {
             return obj.TryGetInt32ByPath(path, out int value) ? EssentialsTime.FromUnixTimeSeconds(value) : null;
         }
 

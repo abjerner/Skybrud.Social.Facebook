@@ -3,7 +3,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
     <TargetFrameworks>netstandard1.3;net45;net46;net47</TargetFrameworks>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup>
