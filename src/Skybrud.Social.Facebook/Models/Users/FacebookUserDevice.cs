@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Users {
-    
+
     /// <summary>
     /// Class with information a device of a Facebook user.
     /// </summary>
@@ -12,7 +12,7 @@ namespace Skybrud.Social.Facebook.Models.Users {
     public class FacebookUserDevice : FacebookObject {
 
         #region Properties
-        
+
         /// <summary>
         /// Gets information about the hardware of the device.
         /// </summary>

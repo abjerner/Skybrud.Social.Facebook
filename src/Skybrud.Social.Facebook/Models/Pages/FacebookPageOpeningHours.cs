@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Pages {
-    
+
     public class FacebookPageOpeningHours : FacebookObject {
 
         #region Properties

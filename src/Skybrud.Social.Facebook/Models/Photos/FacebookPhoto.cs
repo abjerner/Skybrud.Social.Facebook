@@ -8,7 +8,7 @@ using Skybrud.Social.Facebook.Models.Events;
 using Skybrud.Social.Facebook.Models.Places;
 
 namespace Skybrud.Social.Facebook.Models.Photos {
-    
+
     /// <summary>
     /// Class representing a Facebook photo.
     /// </summary>

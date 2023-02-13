@@ -1,5 +1,5 @@
 ﻿namespace Skybrud.Social.Facebook.Models.Posts {
-    
+
     /// <summary>
     /// Enum class indicating the type of a Facebook post.
     /// </summary>

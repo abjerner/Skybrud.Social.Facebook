@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 
 namespace Skybrud.Social.Facebook.Scopes {
-    
+
     /// <summary>
     /// Class representing a scope of the Facebook Graph API.
     /// </summary>
@@ -102,7 +102,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         }
 
         #endregion
-        
+
         #region Operators
 
         /// <summary>

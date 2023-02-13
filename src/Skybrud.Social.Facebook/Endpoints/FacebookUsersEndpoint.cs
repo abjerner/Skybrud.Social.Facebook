@@ -4,7 +4,7 @@ using Skybrud.Social.Facebook.Options.User;
 using Skybrud.Social.Facebook.Responses.Users;
 
 namespace Skybrud.Social.Facebook.Endpoints {
-    
+
     /// <summary>
     /// Class representing the implementation of the users endpoint.
     /// </summary>

@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Options.User;
 using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-    
+
     /// <summary>
     /// Class representing the raw implementation of the users endpoint.
     /// </summary>

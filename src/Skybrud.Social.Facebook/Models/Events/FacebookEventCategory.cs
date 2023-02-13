@@ -1,5 +1,5 @@
 ﻿namespace Skybrud.Social.Facebook.Models.Events {
-    
+
     /// <summary>
     /// Enum class representing the category of an event.
     /// </summary>

@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Models.Pages;
 using Skybrud.Social.Facebook.Models.Users;
 
 namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Class representing a work experience of a Facebook user.
     /// </summary>
@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasDescription => string.IsNullOrWhiteSpace(Description) == false;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookPage Employer { get; }
 
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasEmployer => Employer != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EssentialsTime EndDate { get; }
 
@@ -53,7 +53,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasEndDate => EndDate != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookUser From { get; }
 
@@ -63,7 +63,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasFrom => From != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookPage Location { get; }
 
@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasLocation => Location != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookPage Position { get; }
 
@@ -93,7 +93,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasProjects => Projects.Any();
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public EssentialsTime StartDate { get; }
 
@@ -103,7 +103,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasStartDate => StartDate != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookUser[] With { get; }
 

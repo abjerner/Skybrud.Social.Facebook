@@ -3,7 +3,7 @@ using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Pagination {
-    
+
     public class FacebookPaging : FacebookObject {
 
         #region Properties

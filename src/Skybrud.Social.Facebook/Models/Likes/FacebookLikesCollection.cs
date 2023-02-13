@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Models.Likes {
         public FacebookLikesSummary Summary { get; }
 
         #endregion
-        
+
         #region Constructors
 
         private FacebookLikesCollection(JObject obj) : base(obj) {

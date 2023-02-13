@@ -3,7 +3,7 @@ using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 
 namespace Skybrud.Social.Facebook.Options.Comments {
-    
+
     /// <summary>
     /// Class representing the options for getting a list of comments.
     /// </summary>
@@ -105,7 +105,7 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public override IHttpQueryString GetQueryString() {
-            
+
             IHttpQueryString query = base.GetQueryString();
 
             // Convert the collection of fields to a string
@@ -114,11 +114,11 @@ namespace Skybrud.Social.Facebook.Options.Comments {
             // Construct the query string
             if (string.IsNullOrWhiteSpace(fields) == false) query.Set("fields", fields);
             if (IncludeSummary) query.Set("summary", "true");
-            
+
             // TODO: Implement the "filter" modifier
-            
+
             return query;
-        
+
         }
 
         #endregion

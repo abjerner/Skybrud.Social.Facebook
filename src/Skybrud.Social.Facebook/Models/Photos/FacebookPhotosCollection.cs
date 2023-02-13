@@ -28,7 +28,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         public FacebookCursorBasedPagination Paging { get; }
 
         #endregion
-        
+
         #region Constructors
 
         private FacebookPhotosCollection(JObject obj) : base(obj) {
@@ -50,7 +50,7 @@ namespace Skybrud.Social.Facebook.Models.Photos {
         }
 
         #endregion
-    
+
     }
 
 }

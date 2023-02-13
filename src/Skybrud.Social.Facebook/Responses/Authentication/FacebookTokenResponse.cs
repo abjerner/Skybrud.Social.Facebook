@@ -14,22 +14,22 @@ namespace Skybrud.Social.Facebook.Responses.Authentication {
         /// Gets the value of the <c>X-FB-Trace-ID</c> header.
         /// </summary>
         public string FacebookTraceId { get; }
-        
+
         /// <summary>
         /// Gets the value of the <c>X-FB-Rev</c> header.
         /// </summary>
         public string FacebookRevision { get; }
-        
+
         /// <summary>
         /// Gets the value of the <c>Facebook-API-Version</c> header.
         /// </summary>
         public string FacebookApiVersion { get; }
-        
+
         /// <summary>
         /// Gets the value of the <c>X-FB-Stats-Contexts</c> header.
         /// </summary>
         public string FacebookStatsContext { get; }
-        
+
         /// <summary>
         /// Gets the value of the <c>X-FB-Debug</c> header.
         /// </summary>

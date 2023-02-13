@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Authentication {
-    
+
     /// <summary>
     /// Class describing an access token received from the Facebook Graph API.
     /// </summary>

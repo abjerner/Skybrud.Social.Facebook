@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Models.Pages;
 
 namespace Skybrud.Social.Facebook.Models.Users {
-    
+
     /// <summary>
     /// Class representing information about a Facebook user.
     /// </summary>

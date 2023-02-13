@@ -57,7 +57,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         public FacebookGetEventResponse GetEvent(FacebookGetEventOptions options) {
             return FacebookGetEventResponse.ParseResponse(Raw.GetEvent(options));
         }
-        
+
         /// <summary>
         /// Gets a list of events of a user or page with the specified <paramref name="identifier"/>.
         /// </summary>

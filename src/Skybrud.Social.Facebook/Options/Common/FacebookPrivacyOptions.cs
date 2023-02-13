@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Social.Facebook.Models.Common;
 
 namespace Skybrud.Social.Facebook.Options.Common {
-    
+
     public class FacebookPrivacyOptions {
 
         #region Properties
@@ -31,10 +31,10 @@ namespace Skybrud.Social.Facebook.Options.Common {
         #region Member methods
 
         public override string ToString() {
-           
+
             // If set to "Default", the privacy shouldn't be specified
             if (Value == FacebookPrivacy.Default) return string.Empty;
-            
+
             // Initialize an instance of JObject
             JObject json = new JObject();
 
@@ -46,7 +46,7 @@ namespace Skybrud.Social.Facebook.Options.Common {
                 } else if (chr >= 97 && chr <= 122) {
                     value += (char) (chr - 32);
                 } else {
-                    value += chr; 
+                    value += chr;
                 }
             }
             json.Add("value", value.Trim('_'));

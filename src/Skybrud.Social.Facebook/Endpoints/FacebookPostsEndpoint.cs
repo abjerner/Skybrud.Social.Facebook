@@ -5,7 +5,7 @@ using Skybrud.Social.Facebook.Options.Posts;
 using Skybrud.Social.Facebook.Responses.Posts;
 
 namespace Skybrud.Social.Facebook.Endpoints {
-    
+
     /// <summary>
     /// Class representing the implementation of the posts endpoint.
     /// </summary>

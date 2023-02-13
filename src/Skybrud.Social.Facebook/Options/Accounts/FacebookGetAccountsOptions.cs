@@ -4,7 +4,7 @@ using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 
 namespace Skybrud.Social.Facebook.Options.Accounts {
-    
+
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get accounts of the authenticated user.
     /// </summary>
@@ -14,7 +14,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
     public class FacebookGetAccountsOptions : FacebookCursorBasedPaginationOptions {
 
         #region Properties
-        
+
         /// <summary>
         /// Gets or sets a specific business ID that the returned accounts should match.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         }
 
         #endregion
-    
+
     }
 
 }

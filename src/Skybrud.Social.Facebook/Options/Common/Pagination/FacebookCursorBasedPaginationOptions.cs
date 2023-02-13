@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Http.Options;
 
 namespace Skybrud.Social.Facebook.Options.Common.Pagination {
-    
+
     /// <summary>
     /// Class with options for cursor-based pagination.
     /// </summary>
@@ -44,7 +44,7 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         }
 
         #endregion
-    
+
     }
 
 }

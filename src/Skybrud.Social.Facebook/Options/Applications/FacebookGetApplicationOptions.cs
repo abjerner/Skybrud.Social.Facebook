@@ -3,7 +3,7 @@ using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
 namespace Skybrud.Social.Facebook.Options.Applications {
-    
+
     /// <summary>
     /// Class representing the options for getting information about a Facebook application.
     /// </summary>
@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Options.Applications {
         public FacebookGetApplicationOptions() {
             Fields = new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>

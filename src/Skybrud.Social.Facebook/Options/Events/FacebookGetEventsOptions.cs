@@ -5,7 +5,7 @@ using Skybrud.Social.Facebook.Models.Events;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 
 namespace Skybrud.Social.Facebook.Options.Events {
-    
+
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get a list of events.
     /// </summary>
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         public FacebookFieldsCollection Fields { get; set; }
 
         #endregion
-        
+
         #region Constructors
 
         /// <summary>

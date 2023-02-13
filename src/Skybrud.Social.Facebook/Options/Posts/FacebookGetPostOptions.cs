@@ -3,7 +3,7 @@ using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
 namespace Skybrud.Social.Facebook.Options.Posts {
-    
+
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single post.
     /// </summary>
@@ -72,7 +72,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         }
 
         #endregion
-    
+
     }
 
 }

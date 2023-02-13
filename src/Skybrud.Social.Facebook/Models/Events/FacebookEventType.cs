@@ -10,13 +10,13 @@
         /// missing in the JSON returned by the Facebook Graph API.
         /// </summary>
         Unspecified,
-        
+
         Private,
-        
+
         Public,
-        
+
         Group,
-        
+
         Community
 
     }

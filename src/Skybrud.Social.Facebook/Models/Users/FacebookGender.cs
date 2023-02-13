@@ -9,7 +9,7 @@
         /// Indicates that the <c>gender</c> field wasn't specified in the response from the Graph API.
         /// </summary>
         NotSpecified,
-        
+
         /// <summary>
         /// Indicates that the user hasn't entered or shared it's gender.
         /// </summary>
@@ -24,7 +24,7 @@
         /// Indicates that the user is a female.
         /// </summary>
         Female
-    
+
     }
 
 }

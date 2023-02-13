@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Models {
 
         /// <summary>
         /// Parses the Unix timestamp at <paramref name="path"/>.
-        /// 
+        ///
         /// In some cases, the Graph APi may return <c>0</c> indicating no value - if this is the case, this method will return <c>null</c> instead of <see cref="EssentialsTime.Zero"/>.
         /// </summary>
         /// <param name="obj">The parent object.</param>

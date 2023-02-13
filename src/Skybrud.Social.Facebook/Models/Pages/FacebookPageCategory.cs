@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Pages {
-    
+
     /// <summary>
     /// Class representing the category of a <see cref="FacebookPage"/>.
     /// </summary>

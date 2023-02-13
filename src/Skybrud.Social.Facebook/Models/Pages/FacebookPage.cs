@@ -216,9 +216,9 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasCompanyOverview => string.IsNullOrWhiteSpace(CompanyOverview) == false;
 
         // TODO: Add support for the "contact_address" field
-        
+
         // TODO: Add support for the "context" field
-        
+
         // TODO: Add support for the "country_page_likes" field
 
         /// <summary>
@@ -282,7 +282,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasDirectedBy => string.IsNullOrWhiteSpace(DirectedBy) == false;
 
         // TODO: Add support for the "display_subtext" field
-        
+
         // TODO: Add support for the "displayed_message_response_time" field
 
         /// <summary>
@@ -308,7 +308,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasFanCount => JObject.HasValue("fan_count");
 
         // TODO: Add support for the "fan_count" field
-        
+
         // TODO: Add support for the "featured_video" field
 
         /// <summary>
@@ -373,9 +373,9 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasGenre => string.IsNullOrWhiteSpace(Genre) == false;
 
         // TODO: Add support for the "global_brand_page_name" field
-        
+
         // TODO: Add support for the "global_brand_root_id" field
-        
+
         // TODO: Add support for the "has_added_app" field
 
         /// <summary>
@@ -482,13 +482,13 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasIsVerified => JObject.HasValue("is_verified");
 
         // TODO: Add support for the "is_webhooks_subscribed" field
-        
+
         // TODO: Add support for the "leadgen_form_preview_details" field
-        
+
         // TODO: Add support for the "leadgen_tos_acceptance_time" field
-        
+
         // TODO: Add support for the "leadgen_tos_accepted" field
-        
+
         // TODO: Add support for the "leadgen_tos_accepting_user" field
 
         /// <summary>
@@ -522,7 +522,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         public bool HasMembers => string.IsNullOrWhiteSpace(Members) == false;
 
         // TODO: Add support for the "merchant_id" field
-        
+
         // TODO: Add support for the "merchant_review_status" field
 
         /// <summary>
@@ -898,9 +898,9 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// Gets the number of people talking about the page.
         /// </summary>
         public int TalkingAboutCount { get; }
-        
+
         // TODO: Add support for the "unread_message_count" field
-        
+
         // TODO: Add support for the "unread_notif_count" field
 
         // TODO: Add support for the "unseen_message_count" field
@@ -1093,7 +1093,7 @@ namespace Skybrud.Social.Facebook.Models.Pages {
 
         private EssentialsDate ParseBirthday(string str) {
             return string.IsNullOrWhiteSpace(str) ? null : new EssentialsDate(DateTime.ParseExact(str, "MM/dd/yyyy", CultureInfo.InvariantCulture));
-        } 
+        }
 
         #endregion
 

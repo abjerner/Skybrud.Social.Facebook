@@ -5,7 +5,7 @@ using Skybrud.Social.Facebook.Options.Events;
 using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-    
+
     /// <summary>
     /// Class representing the raw implementation of the events endpoint.
     /// </summary>

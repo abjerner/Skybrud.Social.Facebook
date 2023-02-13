@@ -2,7 +2,7 @@ using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Class with information about the image source and dimensions of Facebook photo.
     /// </summary>

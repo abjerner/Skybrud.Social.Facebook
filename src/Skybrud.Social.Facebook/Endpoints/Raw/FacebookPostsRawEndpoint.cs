@@ -7,7 +7,7 @@ using Skybrud.Social.Facebook.Options.Posts;
 using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-    
+
     /// <summary>
     /// Class representing the raw implementation of the posts endpoint.
     /// </summary>

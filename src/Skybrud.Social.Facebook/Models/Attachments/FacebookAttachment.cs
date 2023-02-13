@@ -12,7 +12,7 @@ namespace Skybrud.Social.Facebook.Models.Attachments {
     public class FacebookAttachment : FacebookAttachmentBase {
 
         #region Properties
-        
+
         /// <summary>
         /// Gets an array of all sub attachments within the attachment. Not all attachments have sub attachments.
         /// </summary>

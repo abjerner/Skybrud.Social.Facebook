@@ -136,7 +136,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
             if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID) must be specified.");
             return Client.DoHttpGetRequest("/" + options.Identifier + "/albums", options);
         }
-        
+
         /// <summary>
         /// Creates a new album for the page or user matching the specified <paramref name="options"/>.
         /// </summary>

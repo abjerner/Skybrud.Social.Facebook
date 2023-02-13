@@ -5,7 +5,7 @@ namespace Skybrud.Social.Facebook.Constants {
 
     /// <summary>
     ///  Static class with constants for the fields available for a Facebook post (<see cref="FacebookPhoto" />).
-    ///  
+    ///
     ///  The class is auto-generated and based on the fields listed in the Facebook Graph API documentation. Not all
     ///  fields may have been mapped for the implementation in Skybrud.Social.
     /// </summary>
@@ -84,7 +84,7 @@ namespace Skybrud.Social.Facebook.Constants {
         public static readonly FacebookField Icon = new FacebookField("icon");
 
         /// <summary>
-        /// Whether the post can be promoted on Instagram. It returns the enum "eligible" if it can be promoted. 
+        /// Whether the post can be promoted on Instagram. It returns the enum "eligible" if it can be promoted.
         /// Otherwise it returns an enum for why it cannot be promoted.
         /// </summary>
         public static readonly FacebookField InstagramEligibility = new FacebookField("instagram_eligibility");

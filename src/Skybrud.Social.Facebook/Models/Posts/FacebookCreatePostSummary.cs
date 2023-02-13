@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Posts {
-    
+
     /// <summary>
     /// Class representing a summary about a created post.
     /// </summary>

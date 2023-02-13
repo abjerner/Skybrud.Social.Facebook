@@ -33,7 +33,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         #endregion
 
         #region Methods
-        
+
         /// <summary>
         /// Gets information about the photo with the specified <paramref name="identifier"/>.
         /// </summary>

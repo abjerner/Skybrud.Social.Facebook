@@ -9,12 +9,12 @@ namespace Skybrud.Social.Facebook.Models.Attachments {
     public class FacebookAttachmentMedia : FacebookObject {
 
         #region Properties
-        
+
         /// <summary>
         /// Gets a reference to the image of the attachment.
         /// </summary>
         public FacebookAttachmentImage Image { get; }
-        
+
         #endregion
 
         #region Constructors

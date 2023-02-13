@@ -9,7 +9,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
     /// Class representing the options for a call to the Facebook Graph API to get a list of items from a feed.
     /// </summary>
     public class FacebookGetFeedOptions : FacebookTimeBasedPaginationOptions {
-        
+
         #region Properties
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
             Identifier = identifier;
             Fields = fields ?? new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="identifier"/> and
         /// <paramref name="limit"/>.
@@ -64,7 +64,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
             Limit = limit;
             Fields = new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
         /// and <paramref name="until"/>.
@@ -91,7 +91,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
             Limit = limit;
             Fields = fields ?? new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes an instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
         /// <paramref name="until"/> and collection of <paramref name="fields"/>.

@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Options.Pages;
 using Skybrud.Essentials.Http;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-    
+
     /// <summary>
     /// Class representing the raw implementation of the pages endpoint.
     /// </summary>

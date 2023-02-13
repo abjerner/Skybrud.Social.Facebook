@@ -1,5 +1,5 @@
 ﻿namespace Skybrud.Social.Facebook.Models.Albums {
-    
+
     /// <summary>
     /// Enumeration describing the type of an album.
     /// </summary>
@@ -42,7 +42,7 @@
         Normal,
 
         Album
-    
+
     }
 
 }

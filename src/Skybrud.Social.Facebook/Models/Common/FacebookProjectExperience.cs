@@ -5,7 +5,7 @@ using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Models.Users;
 
 namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Class representing a project experience of a Facebook user.
     /// </summary>
@@ -42,7 +42,7 @@ namespace Skybrud.Social.Facebook.Models.Common {
         public bool HasEndDate => EndDate != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public FacebookUser From { get; }
 

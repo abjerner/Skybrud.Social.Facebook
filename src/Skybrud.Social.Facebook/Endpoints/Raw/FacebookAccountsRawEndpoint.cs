@@ -5,7 +5,7 @@ using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Accounts;
 
 namespace Skybrud.Social.Facebook.Endpoints.Raw {
-    
+
     /// <summary>
     /// Class representing the raw implementation of the accounts endpoint.
     /// </summary>

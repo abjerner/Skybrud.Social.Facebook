@@ -3,7 +3,7 @@ using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
-    
+
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get a list of albums.
     /// </summary>

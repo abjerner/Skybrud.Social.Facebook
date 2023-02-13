@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// Gets the ID of the post.
         /// </summary>
         public string Id { get; }
-        
+
         /// <summary>
         /// Gets information about the app or business that created the post. Applies to pages only.
         /// </summary>
@@ -330,7 +330,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         public bool HasStoryTags => StoryTags.Length > 0;
 
         // TODO: Add support for the "targeting" property
-        
+
         // TODO: Add support for the "to" property
 
         /// <summary>
@@ -346,7 +346,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets the time when the post was created, last edited or the time of the last comment that was left on the
         /// post.
-        /// 
+        ///
         /// For a post about a life event, this will be the date and time of the life event.
         /// </summary>
         public EssentialsTime UpdatedTime { get; }
@@ -377,7 +377,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             FullPicture = obj.GetString("full_picture");
             Icon = obj.GetString("icon");
             // TODO: Add support for the "instagram_eligibility" property
-            IsHidden = obj.GetBoolean(FacebookPostFields.IsHidden.Name); 
+            IsHidden = obj.GetBoolean(FacebookPostFields.IsHidden.Name);
             // TODO: Add support for the "is_instagram_eligible" property
             IsPublished = obj.GetBoolean("is_published");
             Link = obj.GetString("link");

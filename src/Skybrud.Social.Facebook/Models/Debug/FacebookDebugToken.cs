@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Models.Debug {
         public FacebookDebugTokenData Data { get; }
 
         #endregion
-        
+
         #region Constructors
 
         private FacebookDebugToken(JObject obj) : base(obj) {

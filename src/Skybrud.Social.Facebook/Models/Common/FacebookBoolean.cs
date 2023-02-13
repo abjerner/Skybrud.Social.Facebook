@@ -1,5 +1,5 @@
 ﻿namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Enum class representing a boolean value
     /// </summary>
@@ -14,7 +14,7 @@
         /// Indicates that a boolean value is <c>false</c>.
         /// </summary>
         False,
- 
+
         /// <summary>
         /// Indicates that a boolean value is <c>true</c>.
         /// </summary>

@@ -8,7 +8,7 @@ using Skybrud.Social.Facebook.Models.Users;
 namespace Skybrud.Social.Facebook.Models.Common {
 
     /// <summary>
-    /// Class representing a Facebook profile. 
+    /// Class representing a Facebook profile.
     /// </summary>
     /// <see>
     ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/profile</cref>

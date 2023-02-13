@@ -9,7 +9,7 @@
         /// Indicates that a dress code / attire isn't specified.
         /// </summary>
         Unspecified,
-        
+
         /// <summary>
         /// Indicates a casual attire.
         /// </summary>
@@ -19,7 +19,7 @@
         /// Indicates a dressy attire.
         /// </summary>
         Dressy
-    
+
     }
 
 }

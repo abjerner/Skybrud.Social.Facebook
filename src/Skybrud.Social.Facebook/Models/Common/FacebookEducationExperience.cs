@@ -5,7 +5,7 @@ using Skybrud.Social.Facebook.Models.Pages;
 using Skybrud.Social.Facebook.Models.Users;
 
 namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Class representing a work experience of a Facebook user.
     /// </summary>

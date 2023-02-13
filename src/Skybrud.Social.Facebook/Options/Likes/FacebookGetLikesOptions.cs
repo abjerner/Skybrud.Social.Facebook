@@ -3,7 +3,7 @@ using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Options.Common.Pagination;
 
 namespace Skybrud.Social.Facebook.Options.Likes {
-    
+
     /// <summary>
     /// Class representing the options for getting a list of likes.
     /// </summary>

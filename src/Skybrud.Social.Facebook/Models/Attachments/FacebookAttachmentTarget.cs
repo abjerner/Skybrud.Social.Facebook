@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Models.Attachments {
         /// Gets the URL to the attachment.
         /// </summary>
         public string Url { get; }
-        
+
         #endregion
 
         #region Constructors

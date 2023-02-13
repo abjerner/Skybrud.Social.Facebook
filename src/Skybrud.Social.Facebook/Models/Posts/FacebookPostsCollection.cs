@@ -3,7 +3,7 @@ using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Social.Facebook.Models.Pagination;
 
 namespace Skybrud.Social.Facebook.Models.Posts {
-    
+
     /// <summary>
     /// Class representing a collection of Facebook posts.
     /// </summary>
@@ -44,7 +44,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         }
 
         #endregion
-    
+
     }
 
 }

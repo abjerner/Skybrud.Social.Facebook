@@ -4,7 +4,7 @@ using Skybrud.Social.Facebook.Models.Common;
 using Skybrud.Social.Facebook.Options.Common;
 
 namespace Skybrud.Social.Facebook.Options.Albums {
-    
+
     /// <summary>
     /// Class representing the options for creating a Facebook album.
     /// </summary>
@@ -56,7 +56,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// the Login Dialog. This field cannot be used to set a more open privacy setting than the one granted.
         /// </summary>
         public FacebookPrivacyOptions Privacy { get; set; }
-        
+
         #endregion
 
         #region Member methods

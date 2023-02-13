@@ -3,7 +3,7 @@ using Skybrud.Social.Facebook.Endpoints;
 using Skybrud.Social.Facebook.OAuth;
 
 namespace Skybrud.Social.Facebook {
-    
+
     /// <summary>
     /// Class working as an entry point to the Facebook Graph API.
     /// </summary>

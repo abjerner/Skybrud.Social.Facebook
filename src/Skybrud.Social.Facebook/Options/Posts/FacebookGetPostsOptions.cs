@@ -58,7 +58,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
             Identifier = identifier;
             Fields = fields ?? new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="identifier"/> and
         /// <paramref name="limit"/>.
@@ -70,7 +70,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
             Limit = limit;
             Fields = new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes a new instance based on the specified <paramref name="identifier"/>, <paramref name="limit"/>
         /// and <paramref name="until"/>.
@@ -97,7 +97,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
             Limit = limit;
             Fields = fields ?? new FacebookFieldsCollection();
         }
-        
+
         /// <summary>
         /// Initializes an instance with the specified <paramref name="identifier"/>, <paramref name="limit"/>,
         /// <paramref name="until"/> and collection of <paramref name="fields"/>.

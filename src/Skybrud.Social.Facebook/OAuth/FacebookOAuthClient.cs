@@ -13,7 +13,7 @@ namespace Skybrud.Social.Facebook.OAuth {
     /// Class for handling the raw communication with the Facebook Graph API as well as any OAuth 2.0 communication.
     /// </summary>
     public class FacebookOAuthClient : HttpClient {
-        
+
         #region Properties
 
         #region OAuth
@@ -27,7 +27,7 @@ namespace Skybrud.Social.Facebook.OAuth {
         /// Gets or sets the client secret of the app.
         /// </summary>
         public string ClientSecret { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the redirect URI of your application.
         /// </summary>
@@ -213,7 +213,7 @@ namespace Skybrud.Social.Facebook.OAuth {
                 state,
                 string.Join(",", scope)
             );
-        
+
         }
 
         /// <summary>
@@ -239,7 +239,7 @@ namespace Skybrud.Social.Facebook.OAuth {
 
             // Make the call to the API
             IHttpResponse response = HttpUtils.Http.DoHttpGetRequest("https://graph.facebook.com/" + Version + "/oauth/access_token", query);
-            
+
             // Parse the response
             return FacebookTokenResponse.ParseResponse(response);
 
@@ -309,7 +309,7 @@ namespace Skybrud.Social.Facebook.OAuth {
             if (request.Url.StartsWith("/")) {
                 request.Url = "https://graph.facebook.com/" + Version + request.Url;
             }
-            
+
             // Append the access token to the query string if present in the client and not already
             // specified in the query string
             if (request.QueryString.ContainsKey("access_token") == false && string.IsNullOrWhiteSpace(AccessToken) == false) {

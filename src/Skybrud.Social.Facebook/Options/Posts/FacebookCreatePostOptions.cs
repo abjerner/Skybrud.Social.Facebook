@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Http.Options;
 
 namespace Skybrud.Social.Facebook.Options.Posts {
-    
+
     /// <summary>
     /// Class representing the options for publishing a new post to the feed of a page, user or similar.
     /// </summary>
@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// Gets or sets the preview image associated with the link.
         /// </summary>
         public string Picture { get; set; }
-        
+
         /// <summary>
         /// Gets or sets the title of the link preview.
         /// </summary>

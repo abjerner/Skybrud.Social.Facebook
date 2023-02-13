@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Common {
-    
+
     /// <summary>
     /// Class with information about a currency.
     /// </summary>

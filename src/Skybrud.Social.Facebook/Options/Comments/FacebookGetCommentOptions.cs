@@ -3,7 +3,7 @@ using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
 namespace Skybrud.Social.Facebook.Options.Comments {
-    
+
     /// <summary>
     /// Class representing the options for getting information about a single comment.
     /// </summary>

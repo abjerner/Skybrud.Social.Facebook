@@ -23,7 +23,7 @@ namespace Skybrud.Social.Facebook.Responses.Users {
         #endregion
 
         #region Static methods
-        
+
         /// <summary>
         /// Parses the specified <paramref name="response"/> into an instance of <see cref="FacebookGetUserResponse"/>.
         /// </summary>

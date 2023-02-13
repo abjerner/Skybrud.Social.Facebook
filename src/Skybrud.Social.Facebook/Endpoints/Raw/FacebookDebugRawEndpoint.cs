@@ -48,10 +48,10 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
             // Declare the query string
             IHttpQueryString query = new HttpQueryString();
             query.Add("input_token", accessToken);
-            
+
             // Make the call to the API
             return Client.DoHttpGetRequest("/debug_token", query);
-        
+
         }
 
         #endregion

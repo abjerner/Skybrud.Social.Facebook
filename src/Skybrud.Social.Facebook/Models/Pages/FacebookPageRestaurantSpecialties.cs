@@ -2,7 +2,7 @@
 using Skybrud.Essentials.Json.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Pages {
-    
+
     public class FacebookPageRestaurantSpecialties : FacebookObject {
 
         #region Properties

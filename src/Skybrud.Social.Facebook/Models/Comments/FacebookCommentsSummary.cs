@@ -20,11 +20,11 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         /// <summary>
         /// Gets the count of comments on this object. It is important to note that this value is changed depending on
         /// the filter modifier being used (where comment replies are available):
-        /// 
+        ///
         /// - <c>toplevel</c> - this is the default, returns all top-level comments in either <c>ranked</c>
         /// or <c>chronological</c> order depending on how the comments are ordered on Facebook. This filter is
         /// useful for displaying comments in the same structure as they appear on Facebook.
-        /// 
+        ///
         /// - <c>stream</c> - all-level comments in <c>chronological</c> order. This filter is useful for
         /// comment moderation tools where it is helpful to see a chronological list of all comments.
         /// </summary>

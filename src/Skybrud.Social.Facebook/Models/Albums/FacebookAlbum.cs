@@ -6,7 +6,7 @@ using Skybrud.Social.Facebook.Models.Events;
 using Skybrud.Social.Facebook.Models.Places;
 
 namespace Skybrud.Social.Facebook.Models.Albums {
-    
+
     /// <summary>
     /// Class representing an album as returned by the Facebook Graph API.
     /// </summary>
@@ -26,7 +26,7 @@ namespace Skybrud.Social.Facebook.Models.Albums {
         /// Gets whether the authenticated user or page can upload photos to this album.
         /// </summary>
         public bool CanUpload { get; }
-        
+
         /// <summary>
         /// Gets whether the <see cref="CanUpload"/> property was included in the response.
         /// </summary>

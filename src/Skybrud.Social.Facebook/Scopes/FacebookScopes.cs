@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Skybrud.Social.Facebook.Scopes {
-    
+
     /// <summary>
     /// Static class with properties representing scopes of available for the Facebook Graph API. If you're missing a
     /// scope that hasn't been added to this class, feel free to create
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <summary>
         /// Provides access the list of friends that also use your app. These friends can be found on the friends edge
         /// on the user object.
-        /// 
+        ///
         /// In order for a person to show up in one person's friend list, both people must have decided to share their
         /// list of friends with your app and not disabled that permission during login. Also both friends must have
         /// been asked for <c>user_friends</c> during the login process.
@@ -65,7 +65,7 @@ namespace Skybrud.Social.Facebook.Scopes {
         /// <summary>
         /// Access the date and month of a person's birthday. This may or may not include the person's year of birth,
         /// dependent upon their privacy settings and the access token being used to query this field.
-        /// 
+        ///
         /// Please note most integrations will only need <c>age_range</c> which comes as part of the
         /// <c>public_profile</c> permission.
         /// </summary>
@@ -244,7 +244,7 @@ namespace Skybrud.Social.Facebook.Scopes {
 
         /// <summary>
         /// This permission is only available for apps using Graph API version v2.3 or older.
-        /// 
+        ///
         /// Enables your app to read the groups a person is a member of through the groups edge on the user object.
         /// </summary>
         [Obsolete]

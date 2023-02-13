@@ -1,5 +1,5 @@
 ﻿namespace Skybrud.Social.Facebook.Fields {
-    
+
     /// <summary>
     /// Class representing a field in the Facebook Graph API.
     /// </summary>

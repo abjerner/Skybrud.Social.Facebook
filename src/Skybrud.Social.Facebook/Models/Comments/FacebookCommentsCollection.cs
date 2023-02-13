@@ -4,7 +4,7 @@ using Skybrud.Social.Facebook.Models.Pagination;
 using Skybrud.Social.Facebook.Options.Comments;
 
 namespace Skybrud.Social.Facebook.Models.Comments {
-    
+
     /// <summary>
     /// Class representing the response to get the comments of a Facebook object.
     /// </summary>
@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Models.Comments {
         public bool HasSummary => Summary != null;
 
         #endregion
-        
+
         #region Constructors
 
         private FacebookCommentsCollection(JObject obj) : base(obj) {

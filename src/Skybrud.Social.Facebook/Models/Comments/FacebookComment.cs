@@ -4,7 +4,7 @@ using Skybrud.Essentials.Time;
 using Skybrud.Social.Facebook.Models.Common;
 
 namespace Skybrud.Social.Facebook.Models.Comments {
-    
+
     /// <summary>
     /// Class representing a single comment.
     /// </summary>

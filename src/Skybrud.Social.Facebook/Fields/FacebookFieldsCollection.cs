@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Skybrud.Social.Facebook.Fields {
-    
+
     /// <summary>
     /// Class representing a collection of fields in the Facebook Graph API.
     /// </summary>

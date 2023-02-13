@@ -3,7 +3,7 @@ using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
 namespace Skybrud.Social.Facebook.Options.Events {
-    
+
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single event.
     /// </summary>
@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         public FacebookFieldsCollection Fields { get; set; }
 
         #endregion
-        
+
         #region Constructors
 
         /// <summary>
