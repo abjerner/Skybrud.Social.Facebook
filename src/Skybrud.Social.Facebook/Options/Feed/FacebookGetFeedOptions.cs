@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -30,7 +30,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// Initializes an instance with default options.
         /// </summary>
         public FacebookGetFeedOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         public FacebookGetFeedOptions(string identifier) : this() {
             Identifier = identifier;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetFeedOptions(string identifier, FacebookFieldsCollection fields) : this() {
+        public FacebookGetFeedOptions(string identifier, FacebookFieldList fields) : this() {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         public FacebookGetFeedOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Skybrud.Social.Facebook.Options.Feed {
             Identifier = identifier;
             Limit = limit;
             Until = until;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -86,10 +86,10 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetFeedOptions(string identifier, int limit, FacebookFieldsCollection fields) : this() {
+        public FacebookGetFeedOptions(string identifier, int limit, FacebookFieldList fields) : this() {
             Identifier = identifier;
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -100,11 +100,11 @@ namespace Skybrud.Social.Facebook.Options.Feed {
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetFeedOptions(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) : this() {
+        public FacebookGetFeedOptions(string identifier, int limit, EssentialsTime until, FacebookFieldList fields) : this() {
             Identifier = identifier;
             Limit = limit;
             Until = until;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

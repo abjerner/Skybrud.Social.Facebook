@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// Initializes an instance with default options.
         /// </summary>
         public FacebookGetPostOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPostOptions(string identifier, FacebookFieldsCollection fields) : this() {
+        public FacebookGetPostOptions(string identifier, FacebookFieldList fields) : this() {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

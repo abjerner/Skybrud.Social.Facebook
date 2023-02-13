@@ -53,7 +53,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID) of the post.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostResponse"/> representing the response.</returns>
-        public FacebookGetPostResponse GetPost(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPostResponse GetPost(string identifier, FacebookFieldList fields) {
             return FacebookGetPostResponse.ParseResponse(Raw.GetPost(identifier, fields));
         }
 
@@ -81,7 +81,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
-        public FacebookGetPostsResponse GetPosts(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPostsResponse GetPosts(string identifier, FacebookFieldList fields) {
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, fields));
         }
 
@@ -102,7 +102,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="limit"></param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
-        public FacebookGetPostsResponse GetPosts(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit, FacebookFieldList fields) {
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit, fields));
         }
 
@@ -114,7 +114,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPostsResponse"/> representing the response.</returns>
-        public FacebookGetPostsResponse GetPosts(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
+        public FacebookGetPostsResponse GetPosts(string identifier, int limit, EssentialsTime until, FacebookFieldList fields) {
             return FacebookGetPostsResponse.ParseResponse(Raw.GetPosts(identifier, limit, until, fields));
         }
 

@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -35,7 +35,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetLikesOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <param name="identifier">The identifier (ID or alias) of the parent object.</param>
         public FacebookGetLikesOptions(string identifier) {
             Identifier = identifier;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -52,9 +52,9 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetLikesOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetLikesOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         public FacebookGetLikesOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -75,10 +75,10 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetLikesOptions(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetLikesOptions(string identifier, int limit, FacebookFieldList fields) {
             Identifier = identifier;
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -89,11 +89,11 @@ namespace Skybrud.Social.Facebook.Options.Likes {
         /// <param name="limit">The maximum amount of likes to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetLikesOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetLikesOptions(string identifier, int limit, string after, FacebookFieldList fields) {
             Identifier = identifier;
             Limit = limit;
             After = after;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

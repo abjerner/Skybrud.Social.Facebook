@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetUserResponse"/> representing the response.</returns>
-        public FacebookGetUserResponse GetUser(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetUserResponse GetUser(string identifier, FacebookFieldList fields) {
             return FacebookGetUserResponse.ParseResponse(Raw.GetUser(identifier, fields));
         }
 

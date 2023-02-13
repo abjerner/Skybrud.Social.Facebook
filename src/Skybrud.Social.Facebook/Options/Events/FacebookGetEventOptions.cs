@@ -22,7 +22,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace Skybrud.Social.Facebook.Options.Events {
         /// Initializes an instance with default options.
         /// </summary>
         public FacebookGetEventOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>

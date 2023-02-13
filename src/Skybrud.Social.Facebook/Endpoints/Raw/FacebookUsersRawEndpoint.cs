@@ -47,7 +47,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetUser(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetUser(string identifier, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
             return GetUser(new FacebookGetUserOptions(identifier, fields));
         }

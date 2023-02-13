@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID) of the photo.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPhotoResponse"/> representing the response.</returns>
-        public FacebookGetPhotoResponse GetPhoto(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPhotoResponse GetPhoto(string identifier, FacebookFieldList fields) {
             return FacebookGetPhotoResponse.ParseResponse(Raw.GetPhoto(identifier, fields));
         }
 
@@ -77,7 +77,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPhotosResponse"/> representing the response.</returns>
-        public FacebookGetPhotosResponse GetPhotos(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPhotosResponse GetPhotos(string identifier, FacebookFieldList fields) {
             return FacebookGetPhotosResponse.ParseResponse(Raw.GetPhotos(identifier, fields));
         }
 
@@ -99,7 +99,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPhotosResponse"/> representing the response.</returns>
-        public FacebookGetPhotosResponse GetPhotos(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetPhotosResponse GetPhotos(string identifier, int limit, string after, FacebookFieldList fields) {
             return FacebookGetPhotosResponse.ParseResponse(Raw.GetPhotos(identifier, limit, after, fields));
         }
 
@@ -110,7 +110,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="limit">The maximum amount of photos to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPhotosResponse"/> representing the response.</returns>
-        public FacebookGetPhotosResponse GetPhotos(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetPhotosResponse GetPhotos(string identifier, int limit, FacebookFieldList fields) {
             return FacebookGetPhotosResponse.ParseResponse(Raw.GetPhotos(identifier, limit, fields));
         }
 

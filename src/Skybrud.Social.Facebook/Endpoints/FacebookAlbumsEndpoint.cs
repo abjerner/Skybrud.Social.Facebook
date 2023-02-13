@@ -55,7 +55,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The ID of the album.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAlbumResponse"/> representing the response.</returns>
-        public FacebookGetAlbumResponse GetAlbum(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumResponse GetAlbum(string identifier, FacebookFieldList fields) {
             return FacebookGetAlbumResponse.ParseResponse(Raw.GetAlbum(identifier, fields));
         }
 
@@ -83,7 +83,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The ID of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAlbumsResponse"/> representing the response.</returns>
-        public FacebookGetAlbumsResponse GetAlbums(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsResponse GetAlbums(string identifier, FacebookFieldList fields) {
             return FacebookGetAlbumsResponse.ParseResponse(Raw.GetAlbums(identifier, fields));
         }
 
@@ -104,7 +104,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAlbumsResponse"/> representing the response.</returns>
-        public FacebookGetAlbumsResponse GetAlbums(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsResponse GetAlbums(string identifier, int limit, FacebookFieldList fields) {
             return FacebookGetAlbumsResponse.ParseResponse(Raw.GetAlbums(identifier, limit, fields));
         }
 
@@ -116,7 +116,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAlbumsResponse"/> representing the response.</returns>
-        public FacebookGetAlbumsResponse GetAlbums(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsResponse GetAlbums(string identifier, int limit, string after, FacebookFieldList fields) {
             return FacebookGetAlbumsResponse.ParseResponse(Raw.GetAlbums(identifier, limit, after, fields));
         }
 

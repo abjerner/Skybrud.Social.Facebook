@@ -24,7 +24,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -34,7 +34,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetAlbumsOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <param name="identifier">The identifier (ID) of the user.</param>
         public FacebookGetAlbumsOptions(string identifier) {
             Identifier = identifier;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -51,9 +51,9 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAlbumsOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         public FacebookGetAlbumsOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -73,10 +73,10 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAlbumsOptions(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsOptions(string identifier, int limit, FacebookFieldList fields) {
             Identifier = identifier;
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -86,11 +86,11 @@ namespace Skybrud.Social.Facebook.Options.Albums {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAlbumsOptions(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetAlbumsOptions(string identifier, int limit, string after, FacebookFieldList fields) {
             Identifier = identifier;
             Limit = limit;
             After = after;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

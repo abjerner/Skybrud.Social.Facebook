@@ -59,7 +59,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetApplication(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetApplication(string identifier, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
             return GetApplication(new FacebookGetApplicationOptions(identifier, fields));
         }

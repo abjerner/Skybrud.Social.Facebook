@@ -131,7 +131,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
         /// <summary>
         /// Gets whether the <see cref="IsHidden"/> property was included in the response.
         /// </summary>
-        public bool HasIsHidden => HasJsonProperty(FacebookPostFields.IsHidden.Name);
+        public bool HasIsHidden => HasJsonProperty(FacebookPostFields.IsHidden.Alias);
 
         // TODO: Add support for the "is_instagram_eligible" property
 
@@ -377,7 +377,7 @@ namespace Skybrud.Social.Facebook.Models.Posts {
             FullPicture = obj.GetString("full_picture");
             Icon = obj.GetString("icon");
             // TODO: Add support for the "instagram_eligibility" property
-            IsHidden = obj.GetBoolean(FacebookPostFields.IsHidden.Name);
+            IsHidden = obj.GetBoolean(FacebookPostFields.IsHidden.Alias);
             // TODO: Add support for the "is_instagram_eligible" property
             IsPublished = obj.GetBoolean("is_published");
             Link = obj.GetString("link");

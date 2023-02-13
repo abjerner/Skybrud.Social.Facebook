@@ -47,7 +47,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetFeed(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetFeed(string identifier, FacebookFieldList fields) {
             return GetFeed(new FacebookGetFeedOptions(identifier, fields));
         }
 
@@ -68,7 +68,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of items to return.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetFeed(string identifier, int limit, FacebookFieldsCollection fields) {
+        public IHttpResponse GetFeed(string identifier, int limit, FacebookFieldList fields) {
             return GetFeed(new FacebookGetFeedOptions(identifier, limit, fields));
         }
 
@@ -80,7 +80,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetFeed(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
+        public IHttpResponse GetFeed(string identifier, int limit, EssentialsTime until, FacebookFieldList fields) {
             return GetFeed(new FacebookGetFeedOptions(identifier, limit, until, fields));
         }
 

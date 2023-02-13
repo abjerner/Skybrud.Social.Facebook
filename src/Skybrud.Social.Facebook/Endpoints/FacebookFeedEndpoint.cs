@@ -50,7 +50,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID or alias) of the user or page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
-        public FacebookGetFeedResponse GetFeed(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetFeedResponse GetFeed(string identifier, FacebookFieldList fields) {
             return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, fields));
         }
 
@@ -71,7 +71,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="limit">The maximum amount of items to return.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
-        public FacebookGetFeedResponse GetFeed(string identifier, int limit, FacebookFieldsCollection fields) {
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit, FacebookFieldList fields) {
             return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, limit, fields));
         }
 
@@ -83,7 +83,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="until">A timestamp that points to the start of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetFeedResponse"/> representing the response.</returns>
-        public FacebookGetFeedResponse GetFeed(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) {
+        public FacebookGetFeedResponse GetFeed(string identifier, int limit, EssentialsTime until, FacebookFieldList fields) {
             return FacebookGetFeedResponse.ParseResponse(Raw.GetFeed(identifier, limit, until, fields));
         }
 

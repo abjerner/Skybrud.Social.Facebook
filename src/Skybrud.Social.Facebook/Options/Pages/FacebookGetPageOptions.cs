@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetPageOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPageOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPageOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

@@ -39,7 +39,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetAccounts() {
-            return GetAccounts(new FacebookFieldsCollection());
+            return GetAccounts(new FacebookFieldList());
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// </summary>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetAccounts(FacebookFieldsCollection fields) {
+        public IHttpResponse GetAccounts(FacebookFieldList fields) {
             return GetAccounts(new FacebookGetAccountsOptions(fields));
         }
 
@@ -69,7 +69,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetAccounts(int limit, FacebookFieldsCollection fields) {
+        public IHttpResponse GetAccounts(int limit, FacebookFieldList fields) {
             return GetAccounts(new FacebookGetAccountsOptions(limit, fields));
         }
 
@@ -92,7 +92,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetAccounts(int limit, string after, FacebookFieldsCollection fields) {
+        public IHttpResponse GetAccounts(int limit, string after, FacebookFieldList fields) {
             return GetAccounts(new FacebookGetAccountsOptions(limit, after, fields));
         }
 

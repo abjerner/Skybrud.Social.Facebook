@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetPageResponse"/> representing the response.</returns>
-        public FacebookGetPageResponse GetPage(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPageResponse GetPage(string identifier, FacebookFieldList fields) {
             return FacebookGetPageResponse.ParseResponse(Raw.GetPage(identifier, fields));
         }
 

@@ -49,7 +49,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the comment.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetComment(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetComment(string identifier, FacebookFieldList fields) {
             return GetComment(new FacebookGetCommentOptions(identifier, fields));
         }
 
@@ -77,7 +77,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetComments(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetComments(string identifier, FacebookFieldList fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, fields));
         }
 
@@ -99,7 +99,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetComments(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public IHttpResponse GetComments(string identifier, int limit, string after, FacebookFieldList fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, limit, after, fields));
         }
 
@@ -110,7 +110,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of comments to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetComments(string identifier, int limit, FacebookFieldsCollection fields) {
+        public IHttpResponse GetComments(string identifier, int limit, FacebookFieldList fields) {
             return GetComments(new FacebookGetCommentsOptions(identifier, limit, fields));
         }
 

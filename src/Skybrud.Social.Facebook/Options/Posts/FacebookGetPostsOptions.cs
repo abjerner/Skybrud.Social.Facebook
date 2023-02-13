@@ -20,7 +20,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         /// <summary>
         /// Gets or sets whether or not to include any posts that were hidden by the Page. Defaults to
@@ -36,7 +36,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// Initializes an instance with default options.
         /// </summary>
         public FacebookGetPostsOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         public FacebookGetPostsOptions(string identifier) : this() {
             Identifier = identifier;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -54,9 +54,9 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPostsOptions(string identifier, FacebookFieldsCollection fields) : this() {
+        public FacebookGetPostsOptions(string identifier, FacebookFieldList fields) : this() {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         public FacebookGetPostsOptions(string identifier, int limit) {
             Identifier = identifier;
             Limit = limit;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Skybrud.Social.Facebook.Options.Posts {
             Identifier = identifier;
             Limit = limit;
             Until = until;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -92,10 +92,10 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <param name="identifier">The identifier (ID) of the page or user.</param>
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPostsOptions(string identifier, int limit, FacebookFieldsCollection fields) : this() {
+        public FacebookGetPostsOptions(string identifier, int limit, FacebookFieldList fields) : this() {
             Identifier = identifier;
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -106,11 +106,11 @@ namespace Skybrud.Social.Facebook.Options.Posts {
         /// <param name="limit">The maximum amount of items to be returned per page.</param>
         /// <param name="until">The timestamp that points to the end of the range of time-based data.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPostsOptions(string identifier, int limit, EssentialsTime until, FacebookFieldsCollection fields) : this() {
+        public FacebookGetPostsOptions(string identifier, int limit, EssentialsTime until, FacebookFieldList fields) : this() {
             Identifier = identifier;
             Limit = limit;
             Until = until;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

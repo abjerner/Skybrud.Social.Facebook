@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         /// <summary>
         /// Gets or sets whether a summary should be included in the response. Default is <c>false</c>.
@@ -53,15 +53,15 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// Initializes an instance with default options.
         /// </summary>
         public FacebookGetAccountsOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
         /// Initializes a new instance with the specified <paramref name="fields"/>.
         /// </summary>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAccountsOptions(FacebookFieldsCollection fields) {
-            Fields = fields ?? new FacebookFieldsCollection();
+        public FacebookGetAccountsOptions(FacebookFieldList fields) {
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         public FacebookGetAccountsOptions(int limit) {
             Limit = limit;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -78,9 +78,9 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// </summary>
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAccountsOptions(int limit, FacebookFieldsCollection fields) {
+        public FacebookGetAccountsOptions(int limit, FacebookFieldList fields) {
             Limit = limit;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         public FacebookGetAccountsOptions(int limit, string after) {
             Limit = limit;
             After = after;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -100,10 +100,10 @@ namespace Skybrud.Social.Facebook.Options.Accounts {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetAccountsOptions(int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetAccountsOptions(int limit, string after, FacebookFieldList fields) {
             Limit = limit;
             After = after;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

@@ -61,7 +61,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="identifier">The identifier of the app. Can either be "app" or the ID of the app.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetApplicationResponse"/> representing the response.</returns>
-        public FacebookGetApplicationResponse GetApplication(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetApplicationResponse GetApplication(string identifier, FacebookFieldList fields) {
             return FacebookGetApplicationResponse.ParseResponse(Raw.GetApplication(identifier, fields));
         }
 

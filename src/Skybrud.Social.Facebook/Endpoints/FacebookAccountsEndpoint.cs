@@ -52,7 +52,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
-        public FacebookGetAccountsResponse GetAccounts(FacebookFieldsCollection fields) {
+        public FacebookGetAccountsResponse GetAccounts(FacebookFieldList fields) {
             return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts(fields));
         }
 
@@ -73,7 +73,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="limit">The maximum amount of albums to be returned per page.</param>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
-        public FacebookGetAccountsResponse GetAccounts(int limit, FacebookFieldsCollection fields) {
+        public FacebookGetAccountsResponse GetAccounts(int limit, FacebookFieldList fields) {
             return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts(limit, fields));
         }
 
@@ -96,7 +96,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields to be returned by the API.</param>
         /// <returns>An instance of <see cref="FacebookGetAccountsResponse"/> representing the response.</returns>
-        public FacebookGetAccountsResponse GetAccounts(int limit, string after, FacebookFieldsCollection fields) {
+        public FacebookGetAccountsResponse GetAccounts(int limit, string after, FacebookFieldList fields) {
             return FacebookGetAccountsResponse.ParseResponse(Raw.GetAccounts(limit, after, fields));
         }
 

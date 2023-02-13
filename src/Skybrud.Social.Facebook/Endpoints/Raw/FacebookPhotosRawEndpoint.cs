@@ -47,7 +47,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the photo.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPhoto(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetPhoto(string identifier, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID) must be specified.");
             return GetPhoto(new FacebookGetPhotoOptions(identifier, fields));
         }
@@ -79,7 +79,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID) of the parent object.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPhotos(string identifier, FacebookFieldsCollection fields) {
+        public IHttpResponse GetPhotos(string identifier, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, fields));
         }
@@ -102,7 +102,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="after">The cursor pointing to the last item on the previous page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPhotos(string identifier, int limit, string after, FacebookFieldsCollection fields) {
+        public IHttpResponse GetPhotos(string identifier, int limit, string after, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, limit, after, fields));
         }
@@ -114,7 +114,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="limit">The maximum amount of photos to be returned per page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPhotos(string identifier, int limit, FacebookFieldsCollection fields) {
+        public IHttpResponse GetPhotos(string identifier, int limit, FacebookFieldList fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPhotos(new FacebookGetPhotosOptions(identifier, limit, fields));
         }

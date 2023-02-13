@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetCommentOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// <param name="identifier">The identifier (ID) of the comment.</param>
         public FacebookGetCommentOptions(string identifier) {
             Identifier = identifier;
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace Skybrud.Social.Facebook.Options.Comments {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the user.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetCommentOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetCommentOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

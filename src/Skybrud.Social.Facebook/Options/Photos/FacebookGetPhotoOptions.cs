@@ -19,7 +19,7 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -29,7 +29,7 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetPhotoOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace Skybrud.Social.Facebook.Options.Photos {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the photo.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPhotoOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetPhotoOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion

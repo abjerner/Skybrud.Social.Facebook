@@ -22,7 +22,7 @@ namespace Skybrud.Social.Facebook.Options.Applications {
         /// <summary>
         /// Gets or sets the fields to be returned.
         /// </summary>
-        public FacebookFieldsCollection Fields { get; set; }
+        public FacebookFieldList Fields { get; set; }
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace Skybrud.Social.Facebook.Options.Applications {
         /// Initializes a new instance with default options.
         /// </summary>
         public FacebookGetApplicationOptions() {
-            Fields = new FacebookFieldsCollection();
+            Fields = new FacebookFieldList();
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace Skybrud.Social.Facebook.Options.Applications {
         /// </summary>
         /// <param name="identifier">The identifier (ID) of the album.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetApplicationOptions(string identifier, FacebookFieldsCollection fields) {
+        public FacebookGetApplicationOptions(string identifier, FacebookFieldList fields) {
             Identifier = identifier;
-            Fields = fields ?? new FacebookFieldsCollection();
+            Fields = fields ?? new FacebookFieldList();
         }
 
         #endregion
