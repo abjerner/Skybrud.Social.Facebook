@@ -14,7 +14,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// <summary>
         /// Gets a reference to the Facebook service.
         /// </summary>
-        public FacebookService Service { get; }
+        public FacebookHttpService Service { get; }
 
         /// <summary>
         /// Gets a reference to the raw endpoint.
@@ -25,7 +25,7 @@ namespace Skybrud.Social.Facebook.Endpoints {
 
         #region Constructors
 
-        internal FacebookEventsEndpoint(FacebookService service) {
+        internal FacebookEventsEndpoint(FacebookHttpService service) {
             Service = service;
         }
 

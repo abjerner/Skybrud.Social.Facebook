@@ -7,7 +7,7 @@ namespace Skybrud.Social.Facebook {
     /// <summary>
     /// Class working as an entry point to the Facebook Graph API.
     /// </summary>
-    public class FacebookService {
+    public class FacebookHttpService {
 
         #region Properties
 
@@ -80,7 +80,7 @@ namespace Skybrud.Social.Facebook {
 
         #region Constructors
 
-        private FacebookService(FacebookOAuthClient client) {
+        private FacebookHttpService(FacebookOAuthClient client) {
             Client = client;
             Accounts = new FacebookAccountsEndpoint(this);
             Albums = new FacebookAlbumsEndpoint(this);
@@ -105,19 +105,19 @@ namespace Skybrud.Social.Facebook {
         /// client will be initialized from the access token.
         /// </summary>
         /// <param name="accessToken">The access token.</param>
-        /// <returns>The created instance of <see cref="FacebookService" />.</returns>
-        public static FacebookService CreateFromAccessToken(string accessToken) {
-            return new FacebookService(new FacebookOAuthClient(accessToken));
+        /// <returns>The created instance of <see cref="FacebookHttpService" />.</returns>
+        public static FacebookHttpService CreateFromAccessToken(string accessToken) {
+            return new FacebookHttpService(new FacebookOAuthClient(accessToken));
         }
 
         /// <summary>
         /// Initialize a new service instance from the specified OAuth <paramref name="client"/>.
         /// </summary>
         /// <param name="client">The OAuth client.</param>
-        /// <returns>The created instance of <see cref="FacebookService" />.</returns>
-        public static FacebookService CreateFromOAuthClient(FacebookOAuthClient client) {
+        /// <returns>The created instance of <see cref="FacebookHttpService" />.</returns>
+        public static FacebookHttpService CreateFromOAuthClient(FacebookOAuthClient client) {
             if (client == null) throw new ArgumentNullException(nameof(client));
-            return new FacebookService(client);
+            return new FacebookHttpService(client);
         }
 
         #endregion
