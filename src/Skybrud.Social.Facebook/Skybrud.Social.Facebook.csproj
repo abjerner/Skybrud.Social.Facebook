@@ -4,20 +4,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.3;net45;net46;net47</TargetFrameworks>
-    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <RunBuildTargets>true</RunBuildTargets>
   </PropertyGroup>
 
   <PropertyGroup>
     <RootNamespace>Skybrud.Social.Facebook</RootNamespace>
     <VersionPrefix>1.0.0-beta5</VersionPrefix>
     <VersionSuffix Condition="'$(Configuration)'=='Debug'">build$([System.DateTime]::UtcNow.ToString(`yyyyMMddHHmm`))</VersionSuffix>
-    <Company>Skybrud.dk a/s</Company>
+    <Company>Limbo</Company>
     <Product>Skybrud.Social</Product>
     <Authors>Anders Bjerner</Authors>
     <Copyright>Copyright © $([System.DateTime]::UtcNow.ToString(`yyyy`))</Copyright>
     <Description>.NET wrapper and API implementation for the Facebook Graph API.</Description>
-    <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Facebook</RepositoryUrl>
   </PropertyGroup>
 
   <!-- Information for the NuGet package -->
@@ -26,6 +23,7 @@
     <PackageTags>Facebook, Graph, API, Skybrud, Limbo, Social, OAuth, JSON, Integration, Integrations, Api-Client, Api-Wrapper</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://social.skybrud.dk/facebook/</PackageProjectUrl>
+    <PackageIcon>Limbo.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/abjerner/Skybrud.Social.Facebook</RepositoryUrl>
   </PropertyGroup>
@@ -34,6 +32,11 @@
   <ItemGroup>
     <PackageReference Include="Skybrud.Essentials" Version="1.1.16" />
     <PackageReference Include="Skybrud.Essentials.Http" Version="1.0.8" />
+  </ItemGroup>
+
+  <!-- Include package icon for NuGet -->
+  <ItemGroup>
+    <Content Include="../build/Limbo.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
   <!-- Generate XML documentation -->
