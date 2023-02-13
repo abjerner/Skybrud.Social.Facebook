@@ -21,12 +21,12 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// <summary>
         /// Gets or sets the cursor that points to the start of the page of data that has been returned.
         /// </summary>
-        public string Before { get; set; }
+        public string? Before { get; set; }
 
         /// <summary>
         /// Gets or sets the cursor that points to the end of the page of data that has been returned.
         /// </summary>
-        public string After { get; set; }
+        public string? After { get; set; }
 
         #endregion
 
@@ -36,10 +36,10 @@ namespace Skybrud.Social.Facebook.Options.Common.Pagination {
         /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
         /// </summary>
         public virtual IHttpQueryString GetQueryString() {
-            HttpQueryString query = new HttpQueryString();
-            if (Limit != null && Limit.Value >= 0) query.Set("limit", Limit.Value);
-            if (Before != null) query.Set("before", Before);
-            if (After != null) query.Set("after", After);
+            HttpQueryString query = new();
+            if (Limit is >= 0) query.Set("limit", Limit.Value);
+            if (!string.IsNullOrWhiteSpace(Before)) query.Set("before", Before);
+            if (!string.IsNullOrWhiteSpace(After)) query.Set("after", After);
             return query;
         }
 

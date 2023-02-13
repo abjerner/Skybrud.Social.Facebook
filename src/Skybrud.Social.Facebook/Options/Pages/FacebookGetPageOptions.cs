@@ -1,4 +1,7 @@
-﻿using Skybrud.Essentials.Http.Collections;
+﻿using System.Diagnostics.CodeAnalysis;
+using Skybrud.Essentials.Common;
+using Skybrud.Essentials.Http;
+using Skybrud.Essentials.Http.Collections;
 using Skybrud.Essentials.Http.Options;
 using Skybrud.Social.Facebook.Fields;
 
@@ -7,14 +10,18 @@ namespace Skybrud.Social.Facebook.Options.Pages {
     /// <summary>
     /// Class representing the options for a call to the Facebook Graph API to get information about a single page.
     /// </summary>
-    public class FacebookGetPageOptions : IHttpGetOptions {
+    public class FacebookGetPageOptions : IHttpRequestOptions {
 
         #region Properties
 
         /// <summary>
         /// Gets or sets the identifier (ID or alias) of the page.
         /// </summary>
-        public string Identifier { get; set; }
+#if NET7_0_OR_GREATER
+        public required string Identifier { get; set; }
+#else
+        public string? Identifier { get; set; }
+#endif
 
         /// <summary>
         /// Gets or sets the fields to be returned.
@@ -36,6 +43,9 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         /// Initializes a new instance with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
+#if NET7_0_OR_GREATER
+        [SetsRequiredMembers]
+#endif
         public FacebookGetPageOptions(string identifier) : this() {
             Identifier = identifier;
         }
@@ -45,7 +55,10 @@ namespace Skybrud.Social.Facebook.Options.Pages {
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        public FacebookGetPageOptions(string identifier, FacebookFieldList fields) {
+#if NET7_0_OR_GREATER
+        [SetsRequiredMembers]
+#endif
+        public FacebookGetPageOptions(string identifier, FacebookFieldList? fields) {
             Identifier = identifier;
             Fields = fields ?? new FacebookFieldList();
         }
@@ -54,19 +67,18 @@ namespace Skybrud.Social.Facebook.Options.Pages {
 
         #region Member methods
 
-        /// <summary>
-        /// Gets an instance of <see cref="IHttpQueryString"/> representing the GET parameters.
-        /// </summary>
-        public IHttpQueryString GetQueryString() {
+        /// <inheritdoc />
+        public IHttpRequest GetRequest() {
 
-            // Convert the collection of fields to a string
-            string fields = (Fields == null ? string.Empty : Fields.ToString()).Trim();
+            // Validate required properties
+            if (string.IsNullOrWhiteSpace(Identifier)) throw new PropertyNotSetException(nameof(Identifier));
 
-            // Construct the query string
-            HttpQueryString query = new HttpQueryString();
-            if (string.IsNullOrWhiteSpace(fields) == false) query.Set("fields", fields);
+            // Initialize the query string
+            HttpQueryString query = new();
+            if (Fields is { Count: > 0 }) query.Set("fields", Fields);
 
-            return query;
+            // Initialize a new GET request
+            return HttpRequest.Get($"/{Identifier}", query);
 
         }
 

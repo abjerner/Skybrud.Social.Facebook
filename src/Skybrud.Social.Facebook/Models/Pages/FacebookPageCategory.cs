@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Newtonsoft.Extensions;
 
 namespace Skybrud.Social.Facebook.Models.Pages {
@@ -13,20 +14,20 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         /// <summary>
         /// Gets the ID of the category.
         /// </summary>
-        public string Id { get; internal set; }
+        public string Id { get; }
 
         /// <summary>
         /// Gets the name of the category.
         /// </summary>
-        public string Name { get; internal set; }
+        public string Name { get; }
 
         #endregion
 
         #region Constructors
 
-        private FacebookPageCategory(JObject obj) : base(obj) {
-            Id = obj.GetString("id");
-            Name = obj.GetString("name");
+        private FacebookPageCategory(JObject json) : base(json) {
+            Id = json.GetString("id")!;
+            Name = json.GetString("name")!;
         }
 
         #endregion
@@ -34,12 +35,13 @@ namespace Skybrud.Social.Facebook.Models.Pages {
         #region Static methods
 
         /// <summary>
-        /// Parses the specified <paramref name="obj"/> into an instance of <see cref="FacebookPageCategory"/>.
+        /// Parses the specified <paramref name="json"/> into an instance of <see cref="FacebookPageCategory"/>.
         /// </summary>
-        /// <param name="obj">The instance of <see cref="JObject"/> to be parsed.</param>
+        /// <param name="json">The instance of <see cref="JObject"/> to be parsed.</param>
         /// <returns>An instance of <see cref="FacebookPageCategory"/>.</returns>
-        public static FacebookPageCategory Parse(JObject obj) {
-            return obj == null ? null : new FacebookPageCategory(obj);
+        [return: NotNullIfNotNull("json")]
+        public static FacebookPageCategory? Parse(JObject? json) {
+            return json == null ? null : new FacebookPageCategory(json);
         }
 
         #endregion

@@ -1,5 +1,4 @@
 using System;
-using Skybrud.Essentials.Common;
 using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.OAuth;
 using Skybrud.Social.Facebook.Options.Pages;
@@ -11,7 +10,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
     /// Class representing the raw implementation of the pages endpoint.
     /// </summary>
     /// <see>
-    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v2.8/page</cref>
+    ///     <cref>https://developers.facebook.com/docs/graph-api/reference/v16.0/page</cref>
     /// </see>
     public class FacebookPagesRawEndpoint {
 
@@ -41,7 +40,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPage(string identifier) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
-            return Client.DoHttpGetRequest("/" + identifier);
+            return GetPage(new FacebookGetPageOptions(identifier));
         }
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
-        public IHttpResponse GetPage(string identifier, FacebookFieldList fields) {
+        public IHttpResponse GetPage(string identifier, FacebookFieldList? fields) {
             if (string.IsNullOrWhiteSpace(identifier)) throw new ArgumentNullException(nameof(identifier), "A Facebook identifier (ID or alias) must be specified.");
             return GetPage(new FacebookGetPageOptions(identifier, fields));
         }
@@ -62,8 +61,7 @@ namespace Skybrud.Social.Facebook.Endpoints.Raw {
         /// <returns>An instance of <see cref="IHttpResponse"/> representing the raw response.</returns>
         public IHttpResponse GetPage(FacebookGetPageOptions options) {
             if (options == null) throw new ArgumentNullException(nameof(options));
-            if (string.IsNullOrWhiteSpace(options.Identifier)) throw new PropertyNotSetException(nameof(options.Identifier), "A Facebook identifier (ID or alias) must be specified.");
-            return Client.DoHttpGetRequest("/" + options.Identifier, options);
+            return Client.GetResponse(options);
         }
 
         #endregion

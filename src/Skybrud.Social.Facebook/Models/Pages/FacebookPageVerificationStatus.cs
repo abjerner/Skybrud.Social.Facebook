@@ -1,14 +1,19 @@
-﻿namespace Skybrud.Social.Facebook.Models.Pages {
+﻿using Newtonsoft.Json;
+using Skybrud.Essentials.Json.Converters.Enums;
+using Skybrud.Essentials.Strings;
+
+namespace Skybrud.Social.Facebook.Models.Pages {
 
     /// <summary>
     /// Enum class representing the verification status of a Facebook page.
     /// </summary>
+    [JsonConverter(typeof(EnumStringConverter), TextCasing.Underscore)]
     public enum FacebookPageVerificationStatus {
 
         /// <summary>
-        /// Indicates that the <c>verification_status</c> wasn't part of the response from the Facebook Graph API.
+        /// Indiciates a value that is currently not supported by this package.
         /// </summary>
-        NotSpecified,
+        Unknown,
 
         /// <summary>
         /// Indicates that the page is not yet verified.

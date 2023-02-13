@@ -41,9 +41,9 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// Gets information about the post with the specified <paramref name="identifier"/>.
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
-        /// <returns>An instance of <see cref="FacebookGetPageResponse"/> representing the response.</returns>
-        public FacebookGetPageResponse GetPage(string identifier) {
-            return FacebookGetPageResponse.ParseResponse(Raw.GetPage(identifier));
+        /// <returns>An instance of <see cref="FacebookPageResponse"/> representing the response.</returns>
+        public FacebookPageResponse GetPage(string identifier) {
+            return new FacebookPageResponse(Raw.GetPage(identifier));
         }
 
         /// <summary>
@@ -51,18 +51,18 @@ namespace Skybrud.Social.Facebook.Endpoints {
         /// </summary>
         /// <param name="identifier">The identifier (ID or alias) of the page.</param>
         /// <param name="fields">A collection of the fields that should be returned by the API.</param>
-        /// <returns>An instance of <see cref="FacebookGetPageResponse"/> representing the response.</returns>
-        public FacebookGetPageResponse GetPage(string identifier, FacebookFieldList fields) {
-            return FacebookGetPageResponse.ParseResponse(Raw.GetPage(identifier, fields));
+        /// <returns>An instance of <see cref="FacebookPageResponse"/> representing the response.</returns>
+        public FacebookPageResponse GetPage(string identifier, FacebookFieldList? fields) {
+            return new FacebookPageResponse(Raw.GetPage(identifier, fields));
         }
 
         /// <summary>
         /// Gets information about the page matching the specified <paramref name="options"/>.
         /// </summary>
         /// <param name="options">The options for the call to the API.</param>
-        /// <returns>An instance of <see cref="FacebookGetPageResponse"/> representing the response.</returns>
-        public FacebookGetPageResponse GetPage(FacebookGetPageOptions options) {
-            return FacebookGetPageResponse.ParseResponse(Raw.GetPage(options));
+        /// <returns>An instance of <see cref="FacebookPageResponse"/> representing the response.</returns>
+        public FacebookPageResponse GetPage(FacebookGetPageOptions options) {
+            return new FacebookPageResponse(Raw.GetPage(options));
         }
 
         #endregion
