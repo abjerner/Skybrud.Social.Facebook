@@ -1,7 +1,6 @@
-using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Models.Photos;
 
-namespace Skybrud.Social.Facebook.Constants {
+namespace Skybrud.Social.Facebook.Fields {
 
     /// <summary>
     ///  Static class with constants for the fields available for a Facebook post (<see cref="FacebookPhoto" />).

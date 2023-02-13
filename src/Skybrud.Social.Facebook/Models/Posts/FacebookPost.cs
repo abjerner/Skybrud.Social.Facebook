@@ -1,7 +1,7 @@
 using Newtonsoft.Json.Linq;
 using Skybrud.Essentials.Json.Extensions;
 using Skybrud.Essentials.Time;
-using Skybrud.Social.Facebook.Constants;
+using Skybrud.Social.Facebook.Fields;
 using Skybrud.Social.Facebook.Models.Applications;
 using Skybrud.Social.Facebook.Models.Comments;
 using Skybrud.Social.Facebook.Models.Common;
