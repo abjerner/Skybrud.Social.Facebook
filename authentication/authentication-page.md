@@ -4,11 +4,11 @@ order: 3
 
 # Setting up an authentication page
 
-In the **Skybrud.Social.Facebook** package, the {{class:Skybrud.Social.Facebook.OAuth.FacebookClient}} class is primarily responsible for the raw communication with the Facebook Graph API. It does however also contain relevant logic for handling authentication with the Graph API - eg. so you can set up your own authentication.
+In the **Skybrud.Social.Facebook** package, the <code type="Skybrud.Social.Facebook.OAuth.FacebookClient, Skybrud.Social.Facebook">FacebookClient</code> class is primarily responsible for the raw communication with the Facebook Graph API. It does however also contain relevant logic for handling authentication with the Graph API - eg. so you can set up your own authentication.
 
 An authentication will allow your users to login with their Facebook API, which in return will give you a [user access token](/{localLink:1081}) that you can use to access the Graph API on their behalf.
 
-The examples below will show you how to set up an authentication - using a ASP.NET MVC view specifically. To get started, you need to initialize an instance of the {{class:Skybrud.Social.Facebook.OAuth.FacebookClient}} class with some information about your <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener">Facebook app</a>.
+The examples below will show you how to set up an authentication - using a ASP.NET MVC view specifically. To get started, you need to initialize an instance of the <code type="Skybrud.Social.Facebook.OAuth.FacebookClient, Skybrud.Social.Facebook">FacebookClient</code> class with some information about your <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener">Facebook app</a>.
 
 ```csharp
 // Initialize and configure the OAuth client
@@ -34,7 +34,7 @@ For this method, you must specify a state parameter, which is a random generated
 
 When a user grants your app access to their Facebook account, you don't just have access to everything on their account. Like most OAuth-based API, Facebook uses scopes to determine what your app will have access to. A single scope can be described as permission to some kind of resource or property - eg. the `email` scope will let your app read the corresponding `email` property of the authenticated user.
 
-By not passing any additional parameters to the {{method:Skybrud.Social.Facebook.OAuth.FacebookClient.GetAuthorizationUrl}} method, as shown in the example above, your app will not be granted any permissions, other than getting very basic information about the authenticated user - eg. their name.
+By not passing any additional parameters to the <code method="Skybrud.Social.Facebook.OAuth.FacebookClient.GetAuthorizationUrl, Skybrud.Social.Facebook">FacebookClient.GetAuthorizationUrl</code>" method, as shown in the example above, your app will not be granted any permissions, other than getting very basic information about the authenticated user - eg. their name.
 
 If you need any additional scopes or permissions, you can request them during the authentication process:
 
@@ -51,7 +51,7 @@ It is however worth mentioning, that if a user has already granted your app acce
 
 ## Obtaining an access token
 
-The access token can be obtained using the {{method:Skybrud.Social.Facebook.OAuth.FacebookClient.GetAccessTokenFromAuthCode}} method, where the response body will expose the access token.
+The access token can be obtained using the <code method="Skybrud.Social.Facebook.OAuth.FacebookClient.GetAccessTokenFromAuthCode, Skybrud.Social.Facebook">FacebookClient.GetAccessTokenFromAuthCode</code> method, where the response body will expose the access token.
 
 For the example below, the parameter for the method is the authorization code received when the user has successfully logged in through the Facebook authorization dialog, and been redirected back to your site. At this point, the `code` parameter in the query string will contain the authorization code.
 
@@ -71,7 +71,7 @@ A user access token obtained this way will expire after 60 days, in which case t
 
 ## Initializing an instance of FacebookService
 
-Once you have obtained an access token, you can initialize a new instance of the {{class:Skybrud.Social.Facebook.FacebookService}} class as shown in the example below:
+Once you have obtained an access token, you can initialize a new instance of the <code type="Skybrud.Social.Facebook.FacebookService, Skybrud.Social.Facebook">FacebookService</code> class as shown in the example below:
 
 ```csharp
 // Initialize a new service instance from an access token
