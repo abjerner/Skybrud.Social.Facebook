@@ -6,7 +6,7 @@ order: 3
 
 In the **Skybrud.Social.Facebook** package, the <code type="Skybrud.Social.Facebook.OAuth.FacebookClient, Skybrud.Social.Facebook">FacebookClient</code> class is primarily responsible for the raw communication with the Facebook Graph API. It does however also contain relevant logic for handling authentication with the Graph API - eg. so you can set up your own authentication.
 
-An authentication will allow your users to login with their Facebook API, which in return will give you a [user access token](/{localLink:1081}) that you can use to access the Graph API on their behalf.
+An authentication will allow your users to login with their Facebook API, which in return will give you a [user access token](./user-access-token.md) that you can use to access the Graph API on their behalf.
 
 The examples below will show you how to set up an authentication - using a ASP.NET MVC view specifically. To get started, you need to initialize an instance of the <code type="Skybrud.Social.Facebook.OAuth.FacebookClient, Skybrud.Social.Facebook">FacebookClient</code> class with some information about your <a href="https://developers.facebook.com/apps/" target="_blank" rel="noopener">Facebook app</a>.
 
