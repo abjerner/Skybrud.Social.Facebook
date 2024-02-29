@@ -34,7 +34,7 @@ For this method, you must specify a state parameter, which is a random generated
 
 When a user grants your app access to their Facebook account, you don't just have access to everything on their account. Like most OAuth-based API, Facebook uses scopes to determine what your app will have access to. A single scope can be described as permission to some kind of resource or property - eg. the `email` scope will let your app read the corresponding `email` property of the authenticated user.
 
-By not passing any additional parameters to the <code method="Skybrud.Social.Facebook.OAuth.FacebookClient.GetAuthorizationUrl, Skybrud.Social.Facebook">FacebookClient.GetAuthorizationUrl</code>" method, as shown in the example above, your app will not be granted any permissions, other than getting very basic information about the authenticated user - eg. their name.
+By not passing any additional parameters to the <code method="Skybrud.Social.Facebook.OAuth.FacebookClient.GetAuthorizationUrl, Skybrud.Social.Facebook">FacebookClient.GetAuthorizationUrl</code> method, as shown in the example above, your app will not be granted any permissions, other than getting very basic information about the authenticated user - eg. their name.
 
 If you need any additional scopes or permissions, you can request them during the authentication process:
 
